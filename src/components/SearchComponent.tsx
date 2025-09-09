@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 
+// Base path for GitHub Pages deployment
+const BASE_PATH = '/year11-software-wiki';
+
 interface SearchResult {
   title: string;
   url: string;
@@ -20,7 +23,7 @@ const searchData: SearchItem[] = [
   // Programming Fundamentals - Main Topics
   {
     title: "Programming Fundamentals Glossary",
-    url: "/topics/programming-fundamentals/glossary",
+    url: `${BASE_PATH}/topics/programming-fundamentals/glossary`,
     excerpt: "Comprehensive dictionary of programming terms, definitions, and examples for software engineering",
     category: "Fundamentals",
     keywords: ["glossary", "dictionary", "definitions", "terms", "concepts", "vocabulary", "reference"],
@@ -28,7 +31,7 @@ const searchData: SearchItem[] = [
   },
   {
     title: "Development Methodologies Exam",
-    url: "/topics/programming-fundamentals/development-methodologies-exam",
+    url: `${BASE_PATH}/topics/programming-fundamentals/development-methodologies-exam`,
     excerpt: "NESA-style exam questions covering Agile, Waterfall, version control, and code reviews",
     category: "Exams",
     keywords: ["exam", "questions", "test", "assessment", "agile", "waterfall", "version control", "code reviews"],
@@ -36,7 +39,7 @@ const searchData: SearchItem[] = [
   },
   {
     title: "Python Programming Exam", 
-    url: "/topics/programming-fundamentals/python-programming-exam",
+    url: `${BASE_PATH}/topics/programming-fundamentals/python-programming-exam`,
     excerpt: "Practice exam questions for Python programming, functions, loops, and data structures",
     category: "Exams",
     keywords: ["python", "exam", "programming", "functions", "loops", "arrays", "dictionaries", "coding"],
@@ -44,7 +47,7 @@ const searchData: SearchItem[] = [
   },
   {
     title: "Algorithms Exam",
-    url: "/topics/programming-fundamentals/algorithms-exam", 
+    url: `${BASE_PATH}/topics/programming-fundamentals/algorithms-exam`, 
     excerpt: "Algorithm design, desk checking, trace tables, and pseudocode practice questions",
     category: "Exams",
     keywords: ["algorithms", "exam", "desk checking", "trace tables", "pseudocode", "flowcharts"],
@@ -52,7 +55,7 @@ const searchData: SearchItem[] = [
   },
   {
     title: "Data Exam",
-    url: "/topics/programming-fundamentals/data-exam",
+    url: `${BASE_PATH}/topics/programming-fundamentals/data-exam`,
     excerpt: "Data representation, binary conversion, hexadecimal, and data dictionary questions",
     category: "Exams", 
     keywords: ["data", "binary", "hexadecimal", "conversion", "ascii", "unicode", "representation"],
@@ -60,7 +63,7 @@ const searchData: SearchItem[] = [
   },
   {
     title: "Development Tools Exam",
-    url: "/topics/programming-fundamentals/development-tools-exam",
+    url: `${BASE_PATH}/topics/programming-fundamentals/development-tools-exam`,
     excerpt: "Version control systems, IDEs, debuggers, and collaborative development tools",
     category: "Exams",
     keywords: ["tools", "ide", "version control", "git", "debugger", "development environment"],
@@ -68,7 +71,7 @@ const searchData: SearchItem[] = [
   },
   {
     title: "Pseudocode Practice Questions",
-    url: "/topics/programming-fundamentals/pseudocode-questions",
+    url: `${BASE_PATH}/topics/programming-fundamentals/pseudocode-questions`,
     excerpt: "Practice writing pseudocode with NESA conventions, functions, arrays, and algorithms",
     category: "Practice",
     keywords: ["pseudocode", "practice", "algorithm", "functions", "arrays", "nesa", "conventions"],
@@ -76,7 +79,7 @@ const searchData: SearchItem[] = [
   },
   {
     title: "Python Practice Problems",
-    url: "/topics/programming-fundamentals/python-practice-problems",
+    url: `${BASE_PATH}/topics/programming-fundamentals/python-practice-problems`,
     excerpt: "Hands-on Python exercises covering conditionals, loops, functions, and object-oriented programming",
     category: "Practice",
     keywords: ["python", "practice", "exercises", "coding", "conditionals", "loops", "functions", "oop"],
@@ -86,7 +89,7 @@ const searchData: SearchItem[] = [
   // Development Methodologies
   {
     title: "Agile vs Waterfall vs WAGILE",
-    url: "/topics/programming-fundamentals/methodologies",
+    url: `${BASE_PATH}/topics/programming-fundamentals/methodologies`,
     excerpt: "Compare Agile iterative development, Waterfall sequential approach, and WAGILE hybrid methodology",
     category: "Methodologies",
     keywords: ["agile", "waterfall", "wagile", "methodology", "iterative", "sequential", "sprints", "phases"],
@@ -94,7 +97,7 @@ const searchData: SearchItem[] = [
   },
   {
     title: "Software Development Steps",
-    url: "/topics/programming-fundamentals/development-steps",
+    url: `${BASE_PATH}/topics/programming-fundamentals/development-steps`,
     excerpt: "Interactive story-driven journey through requirements, design, development, testing, and deployment",
     category: "Methodologies",
     keywords: ["development", "steps", "requirements", "design", "testing", "deployment", "sdlc"],
@@ -104,7 +107,7 @@ const searchData: SearchItem[] = [
   // Testing and Debugging
   {
     title: "Desk Checking",
-    url: "/topics/programming-fundamentals/desk-checking",
+    url: `${BASE_PATH}/topics/programming-fundamentals/desk-checking`,
     excerpt: "Manual code execution technique for tracing algorithm logic step by step with trace tables",
     category: "Testing",
     keywords: ["desk checking", "trace tables", "manual testing", "algorithm tracing", "debugging"],
@@ -112,7 +115,7 @@ const searchData: SearchItem[] = [
   },
   {
     title: "Error Types",
-    url: "/topics/programming-fundamentals/error-types",
+    url: `${BASE_PATH}/topics/programming-fundamentals/error-types`,
     excerpt: "Syntax, runtime, and logic errors with prevention techniques and interactive examples",
     category: "Testing",
     keywords: ["errors", "bugs", "syntax error", "runtime error", "logic error", "debugging"],
@@ -120,7 +123,7 @@ const searchData: SearchItem[] = [
   },
   {
     title: "Debugging Tools",
-    url: "/topics/programming-fundamentals/debugging-tools",
+    url: `${BASE_PATH}/topics/programming-fundamentals/debugging-tools`,
     excerpt: "Systematic debugging approaches, breakpoints, variable watching, and tool categories",
     category: "Testing",
     keywords: ["debugging", "breakpoints", "debugger", "troubleshooting", "bug fixes"],
@@ -130,7 +133,7 @@ const searchData: SearchItem[] = [
   // Code Structure
   {
     title: "Procedures and Functions",
-    url: "/topics/programming-fundamentals/procedures-functions",
+    url: `${BASE_PATH}/topics/programming-fundamentals/procedures-functions`,
     excerpt: "Modular programming with parameter passing, return values, and code reusability",
     category: "Code Structure",
     keywords: ["functions", "procedures", "parameters", "return values", "modular programming"],
@@ -138,7 +141,7 @@ const searchData: SearchItem[] = [
   },
   {
     title: "Developing Code Solutions",
-    url: "/topics/programming-fundamentals/developing-code-solutions",
+    url: `${BASE_PATH}/topics/programming-fundamentals/developing-code-solutions`,
     excerpt: "Five-phase development process: understand, plan, implement, test, deploy",
     category: "Code Structure",
     keywords: ["development process", "coding", "implementation", "planning", "testing"],
@@ -148,7 +151,7 @@ const searchData: SearchItem[] = [
   // Data Topics
   {
     title: "Data Representation",
-    url: "/topics/programming-fundamentals/data-representation", 
+    url: `${BASE_PATH}/topics/programming-fundamentals/data-representation`, 
     excerpt: "Binary, hexadecimal, decimal number systems and character encoding (ASCII, Unicode)",
     category: "Data",
     keywords: ["binary", "hexadecimal", "decimal", "ascii", "unicode", "number systems", "encoding"],
@@ -156,7 +159,7 @@ const searchData: SearchItem[] = [
   },
   {
     title: "Data Dictionaries",
-    url: "/topics/programming-fundamentals/data-dictionaries",
+    url: `${BASE_PATH}/topics/programming-fundamentals/data-dictionaries`,
     excerpt: "Database field documentation, data types, constraints, and specification standards",
     category: "Data", 
     keywords: ["data dictionary", "database", "fields", "data types", "constraints", "documentation"],
@@ -164,7 +167,7 @@ const searchData: SearchItem[] = [
   },
   {
     title: "Data Structures",
-    url: "/topics/programming-fundamentals/data-structures",
+    url: `${BASE_PATH}/topics/programming-fundamentals/data-structures`,
     excerpt: "Arrays, stacks (LIFO), queues (FIFO), trees, and their operations with visualizations",
     category: "Data",
     keywords: ["data structures", "arrays", "stacks", "queues", "trees", "lifo", "fifo"],
@@ -174,7 +177,7 @@ const searchData: SearchItem[] = [
   // Development Tools
   {
     title: "Collaboration Tools",
-    url: "/topics/programming-fundamentals/collaboration-tools",
+    url: `${BASE_PATH}/topics/programming-fundamentals/collaboration-tools`,
     excerpt: "Git version control, GitHub, pull requests, branching, and team development workflows",
     category: "Development",
     keywords: ["git", "github", "version control", "pull requests", "branching", "collaboration"],
@@ -184,7 +187,7 @@ const searchData: SearchItem[] = [
   // Object-Oriented Programming
   {
     title: "OOP Fundamentals",
-    url: "/topics/object-oriented-programming/fundamentals",
+    url: `${BASE_PATH}/topics/object-oriented-programming/fundamentals`,
     excerpt: "Classes, objects, methods, attributes, and basic object-oriented programming concepts",
     category: "OOP",
     keywords: ["oop", "classes", "objects", "methods", "attributes", "encapsulation", "blueprint"],
@@ -192,7 +195,7 @@ const searchData: SearchItem[] = [
   },
   {
     title: "Inheritance",
-    url: "/topics/object-oriented-programming/inheritance",
+    url: `${BASE_PATH}/topics/object-oriented-programming/inheritance`,
     excerpt: "Parent-child relationships, method overriding, super classes, and code reuse through inheritance", 
     category: "OOP",
     keywords: ["inheritance", "parent class", "child class", "super class", "override", "extend"],
@@ -200,7 +203,7 @@ const searchData: SearchItem[] = [
   },
   {
     title: "Polymorphism",
-    url: "/topics/object-oriented-programming/polymorphism",
+    url: `${BASE_PATH}/topics/object-oriented-programming/polymorphism`,
     excerpt: "Method overriding, dynamic binding, and objects behaving differently based on their type",
     category: "OOP", 
     keywords: ["polymorphism", "method overriding", "dynamic binding", "multiple forms"],
@@ -208,7 +211,7 @@ const searchData: SearchItem[] = [
   },
   {
     title: "Abstraction",
-    url: "/topics/object-oriented-programming/abstraction",
+    url: `${BASE_PATH}/topics/object-oriented-programming/abstraction`,
     excerpt: "Hiding implementation details, abstract classes, interfaces, and simplifying complex systems",
     category: "OOP",
     keywords: ["abstraction", "abstract classes", "interfaces", "hiding details", "simplification"],
@@ -216,7 +219,7 @@ const searchData: SearchItem[] = [
   },
   {
     title: "Benefits of OOP",
-    url: "/topics/object-oriented-programming/benefits",
+    url: `${BASE_PATH}/topics/object-oriented-programming/benefits`,
     excerpt: "Advantages of object-oriented programming: modularity, reusability, maintainability, and scalability",
     category: "OOP",
     keywords: ["oop benefits", "modularity", "reusability", "maintainability", "advantages"],
@@ -224,7 +227,7 @@ const searchData: SearchItem[] = [
   },
   {
     title: "Procedural vs OOP Comparison", 
-    url: "/topics/object-oriented-programming/procedural-vs-oop",
+    url: `${BASE_PATH}/topics/object-oriented-programming/procedural-vs-oop`,
     excerpt: "Interactive comparison of procedural and object-oriented programming with Python examples and toggles",
     category: "OOP",
     keywords: ["procedural", "oop comparison", "programming paradigms", "functions vs classes"],
@@ -232,7 +235,7 @@ const searchData: SearchItem[] = [
   },
   {
     title: "OOP Exam Questions",
-    url: "/topics/object-oriented-programming/exam-questions",
+    url: `${BASE_PATH}/topics/object-oriented-programming/exam-questions`,
     excerpt: "Practice exam questions covering OOP principles, inheritance, polymorphism, and design patterns",
     category: "Exams",
     keywords: ["oop exam", "object oriented questions", "inheritance questions", "polymorphism exam"],

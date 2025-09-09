@@ -1,9 +1,12 @@
 import React from 'react';
 
+// Base path for GitHub Pages deployment
+const BASE_PATH = '/year11-software-wiki';
+
 const TopicTiles: React.FC = () => {
   const topics = [
     {
-      href: '/topics/programming-fundamentals',
+      href: `${BASE_PATH}/topics/programming-fundamentals`,
       title: 'Programming Fundamentals',
       bgColor: 'bg-gradient-to-br from-blue-600 to-blue-700',
       hoverBorder: 'hover:border-blue-300',
@@ -15,7 +18,7 @@ const TopicTiles: React.FC = () => {
       )
     },
     {
-      href: '/topics/object-oriented-programming',
+      href: `${BASE_PATH}/topics/object-oriented-programming`,
       title: 'Object-Oriented Programming',
       bgColor: 'bg-gradient-to-br from-emerald-600 to-emerald-700',
       hoverBorder: 'hover:border-emerald-300',
@@ -27,7 +30,7 @@ const TopicTiles: React.FC = () => {
       )
     },
     {
-      href: '/topics/mechatronics',
+      href: `${BASE_PATH}/topics/mechatronics`,
       title: 'Mechatronics',
       bgColor: 'bg-gradient-to-br from-purple-600 to-purple-700',
       hoverBorder: 'hover:border-purple-300',
