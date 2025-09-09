@@ -31,12 +31,12 @@ const roadmapSteps: RoadmapStep[] = [
     unit: 'Unit 1: Programming Fundamentals',
     unitColor: 'text-blue-600',
     skills: [
-      { skill: 'Agile vs Waterfall methodologies', theoryUrl: '/topics/programming-fundamentals/methodologies' },
-      { skill: 'Software development lifecycle', theoryUrl: '/topics/programming-fundamentals/development-steps' },
-      { skill: 'Version control with Git', theoryUrl: '/topics/programming-fundamentals/collaboration-tools' },
-      { skill: 'Development tools and IDEs', theoryUrl: '/topics/programming-fundamentals/development-tools' }
+      { skill: 'Agile vs Waterfall methodologies', theoryUrl: `${BASE_PATH}/topics/programming-fundamentals/methodologies` },
+      { skill: 'Software development lifecycle', theoryUrl: `${BASE_PATH}/topics/programming-fundamentals/development-steps` },
+      { skill: 'Version control with Git', theoryUrl: `${BASE_PATH}/topics/programming-fundamentals/collaboration-tools` },
+      { skill: 'Development tools and IDEs', theoryUrl: `${BASE_PATH}/topics/programming-fundamentals/development-tools` }
     ],
-    practiceUrl: '/topics/programming-fundamentals/development-methodologies-exam',
+    practiceUrl: `${BASE_PATH}/topics/programming-fundamentals/development-methodologies-exam`,
     icon: BookOpen,
     color: 'indigo',
     bgColor: 'bg-indigo-50',
@@ -50,12 +50,12 @@ const roadmapSteps: RoadmapStep[] = [
     unit: 'Unit 1: Programming Fundamentals',
     unitColor: 'text-blue-600',
     skills: [
-      { skill: 'Write step-by-step algorithms', theoryUrl: '/topics/programming-fundamentals/algorithm-design' },
-      { skill: 'Use pseudocode effectively', theoryUrl: '/topics/programming-fundamentals/pseudocode-questions' },
-      { skill: 'Design loops and conditionals', theoryUrl: '/topics/programming-fundamentals/algorithm-design' },
-      { skill: 'Handle input/output operations', theoryUrl: '/topics/programming-fundamentals/algorithm-design' }
+      { skill: 'Write step-by-step algorithms', theoryUrl: `${BASE_PATH}/topics/programming-fundamentals/algorithm-design` },
+      { skill: 'Use pseudocode effectively', theoryUrl: `${BASE_PATH}/topics/programming-fundamentals/pseudocode-questions` },
+      { skill: 'Design loops and conditionals', theoryUrl: `${BASE_PATH}/topics/programming-fundamentals/algorithm-design` },
+      { skill: 'Handle input/output operations', theoryUrl: `${BASE_PATH}/topics/programming-fundamentals/algorithm-design` }
     ],
-    practiceUrl: '/topics/programming-fundamentals/algorithms-exam',
+    practiceUrl: `${BASE_PATH}/topics/programming-fundamentals/algorithms-exam`,
     icon: Target,
     color: 'blue',
     bgColor: 'bg-blue-50',
@@ -69,12 +69,12 @@ const roadmapSteps: RoadmapStep[] = [
     unit: 'Unit 1: Programming Fundamentals',
     unitColor: 'text-blue-600',
     skills: [
-      { skill: 'Python data types and variables', theoryUrl: '/topics/programming-fundamentals/python-data-types' },
-      { skill: 'Conditionals and loops', theoryUrl: '/topics/programming-fundamentals/python-practice-problems' },
-      { skill: 'Functions and parameters', theoryUrl: '/topics/programming-fundamentals/procedures-functions' },
-      { skill: 'Error handling and debugging', theoryUrl: '/topics/programming-fundamentals/error-types' }
+      { skill: 'Python data types and variables', theoryUrl: `${BASE_PATH}/topics/programming-fundamentals/python-data-types` },
+      { skill: 'Conditionals and loops', theoryUrl: `${BASE_PATH}/topics/programming-fundamentals/python-practice-problems` },
+      { skill: 'Functions and parameters', theoryUrl: `${BASE_PATH}/topics/programming-fundamentals/procedures-functions` },
+      { skill: 'Error handling and debugging', theoryUrl: `${BASE_PATH}/topics/programming-fundamentals/error-types` }
     ],
-    practiceUrl: '/topics/programming-fundamentals/python-programming-exam',
+    practiceUrl: `${BASE_PATH}/topics/programming-fundamentals/python-programming-exam`,
     icon: Code,
     color: 'green',
     bgColor: 'bg-green-50',
@@ -90,12 +90,12 @@ const roadmapSteps: RoadmapStep[] = [
     unit: 'Unit 2: Object-Oriented Programming',
     unitColor: 'text-purple-600',
     skills: [
-      { skill: 'Define classes with __init__', theoryUrl: '/topics/object-oriented-programming/fundamentals' },
-      { skill: 'Create instance attributes', theoryUrl: '/topics/object-oriented-programming/fundamentals' },
-      { skill: 'Write and call methods', theoryUrl: '/topics/object-oriented-programming/fundamentals' },
-      { skill: 'Instantiate and use objects', theoryUrl: '/topics/object-oriented-programming/fundamentals' }
+      { skill: 'Define classes with __init__', theoryUrl: `${BASE_PATH}/topics/object-oriented-programming/fundamentals` },
+      { skill: 'Create instance attributes', theoryUrl: `${BASE_PATH}/topics/object-oriented-programming/fundamentals` },
+      { skill: 'Write and call methods', theoryUrl: `${BASE_PATH}/topics/object-oriented-programming/fundamentals` },
+      { skill: 'Instantiate and use objects', theoryUrl: `${BASE_PATH}/topics/object-oriented-programming/fundamentals` }
     ],
-    practiceUrl: '/topics/object-oriented-programming/exam-questions',
+    practiceUrl: `${BASE_PATH}/topics/object-oriented-programming/exam-questions`,
     icon: Settings,
     color: 'purple',
     bgColor: 'bg-purple-50',
@@ -109,12 +109,12 @@ const roadmapSteps: RoadmapStep[] = [
     unit: 'Unit 2: Object-Oriented Programming',
     unitColor: 'text-purple-600',
     skills: [
-      { skill: 'Encapsulation and data hiding', theoryUrl: '/topics/object-oriented-programming/encapsulation' },
-      { skill: 'Inheritance and class hierarchies', theoryUrl: '/topics/object-oriented-programming/inheritance' },
-      { skill: 'Polymorphism in practice', theoryUrl: '/topics/object-oriented-programming/polymorphism' },
-      { skill: 'Abstraction concepts', theoryUrl: '/topics/object-oriented-programming/abstraction' }
+      { skill: 'Encapsulation and data hiding', theoryUrl: `${BASE_PATH}/topics/object-oriented-programming/encapsulation` },
+      { skill: 'Inheritance and class hierarchies', theoryUrl: `${BASE_PATH}/topics/object-oriented-programming/inheritance` },
+      { skill: 'Polymorphism in practice', theoryUrl: `${BASE_PATH}/topics/object-oriented-programming/polymorphism` },
+      { skill: 'Abstraction concepts', theoryUrl: `${BASE_PATH}/topics/object-oriented-programming/abstraction` }
     ],
-    practiceUrl: '/topics/object-oriented-programming/exam-questions',
+    practiceUrl: `${BASE_PATH}/topics/object-oriented-programming/exam-questions`,
     icon: Cpu,
     color: 'indigo',
     bgColor: 'bg-indigo-50',
@@ -128,12 +128,12 @@ const roadmapSteps: RoadmapStep[] = [
     unit: 'Unit 2: Object-Oriented Programming',
     unitColor: 'text-purple-600',
     skills: [
-      { skill: 'Code reusability and modularity', theoryUrl: '/topics/object-oriented-programming/benefits' },
-      { skill: 'Maintainability advantages', theoryUrl: '/topics/object-oriented-programming/benefits' },
-      { skill: 'UML and class diagrams', theoryUrl: '/topics/object-oriented-programming/uml-modelling' },
-      { skill: 'OOP vs procedural programming', theoryUrl: '/topics/object-oriented-programming/benefits' }
+      { skill: 'Code reusability and modularity', theoryUrl: `${BASE_PATH}/topics/object-oriented-programming/benefits` },
+      { skill: 'Maintainability advantages', theoryUrl: `${BASE_PATH}/topics/object-oriented-programming/benefits` },
+      { skill: 'UML and class diagrams', theoryUrl: `${BASE_PATH}/topics/object-oriented-programming/uml-modelling` },
+      { skill: 'OOP vs procedural programming', theoryUrl: `${BASE_PATH}/topics/object-oriented-programming/benefits` }
     ],
-    practiceUrl: '/topics/object-oriented-programming/exam-questions',
+    practiceUrl: `${BASE_PATH}/topics/object-oriented-programming/exam-questions`,
     icon: Target,
     color: 'teal',
     bgColor: 'bg-teal-50',
@@ -149,12 +149,12 @@ const roadmapSteps: RoadmapStep[] = [
     unit: 'Unit 3: Mechatronics Systems',
     unitColor: 'text-orange-600',
     skills: [
-      { skill: 'Identify input sensors', theoryUrl: '/topics/mechatronics/sensors' },
-      { skill: 'Understand output actuators', theoryUrl: '/topics/mechatronics/actuators' },
-      { skill: 'Processors and controllers', theoryUrl: '/topics/mechatronics/processors' },
-      { skill: 'System integration principles', theoryUrl: '/topics/mechatronics/definition' }
+      { skill: 'Identify input sensors', theoryUrl: `${BASE_PATH}/topics/mechatronics/sensors` },
+      { skill: 'Understand output actuators', theoryUrl: `${BASE_PATH}/topics/mechatronics/actuators` },
+      { skill: 'Processors and controllers', theoryUrl: `${BASE_PATH}/topics/mechatronics/processors` },
+      { skill: 'System integration principles', theoryUrl: `${BASE_PATH}/topics/mechatronics/definition` }
     ],
-    practiceUrl: '/topics/mechatronics/exam-questions',
+    practiceUrl: `${BASE_PATH}/topics/mechatronics/exam-questions`,
     icon: Settings,
     color: 'orange',
     bgColor: 'bg-orange-50',
@@ -168,12 +168,12 @@ const roadmapSteps: RoadmapStep[] = [
     unit: 'Unit 3: Mechatronics Systems',
     unitColor: 'text-orange-600',
     skills: [
-      { skill: 'Open vs closed loop control', theoryUrl: '/topics/mechatronics/control-systems' },
-      { skill: 'Feedback mechanisms', theoryUrl: '/topics/mechatronics/control-systems' },
-      { skill: 'Degrees of freedom analysis', theoryUrl: '/topics/mechatronics/degrees-freedom' },
-      { skill: 'Real-world applications', theoryUrl: '/topics/mechatronics/applications' }
+      { skill: 'Open vs closed loop control', theoryUrl: `${BASE_PATH}/topics/mechatronics/control-systems` },
+      { skill: 'Feedback mechanisms', theoryUrl: `${BASE_PATH}/topics/mechatronics/control-systems` },
+      { skill: 'Degrees of freedom analysis', theoryUrl: `${BASE_PATH}/topics/mechatronics/degrees-freedom` },
+      { skill: 'Real-world applications', theoryUrl: `${BASE_PATH}/topics/mechatronics/applications` }
     ],
-    practiceUrl: '/topics/mechatronics/exam-questions',
+    practiceUrl: `${BASE_PATH}/topics/mechatronics/exam-questions`,
     icon: Target,
     color: 'red',
     bgColor: 'bg-red-50',
@@ -187,12 +187,12 @@ const roadmapSteps: RoadmapStep[] = [
     unit: 'Unit 3: Mechatronics Systems',
     unitColor: 'text-orange-600',
     skills: [
-      { skill: 'Circuit component symbols', theoryUrl: '/topics/mechatronics/basic-circuits' },
-      { skill: 'Read wiring diagrams', theoryUrl: '/topics/mechatronics/basic-circuits' },
-      { skill: 'Series vs parallel circuits', theoryUrl: '/topics/mechatronics/basic-circuits' },
-      { skill: 'Safety and troubleshooting', theoryUrl: '/topics/mechatronics/safety' }
+      { skill: 'Circuit component symbols', theoryUrl: `${BASE_PATH}/topics/mechatronics/basic-circuits` },
+      { skill: 'Read wiring diagrams', theoryUrl: `${BASE_PATH}/topics/mechatronics/basic-circuits` },
+      { skill: 'Series vs parallel circuits', theoryUrl: `${BASE_PATH}/topics/mechatronics/basic-circuits` },
+      { skill: 'Safety and troubleshooting', theoryUrl: `${BASE_PATH}/topics/mechatronics/safety` }
     ],
-    practiceUrl: '/topics/mechatronics/exam-questions',
+    practiceUrl: `${BASE_PATH}/topics/mechatronics/exam-questions`,
     icon: Cpu,
     color: 'yellow',
     bgColor: 'bg-yellow-50',
