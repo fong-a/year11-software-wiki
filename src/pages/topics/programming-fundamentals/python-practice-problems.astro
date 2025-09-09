@@ -1,0 +1,751 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProgrammingFundamentalsNav from '../../../components/ProgrammingFundamentalsNav';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Python Practice Problems - Programming Fundamentals" description="Progressive Python programming exercises from basic conditionals to advanced classes">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Python Practice Problems</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <ProgrammingFundamentalsNav 
+              client:load 
+              currentPage="/topics/programming-fundamentals/python-practice-problems"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Python Practice Problems</h1>
+            
+            <div class="mb-8 p-6 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl border border-green-200">
+              <p class="text-green-900 text-lg leading-relaxed">
+                <strong>Progressive difficulty programming exercises</strong> designed to build your Python skills from basic conditionals to advanced object-oriented programming. Work through each level to master HSC Software Engineering concepts.
+              </p>
+            </div>
+
+            <!-- Progress Tracker -->
+            <div class="mb-8 bg-purple-50 p-4 rounded-lg border border-purple-200">
+              <h2 class="text-lg font-semibold text-purple-800 mb-3">Learning Path</h2>
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="text-center">
+                  <div class="w-8 h-8 bg-green-100 text-green-700 rounded-full flex items-center justify-center mx-auto mb-1 font-semibold">1</div>
+                  <p class="text-sm text-purple-700">Conditionals</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-8 h-8 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center mx-auto mb-1 font-semibold">2</div>
+                  <p class="text-sm text-purple-700">Loops</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-8 h-8 bg-orange-100 text-orange-700 rounded-full flex items-center justify-center mx-auto mb-1 font-semibold">3</div>
+                  <p class="text-sm text-purple-700">2D Arrays</p>
+                </div>
+                <div class="text-center">
+                  <div class="w-8 h-8 bg-red-100 text-red-700 rounded-full flex items-center justify-center mx-auto mb-1 font-semibold">4</div>
+                  <p class="text-sm text-purple-700">Classes</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Level 1: Basic Conditionals (if/elif/else) -->
+            <div class="mb-12">
+              <div class="flex items-center mb-6">
+                <div class="w-10 h-10 bg-green-100 text-green-700 rounded-full flex items-center justify-center mr-3 font-bold">1</div>
+                <h2 class="text-2xl font-semibold text-gray-900">Level 1: Conditionals (if/elif/else)</h2>
+              </div>
+
+              <!-- Problem 1.1 -->
+              <div class="mb-6 border border-green-200 rounded-lg overflow-hidden">
+                <div class="bg-green-50 p-4">
+                  <h3 class="text-lg font-semibold text-green-800">Problem 1.1: Grade Calculator</h3>
+                  <p class="text-green-700 text-sm">Write a program that converts a numerical score to a letter grade.</p>
+                </div>
+                <div class="p-4">
+                  <p class="mb-4"><strong>Requirements:</strong></p>
+                  <ul class="list-disc ml-6 space-y-1 text-sm mb-4">
+                    <li>90-100: A</li>
+                    <li>80-89: B</li>
+                    <li>70-79: C</li>
+                    <li>60-69: D</li>
+                    <li>Below 60: F</li>
+                    <li>Handle invalid scores (negative or > 100)</li>
+                  </ul>
+                  
+                  <details class="mb-4">
+                    <summary class="cursor-pointer text-blue-600 hover:text-blue-800 font-medium">💡 Show Solution</summary>
+                    <div class="bg-gray-900 p-4 rounded mt-2">
+                      <pre class="text-green-300 text-sm"><code>def calculate_grade(score):
+    if score &lt; 0 or score > 100:
+        return "Invalid score"
+    elif score >= 90:
+        return "A"
+    elif score >= 80:
+        return "B"
+    elif score >= 70:
+        return "C"
+    elif score >= 60:
+        return "D"
+    else:
+        return "F"
+
+# Test the function
+print(calculate_grade(95))  # A
+print(calculate_grade(82))  # B
+print(calculate_grade(55))  # F
+print(calculate_grade(-10)) # Invalid score</code></pre>
+                    </div>
+                  </details>
+                </div>
+              </div>
+
+              <!-- Problem 1.2 -->
+              <div class="mb-6 border border-green-200 rounded-lg overflow-hidden">
+                <div class="bg-green-50 p-4">
+                  <h3 class="text-lg font-semibold text-green-800">Problem 1.2: Shipping Calculator</h3>
+                  <p class="text-green-700 text-sm">Calculate shipping costs based on weight and destination.</p>
+                </div>
+                <div class="p-4">
+                  <p class="mb-4"><strong>Rules:</strong></p>
+                  <ul class="list-disc ml-6 space-y-1 text-sm mb-4">
+                    <li>Local (&lt; 5kg): $5.00, (5-20kg): $10.00, (&gt; 20kg): $20.00</li>
+                    <li>Interstate (&lt; 5kg): $8.00, (5-20kg): $15.00, (&gt; 20kg): $30.00</li>
+                    <li>International (&lt; 5kg): $15.00, (5-20kg): $25.00, (&gt; 20kg): $50.00</li>
+                  </ul>
+                  
+                  <details class="mb-4">
+                    <summary class="cursor-pointer text-blue-600 hover:text-blue-800 font-medium">💡 Show Solution</summary>
+                    <div class="bg-gray-900 p-4 rounded mt-2">
+                      <pre class="text-green-300 text-sm"><code>def calculate_shipping(weight, destination):
+    if destination.lower() == "local":
+        if weight &lt; 5:
+            return 5.00
+        elif weight <= 20:
+            return 10.00
+        else:
+            return 20.00
+    elif destination.lower() == "interstate":
+        if weight &lt; 5:
+            return 8.00
+        elif weight <= 20:
+            return 15.00
+        else:
+            return 30.00
+    elif destination.lower() == "international":
+        if weight &lt; 5:
+            return 15.00
+        elif weight <= 20:
+            return 25.00
+        else:
+            return 50.00
+    else:
+        return "Invalid destination"
+
+# Test the function
+print(f"Cost: \$&#123;calculate_shipping(3, 'local')&#125;")  # Cost: $5.0
+print(f"Cost: \$&#123;calculate_shipping(15, 'international')&#125;")  # Cost: $25.0</code></pre>
+                    </div>
+                  </details>
+                </div>
+              </div>
+            </div>
+
+            <!-- Level 2: Loops (for/while) -->
+            <div class="mb-12">
+              <div class="flex items-center mb-6">
+                <div class="w-10 h-10 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center mr-3 font-bold">2</div>
+                <h2 class="text-2xl font-semibold text-gray-900">Level 2: Loops (for/while)</h2>
+              </div>
+
+              <!-- Problem 2.1 -->
+              <div class="mb-6 border border-blue-200 rounded-lg overflow-hidden">
+                <div class="bg-blue-50 p-4">
+                  <h3 class="text-lg font-semibold text-blue-800">Problem 2.1: Password Validator</h3>
+                  <p class="text-blue-700 text-sm">Keep asking for a password until it meets all requirements.</p>
+                </div>
+                <div class="p-4">
+                  <p class="mb-4"><strong>Requirements:</strong></p>
+                  <ul class="list-disc ml-6 space-y-1 text-sm mb-4">
+                    <li>At least 8 characters long</li>
+                    <li>Contains at least one uppercase letter</li>
+                    <li>Contains at least one number</li>
+                    <li>Contains at least one special character (!@#$%^&*)</li>
+                  </ul>
+                  
+                  <details class="mb-4">
+                    <summary class="cursor-pointer text-blue-600 hover:text-blue-800 font-medium">💡 Show Solution</summary>
+                    <div class="bg-gray-900 p-4 rounded mt-2">
+                      <pre class="text-green-300 text-sm"><code>def is_valid_password(password):
+    if len(password) &lt; 8:
+        return False, "Password must be at least 8 characters"
+    
+    has_upper = False
+    has_number = False
+    has_special = False
+    special_chars = "!@#$%^&*"
+    
+    for char in password:
+        if char.isupper():
+            has_upper = True
+        elif char.isdigit():
+            has_number = True
+        elif char in special_chars:
+            has_special = True
+    
+    if not has_upper:
+        return False, "Password must contain an uppercase letter"
+    if not has_number:
+        return False, "Password must contain a number"
+    if not has_special:
+        return False, "Password must contain a special character"
+    
+    return True, "Password is valid"
+
+def get_valid_password():
+    while True:
+        password = input("Enter password: ")
+        valid, message = is_valid_password(password)
+        print(message)
+        if valid:
+            return password
+
+# Use the function
+# valid_password = get_valid_password()</code></pre>
+                    </div>
+                  </details>
+                </div>
+              </div>
+
+              <!-- Problem 2.2 -->
+              <div class="mb-6 border border-blue-200 rounded-lg overflow-hidden">
+                <div class="bg-blue-50 p-4">
+                  <h3 class="text-lg font-semibold text-blue-800">Problem 2.2: Prime Number Finder</h3>
+                  <p class="text-blue-700 text-sm">Find all prime numbers between 1 and N using nested loops.</p>
+                </div>
+                <div class="p-4">
+                  <p class="mb-4"><strong>Challenge:</strong> Create a function that finds all prime numbers up to a given limit.</p>
+                  
+                  <details class="mb-4">
+                    <summary class="cursor-pointer text-blue-600 hover:text-blue-800 font-medium">💡 Show Solution</summary>
+                    <div class="bg-gray-900 p-4 rounded mt-2">
+                      <pre class="text-green-300 text-sm"><code>def find_primes(limit):
+    primes = []
+    
+    for num in range(2, limit + 1):
+        is_prime = True
+        
+        # Check if num is divisible by any number from 2 to sqrt(num)
+        for divisor in range(2, int(num ** 0.5) + 1):
+            if num % divisor == 0:
+                is_prime = False
+                break
+        
+        if is_prime:
+            primes.append(num)
+    
+    return primes
+
+def count_primes_in_range(start, end):
+    count = 0
+    for num in range(start, end + 1):
+        if num &lt; 2:
+            continue
+        
+        is_prime = True
+        for divisor in range(2, int(num ** 0.5) + 1):
+            if num % divisor == 0:
+                is_prime = False
+                break
+        
+        if is_prime:
+            count += 1
+    
+    return count
+
+# Test the functions
+print(f"Primes up to 20: &#123;find_primes(20)&#125;")
+print(f"Prime count 10-30: &#123;count_primes_in_range(10, 30)&#125;")</code></pre>
+                    </div>
+                  </details>
+                </div>
+              </div>
+            </div>
+
+            <!-- Level 3: 2D Arrays -->
+            <div class="mb-12">
+              <div class="flex items-center mb-6">
+                <div class="w-10 h-10 bg-orange-100 text-orange-700 rounded-full flex items-center justify-center mr-3 font-bold">3</div>
+                <h2 class="text-2xl font-semibold text-gray-900">Level 3: 2D Arrays (Lists of Lists)</h2>
+              </div>
+
+              <!-- Problem 3.1 -->
+              <div class="mb-6 border border-orange-200 rounded-lg overflow-hidden">
+                <div class="bg-orange-50 p-4">
+                  <h3 class="text-lg font-semibold text-orange-800">Problem 3.1: Grade Book Manager</h3>
+                  <p class="text-orange-700 text-sm">Manage student grades in multiple subjects using 2D arrays.</p>
+                </div>
+                <div class="p-4">
+                  <p class="mb-4"><strong>Tasks:</strong></p>
+                  <ul class="list-disc ml-6 space-y-1 text-sm mb-4">
+                    <li>Create a 2D array for student grades (students × subjects)</li>
+                    <li>Calculate each student's average</li>
+                    <li>Find the highest grade in each subject</li>
+                    <li>Find the overall class average</li>
+                  </ul>
+                  
+                  <details class="mb-4">
+                    <summary class="cursor-pointer text-blue-600 hover:text-blue-800 font-medium">💡 Show Solution</summary>
+                    <div class="bg-gray-900 p-4 rounded mt-2">
+                      <pre class="text-green-300 text-sm"><code>class GradeBook:
+    def __init__(self, student_names, subject_names):
+        self.students = student_names
+        self.subjects = subject_names
+        self.grades = [[0 for _ in range(len(subject_names))] 
+                       for _ in range(len(student_names))]
+    
+    def set_grade(self, student_index, subject_index, grade):
+        if 0 &lt;= student_index &lt; len(self.students) and 0 &lt;= subject_index &lt; len(self.subjects):
+            self.grades[student_index][subject_index] = grade
+    
+    def get_student_average(self, student_index):
+        if 0 &lt;= student_index &lt; len(self.students):
+            student_grades = self.grades[student_index]
+            return sum(student_grades) / len(student_grades)
+        return 0
+    
+    def get_subject_highest(self, subject_index):
+        if 0 &lt;= subject_index &lt; len(self.subjects):
+            subject_grades = [self.grades[i][subject_index] for i in range(len(self.students))]
+            return max(subject_grades)
+        return 0
+    
+    def get_class_average(self):
+        total_grades = 0
+        total_count = 0
+        for row in self.grades:
+            total_grades += sum(row)
+            total_count += len(row)
+        return total_grades / total_count if total_count > 0 else 0
+    
+    def display_grades(self):
+        print("Grade Book:")
+        print("Student".ljust(12), end="")
+        for subject in self.subjects:
+            print(subject.ljust(8), end="")
+        print("Average")
+        
+        for i, student in enumerate(self.students):
+            print(student.ljust(12), end="")
+            for grade in self.grades[i]:
+                print(str(grade).ljust(8), end="")
+            print(f"&#123;self.get_student_average(i):.1f&#125;")
+
+# Example usage
+gb = GradeBook(["Alice", "Bob", "Carol"], ["Math", "Science", "English"])
+gb.set_grade(0, 0, 85)  # Alice Math
+gb.set_grade(0, 1, 90)  # Alice Science
+gb.set_grade(0, 2, 88)  # Alice English
+gb.set_grade(1, 0, 78)  # Bob Math
+gb.set_grade(1, 1, 82)  # Bob Science
+gb.set_grade(1, 2, 85)  # Bob English
+
+gb.display_grades()
+print(f"Class average: &#123;gb.get_class_average():.1f&#125;")</code></pre>
+                    </div>
+                  </details>
+                </div>
+              </div>
+
+              <!-- Problem 3.2 -->
+              <div class="mb-6 border border-orange-200 rounded-lg overflow-hidden">
+                <div class="bg-orange-50 p-4">
+                  <h3 class="text-lg font-semibold text-orange-800">Problem 3.2: Tic-Tac-Toe Game</h3>
+                  <p class="text-orange-700 text-sm">Create a tic-tac-toe game using a 3x3 2D array.</p>
+                </div>
+                <div class="p-4">
+                  <p class="mb-4"><strong>Features to implement:</strong></p>
+                  <ul class="list-disc ml-6 space-y-1 text-sm mb-4">
+                    <li>Display the board</li>
+                    <li>Check for wins (rows, columns, diagonals)</li>
+                    <li>Check for draws</li>
+                    <li>Validate moves</li>
+                  </ul>
+                  
+                  <details class="mb-4">
+                    <summary class="cursor-pointer text-blue-600 hover:text-blue-800 font-medium">💡 Show Solution</summary>
+                    <div class="bg-gray-900 p-4 rounded mt-2">
+                      <pre class="text-green-300 text-sm"><code>class TicTacToe:
+    def __init__(self):
+        self.board = [[' ' for _ in range(3)] for _ in range(3)]
+        self.current_player = 'X'
+    
+    def display_board(self):
+        print("  0   1   2")
+        for i in range(3):
+            print(f"&#123;i&#125; &#123;self.board[i][0]&#125; | &#123;self.board[i][1]&#125; | &#123;self.board[i][2]&#125;")
+            if i &lt; 2:
+                print("  ---------")
+    
+    def make_move(self, row, col):
+        if 0 &lt;= row &lt; 3 and 0 &lt;= col &lt; 3 and self.board[row][col] == ' ':
+            self.board[row][col] = self.current_player
+            return True
+        return False
+    
+    def check_winner(self):
+        # Check rows
+        for row in self.board:
+            if row[0] == row[1] == row[2] != ' ':
+                return row[0]
+        
+        # Check columns
+        for col in range(3):
+            if self.board[0][col] == self.board[1][col] == self.board[2][col] != ' ':
+                return self.board[0][col]
+        
+        # Check diagonals
+        if self.board[0][0] == self.board[1][1] == self.board[2][2] != ' ':
+            return self.board[0][0]
+        if self.board[0][2] == self.board[1][1] == self.board[2][0] != ' ':
+            return self.board[0][2]
+        
+        return None
+    
+    def is_board_full(self):
+        for row in self.board:
+            if ' ' in row:
+                return False
+        return True
+    
+    def switch_player(self):
+        self.current_player = 'O' if self.current_player == 'X' else 'X'
+
+# Example game loop (commented out for display)
+# game = TicTacToe()
+# while True:
+#     game.display_board()
+#     try:
+#         row = int(input(f"Player &#123;game.current_player&#125;, enter row (0-2): "))
+#         col = int(input(f"Player &#123;game.current_player&#125;, enter col (0-2): "))
+#         if game.make_move(row, col):
+#             winner = game.check_winner()
+#             if winner:
+#                 print(f"Player &#123;winner&#125; wins!")
+#                 break
+#             if game.is_board_full():
+#                 print("It's a draw!")
+#                 break
+#             game.switch_player()
+#         else:
+#             print("Invalid move!")
+#     except ValueError:
+#         print("Please enter valid numbers!")</code></pre>
+                    </div>
+                  </details>
+                </div>
+              </div>
+            </div>
+
+            <!-- Level 4: Classes -->
+            <div class="mb-12">
+              <div class="flex items-center mb-6">
+                <div class="w-10 h-10 bg-red-100 text-red-700 rounded-full flex items-center justify-center mr-3 font-bold">4</div>
+                <h2 class="text-2xl font-semibold text-gray-900">Level 4: Object-Oriented Programming (Classes)</h2>
+              </div>
+
+              <!-- Problem 4.1 -->
+              <div class="mb-6 border border-red-200 rounded-lg overflow-hidden">
+                <div class="bg-red-50 p-4">
+                  <h3 class="text-lg font-semibold text-red-800">Problem 4.1: Library Management System</h3>
+                  <p class="text-red-700 text-sm">Create a library system with books, members, and borrowing functionality.</p>
+                </div>
+                <div class="p-4">
+                  <p class="mb-4"><strong>Classes to implement:</strong></p>
+                  <ul class="list-disc ml-6 space-y-1 text-sm mb-4">
+                    <li><strong>Book:</strong> title, author, isbn, available</li>
+                    <li><strong>Member:</strong> name, member_id, borrowed_books</li>
+                    <li><strong>Library:</strong> books, members, borrow/return methods</li>
+                  </ul>
+                  
+                  <details class="mb-4">
+                    <summary class="cursor-pointer text-blue-600 hover:text-blue-800 font-medium">💡 Show Solution</summary>
+                    <div class="bg-gray-900 p-4 rounded mt-2">
+                      <pre class="text-green-300 text-sm"><code>class Book:
+    def __init__(self, title, author, isbn):
+        self.title = title
+        self.author = author
+        self.isbn = isbn
+        self.available = True
+    
+    def __str__(self):
+        status = "Available" if self.available else "Borrowed"
+        return f"&#123;self.title&#125; by &#123;self.author&#125; - &#123;status&#125;"
+
+class Member:
+    def __init__(self, name, member_id):
+        self.name = name
+        self.member_id = member_id
+        self.borrowed_books = []
+    
+    def can_borrow(self, max_books=3):
+        return len(self.borrowed_books) < max_books
+    
+    def __str__(self):
+        return f"Member: &#123;self.name&#125; (ID: &#123;self.member_id&#125;)"
+
+class Library:
+    def __init__(self, name):
+        self.name = name
+        self.books = []
+        self.members = []
+    
+    def add_book(self, book):
+        self.books.append(book)
+        print(f"Added: &#123;book.title&#125;")
+    
+    def add_member(self, member):
+        self.members.append(member)
+        print(f"Registered: &#123;member.name&#125;")
+    
+    def find_book(self, isbn):
+        for book in self.books:
+            if book.isbn == isbn:
+                return book
+        return None
+    
+    def find_member(self, member_id):
+        for member in self.members:
+            if member.member_id == member_id:
+                return member
+        return None
+    
+    def borrow_book(self, member_id, isbn):
+        member = self.find_member(member_id)
+        book = self.find_book(isbn)
+        
+        if not member:
+            return "Member not found"
+        if not book:
+            return "Book not found"
+        if not book.available:
+            return "Book is already borrowed"
+        if not member.can_borrow():
+            return "Member has reached borrowing limit"
+        
+        book.available = False
+        member.borrowed_books.append(book)
+        return f"&#123;member.name&#125; borrowed '&#123;book.title&#125;'"
+    
+    def return_book(self, member_id, isbn):
+        member = self.find_member(member_id)
+        book = self.find_book(isbn)
+        
+        if not member:
+            return "Member not found"
+        if not book:
+            return "Book not found"
+        if book not in member.borrowed_books:
+            return "Member has not borrowed this book"
+        
+        book.available = True
+        member.borrowed_books.remove(book)
+        return f"&#123;member.name&#125; returned '&#123;book.title&#125;'"
+    
+    def display_available_books(self):
+        print(f"Available books in &#123;self.name&#125;:")
+        for book in self.books:
+            if book.available:
+                print(f"  - &#123;book&#125;")
+
+# Example usage
+library = Library("City Library")
+
+# Add books
+book1 = Book("1984", "George Orwell", "978-0-452-28423-4")
+book2 = Book("To Kill a Mockingbird", "Harper Lee", "978-0-06-112008-4")
+library.add_book(book1)
+library.add_book(book2)
+
+# Add members
+member1 = Member("Alice Johnson", "M001")
+library.add_member(member1)
+
+# Test borrowing
+print(library.borrow_book("M001", "978-0-452-28423-4"))
+library.display_available_books()</code></pre>
+                    </div>
+                  </details>
+                </div>
+              </div>
+
+              <!-- Problem 4.2 -->
+              <div class="mb-6 border border-red-200 rounded-lg overflow-hidden">
+                <div class="bg-red-50 p-4">
+                  <h3 class="text-lg font-semibold text-red-800">Problem 4.2: RPG Character System</h3>
+                  <p class="text-red-700 text-sm">Create an RPG character system with inheritance and different character types.</p>
+                </div>
+                <div class="p-4">
+                  <p class="mb-4"><strong>Requirements:</strong></p>
+                  <ul class="list-disc ml-6 space-y-1 text-sm mb-4">
+                    <li>Base Character class with common attributes and methods</li>
+                    <li>Warrior, Mage, and Archer subclasses with unique abilities</li>
+                    <li>Combat system with different attack types</li>
+                    <li>Level progression system</li>
+                  </ul>
+                  
+                  <details class="mb-4">
+                    <summary class="cursor-pointer text-blue-600 hover:text-blue-800 font-medium">💡 Show Solution</summary>
+                    <div class="bg-gray-900 p-4 rounded mt-2">
+                      <pre class="text-green-300 text-sm"><code>import random
+
+class Character:
+    def __init__(self, name, health=100, level=1):
+        self.name = name
+        self.max_health = health
+        self.health = health
+        self.level = level
+        self.experience = 0
+        self.alive = True
+    
+    def take_damage(self, damage):
+        self.health -= damage
+        if self.health &lt;= 0:
+            self.health = 0
+            self.alive = False
+            return f"&#123;self.name&#125; has been defeated!"
+        return f"&#123;self.name&#125; takes &#123;damage&#125; damage! Health: &#123;self.health&#125;/&#123;self.max_health&#125;"
+    
+    def heal(self, amount):
+        self.health = min(self.max_health, self.health + amount)
+        return f"&#123;self.name&#125; healed for &#123;amount&#125; HP! Health: &#123;self.health&#125;/&#123;self.max_health&#125;"
+    
+    def gain_experience(self, exp):
+        self.experience += exp
+        if self.experience >= self.level * 100:
+            return self.level_up()
+        return f"&#123;self.name&#125; gained &#123;exp&#125; experience"
+    
+    def level_up(self):
+        self.level += 1
+        self.experience = 0
+        health_gain = 20
+        self.max_health += health_gain
+        self.health = self.max_health
+        return f"&#123;self.name&#125; reached level &#123;self.level&#125;! Health increased by &#123;health_gain&#125;"
+    
+    def attack(self, target):
+        damage = random.randint(10, 20)
+        return target.take_damage(damage), f"&#123;self.name&#125; attacks &#123;target.name&#125; for &#123;damage&#125; damage!"
+
+class Warrior(Character):
+    def __init__(self, name):
+        super().__init__(name, health=120)
+        self.armor = 5
+        self.rage = 0
+    
+    def take_damage(self, damage):
+        reduced_damage = max(1, damage - self.armor)
+        self.rage = min(100, self.rage + 10)
+        return super().take_damage(reduced_damage)
+    
+    def berserker_rage(self, target):
+        if self.rage >= 50:
+            self.rage -= 50
+            damage = random.randint(25, 40)
+            return target.take_damage(damage), f"&#123;self.name&#125; enters berserker rage and deals &#123;damage&#125; damage!"
+        return None, f"&#123;self.name&#125; needs more rage (current: &#123;self.rage&#125;/50)"
+
+class Mage(Character):
+    def __init__(self, name):
+        super().__init__(name, health=80)
+        self.mana = 100
+        self.max_mana = 100
+    
+    def cast_fireball(self, target):
+        if self.mana >= 30:
+            self.mana -= 30
+            damage = random.randint(20, 35)
+            return target.take_damage(damage), f"&#123;self.name&#125; casts fireball for &#123;damage&#125; damage! Mana: &#123;self.mana&#125;/&#123;self.max_mana&#125;"
+        return None, f"&#123;self.name&#125; doesn't have enough mana!"
+    
+    def meditate(self):
+        mana_restored = min(30, self.max_mana - self.mana)
+        self.mana += mana_restored
+        return f"&#123;self.name&#125; meditates and restores &#123;mana_restored&#125; mana"
+
+class Archer(Character):
+    def __init__(self, name):
+        super().__init__(name, health=90)
+        self.arrows = 20
+        self.accuracy = 0.8
+    
+    def precise_shot(self, target):
+        if self.arrows > 0:
+            self.arrows -= 1
+            if random.random() &lt; self.accuracy:
+                damage = random.randint(15, 30)
+                return target.take_damage(damage), f"&#123;self.name&#125; hits with precise shot for &#123;damage&#125; damage! Arrows: &#123;self.arrows&#125;"
+            else:
+                return None, f"&#123;self.name&#125; misses the shot! Arrows: &#123;self.arrows&#125;"
+        return None, f"&#123;self.name&#125; is out of arrows!"
+
+# Example battle
+warrior = Warrior("Conan")
+mage = Mage("Gandalf")
+
+print(warrior.berserker_rage(mage))
+print(mage.cast_fireball(warrior))
+print(warrior.gain_experience(150))</code></pre>
+                    </div>
+                  </details>
+                </div>
+              </div>
+            </div>
+
+            <!-- Practice Tips -->
+            <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
+              <h3 class="text-lg font-semibold text-indigo-800 mb-4">Practice Tips for Success</h3>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 class="font-medium text-indigo-800 mb-2">Debugging Strategies:</h4>
+                  <ul class="text-sm text-indigo-700 space-y-1">
+                    <li>• Use print() statements to trace variable values</li>
+                    <li>• Test edge cases (empty input, negative numbers)</li>
+                    <li>• Break complex problems into smaller functions</li>
+                    <li>• Use descriptive variable names</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-medium text-indigo-800 mb-2">HSC Exam Preparation:</h4>
+                  <ul class="text-sm text-indigo-700 space-y-1">
+                    <li>• Practice writing code by hand</li>
+                    <li>• Time yourself on coding problems</li>
+                    <li>• Explain your code logic clearly</li>
+                    <li>• Review common Python methods and syntax</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

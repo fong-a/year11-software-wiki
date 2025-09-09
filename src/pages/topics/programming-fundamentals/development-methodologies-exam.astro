@@ -1,0 +1,425 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProgrammingFundamentalsNav from '../../../components/ProgrammingFundamentalsNav';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Development Methodologies Exam Questions - Programming Fundamentals" description="NESA-style exam questions for development methodologies with sample answers and marking criteria">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Development Methodologies Exam Questions</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <ProgrammingFundamentalsNav 
+              client:load 
+              currentPage="/topics/programming-fundamentals/development-methodologies-exam"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Development Methodologies</h1>
+            <h2 class="text-2xl font-semibold text-blue-600 mb-8">Practice Exam Questions</h2>
+            
+            <!-- NESA Keywords -->
+            <div class="mb-8 p-6 bg-gradient-to-r from-amber-50 to-orange-50 rounded-lg border border-amber-200">
+              <h3 class="text-xl font-bold text-amber-800 mb-4">📚 NESA Command Words</h3>
+              <p class="text-amber-700 text-sm mb-4">The Software Engineering exam uses specific keywords that tell you what kind of response is expected:</p>
+              
+              <div class="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong class="text-amber-800">Identify:</strong> Name it (1-2 words)</p>
+                  <p><strong class="text-amber-800">Outline:</strong> Key features in a sentence or two</p>
+                  <p><strong class="text-amber-800">Describe:</strong> What it is + some detail about features/purpose</p>
+                </div>
+                <div>
+                  <p><strong class="text-amber-800">Explain:</strong> Show HOW or WHY (cause → effect)</p>
+                  <p><strong class="text-amber-800">Distinguish:</strong> Point out the difference clearly</p>
+                  <p><strong class="text-amber-800">Justify:</strong> Give reasons and evidence</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Question 1 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 1 (2 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Identify two characteristics of the Agile development methodology.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>2 marks:</strong> Correctly identifies two distinct characteristics of Agile methodology</li>
+                      <li><strong>1 mark:</strong> Identifies one characteristic of Agile methodology OR provides relevant but incomplete information</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p>• Short iterations (sprints)</p>
+                      <p>• Regular customer feedback</p>
+                      <p class="text-gray-600 mt-2 italic">Other acceptable answers: Flexible to changes, Working software over documentation, Team collaboration</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 2 (3 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Distinguish between Agile and Waterfall development methodologies.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>3 marks:</strong> Clearly distinguishes between Agile and Waterfall with specific contrasting features (e.g., iterative vs sequential, flexible vs fixed requirements)</li>
+                      <li><strong>2 marks:</strong> Identifies key differences between both methodologies but lacks clear distinction or specific contrasting examples</li>
+                      <li><strong>1 mark:</strong> Describes one methodology correctly but fails to distinguish from the other OR provides vague differences</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p>Agile uses short iterative cycles (sprints) where features are developed, tested, and delivered continuously, whereas Waterfall follows a sequential linear process where each phase must be completed before moving to the next. Agile welcomes changes to requirements throughout development, while Waterfall requires detailed requirements to be finalized upfront before development begins.</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 3 (4 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Explain why the Agile methodology is particularly suitable for projects with changing requirements.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>4 marks:</strong> Explains clearly why Agile suits changing requirements with cause-and-effect relationships (e.g., short sprints → accommodate changes; regular feedback → early identification of changes)</li>
+                      <li><strong>3 marks:</strong> Explains connection between Agile features and changing requirements but lacks clear cause-and-effect structure</li>
+                      <li><strong>2 marks:</strong> Identifies some Agile features that help with changes but explanation is incomplete or unclear</li>
+                      <li><strong>1 mark:</strong> Shows basic understanding of Agile flexibility but fails to connect to changing requirements</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p><strong>Cause-and-effect structure:</strong></p>
+                      <p>Agile uses short development sprints (cause), so new requirements can be incorporated at the start of the next sprint without disrupting the entire project timeline (effect). Regular customer feedback sessions occur throughout development (cause), which means changes in user needs are identified early and can be addressed immediately rather than after the project is complete (effect). This iterative approach prevents costly rework that would occur in Waterfall methodology where changes late in development require going back to earlier phases.</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 4 (3 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Justify why the Waterfall methodology might be preferred for developing safety-critical systems such as aircraft control software.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>3 marks:</strong> Justifies Waterfall for safety-critical systems with specific reasons (e.g., thorough documentation for compliance, comprehensive testing, formal approval processes)</li>
+                      <li><strong>2 marks:</strong> Provides valid reasons for using Waterfall in safety-critical contexts but lacks specific connection to safety requirements</li>
+                      <li><strong>1 mark:</strong> Shows basic understanding of Waterfall benefits but fails to connect to safety-critical system needs</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p>Waterfall's sequential approach ensures thorough documentation and formal approval at each phase, which is essential for meeting aviation safety regulations and audit requirements. The extensive testing phase allows for comprehensive safety validation before deployment, reducing the risk of critical failures. The structured approach makes it easier to track and verify that all safety requirements have been properly implemented, which is crucial when human lives depend on the system's reliability.</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 5 (2 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Identify two advantages of using version control systems in software development projects.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>2 marks:</strong> Correctly identifies two distinct advantages of version control systems</li>
+                      <li><strong>1 mark:</strong> Identifies one advantage of version control systems OR provides relevant but incomplete information</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p>• Track changes and maintain history of all modifications</p>
+                      <p>• Enable collaboration between multiple developers</p>
+                      <p class="text-gray-600 mt-2 italic">Other acceptable answers: Backup and recovery, Branch management, Revert to previous versions, Merge conflict resolution</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 6 (4 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Explain how code reviews contribute to software quality in development projects.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>4 marks:</strong> Explains how code reviews contribute to software quality with clear cause-and-effect relationships (e.g., multiple reviewers → early bug detection; knowledge sharing → improved team skills)</li>
+                      <li><strong>3 marks:</strong> Identifies ways code reviews improve quality but lacks clear cause-and-effect explanations</li>
+                      <li><strong>2 marks:</strong> Shows understanding of code review benefits but explanation is incomplete or vague</li>
+                      <li><strong>1 mark:</strong> Demonstrates basic knowledge of code reviews but fails to connect to quality improvement</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p>Code reviews involve other developers examining code before it is merged into the main project (cause), which leads to early detection of bugs, security vulnerabilities, and logic errors (effect). Multiple developers reviewing the same code brings different perspectives and expertise (cause), resulting in identification of potential improvements and adherence to coding standards (effect). This collaborative process also facilitates knowledge sharing between team members (cause), which improves overall team skill level and ensures consistent code quality across the project (effect).</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 7 (5 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  A software development team is choosing between Agile and Waterfall methodologies for a new mobile banking application. The client requirements are well-defined but security regulations may change during development. Justify which methodology would be most appropriate and explain your reasoning.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>5 marks:</strong> Clearly justifies methodology choice with specific reasoning related to the scenario (changing regulations, well-defined requirements, banking context) and explains the decision rationale</li>
+                      <li><strong>4 marks:</strong> Justifies methodology choice with good reasoning but may miss some scenario-specific considerations</li>
+                      <li><strong>3 marks:</strong> Makes reasonable methodology choice with basic justification but lacks depth or scenario analysis</li>
+                      <li><strong>2 marks:</strong> Shows understanding of methodology differences but justification is weak or not well-connected to the scenario</li>
+                      <li><strong>1 mark:</strong> Demonstrates basic knowledge of methodologies but fails to provide adequate justification for the specific scenario</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p><strong>Choice: Agile methodology would be most appropriate.</strong></p>
+                      <p><strong>Justification:</strong> While the client requirements are well-defined, the key factor is that security regulations may change during development. Agile's iterative approach allows the team to incorporate new security requirements at the start of each sprint without requiring a complete project restart. The regular sprint reviews enable continuous validation that security requirements are being met and allow for quick adjustments if regulations change. Additionally, for a mobile banking application, user experience is critical, and Agile's emphasis on working software and user feedback will help ensure the application meets both security requirements and usability standards. The financial sector's rapid regulatory changes make Agile's flexibility essential, as Waterfall's rigid structure would require costly rework if security regulations change mid-project.</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Study Tips -->
+            <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+              <h3 class="text-xl font-bold text-blue-800 mb-4">💡 Exam Success Tips</h3>
+              <div class="grid md:grid-cols-2 gap-4 text-sm text-blue-700">
+                <div>
+                  <h4 class="font-semibold mb-2">For "Explain" Questions:</h4>
+                  <ul class="space-y-1">
+                    <li>• Always show CAUSE → EFFECT</li>
+                    <li>• Use connecting words: "because", "therefore", "as a result"</li>
+                    <li>• Link your reasons to specific outcomes</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">For "Distinguish" Questions:</h4>
+                  <ul class="space-y-1">
+                    <li>• Don't just define both - show the difference</li>
+                    <li>• Use contrast words: "whereas", "while", "unlike"</li>
+                    <li>• Be specific about how they differ</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

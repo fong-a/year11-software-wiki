@@ -1,0 +1,555 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Procedural Programming vs OOP" description="Compare procedural programming with object-oriented programming using Python examples">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/object-oriented-programming" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Object-Oriented Programming</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Procedural vs OOP</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 overflow-y-auto" style="max-height: calc(100vh - 6rem);">
+            <h3 class="font-bold text-gray-900 mb-4">Navigation</h3>
+            <ul class="space-y-2 text-sm">
+              <li><a href="#overview" class="text-blue-600 hover:text-blue-800">Overview</a></li>
+              <li><a href="#key-differences" class="text-blue-600 hover:text-blue-800">Key Differences</a></li>
+              <li><a href="#examples" class="text-blue-600 hover:text-blue-800">Code Examples</a></li>
+              <li><a href="#comparison-table" class="text-blue-600 hover:text-blue-800">Comparison Table</a></li>
+              <li><a href="#when-to-use" class="text-blue-600 hover:text-blue-800">When to Use Each</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Procedural Programming vs Object-Oriented Programming</h1>
+            
+            <div class="mb-8 bg-blue-50 p-6 rounded-lg border border-blue-200">
+              <h2 class="text-xl font-semibold text-blue-800 mb-3">Learning Objectives</h2>
+              <ul class="list-disc ml-6 text-blue-700 space-y-1">
+                <li>Understand the fundamental differences between procedural and OOP paradigms</li>
+                <li>Compare implementation approaches using Python examples</li>
+                <li>Identify when to use each programming paradigm</li>
+                <li>Analyze advantages and disadvantages of each approach</li>
+              </ul>
+            </div>
+
+            <!-- Overview Section -->
+            <section id="overview" class="mb-12">
+              <h2 class="text-2xl font-bold mb-4">Overview</h2>
+              
+              <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+                  <h3 class="text-xl font-semibold text-green-800 mb-3">📝 Procedural Programming</h3>
+                  <p class="text-green-700 mb-3">A programming paradigm based on the concept of functions that operate on data.</p>
+                  <ul class="list-disc ml-6 text-green-700 space-y-1">
+                    <li>Code is organized into functions</li>
+                    <li>Data and functions are separate</li>
+                    <li>Top-down approach</li>
+                    <li>Sequential execution</li>
+                  </ul>
+                </div>
+
+                <div class="bg-purple-50 p-6 rounded-lg border border-purple-200">
+                  <h3 class="text-xl font-semibold text-purple-800 mb-3">🔷 Object-Oriented Programming</h3>
+                  <p class="text-purple-700 mb-3">A programming paradigm based on objects that contain both data and methods.</p>
+                  <ul class="list-disc ml-6 text-purple-700 space-y-1">
+                    <li>Code is organized into classes and objects</li>
+                    <li>Data and methods are encapsulated</li>
+                    <li>Bottom-up approach</li>
+                    <li>Message passing between objects</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <!-- Key Differences Section -->
+            <section id="key-differences" class="mb-12">
+              <h2 class="text-2xl font-bold mb-4">Key Differences</h2>
+              
+              <div class="overflow-x-auto">
+                <table class="w-full border-collapse border border-gray-300">
+                  <thead>
+                    <tr class="bg-gray-100">
+                      <th class="border border-gray-300 p-3 text-left font-semibold">Aspect</th>
+                      <th class="border border-gray-300 p-3 text-left font-semibold text-green-700">Procedural</th>
+                      <th class="border border-gray-300 p-3 text-left font-semibold text-purple-700">Object-Oriented</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="border border-gray-300 p-3 font-medium">Code Organization</td>
+                      <td class="border border-gray-300 p-3">Functions</td>
+                      <td class="border border-gray-300 p-3">Classes and Objects</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                      <td class="border border-gray-300 p-3 font-medium">Data Handling</td>
+                      <td class="border border-gray-300 p-3">Global variables, function parameters</td>
+                      <td class="border border-gray-300 p-3">Instance variables within objects</td>
+                    </tr>
+                    <tr>
+                      <td class="border border-gray-300 p-3 font-medium">Problem Solving</td>
+                      <td class="border border-gray-300 p-3">Top-down decomposition</td>
+                      <td class="border border-gray-300 p-3">Bottom-up composition</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                      <td class="border border-gray-300 p-3 font-medium">Code Reuse</td>
+                      <td class="border border-gray-300 p-3">Function calls</td>
+                      <td class="border border-gray-300 p-3">Inheritance, polymorphism</td>
+                    </tr>
+                    <tr>
+                      <td class="border border-gray-300 p-3 font-medium">Security</td>
+                      <td class="border border-gray-300 p-3">Less secure (global access)</td>
+                      <td class="border border-gray-300 p-3">More secure (encapsulation)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <!-- Interactive Code Examples Section -->
+            <section id="examples" class="mb-12">
+              <h2 class="text-2xl font-bold mb-4">Code Examples Comparison</h2>
+              
+              <div class="mb-6 bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                <p class="text-yellow-800"><strong>Interactive Example:</strong> Use the toggle switches below to compare how the same problem is solved using different paradigms.</p>
+              </div>
+
+              <!-- Example 1: Banking System (Primary) -->
+              <div class="mb-8 border border-gray-200 rounded-lg overflow-hidden">
+                <div class="bg-gray-100 p-4">
+                  <h3 class="text-lg font-semibold">Example 1: Banking System</h3>
+                  <p class="text-gray-600 text-sm">Managing bank accounts and transactions</p>
+                </div>
+                
+                <div class="p-6">
+                  <!-- Toggle Switch -->
+                  <div class="mb-4 flex items-center space-x-4">
+                    <span class="text-green-700 font-medium">Procedural</span>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                      <input type="checkbox" class="sr-only paradigm-toggle" data-example="example1">
+                      <div class="toggle-switch w-11 h-6 bg-green-200 rounded-full peer"></div>
+                    </label>
+                    <span class="text-purple-700 font-medium">Object-Oriented</span>
+                  </div>
+
+                  <!-- Procedural Version -->
+                  <div id="example1-procedural" class="code-example">
+                    <h4 class="font-semibold mb-2 text-green-700">🟢 Procedural Approach</h4>
+                    <div class="bg-gray-800 text-gray-100 p-4 rounded-lg font-mono text-sm overflow-x-auto">
+<pre># Student data stored in lists
+students = []
+grades = []
+
+def add_student(name, age):
+    """Add a student to the system"""
+    student_id = len(students)
+    students.append(&#123;'id': student_id, 'name': name, 'age': age&#125;)
+    grades.append([])
+    return student_id
+
+def add_grade(student_id, subject, score):
+    """Add a grade for a student"""
+    if 0 &lt;= student_id &lt; len(students):
+        grades[student_id].append(&#123;'subject': subject, 'score': score&#125;)
+
+def calculate_average(student_id):
+    """Calculate average grade for a student"""
+    if 0 &lt;= student_id &lt; len(students) and grades[student_id]:
+        total = sum(grade['score'] for grade in grades[student_id])
+        return total / len(grades[student_id])
+    return 0
+
+def display_student(student_id):
+    """Display student information"""
+    if 0 &lt;= student_id &lt; len(students):
+        student = students[student_id]
+        avg = calculate_average(student_id)
+        print(f"Student: &#123;student['name']&#125;, Age: &#123;student['age']&#125;, Average: &#123;avg&#125;")
+
+# Usage
+student1 = add_student("Alice", 16)
+add_grade(student1, "Math", 85)
+add_grade(student1, "English", 92)
+display_student(student1)</pre>
+                    </div>
+                  </div>
+
+                  <!-- OOP Version -->
+                  <div id="example1-oop" class="code-example hidden">
+                    <h4 class="font-semibold mb-2 text-purple-700">🔷 Object-Oriented Approach</h4>
+                    <div class="bg-gray-800 text-gray-100 p-4 rounded-lg font-mono text-sm overflow-x-auto">
+<pre>class Student:
+    """Represents a student with grades"""
+    
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        self.grades = []
+    
+    def add_grade(self, subject, score):
+        """Add a grade for this student"""
+        self.grades.append(&#123;'subject': subject, 'score': score&#125;)
+    
+    def calculate_average(self):
+        """Calculate this student's average grade"""
+        if self.grades:
+            total = sum(grade['score'] for grade in self.grades)
+            return total / len(self.grades)
+        return 0
+    
+    def display_info(self):
+        """Display student information"""
+        avg = self.calculate_average()
+        print(f"Student: &#123;self.name&#125;, Age: &#123;self.age&#125;, Average: &#123;avg&#125;")
+
+class StudentManager:
+    """Manages multiple students"""
+    
+    def __init__(self):
+        self.students = []
+    
+    def add_student(self, name, age):
+        """Add a new student"""
+        student = Student(name, age)
+        self.students.append(student)
+        return student
+
+# Usage
+manager = StudentManager()
+alice = manager.add_student("Alice", 16)
+alice.add_grade("Math", 85)
+alice.add_grade("English", 92)
+alice.display_info()</pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Example 2: Student Management System (Secondary) -->
+              <div class="mb-8 border border-gray-200 rounded-lg overflow-hidden">
+                <div class="bg-gray-100 p-4">
+                  <h3 class="text-lg font-semibold">Example 2: Student Management System</h3>
+                  <p class="text-gray-600 text-sm">Managing student information and calculating grades</p>
+                </div>
+                
+                <div class="p-6">
+                  <!-- Toggle Switch -->
+                  <div class="mb-4 flex items-center space-x-4">
+                    <span class="text-green-700 font-medium">Procedural</span>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                      <input type="checkbox" class="sr-only paradigm-toggle" data-example="example2">
+                      <div class="toggle-switch w-11 h-6 bg-green-200 rounded-full peer"></div>
+                    </label>
+                    <span class="text-purple-700 font-medium">Object-Oriented</span>
+                  </div>
+
+                  <!-- Procedural Version -->
+                  <div id="example2-procedural" class="code-example">
+                    <h4 class="font-semibold mb-2 text-green-700">🟢 Procedural Approach</h4>
+                    <div class="bg-gray-800 text-gray-100 p-4 rounded-lg font-mono text-sm overflow-x-auto">
+<pre># Account data stored in dictionaries
+accounts = &#123;&#125;
+next_account_id = 1000
+
+def create_account(owner_name, initial_balance=0):
+    """Create a new bank account"""
+    global next_account_id
+    account_id = next_account_id
+    next_account_id += 1
+    
+    accounts[account_id] = &#123;
+        'owner': owner_name,
+        'balance': initial_balance,
+        'transactions': []
+    &#125;
+    return account_id
+
+def deposit(account_id, amount):
+    """Deposit money to account"""
+    if account_id in accounts and amount > 0:
+        accounts[account_id]['balance'] += amount
+        accounts[account_id]['transactions'].append(f"Deposit: +&#123;amount&#125;")
+        return True
+    return False
+
+def withdraw(account_id, amount):
+    """Withdraw money from account"""
+    if account_id in accounts and amount > 0:
+        if accounts[account_id]['balance'] >= amount:
+            accounts[account_id]['balance'] -= amount
+            accounts[account_id]['transactions'].append(f"Withdrawal: -&#123;amount&#125;")
+            return True
+    return False
+
+def get_balance(account_id):
+    """Get account balance"""
+    return accounts.get(account_id, &#123;&#125;).get('balance', 0)
+
+def display_account(account_id):
+    """Display account information"""
+    if account_id in accounts:
+        acc = accounts[account_id]
+        print(f"Account &#123;account_id&#125; - &#123;acc['owner']&#125;, Balance: &#123;acc['balance']&#125;")
+
+# Usage
+acc1 = create_account("John Doe", 1000)
+deposit(acc1, 500)
+withdraw(acc1, 200)
+display_account(acc1)</pre>
+                    </div>
+                  </div>
+
+                  <!-- OOP Version -->
+                  <div id="example2-oop" class="code-example hidden">
+                    <h4 class="font-semibold mb-2 text-purple-700">🔷 Object-Oriented Approach</h4>
+                    <div class="bg-gray-800 text-gray-100 p-4 rounded-lg font-mono text-sm overflow-x-auto">
+<pre>class BankAccount:
+    """Represents a bank account"""
+    
+    _next_account_id = 1000
+    
+    def __init__(self, owner_name, initial_balance=0):
+        BankAccount._next_account_id += 1
+        self.account_id = BankAccount._next_account_id
+        self.owner = owner_name
+        self._balance = initial_balance  # Private attribute
+        self.transactions = []
+    
+    def deposit(self, amount):
+        """Deposit money to this account"""
+        if amount > 0:
+            self._balance += amount
+            self.transactions.append(f"Deposit: +&#123;amount&#125;")
+            return True
+        return False
+    
+    def withdraw(self, amount):
+        """Withdraw money from this account"""
+        if amount > 0 and self._balance >= amount:
+            self._balance -= amount
+            self.transactions.append(f"Withdrawal: -&#123;amount&#125;")
+            return True
+        return False
+    
+    def get_balance(self):
+        """Get account balance"""
+        return self._balance
+    
+    def display_info(self):
+        """Display account information"""
+        print(f"Account &#123;self.account_id&#125; - &#123;self.owner&#125;, Balance: &#123;self._balance&#125;")
+
+class Bank:
+    """Manages multiple bank accounts"""
+    
+    def __init__(self, bank_name):
+        self.name = bank_name
+        self.accounts = []
+    
+    def create_account(self, owner_name, initial_balance=0):
+        """Create a new account"""
+        account = BankAccount(owner_name, initial_balance)
+        self.accounts.append(account)
+        return account
+
+# Usage
+bank = Bank("Community Bank")
+john_account = bank.create_account("John Doe", 1000)
+john_account.deposit(500)
+john_account.withdraw(200)
+john_account.display_info()</pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Comparison Table Section -->
+            <section id="comparison-table" class="mb-12">
+              <h2 class="text-2xl font-bold mb-4">Detailed Comparison</h2>
+              
+              <div class="overflow-x-auto">
+                <table class="w-full border-collapse border border-gray-300 text-sm">
+                  <thead>
+                    <tr class="bg-gray-100">
+                      <th class="border border-gray-300 p-3 text-left font-semibold">Feature</th>
+                      <th class="border border-gray-300 p-3 text-left font-semibold text-green-700">Procedural Programming</th>
+                      <th class="border border-gray-300 p-3 text-left font-semibold text-purple-700">Object-Oriented Programming</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="border border-gray-300 p-3 font-medium">Advantages</td>
+                      <td class="border border-gray-300 p-3">
+                        <ul class="list-disc ml-4 space-y-1">
+                          <li>Simple to understand</li>
+                          <li>Direct problem-solving approach</li>
+                          <li>Good for small programs</li>
+                          <li>Faster execution for simple tasks</li>
+                        </ul>
+                      </td>
+                      <td class="border border-gray-300 p-3">
+                        <ul class="list-disc ml-4 space-y-1">
+                          <li>Code reusability through inheritance</li>
+                          <li>Data security through encapsulation</li>
+                          <li>Modularity and maintainability</li>
+                          <li>Models real-world problems naturally</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                      <td class="border border-gray-300 p-3 font-medium">Disadvantages</td>
+                      <td class="border border-gray-300 p-3">
+                        <ul class="list-disc ml-4 space-y-1">
+                          <li>Difficult to maintain large programs</li>
+                          <li>Code duplication</li>
+                          <li>Global data accessibility issues</li>
+                          <li>Hard to modify existing code</li>
+                        </ul>
+                      </td>
+                      <td class="border border-gray-300 p-3">
+                        <ul class="list-disc ml-4 space-y-1">
+                          <li>Steeper learning curve</li>
+                          <li>Can be overkill for simple programs</li>
+                          <li>Overhead from objects and methods</li>
+                          <li>More memory usage</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="border border-gray-300 p-3 font-medium">Best Used For</td>
+                      <td class="border border-gray-300 p-3">
+                        <ul class="list-disc ml-4 space-y-1">
+                          <li>Simple, linear problems</li>
+                          <li>Mathematical computations</li>
+                          <li>Scripts and utilities</li>
+                          <li>System programming</li>
+                        </ul>
+                      </td>
+                      <td class="border border-gray-300 p-3">
+                        <ul class="list-disc ml-4 space-y-1">
+                          <li>Complex applications</li>
+                          <li>GUI applications</li>
+                          <li>Game development</li>
+                          <li>Large software systems</li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <!-- When to Use Each Section -->
+            <section id="when-to-use" class="mb-12">
+              <h2 class="text-2xl font-bold mb-4">When to Use Each Approach</h2>
+              
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+                  <h3 class="text-xl font-semibold text-green-800 mb-3">🟢 Choose Procedural When:</h3>
+                  <ul class="list-disc ml-6 text-green-700 space-y-2">
+                    <li><strong>Problem is simple and linear:</strong> Sequential tasks with clear steps</li>
+                    <li><strong>Small programs:</strong> Scripts, utilities, or one-off solutions</li>
+                    <li><strong>Mathematical computations:</strong> Algorithms, calculations, data processing</li>
+                    <li><strong>Quick prototypes:</strong> Fast development for testing concepts</li>
+                    <li><strong>System-level programming:</strong> Operating systems, embedded systems</li>
+                  </ul>
+                </div>
+
+                <div class="bg-purple-50 p-6 rounded-lg border border-purple-200">
+                  <h3 class="text-xl font-semibold text-purple-800 mb-3">🔷 Choose OOP When:</h3>
+                  <ul class="list-disc ml-6 text-purple-700 space-y-2">
+                    <li><strong>Complex applications:</strong> Multiple interacting components</li>
+                    <li><strong>Team development:</strong> Large projects with multiple developers</li>
+                    <li><strong>Reusable code needed:</strong> Libraries, frameworks, APIs</li>
+                    <li><strong>Real-world modeling:</strong> Representing entities and relationships</li>
+                    <li><strong>Long-term maintenance:</strong> Applications that will evolve over time</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <!-- Summary -->
+            <div class="bg-gray-100 p-6 rounded-lg">
+              <h3 class="text-xl font-semibold mb-3">📝 Summary</h3>
+              <p class="text-gray-700">
+                Both procedural programming and object-oriented programming are valuable paradigms. Procedural programming offers simplicity and directness for straightforward problems, while OOP provides powerful tools for managing complexity in larger applications. The choice between them depends on the specific requirements of your project, team size, and long-term maintenance needs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .toggle-switch {
+      position: relative;
+      transition: background-color 0.3s;
+    }
+    
+    .toggle-switch::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      background-color: white;
+      border-radius: 50%;
+      height: 20px;
+      width: 20px;
+      transition: transform 0.3s;
+    }
+    
+    .paradigm-toggle:checked + .toggle-switch {
+      background-color: rgb(147 51 234);
+    }
+    
+    .paradigm-toggle:checked + .toggle-switch::after {
+      transform: translateX(20px);
+    }
+    
+    .paradigm-toggle:focus + .toggle-switch {
+      outline: 2px solid rgb(34 197 94);
+      outline-offset: 2px;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Handle toggle switches
+      document.querySelectorAll('.paradigm-toggle').forEach(toggle => {
+        toggle.addEventListener('change', function() {
+          const example = this.dataset.example;
+          const proceduralDiv = document.getElementById(example + '-procedural');
+          const oopDiv = document.getElementById(example + '-oop');
+          
+          if (this.checked) {
+            // Show OOP, hide Procedural
+            proceduralDiv.classList.add('hidden');
+            oopDiv.classList.remove('hidden');
+          } else {
+            // Show Procedural, hide OOP
+            proceduralDiv.classList.remove('hidden');
+            oopDiv.classList.add('hidden');
+          }
+        });
+      });
+    });
+  </script>
+</BaseLayout>

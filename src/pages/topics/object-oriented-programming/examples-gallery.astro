@@ -1,0 +1,481 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import OOPNav from '../../../components/OOPNav';
+import Tooltip from '../../../components/Tooltip';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Examples Gallery - Object-Oriented Programming" description="Collection of practical OOP examples and implementations in Python">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/object-oriented-programming" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Object-Oriented Programming</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Examples Gallery</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <OOPNav 
+              client:load 
+              currentPage="/topics/object-oriented-programming/examples-gallery"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">OOP Examples Gallery</h1>
+            
+            <div class="mb-8 p-6 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl border border-teal-200">
+              <h2 class="text-2xl font-bold text-gray-900 mb-4">Practical Examples</h2>
+              <p class="text-gray-800 text-lg leading-relaxed">
+                Explore real-world examples that demonstrate OOP principles in action. Each example shows how <strong><Tooltip client:load term="OOP Principles" definition="Encapsulation, Inheritance, Polymorphism, and Abstraction working together">OOP principles</Tooltip></strong> solve common programming problems.
+              </p>
+            </div>
+
+            <!-- Library Management System -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">1. Library Management System</h2>
+              
+              <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                <h3 class="text-xl font-semibold text-blue-800 mb-4">Complete Library System</h3>
+                <p class="text-blue-700 mb-4">Demonstrates inheritance, encapsulation, and polymorphism.</p>
+                
+                <div class="bg-white p-4 rounded border border-blue-300">
+                  <pre class="text-sm font-mono bg-gray-100 text-gray-800 p-4 rounded border-l-4 border-blue-400"><code>class LibraryItem:
+    """Base class for all library items"""
+    def __init__(self, title, item_id):
+        self.title = title
+        self.item_id = item_id
+        self._is_borrowed = False
+        self._borrower = None
+    
+    def borrow(self, borrower_name):
+        if not self._is_borrowed:
+            self._is_borrowed = True
+            self._borrower = borrower_name
+            return True
+        return False
+    
+    def return_item(self):
+        self._is_borrowed = False
+        self._borrower = None
+    
+    def get_info(self):
+        """Override in subclasses"""
+        status = "Available" if not self._is_borrowed else f"Borrowed by &#123;self._borrower&#125;"
+        return f"&#123;self.title&#125; - &#123;status&#125;"
+
+class Book(LibraryItem):
+    def __init__(self, title, item_id, author, pages):
+        super().__init__(title, item_id)
+        self.author = author
+        self.pages = pages
+    
+    def get_info(self):
+        base_info = super().get_info()
+        return f"Book: &#123;base_info&#125; by &#123;self.author&#125; (&#123;self.pages&#125; pages)"
+
+class DVD(LibraryItem):
+    def __init__(self, title, item_id, director, duration):
+        super().__init__(title, item_id)
+        self.director = director
+        self.duration = duration
+    
+    def get_info(self):
+        base_info = super().get_info()
+        return f"DVD: &#123;base_info&#125; directed by &#123;self.director&#125; (&#123;self.duration&#125; min)"
+
+class Magazine(LibraryItem):
+    def __init__(self, title, item_id, issue_number, month):
+        super().__init__(title, item_id)
+        self.issue_number = issue_number
+        self.month = month
+    
+    def get_info(self):
+        base_info = super().get_info()
+        return f"Magazine: &#123;base_info&#125; Issue &#123;self.issue_number&#125; (&#123;self.month&#125;)"
+
+class Library:
+    def __init__(self, name):
+        self.name = name
+        self.items = []
+        self.members = []
+    
+    def add_item(self, item):
+        self.items.append(item)
+    
+    def add_member(self, member_name):
+        self.members.append(member_name)
+    
+    def find_item(self, title):
+        for item in self.items:
+            if item.title.lower() == title.lower():
+                return item
+        return None
+    
+    def display_all_items(self):
+        print(f"\n=== &#123;self.name&#125; Catalog ===")
+        for item in self.items:
+            print(f"- &#123;item.get_info()&#125;")
+
+# Usage Example
+library = Library("City Library")
+
+# Add different types of items
+book1 = Book("Python Programming", "B001", "John Smith", 450)
+dvd1 = DVD("Inception", "D001", "Christopher Nolan", 148)
+magazine1 = Magazine("Tech Today", "M001", 42, "March 2024")
+
+library.add_item(book1)
+library.add_item(dvd1)
+library.add_item(magazine1)
+
+# Borrow items
+book1.borrow("Alice Johnson")
+dvd1.borrow("Bob Wilson")
+
+library.display_all_items()</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Vehicle Rental System -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">2. Vehicle Rental System</h2>
+              
+              <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+                <h3 class="text-xl font-semibold text-green-800 mb-4">Polymorphism in Action</h3>
+                <p class="text-green-700 mb-4">Different vehicle types with specialized behavior.</p>
+                
+                <div class="bg-white p-4 rounded border border-green-300">
+                  <pre class="text-sm font-mono bg-gray-100 text-gray-800 p-4 rounded border-l-4 border-green-400"><code>class Vehicle:
+    def __init__(self, make, model, year, daily_rate):
+        self.make = make
+        self.model = model
+        self.year = year
+        self.daily_rate = daily_rate
+        self._is_rented = False
+        self._renter = None
+    
+    def rent(self, renter_name):
+        if not self._is_rented:
+            self._is_rented = True
+            self._renter = renter_name
+            return True
+        return False
+    
+    def return_vehicle(self):
+        self._is_rented = False
+        self._renter = None
+    
+    def calculate_cost(self, days):
+        return self.daily_rate * days
+    
+    def get_details(self):
+        return f"&#123;self.year&#125; &#123;self.make&#125; &#123;self.model&#125;"
+
+class Car(Vehicle):
+    def __init__(self, make, model, year, daily_rate, seats, fuel_type):
+        super().__init__(make, model, year, daily_rate)
+        self.seats = seats
+        self.fuel_type = fuel_type
+    
+    def get_details(self):
+        base = super().get_details()
+        return f"&#123;base&#125; - &#123;self.seats&#125; seats, &#123;self.fuel_type&#125;"
+
+class Motorcycle(Vehicle):
+    def __init__(self, make, model, year, daily_rate, engine_size):
+        super().__init__(make, model, year, daily_rate)
+        self.engine_size = engine_size
+    
+    def calculate_cost(self, days):
+        # Motorcycles get 10% discount
+        base_cost = super().calculate_cost(days)
+        return base_cost * 0.9
+    
+    def get_details(self):
+        base = super().get_details()
+        return f"&#123;base&#125; - &#123;self.engine_size&#125; cc engine"
+
+class Truck(Vehicle):
+    def __init__(self, make, model, year, daily_rate, cargo_capacity):
+        super().__init__(make, model, year, daily_rate)
+        self.cargo_capacity = cargo_capacity
+    
+    def calculate_cost(self, days):
+        # Trucks have insurance surcharge
+        base_cost = super().calculate_cost(days)
+        return base_cost + (20 * days)  # $20/day insurance
+    
+    def get_details(self):
+        base = super().get_details()
+        return f"&#123;base&#125; - &#123;self.cargo_capacity&#125;kg capacity"
+
+class RentalAgency:
+    def __init__(self, name):
+        self.name = name
+        self.vehicles = []
+        self.rentals = []
+    
+    def add_vehicle(self, vehicle):
+        self.vehicles.append(vehicle)
+    
+    def show_available_vehicles(self):
+        print(f"\n=== &#123;self.name&#125; Available Vehicles ===")
+        for vehicle in self.vehicles:
+            if not vehicle._is_rented:
+                cost_example = vehicle.calculate_cost(1)
+                print(f"- &#123;vehicle.get_details()&#125; - &#123;cost_example&#125;/day")
+    
+    def rent_vehicle(self, vehicle_type, renter_name, days):
+        for vehicle in self.vehicles:
+            if (isinstance(vehicle, vehicle_type) and not vehicle._is_rented):
+                if vehicle.rent(renter_name):
+                    cost = vehicle.calculate_cost(days)
+                    rental_info = &#123;
+                        'vehicle': vehicle,
+                        'renter': renter_name,
+                        'days': days,
+                        'cost': cost
+                    &#125;
+                    self.rentals.append(rental_info)
+                    print(f"Rented &#123;vehicle.get_details()&#125; to &#123;renter_name&#125; for &#123;days&#125; days. Total cost: &#123;cost&#125;")
+                    return True
+        print(f"No available &#123;vehicle_type.__name__&#125; found.")
+        return False
+
+# Usage Example
+agency = RentalAgency("QuickRent Vehicles")
+
+# Add different vehicle types
+car1 = Car("Toyota", "Camry", 2022, 45, 5, "Hybrid")
+bike1 = Motorcycle("Honda", "CBR600", 2021, 35, 600)
+truck1 = Truck("Ford", "F-150", 2023, 80, 1000)
+
+agency.add_vehicle(car1)
+agency.add_vehicle(bike1)
+agency.add_vehicle(truck1)
+
+agency.show_available_vehicles()
+
+# Rent different vehicles - polymorphism in action
+agency.rent_vehicle(Car, "John Doe", 3)
+agency.rent_vehicle(Motorcycle, "Jane Smith", 2)
+agency.rent_vehicle(Truck, "Mike Wilson", 5)</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Banking System -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">3. Banking System</h2>
+              
+              <div class="bg-purple-50 p-6 rounded-lg border border-purple-200">
+                <h3 class="text-xl font-semibold text-purple-800 mb-4">Encapsulation and Data Protection</h3>
+                <p class="text-purple-700 mb-4">Secure account management with proper encapsulation.</p>
+                
+                <div class="bg-white p-4 rounded border border-purple-300">
+                  <pre class="text-sm font-mono bg-gray-100 text-gray-800 p-4 rounded border-l-4 border-purple-400"><code>class BankAccount:
+    def __init__(self, account_number, owner_name, initial_balance=0):
+        self.account_number = account_number
+        self.owner_name = owner_name
+        self._balance = initial_balance  # Protected attribute
+        self._transaction_history = []
+        
+    def deposit(self, amount):
+        if amount > 0:
+            self._balance += amount
+            self._transaction_history.append(f"Deposit: +&#123;amount&#125;")
+            return True
+        return False
+    
+    def withdraw(self, amount):
+        if amount > 0 and amount <= self._balance:
+            self._balance -= amount
+            self._transaction_history.append(f"Withdrawal: -&#123;amount&#125;")
+            return True
+        return False
+    
+    def get_balance(self):
+        return self._balance
+    
+    def get_statement(self):
+        print(f"\n=== Statement for &#123;self.owner_name&#125; ===")
+        print(f"Account: &#123;self.account_number&#125;")
+        print(f"Current Balance: &#123;self._balance&#125;")
+        print("Recent Transactions:")
+        for transaction in self._transaction_history[-5:]:
+            print(f"  - &#123;transaction&#125;")
+
+class SavingsAccount(BankAccount):
+    def __init__(self, account_number, owner_name, initial_balance=0, interest_rate=0.02):
+        super().__init__(account_number, owner_name, initial_balance)
+        self.interest_rate = interest_rate
+        self._minimum_balance = 100
+    
+    def withdraw(self, amount):
+        if self._balance - amount >= self._minimum_balance:
+            return super().withdraw(amount)
+        print(f"Cannot withdraw. Minimum balance of &#123;self._minimum_balance&#125; required.")
+        return False
+    
+    def calculate_interest(self):
+        interest = self._balance * self.interest_rate / 12
+        self.deposit(interest)
+        return interest
+
+class CheckingAccount(BankAccount):
+    def __init__(self, account_number, owner_name, initial_balance=0, overdraft_limit=500):
+        super().__init__(account_number, owner_name, initial_balance)
+        self.overdraft_limit = overdraft_limit
+    
+    def withdraw(self, amount):
+        if amount > 0 and (self._balance - amount) >= -self.overdraft_limit:
+            self._balance -= amount
+            self._transaction_history.append(f"Withdrawal: -&#123;amount&#125;")
+            if self._balance < 0:
+                print(f"Overdraft used. Current balance: &#123;self._balance&#125;")
+            return True
+        print("Overdraft limit exceeded.")
+        return False
+
+class Bank:
+    def __init__(self, name):
+        self.name = name
+        self.accounts = &#123;&#125;
+        self._next_account_number = 1000
+    
+    def create_account(self, owner_name, account_type, initial_balance=0):
+        account_number = f"ACC&#123;self._next_account_number&#125;"
+        self._next_account_number += 1
+        
+        if account_type.lower() == "savings":
+            account = SavingsAccount(account_number, owner_name, initial_balance)
+        elif account_type.lower() == "checking":
+            account = CheckingAccount(account_number, owner_name, initial_balance)
+        else:
+            account = BankAccount(account_number, owner_name, initial_balance)
+        
+        self.accounts[account_number] = account
+        print(f"Created &#123;account_type&#125; account &#123;account_number&#125; for &#123;owner_name&#125;")
+        return account_number
+    
+    def get_account(self, account_number):
+        return self.accounts.get(account_number)
+    
+    def transfer(self, from_account_num, to_account_num, amount):
+        from_account = self.get_account(from_account_num)
+        to_account = self.get_account(to_account_num)
+        
+        if from_account and to_account:
+            if from_account.withdraw(amount):
+                to_account.deposit(amount)
+                from_account._transaction_history.append(f"Transfer out to &#123;to_account_num&#125;: -&#123;amount&#125;")
+                to_account._transaction_history.append(f"Transfer in from &#123;from_account_num&#125;: +&#123;amount&#125;")
+                print(f"Transferred &#123;amount&#125; from &#123;from_account_num&#125; to &#123;to_account_num&#125;")
+                return True
+        return False
+
+# Usage Example
+bank = Bank("First National Bank")
+
+# Create different account types
+savings_acc = bank.create_account("Alice Johnson", "savings", 1000)
+checking_acc = bank.create_account("Bob Smith", "checking", 500)
+
+# Get account objects
+alice_account = bank.get_account(savings_acc)
+bob_account = bank.get_account(checking_acc)
+
+# Perform operations
+alice_account.deposit(200)
+bob_account.withdraw(600)  # Uses overdraft
+
+# Transfer between accounts
+bank.transfer(savings_acc, checking_acc, 300)
+
+# Show statements
+alice_account.get_statement()
+bob_account.get_statement()</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Reference -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">OOP Concepts in Examples</h2>
+              
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                  <h3 class="text-lg font-semibold text-gray-900 mb-4">Key OOP Features Demonstrated</h3>
+                  <ul class="space-y-2 text-gray-700">
+                    <li class="flex items-start">
+                      <span class="text-blue-500 mr-2 mt-1">🏗️</span>
+                      <span><strong>Inheritance:</strong> Book, DVD extend LibraryItem</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="text-green-500 mr-2 mt-1">🔒</span>
+                      <span><strong>Encapsulation:</strong> Private _balance in BankAccount</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="text-purple-500 mr-2 mt-1">🎭</span>
+                      <span><strong>Polymorphism:</strong> Different calculate_cost() methods</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="text-orange-500 mr-2 mt-1">📝</span>
+                      <span><strong>Abstraction:</strong> Complex banking hidden from users</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                  <h3 class="text-lg font-semibold text-gray-900 mb-4">Design Patterns Used</h3>
+                  <ul class="space-y-2 text-gray-700">
+                    <li class="flex items-start">
+                      <span class="text-teal-500 mr-2 mt-1">🏭</span>
+                      <span><strong>Factory Pattern:</strong> Bank creates different account types</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="text-red-500 mr-2 mt-1">📋</span>
+                      <span><strong>Template Method:</strong> Common rental process</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="text-indigo-500 mr-2 mt-1">🎯</span>
+                      <span><strong>Strategy Pattern:</strong> Different cost calculations</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- NESA Exam Context -->
+            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-amber-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                  <p class="font-semibold text-amber-900 mb-1">NESA Exam Focus</p>
+                  <p class="text-amber-800 text-sm">These examples combine multiple OOP concepts that commonly appear in NESA exams. Study how inheritance hierarchies work, how encapsulation protects data, and how polymorphism enables flexible code. Practice identifying these patterns in exam scenarios and implementing them in code.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

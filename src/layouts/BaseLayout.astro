@@ -1,0 +1,99 @@
+---
+import { FeedbackButtons } from '../components/FeedbackButtons.tsx';
+import SearchComponent from '../components/SearchComponent.tsx';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Year 11 Software Engineering Revision Wiki" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title} | Year 11 Software Engineering Wiki</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Mermaid -->
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+    </script>
+  </head>
+  <body class="font-sans antialiased bg-background text-foreground">
+    <header class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <nav class="container mx-auto px-6">
+        <div class="flex h-16 items-center justify-between">
+          <a href="/" class="text-xl font-semibold text-primary hover:text-primary/80 transition-colors">
+            11SEN Study Portal
+          </a>
+          
+          <div class="flex items-center space-x-4">
+            <!-- Search Component for desktop -->
+            <div class="hidden lg:block">
+              <SearchComponent client:load className="w-64" />
+            </div>
+            
+            <a href="/" class="text-sm font-medium hover:text-primary transition-colors hidden sm:block">Home</a>
+            
+            <div class="relative group">
+              <button class="text-sm font-medium hover:text-primary transition-colors flex items-center space-x-1">
+                <span>Topics</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              
+              <div class="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg border py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <a href="/topics/programming-fundamentals" class="flex items-center px-4 py-3 text-sm hover:bg-gray-50 transition-colors">Programming Fundamentals</a>
+                <a href="/topics/object-oriented-programming" class="flex items-center px-4 py-3 text-sm hover:bg-gray-50 transition-colors">Object-Oriented Programming</a>
+                <a href="/topics/mechatronics" class="flex items-center px-4 py-3 text-sm hover:bg-gray-50 transition-colors">Mechatronics</a>
+                <hr class="my-2 border-gray-200">
+                <a href="/topics/programming-fundamentals/glossary" class="flex items-center px-4 py-3 text-sm hover:bg-gray-50 transition-colors">
+                  <svg class="w-4 h-4 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                  Glossary
+                </a>
+                <a href="/nesa-keywords" class="flex items-center px-4 py-3 text-sm hover:bg-gray-50 transition-colors">
+                  <svg class="w-4 h-4 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                  NESA Keywords
+                </a>
+              </div>
+            </div>
+
+            <FeedbackButtons client:load />
+          </div>
+        </div>
+        
+        <!-- Mobile search bar -->
+        <div class="lg:hidden pb-3">
+          <SearchComponent client:load className="w-full" />
+        </div>
+      </nav>
+    </header>
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <footer class="border-t py-8 bg-slate-50">
+      <div class="container mx-auto px-6 text-center">
+        <p class="text-gray-600 mb-1">&copy; 2025 Year 11 Software Engineering Revision Wiki</p>
+        <p class="text-sm text-gray-500">Built by Mr Fong</p>
+      </div>
+    </footer>
+  </body>
+</html>

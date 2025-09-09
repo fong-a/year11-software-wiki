@@ -1,0 +1,613 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProgrammingFundamentalsNav from '../../../components/ProgrammingFundamentalsNav';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Python Programming Exam Questions - Programming Fundamentals" description="NESA-style exam questions for Python programming with sample answers and marking criteria">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Python Programming Exam Questions</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <ProgrammingFundamentalsNav 
+              client:load 
+              currentPage="/topics/programming-fundamentals/python-programming-exam"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Python Programming</h1>
+            <h2 class="text-2xl font-semibold text-blue-600 mb-8">Practice Exam Questions</h2>
+            
+            <!-- NESA Keywords -->
+            <div class="mb-8 p-6 bg-gradient-to-r from-amber-50 to-orange-50 rounded-lg border border-amber-200">
+              <h3 class="text-xl font-bold text-amber-800 mb-4">📚 NESA Command Words</h3>
+              <p class="text-amber-700 text-sm mb-4">The Software Engineering exam uses specific keywords that tell you what kind of response is expected:</p>
+              
+              <div class="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong class="text-amber-800">Write:</strong> Provide complete code solution</p>
+                  <p><strong class="text-amber-800">Complete:</strong> Fill in missing parts of existing code</p>
+                  <p><strong class="text-amber-800">Identify:</strong> Name specific programming elements</p>
+                </div>
+                <div>
+                  <p><strong class="text-amber-800">Explain:</strong> Describe how code works or why it's used</p>
+                  <p><strong class="text-amber-800">Debug:</strong> Find and fix errors in given code</p>
+                  <p><strong class="text-amber-800">Modify:</strong> Change existing code to meet new requirements</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Question 1 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 1 (4 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Write a Python function called <code class="bg-gray-100 px-2 py-1 rounded text-sm">calculate_grade</code> that takes a numerical score as a parameter and returns the corresponding letter grade based on the following scale:
+                </p>
+                <div class="mt-3 text-sm text-gray-600">
+                  <p>• 90-100: 'A'</p>
+                  <p>• 80-89: 'B'</p>
+                  <p>• 70-79: 'C'</p>
+                  <p>• 60-69: 'D'</p>
+                  <p>• Below 60: 'F'</p>
+                </div>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>4 marks:</strong> Correct function definition with parameter, all five grade ranges implemented correctly, appropriate return statements</li>
+                      <li><strong>3 marks:</strong> Function structure correct with 4-5 grade ranges working, minor errors in logic or syntax</li>
+                      <li><strong>2 marks:</strong> Basic function structure with some conditional logic attempted, 2-3 grade ranges working</li>
+                      <li><strong>1 mark:</strong> Shows understanding of function concept or conditional statements but significant errors in implementation</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-gray-900 text-green-300 p-3 rounded border font-mono">
+<pre>def calculate_grade(score):
+    if score >= 90:
+        return 'A'
+    elif score >= 80:
+        return 'B'
+    elif score >= 70:
+        return 'C'
+    elif score >= 60:
+        return 'D'
+    else:
+        return 'F'</pre>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 2 (3 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Complete the following Python code to create a list of even numbers from 2 to 20 using a for loop:
+                </p>
+                <div class="mt-3 bg-gray-100 p-3 rounded border text-sm font-mono">
+                  <p>even_numbers = []</p>
+                  <p>for i in _____________:</p>
+                  <p class="ml-4">if _____________:</p>
+                  <p class="ml-8">even_numbers._____________</p>
+                  <p>print(even_numbers)</p>
+                </div>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>3 marks:</strong> All three parts completed correctly: range(2, 21), modulo condition (i % 2 == 0), append method</li>
+                      <li><strong>2 marks:</strong> Two parts correct with one minor error (e.g., wrong range bounds, incorrect modulo logic)</li>
+                      <li><strong>1 mark:</strong> One part correct OR shows understanding of loops/lists but with significant errors</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-gray-900 text-green-300 p-3 rounded border font-mono">
+<pre>even_numbers = []
+for i in range(2, 21):
+    if i % 2 == 0:
+        even_numbers.append(i)
+print(even_numbers)</pre>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 3 (5 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Write a Python function called <code class="bg-gray-100 px-2 py-1 rounded text-sm">find_max</code> that takes a list of numbers as a parameter and returns the largest number. Do not use the built-in max() function.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>5 marks:</strong> Correct function with parameter, proper initialization, loop through list, comparison logic, and return statement</li>
+                      <li><strong>4 marks:</strong> Function mostly correct but missing edge case handling (empty list) OR minor logical error</li>
+                      <li><strong>3 marks:</strong> Function structure and basic loop logic correct, but comparison or initialization has errors</li>
+                      <li><strong>2 marks:</strong> Shows understanding of function and loops but significant errors in logic</li>
+                      <li><strong>1 mark:</strong> Basic function structure attempted but lacks proper list processing logic</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-gray-900 text-green-300 p-3 rounded border font-mono">
+<pre>def find_max(numbers):
+    if len(numbers) == 0:
+        return None
+    
+    max_num = numbers[0]
+    for num in numbers:
+        if num > max_num:
+            max_num = num
+    
+    return max_num</pre>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 4 (6 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Identify and explain three errors in the following Python code, then write the corrected version:
+                </p>
+                <div class="mt-3 bg-gray-100 p-3 rounded border text-sm font-mono">
+                  <p>def calculate_average(numbers)</p>
+                  <p class="ml-4">total = 0</p>
+                  <p class="ml-4">for i in range(len(numbers)):</p>
+                  <p class="ml-8">total += numbers[i]</p>
+                  <p class="ml-4">average = total / len(numbers)</p>
+                  <p class="ml-4">print("Average is:" + average)</p>
+                  <p>calculate_average([10, 20, 30, 40])</p>
+                </div>
+              </div>
+              
+              <div class="mb-4">
+                <p class="text-gray-700 font-medium mb-2">Errors found:</p>
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+                <p class="text-gray-700 font-medium mt-4 mb-2">Corrected code:</p>
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>6 marks:</strong> Identifies all 3 errors (missing colon, string concatenation issue, missing return) AND provides fully corrected code</li>
+                      <li><strong>4-5 marks:</strong> Identifies 2-3 errors correctly with mostly correct code solution</li>
+                      <li><strong>2-3 marks:</strong> Identifies 1-2 errors correctly with some corrected code provided</li>
+                      <li><strong>1 mark:</strong> Shows basic understanding of Python syntax errors but fails to identify specific problems</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p><strong>Errors:</strong></p>
+                      <p>1. Missing colon after function definition</p>
+                      <p>2. Cannot concatenate string and number in print statement</p>
+                      <p>3. No return statement (depending on intended use)</p>
+                      <p class="mt-3"><strong>Corrected code:</strong></p>
+                      <div class="bg-gray-900 text-green-300 p-3 rounded font-mono mt-2">
+<pre>def calculate_average(numbers):
+    total = 0
+    for i in range(len(numbers)):
+        total += numbers[i]
+    average = total / len(numbers)
+    print("Average is: " + str(average))
+    return average
+
+calculate_average([10, 20, 30, 40])</pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 5 (4 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Write Python code that creates a dictionary called <code class="bg-gray-100 px-2 py-1 rounded text-sm">student_info</code> with the following key-value pairs, then prints each key and its corresponding value:
+                </p>
+                <div class="mt-3 text-sm text-gray-600">
+                  <p>• name: "Alice"</p>
+                  <p>• age: 17</p>
+                  <p>• grade: 85</p>
+                  <p>• subjects: ["Math", "Science", "English"]</p>
+                </div>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>4 marks:</strong> Dictionary created correctly with all specified key-value pairs, proper iteration and formatted printing</li>
+                      <li><strong>3 marks:</strong> Dictionary structure correct with all keys, minor errors in iteration or print formatting</li>
+                      <li><strong>2 marks:</strong> Dictionary created with most required fields, basic printing attempted but may have errors</li>
+                      <li><strong>1 mark:</strong> Shows basic understanding of dictionary concept but significant errors in implementation</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-gray-900 text-green-300 p-3 rounded border font-mono">
+<pre>student_info = &#123;
+    "name": "Alice",
+    "age": 17,
+    "grade": 85,
+    "subjects": ["Math", "Science", "English"]
+&#125;
+
+for key, value in student_info.items():
+    print(f"&#123;key&#125;: &#123;value&#125;")</pre>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 6 (3 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Write a Python function called <code class="bg-gray-100 px-2 py-1 rounded text-sm">count_vowels</code> that takes a string as a parameter and returns the number of vowels (a, e, i, o, u) in the string, ignoring case.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>3 marks:</strong> Correct function with parameter, case-insensitive vowel checking, accurate count and return</li>
+                      <li><strong>2 marks:</strong> Function structure correct, vowel detection working but may miss case-insensitive requirement</li>
+                      <li><strong>1 mark:</strong> Basic function structure with some string processing attempted but significant logical errors</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-gray-900 text-green-300 p-3 rounded border font-mono">
+<pre>def count_vowels(text):
+    vowels = "aeiouAEIOU"
+    count = 0
+    for char in text:
+        if char in vowels:
+            count += 1
+    return count</pre>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 7 (5 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Write a Python program that creates a simple inventory management system. Your program should:
+                </p>
+                <div class="mt-3 text-sm text-gray-600">
+                  <p>• Create a dictionary to store items and their quantities</p>
+                  <p>• Add at least 3 items to the inventory</p>
+                  <p>• Include a function that displays all items and quantities</p>
+                  <p>• Include a function that updates the quantity of a specific item</p>
+                </div>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>5 marks:</strong> Complete program with dictionary containing 3+ items, display function with iteration, update function with error handling</li>
+                      <li><strong>4 marks:</strong> Both functions implemented with minor errors (missing error handling OR incomplete iteration)</li>
+                      <li><strong>3 marks:</strong> Dictionary created correctly with one function working properly, other attempted</li>
+                      <li><strong>2 marks:</strong> Dictionary structure correct, basic function definitions attempted but with significant errors</li>
+                      <li><strong>1 mark:</strong> Shows basic understanding of dictionaries or functions but implementation is largely incomplete</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-gray-900 text-green-300 p-3 rounded border font-mono">
+<pre>inventory = &#123;
+    "apples": 50,
+    "bananas": 30,
+    "oranges": 25
+&#125;
+
+def display_inventory():
+    print("Current Inventory:")
+    for item, quantity in inventory.items():
+        print(f"&#123;item&#125;: &#123;quantity&#125;")
+
+def update_quantity(item, new_quantity):
+    if item in inventory:
+        inventory[item] = new_quantity
+        print(f"Updated &#123;item&#125; to &#123;new_quantity&#125;")
+    else:
+        print("Item not found in inventory")
+
+# Display initial inventory
+display_inventory()
+
+# Update an item
+update_quantity("apples", 75)
+display_inventory()</pre>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 8 (4 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Complete the following Python code that reads numbers from the user until they enter 0, then calculates and displays the sum and average of the entered numbers:
+                </p>
+                <div class="mt-3 bg-gray-100 p-3 rounded border text-sm font-mono">
+                  <p>numbers = []</p>
+                  <p>while True:</p>
+                  <p class="ml-4">num = int(input("Enter a number (0 to stop): "))</p>
+                  <p class="ml-4">if _____________:</p>
+                  <p class="ml-8">break</p>
+                  <p class="ml-4">numbers._____________</p>
+                  <p></p>
+                  <p>if len(numbers) > 0:</p>
+                  <p class="ml-4">total = _____________</p>
+                  <p class="ml-4">average = _____________</p>
+                  <p class="ml-4">print(f"Sum: &#123;total&#125;, Average: &#123;average&#125;")</p>
+                  <p>else:</p>
+                  <p class="ml-4">print("No numbers entered")</p>
+                </div>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>4 marks:</strong> All four parts completed correctly: break condition (num == 0), append method, sum calculation, average calculation</li>
+                      <li><strong>3 marks:</strong> Three parts correct with one minor error in logic or syntax</li>
+                      <li><strong>2 marks:</strong> Two parts correct OR shows good understanding of loops and list operations with some errors</li>
+                      <li><strong>1 mark:</strong> One part correct OR shows basic understanding of input loops but significant implementation errors</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-gray-900 text-green-300 p-3 rounded border font-mono">
+<pre>numbers = []
+while True:
+    num = int(input("Enter a number (0 to stop): "))
+    if num == 0:
+        break
+    numbers.append(num)
+
+if len(numbers) > 0:
+    total = sum(numbers)
+    average = total / len(numbers)
+    print(f"Sum: &#123;total&#125;, Average: &#123;average&#125;")
+else:
+    print("No numbers entered")</pre>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- NESA Curriculum Alignment -->
+            <div class="bg-amber-50 p-6 rounded-lg border border-amber-200">
+              <h3 class="font-semibold text-amber-900 mb-2">NSW Year 11 Software Engineering Alignment</h3>
+              <p class="text-amber-800 text-sm mb-4">
+                These questions align with the NESA Software Engineering syllabus, covering fundamental Python programming concepts including functions, conditionals, loops, data structures, and debugging skills essential for the HSC examination.
+              </p>
+              <div class="grid md:grid-cols-2 gap-4 text-sm text-amber-700">
+                <div>
+                  <strong>Key Programming Concepts:</strong>
+                  <ul class="mt-1 space-y-1 list-disc list-inside">
+                    <li>Function definition and parameters</li>
+                    <li>Conditional statements (if/elif/else)</li>
+                    <li>Loop structures and iteration</li>
+                  </ul>
+                </div>
+                <div>
+                  <strong>Assessment Focus:</strong>
+                  <ul class="mt-1 space-y-1 list-disc list-inside">
+                    <li>Code completion and debugging</li>
+                    <li>Data structure manipulation</li>
+                    <li>Problem-solving with algorithms</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

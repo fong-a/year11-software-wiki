@@ -1,0 +1,885 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProgrammingFundamentalsNav from '../../../components/ProgrammingFundamentalsNav';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Algorithms Exam Questions - Programming Fundamentals" description="NESA-style exam questions for algorithms, pseudocode, and debugging with sample answers">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Algorithms Exam Questions</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <ProgrammingFundamentalsNav 
+              client:load 
+              currentPage="/topics/programming-fundamentals/algorithms-exam"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Algorithm Design</h1>
+            <h2 class="text-2xl font-semibold text-blue-600 mb-8">Practice Exam Questions</h2>
+            
+            <!-- NESA Keywords -->
+            <div class="mb-8 p-6 bg-gradient-to-r from-amber-50 to-orange-50 rounded-lg border border-amber-200">
+              <h3 class="text-xl font-bold text-amber-800 mb-4">📚 NESA Command Words</h3>
+              <p class="text-amber-700 text-sm mb-4">Algorithm questions use specific keywords that determine your response:</p>
+              
+              <div class="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong class="text-amber-800">Identify:</strong> Name the error/issue (1-2 words)</p>
+                  <p><strong class="text-amber-800">Outline:</strong> List algorithm steps briefly</p>
+                  <p><strong class="text-amber-800">Write an algorithm:</strong> Use proper pseudocode format</p>
+                </div>
+                <div>
+                  <p><strong class="text-amber-800">Perform a desk check:</strong> Show step-by-step execution with values</p>
+                  <p><strong class="text-amber-800">Distinguish:</strong> Show the difference between error types</p>
+                  <p><strong class="text-amber-800">Explain:</strong> Show WHY the algorithm works (cause → effect)</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Question 1 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 1 (3 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Distinguish between syntax errors and logic errors, providing an example of each.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>3 marks:</strong> Clearly distinguishes between syntax and logic errors with accurate examples for each error type</li>
+                      <li><strong>2 marks:</strong> Distinguishes between error types with one good example, but second example may be unclear or incorrect</li>
+                      <li><strong>1 mark:</strong> Shows basic understanding of error types but lacks clear distinction or appropriate examples</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p>Syntax errors occur when code doesn't follow the programming language rules, such as missing parentheses in "print hello world" in Python, whereas logic errors occur when code runs but produces incorrect results, such as using addition instead of multiplication in a calculation formula. Syntax errors prevent the program from running at all, while logic errors allow the program to execute but give wrong outputs.</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 2 (3 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Perform a desk check of the Python code below with numbers = [2, 4, 8, 6].
+                </p>
+                <div class="mt-4 p-4 bg-gray-900 text-green-400 rounded text-sm font-mono">
+def firstMaximum(numbers):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;maxValue = numbers[0]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for num in numbers:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if num > maxValue:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;maxValue = num<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return maxValue + numbers[0]
+                </div>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>3 marks:</strong> Complete table showing all variables at each step, correct final return value (10), all loop iterations traced</li>
+                      <li><strong>2 marks:</strong> Table mostly complete with correct final answer, may have minor errors in intermediate steps</li>
+                      <li><strong>1 mark:</strong> Shows understanding of desk check process but significant errors in variable tracking or final result</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <table class="w-full border-collapse border border-gray-300">
+                        <tr class="bg-gray-100">
+                          <th class="border border-gray-300 p-2 text-left">Step</th>
+                          <th class="border border-gray-300 p-2 text-left">numbers</th>
+                          <th class="border border-gray-300 p-2 text-left">maxValue</th>
+                          <th class="border border-gray-300 p-2 text-left">num</th>
+                          <th class="border border-gray-300 p-2 text-left">Return</th>
+                        </tr>
+                        <tr>
+                          <td class="border border-gray-300 p-2">Initialize</td>
+                          <td class="border border-gray-300 p-2">[2, 4, 8, 6]</td>
+                          <td class="border border-gray-300 p-2">2</td>
+                          <td class="border border-gray-300 p-2">-</td>
+                          <td class="border border-gray-300 p-2">-</td>
+                        </tr>
+                        <tr>
+                          <td class="border border-gray-300 p-2">Loop 1</td>
+                          <td class="border border-gray-300 p-2">[2, 4, 8, 6]</td>
+                          <td class="border border-gray-300 p-2">2</td>
+                          <td class="border border-gray-300 p-2">2</td>
+                          <td class="border border-gray-300 p-2">-</td>
+                        </tr>
+                        <tr>
+                          <td class="border border-gray-300 p-2">Loop 2</td>
+                          <td class="border border-gray-300 p-2">[2, 4, 8, 6]</td>
+                          <td class="border border-gray-300 p-2">4</td>
+                          <td class="border border-gray-300 p-2">4</td>
+                          <td class="border border-gray-300 p-2">-</td>
+                        </tr>
+                        <tr>
+                          <td class="border border-gray-300 p-2">Loop 3</td>
+                          <td class="border border-gray-300 p-2">[2, 4, 8, 6]</td>
+                          <td class="border border-gray-300 p-2">8</td>
+                          <td class="border border-gray-300 p-2">8</td>
+                          <td class="border border-gray-300 p-2">-</td>
+                        </tr>
+                        <tr>
+                          <td class="border border-gray-300 p-2">Loop 4</td>
+                          <td class="border border-gray-300 p-2">[2, 4, 8, 6]</td>
+                          <td class="border border-gray-300 p-2">8</td>
+                          <td class="border border-gray-300 p-2">6</td>
+                          <td class="border border-gray-300 p-2">-</td>
+                        </tr>
+                        <tr>
+                          <td class="border border-gray-300 p-2">Return</td>
+                          <td class="border border-gray-300 p-2">[2, 4, 8, 6]</td>
+                          <td class="border border-gray-300 p-2">8</td>
+                          <td class="border border-gray-300 p-2">-</td>
+                          <td class="border border-gray-300 p-2">10 (8+2)</td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 3 (5 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  A school library wants to check if books are overdue. Write an algorithm in pseudocode for a function which, when passed a due date and today's date (both as strings in format "DD/MM/YYYY"), will return true if the book is overdue and false otherwise.
+                </p>
+                <p class="text-gray-600 mt-2 text-sm">
+                  <em>Assume you have access to a function called StringToDate that converts "DD/MM/YYYY" to a date object that can be compared.</em>
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>5 marks:</strong> Complete function with correct parameters, proper date conversion calls, accurate comparison logic, and appropriate boolean returns</li>
+                      <li><strong>4 marks:</strong> Function structure and logic mostly correct, minor errors in syntax or return statements</li>
+                      <li><strong>3 marks:</strong> Basic function structure with date comparison attempted, but some logical errors</li>
+                      <li><strong>2 marks:</strong> Shows understanding of date comparison concept but significant implementation errors</li>
+                      <li><strong>1 mark:</strong> Basic function structure attempted but lacks proper comparison logic</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border font-mono">
+                      <div class="space-y-1">
+                        <div>BEGIN CheckOverdue(dueDate, todayDate)</div>
+                        <div>&nbsp;&nbsp;SET dueDateObject = StringToDate(dueDate)</div>
+                        <div>&nbsp;&nbsp;SET todayDateObject = StringToDate(todayDate)</div>
+                        <div>&nbsp;&nbsp;</div>
+                        <div>&nbsp;&nbsp;IF todayDateObject > dueDateObject THEN</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;RETURN true</div>
+                        <div>&nbsp;&nbsp;ELSE</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;RETURN false</div>
+                        <div>&nbsp;&nbsp;ENDIF</div>
+                        <div>END</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 4 (5 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  A magic square is a grid with equal width and height n, containing the numbers from 1 to n². A square is magic if every row, column, and diagonal adds up to the same total.
+                </p>
+                <p class="text-gray-700 mt-2 font-medium">
+                  For example, in a 3×3 grid containing numbers 1-9, every row, column and diagonal adds up to 15.
+                </p>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Write an algorithm in pseudocode for a function which, when passed a 2D array of integers called "square", will return true if the square is 'magic' and false otherwise.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>5 marks:</strong> Complete algorithm checking all rows, columns, and both diagonals with correct nested loop structures and sum comparisons</li>
+                      <li><strong>4 marks:</strong> Checks all three components (rows, columns, diagonals) but may have minor errors in loop bounds or logic</li>
+                      <li><strong>3 marks:</strong> Checks 2 of 3 components correctly (rows, columns, diagonals) with proper loop structures</li>
+                      <li><strong>2 marks:</strong> Shows understanding of 2D array processing and sum checking but incomplete implementation</li>
+                      <li><strong>1 mark:</strong> Basic understanding of magic square concept but significant errors in algorithm design</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border font-mono">
+                      <div class="space-y-1">
+                        <div>BEGIN IsMagicSquare(square)</div>
+                        <div>&nbsp;&nbsp;SET n = LENGTH(square)</div>
+                        <div>&nbsp;&nbsp;SET expectedSum = square[0][0] + square[0][1] + ... + square[0][n-1]</div>
+                        <div>&nbsp;&nbsp;</div>
+                        <div>&nbsp;&nbsp;// Check all rows</div>
+                        <div>&nbsp;&nbsp;FOR row = 0 TO n-1</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;SET rowSum = 0</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;FOR col = 0 TO n-1</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET rowSum = rowSum + square[row][col]</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;ENDFOR</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;IF rowSum ≠ expectedSum THEN RETURN false</div>
+                        <div>&nbsp;&nbsp;ENDFOR</div>
+                        <div>&nbsp;&nbsp;</div>
+                        <div>&nbsp;&nbsp;// Check all columns</div>
+                        <div>&nbsp;&nbsp;FOR col = 0 TO n-1</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;SET colSum = 0</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;FOR row = 0 TO n-1</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET colSum = colSum + square[row][col]</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;ENDFOR</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;IF colSum ≠ expectedSum THEN RETURN false</div>
+                        <div>&nbsp;&nbsp;ENDFOR</div>
+                        <div>&nbsp;&nbsp;</div>
+                        <div>&nbsp;&nbsp;// Check diagonals</div>
+                        <div>&nbsp;&nbsp;SET diagonal1Sum = 0</div>
+                        <div>&nbsp;&nbsp;SET diagonal2Sum = 0</div>
+                        <div>&nbsp;&nbsp;FOR i = 0 TO n-1</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;SET diagonal1Sum = diagonal1Sum + square[i][i]</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;SET diagonal2Sum = diagonal2Sum + square[i][n-1-i]</div>
+                        <div>&nbsp;&nbsp;ENDFOR</div>
+                        <div>&nbsp;&nbsp;</div>
+                        <div>&nbsp;&nbsp;IF diagonal1Sum ≠ expectedSum THEN RETURN false</div>
+                        <div>&nbsp;&nbsp;IF diagonal2Sum ≠ expectedSum THEN RETURN false</div>
+                        <div>&nbsp;&nbsp;</div>
+                        <div>&nbsp;&nbsp;RETURN true</div>
+                        <div>END</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 5 (6 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Write an algorithm that finds the second largest number in a list of integers.
+                </p>
+                <div class="mt-3 p-3 bg-gray-50 rounded text-sm text-gray-700">
+                  <p><strong>Requirements:</strong></p>
+                  <ul class="list-disc ml-5 mt-2">
+                    <li>The list contains at least 2 integers</li>
+                    <li>Numbers may be repeated</li>
+                    <li>Handle the case where all numbers are the same</li>
+                    <li>Use proper NESA pseudocode format</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>6 marks:</strong> Complete algorithm with proper initialization, loop structure, comparison logic, and edge case handling (all numbers same)</li>
+                      <li><strong>4-5 marks:</strong> Algorithm mostly correct but missing edge case handling OR minor errors in comparison logic</li>
+                      <li><strong>2-3 marks:</strong> Basic structure with loop and comparison attempted but significant logical errors</li>
+                      <li><strong>1 mark:</strong> Shows understanding of finding maximum concept but lacks proper algorithm structure</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-gray-800 text-green-300 p-4 rounded font-mono">
+                      <div class="space-y-1">
+                        <div>BEGIN findSecondLargest(numbers)</div>
+                        <div>&nbsp;&nbsp;SET largest = numbers[0]</div>
+                        <div>&nbsp;&nbsp;SET secondLargest = numbers[0]</div>
+                        <div>&nbsp;&nbsp;</div>
+                        <div>&nbsp;&nbsp;FOR i = 1 TO length(numbers) - 1</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;IF numbers[i] > largest THEN</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET secondLargest = largest</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET largest = numbers[i]</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;ELSE IF numbers[i] > secondLargest AND numbers[i] != largest THEN</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET secondLargest = numbers[i]</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;ENDIF</div>
+                        <div>&nbsp;&nbsp;ENDFOR</div>
+                        <div>&nbsp;&nbsp;</div>
+                        <div>&nbsp;&nbsp;IF secondLargest = largest THEN</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;RETURN "All numbers are the same"</div>
+                        <div>&nbsp;&nbsp;ELSE</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;RETURN secondLargest</div>
+                        <div>&nbsp;&nbsp;ENDIF</div>
+                        <div>END</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 6 (4 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  The following algorithm is supposed to calculate the factorial of a number (n!), but contains errors. Identify and correct the errors.
+                </p>
+                <div class="mt-4 bg-gray-50 p-4 rounded border">
+                  <div class="font-mono text-sm space-y-1">
+                    <div class="text-red-600">BEGIN factorial(n)</div>
+                    <div class="text-red-600">&nbsp;&nbsp;SET result = 0</div>
+                    <div class="text-red-600">&nbsp;&nbsp;FOR i = 1 TO n</div>
+                    <div class="text-red-600">&nbsp;&nbsp;&nbsp;&nbsp;SET result = result + i</div>
+                    <div class="text-red-600">&nbsp;&nbsp;ENDFOR</div>
+                    <div class="text-red-600">&nbsp;&nbsp;RETURN result</div>
+                    <div class="text-red-600">END</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>4 marks:</strong> Identifies both errors (initialization to 1, multiplication instead of addition) AND provides correct pseudocode</li>
+                      <li><strong>3 marks:</strong> Identifies both errors correctly but has minor issues in corrected code</li>
+                      <li><strong>2 marks:</strong> Identifies one error correctly with some understanding of factorial calculation</li>
+                      <li><strong>1 mark:</strong> Shows basic understanding of factorial concept but fails to identify specific errors</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border mb-3">
+                      <p><strong>Errors identified:</strong></p>
+                      <ol class="list-decimal ml-5 space-y-1">
+                        <li><strong>Line 2:</strong> result should be initialized to 1, not 0 (since multiplication by 0 gives 0)</li>
+                        <li><strong>Line 4:</strong> Should use multiplication (*), not addition (+) for factorial calculation</li>
+                      </ol>
+                    </div>
+                    <div class="text-sm bg-gray-800 text-green-300 p-4 rounded font-mono">
+                      <div class="space-y-1">
+                        <div>BEGIN factorial(n)</div>
+                        <div>&nbsp;&nbsp;SET result = 1</div>
+                        <div>&nbsp;&nbsp;FOR i = 1 TO n</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;SET result = result * i</div>
+                        <div>&nbsp;&nbsp;ENDFOR</div>
+                        <div>&nbsp;&nbsp;RETURN result</div>
+                        <div>END</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 7 (8 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Perform a desk check of the following algorithm with the input: searchList = [3, 7, 12, 19, 25, 33, 40], target = 19
+                </p>
+                <div class="mt-4 bg-gray-50 p-4 rounded border">
+                  <div class="font-mono text-sm space-y-1">
+                    <div>BEGIN binarySearch(searchList, target)</div>
+                    <div>&nbsp;&nbsp;SET low = 0</div>
+                    <div>&nbsp;&nbsp;SET high = length(searchList) - 1</div>
+                    <div>&nbsp;&nbsp;</div>
+                    <div>&nbsp;&nbsp;WHILE low &lt;= high</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;SET mid = (low + high) / 2</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;IF searchList[mid] = target THEN</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN mid</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;ELSE IF searchList[mid] &lt; target THEN</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET low = mid + 1</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;ELSE</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET high = mid - 1</div>
+                    <div>&nbsp;&nbsp;&nbsp;&nbsp;ENDIF</div>
+                    <div>&nbsp;&nbsp;ENDWHILE</div>
+                    <div>&nbsp;&nbsp;</div>
+                    <div>&nbsp;&nbsp;RETURN -1</div>
+                    <div>END</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <p class="text-gray-600 mb-4">Create a table showing the values of all variables at each step:</p>
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-8"></div>
+                    <div class="border-b border-gray-300 h-8"></div>
+                    <div class="border-b border-gray-300 h-8"></div>
+                    <div class="border-b border-gray-300 h-8"></div>
+                    <div class="border-b border-gray-300 h-8"></div>
+                    <div class="border-b border-gray-300 h-8"></div>
+                    <div class="border-b border-gray-300 h-8"></div>
+                    <div class="border-b border-gray-300 h-8"></div>
+                    <div class="border-b border-gray-300 h-8"></div>
+                    <div class="border-b border-gray-300 h-8"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>8 marks:</strong> Complete table with all variable values traced correctly, showing binary search finds target in first iteration (returns 3)</li>
+                      <li><strong>6-7 marks:</strong> Table mostly complete with correct final result, minor errors in intermediate values</li>
+                      <li><strong>4-5 marks:</strong> Shows understanding of binary search process but significant errors in variable tracking</li>
+                      <li><strong>2-3 marks:</strong> Basic understanding of desk check process but incorrect logic or final answer</li>
+                      <li><strong>1 mark:</strong> Shows awareness of binary search concept but major errors in execution</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="overflow-x-auto">
+                      <table class="min-w-full text-xs border border-gray-300">
+                        <thead>
+                          <tr class="bg-gray-200">
+                            <th class="border border-gray-300 p-2">Step</th>
+                            <th class="border border-gray-300 p-2">low</th>
+                            <th class="border border-gray-300 p-2">high</th>
+                            <th class="border border-gray-300 p-2">mid</th>
+                            <th class="border border-gray-300 p-2">searchList[mid]</th>
+                            <th class="border border-gray-300 p-2">Condition</th>
+                            <th class="border border-gray-300 p-2">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody class="text-gray-700">
+                          <tr>
+                            <td class="border border-gray-300 p-2">Initial</td>
+                            <td class="border border-gray-300 p-2">0</td>
+                            <td class="border border-gray-300 p-2">6</td>
+                            <td class="border border-gray-300 p-2">-</td>
+                            <td class="border border-gray-300 p-2">-</td>
+                            <td class="border border-gray-300 p-2">-</td>
+                            <td class="border border-gray-300 p-2">Start while loop</td>
+                          </tr>
+                          <tr>
+                            <td class="border border-gray-300 p-2">1</td>
+                            <td class="border border-gray-300 p-2">0</td>
+                            <td class="border border-gray-300 p-2">6</td>
+                            <td class="border border-gray-300 p-2">3</td>
+                            <td class="border border-gray-300 p-2">19</td>
+                            <td class="border border-gray-300 p-2">19 = 19</td>
+                            <td class="border border-gray-300 p-2">RETURN 3</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <p class="text-sm text-green-700 mt-2">
+                      <strong>Final Answer:</strong> The algorithm returns 3, which is the index position of 19 in the array.
+                    </p>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 8 (5 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Write an algorithm in pseudocode that implements a simple linear search to find a specific value in an array. The algorithm should return the index position of the first occurrence of the target value, or -1 if the value is not found.
+                </p>
+                <div class="mt-3 text-sm text-gray-600">
+                  <p><strong>Parameters:</strong> array (list of integers), target (integer to find)</p>
+                  <p><strong>Return:</strong> index position (integer) or -1 if not found</p>
+                </div>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>5 marks:</strong> Complete function with parameters, correct loop structure, comparison logic, and returns index or -1 appropriately</li>
+                      <li><strong>4 marks:</strong> Function structure and search logic mostly correct, minor errors in return values or loop bounds</li>
+                      <li><strong>3 marks:</strong> Basic loop structure with comparison attempted but some logical errors</li>
+                      <li><strong>2 marks:</strong> Shows understanding of sequential search concept but significant implementation errors</li>
+                      <li><strong>1 mark:</strong> Basic function structure attempted but lacks proper search logic</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-gray-800 text-green-300 p-4 rounded font-mono">
+                      <div class="space-y-1">
+                        <div>BEGIN linearSearch(array, target)</div>
+                        <div>&nbsp;&nbsp;FOR i = 0 TO length(array) - 1</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;IF array[i] = target THEN</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN i</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;ENDIF</div>
+                        <div>&nbsp;&nbsp;ENDFOR</div>
+                        <div>&nbsp;&nbsp;</div>
+                        <div>&nbsp;&nbsp;RETURN -1</div>
+                        <div>END</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 9 (6 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Write an algorithm in pseudocode that implements the bubble sort algorithm to sort an array of integers in ascending order.
+                </p>
+                <div class="mt-3 p-3 bg-gray-50 rounded text-sm text-gray-700">
+                  <p><strong>Bubble Sort Process:</strong></p>
+                  <ul class="list-disc ml-5 mt-2">
+                    <li>Compare adjacent elements and swap if they are in wrong order</li>
+                    <li>Continue until no more swaps are needed</li>
+                    <li>Use nested loops to implement this process</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>6 marks:</strong> Complete nested loop structure with correct bounds, comparison logic, swapping mechanism using temporary variable</li>
+                      <li><strong>5 marks:</strong> Nested loops and comparison correct but minor issues with swapping or loop bounds</li>
+                      <li><strong>4 marks:</strong> Shows understanding of bubble sort concept with basic loop structure but some logical errors</li>
+                      <li><strong>2-3 marks:</strong> Attempts sorting algorithm but significant errors in loop structure or comparison logic</li>
+                      <li><strong>1 mark:</strong> Shows basic understanding of sorting concept but lacks proper algorithm structure</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-gray-800 text-green-300 p-4 rounded font-mono">
+                      <div class="space-y-1">
+                        <div>BEGIN bubbleSort(array)</div>
+                        <div>&nbsp;&nbsp;SET n = length(array)</div>
+                        <div>&nbsp;&nbsp;</div>
+                        <div>&nbsp;&nbsp;FOR i = 0 TO n-2</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;FOR j = 0 TO n-2-i</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF array[j] > array[j+1] THEN</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET temp = array[j]</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET array[j] = array[j+1]</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SET array[j+1] = temp</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ENDIF</div>
+                        <div>&nbsp;&nbsp;&nbsp;&nbsp;ENDFOR</div>
+                        <div>&nbsp;&nbsp;ENDFOR</div>
+                        <div>&nbsp;&nbsp;</div>
+                        <div>&nbsp;&nbsp;RETURN array</div>
+                        <div>END</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 10 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 10 (4 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Explain why a binary search algorithm requires the input array to be sorted, and describe what would happen if you attempted to use binary search on an unsorted array.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>4 marks:</strong> Explains both why sorting is required (elimination process needs ordered data) AND what happens with unsorted data (false negatives, incorrect elimination)</li>
+                      <li><strong>3 marks:</strong> Explains why binary search needs sorting OR what happens with unsorted data, but not both clearly</li>
+                      <li><strong>2 marks:</strong> Shows understanding of binary search process but explanation lacks clarity on sorting requirement</li>
+                      <li><strong>1 mark:</strong> Shows basic understanding of binary search concept but fails to address sorting dependency</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p><strong>Why sorting is required:</strong></p>
+                      <p>Binary search relies on the divide-and-conquer principle where it compares the target value with the middle element and eliminates half of the remaining elements based on whether the target is greater or less than the middle value. This elimination process only works correctly if the array is sorted, because it assumes that all elements to the left of the middle are smaller and all elements to the right are larger.</p>
+                      
+                      <p class="mt-3"><strong>What happens with unsorted data:</strong></p>
+                      <p>If binary search is used on an unsorted array, the algorithm may incorrectly eliminate the section of the array that contains the target value, leading to false negatives (returning "not found" when the value actually exists in the array). The algorithm's decision to search left or right becomes meaningless without the sorted order guarantee.</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Study Tips -->
+            <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+              <h3 class="text-xl font-bold text-blue-800 mb-4">💡 Algorithm Exam Success Tips</h3>
+              <div class="grid md:grid-cols-2 gap-4 text-sm text-blue-700">
+                <div>
+                  <h4 class="font-semibold mb-2">For Pseudocode Questions:</h4>
+                  <ul class="space-y-1">
+                    <li>• Use proper NESA format (BEGIN/END, IF/ENDIF, FOR/ENDFOR)</li>
+                    <li>• Include clear variable declarations (SET)</li>
+                    <li>• Always include RETURN statements</li>
+                    <li>• Use meaningful variable names</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">For Desk Check Questions:</h4>
+                  <ul class="space-y-1">
+                    <li>• Create a table with all variables</li>
+                    <li>• Show every step of execution</li>
+                    <li>• Include loop iterations</li>
+                    <li>• Always show the final return value</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mt-4 p-3 bg-blue-100 rounded">
+                <p class="font-semibold text-blue-800">Remember: These are high-mark questions!</p>
+                <p class="text-blue-700 text-xs">Take time to plan your pseudocode structure before writing. Show all your working for desk checks.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

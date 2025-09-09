@@ -1,0 +1,456 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProgrammingFundamentalsNav from '../../../components/ProgrammingFundamentalsNav';
+import DataStructureVisualizer from '../../../components/DataStructureVisualizer';
+import CollapsibleSection from '../../../components/CollapsibleSection';
+import Tooltip from '../../../components/Tooltip';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Data Structures - Programming Fundamentals" description="Understanding arrays, stacks, queues, and other fundamental data structures for organising and accessing data efficiently">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Data Structures</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <ProgrammingFundamentalsNav 
+              client:load 
+              currentPage="/topics/programming-fundamentals/data-structures"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Data Structures</h1>
+            
+            <div class="mb-8 p-6 bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl border border-purple-200">
+              <p class="text-purple-900 text-lg leading-relaxed">
+                <strong><Tooltip client:load term="Data Structures" definition="Specialized formats for organising, storing, and accessing data efficiently in computer programs">Data structures</Tooltip></strong> are different ways to organise and store data in your programs. Think of them like different containers - some are perfect for keeping things in order (lists), others for quick lookups (dictionaries), and some for storing grids of data (2D arrays).
+              </p>
+            </div>
+
+            <!-- Core Data Structures Overview -->
+            <div class="mb-8">
+              <h3 class="text-xl font-semibold mb-4">Data Structures You'll Use</h3>
+              
+              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                  <h4 class="font-semibold text-blue-800 mb-2">Lists</h4>
+                  <p class="text-sm text-blue-700">Ordered collections of items you can access by position</p>
+                </div>
+                
+                <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                  <h4 class="font-semibold text-green-800 mb-2">Dictionaries</h4>
+                  <p class="text-sm text-green-700">Key-value pairs for fast lookups by name</p>
+                </div>
+                
+                <div class="bg-purple-50 p-4 rounded-lg border border-purple-200">
+                  <h4 class="font-semibold text-purple-800 mb-2">2D Arrays</h4>
+                  <p class="text-sm text-purple-700">Grids of data arranged in rows and columns</p>
+                </div>
+                
+                <div class="bg-orange-50 p-4 rounded-lg border border-orange-200">
+                  <h4 class="font-semibold text-orange-800 mb-2">Strings</h4>
+                  <p class="text-sm text-orange-700">Arrays of characters that form text</p>
+                </div>
+                
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                  <h4 class="font-semibold text-red-800 mb-2">Stacks</h4>
+                  <p class="text-sm text-red-700">Last-in-first-out collections (like a stack of plates)</p>
+                </div>
+                
+                <div class="bg-teal-50 p-4 rounded-lg border border-teal-200">
+                  <h4 class="font-semibold text-teal-800 mb-2">Queues</h4>
+                  <p class="text-sm text-teal-700">First-in-first-out collections (like a line of people)</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Data Structure Visualizer -->
+            <div class="mb-8">
+              <h3 class="text-xl font-semibold mb-4">Interactive Data Structure Operations</h3>
+              <p class="text-gray-700 mb-6">
+                Explore how different data structures work by adding, removing, and manipulating data. See the visual representation of operations and understand when to use each structure.
+              </p>
+              
+              <DataStructureVisualizer client:load />
+            </div>
+
+            <!-- Lists vs Dictionaries - Exam Focus -->
+            <div class="mb-8">
+              <h3 class="text-2xl font-semibold mb-4">Lists vs Dictionaries: Key Differences</h3>
+              
+              <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <!-- Lists -->
+                <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                  <h4 class="font-semibold text-blue-800 mb-4">📋 Lists</h4>
+                  <p class="text-blue-700 text-sm mb-4">Ordered collections accessed by position (index)</p>
+                  
+                  <div class="bg-white p-4 rounded border border-blue-300 mb-4">
+                    <h5 class="font-medium text-blue-700 mb-2">Python Example:</h5>
+                    <pre class="text-sm font-mono"><code>students = ["Alice", "Bob", "Carol"]
+print(students[0])  # "Alice"
+print(students[1])  # "Bob"
+students.append("Dave")  # Add to end</code></pre>
+                  </div>
+                  
+                  <h5 class="font-medium text-blue-700 mb-2">Key Features:</h5>
+                  <ul class="text-sm space-y-1 text-blue-600">
+                    <li>• Access by index number (0, 1, 2...)</li>
+                    <li>• Keeps items in order</li>
+                    <li>• Can have duplicate values</li>
+                    <li>• Good for sequences and collections</li>
+                  </ul>
+                </div>
+
+                <!-- Dictionaries -->
+                <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+                  <h4 class="font-semibold text-green-800 mb-4">📖 Dictionaries</h4>
+                  <p class="text-green-700 text-sm mb-4">Key-value pairs accessed by meaningful names</p>
+                  
+                  <div class="bg-white p-4 rounded border border-green-300 mb-4">
+                    <h5 class="font-medium text-green-700 mb-2">Python Example:</h5>
+                    <pre class="text-sm font-mono"><code>student = &#123;"name": "Alice", "age": 16, "grade": "A"&#125;
+print(student["name"])  # "Alice"
+print(student["age"])   # 16
+student["email"] = "alice@school.edu"</code></pre>
+                  </div>
+                  
+                  <h5 class="font-medium text-green-700 mb-2">Key Features:</h5>
+                  <ul class="text-sm space-y-1 text-green-600">
+                    <li>• Access by descriptive key names</li>
+                    <li>• No particular order</li>
+                    <li>• Keys must be unique</li>
+                    <li>• Perfect for storing related data</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <!-- When to Use Which -->
+              <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                <h4 class="font-semibold text-yellow-800 mb-3">When to Use Which?</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <h5 class="font-medium text-yellow-700 mb-2">Use Lists when:</h5>
+                    <ul class="text-sm space-y-1 text-yellow-700">
+                      <li>• You need items in a specific order</li>
+                      <li>• You're collecting similar items</li>
+                      <li>• You want to access by position</li>
+                      <li>• Example: ["Math", "Science", "English"]</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 class="font-medium text-yellow-700 mb-2">Use Dictionaries when:</h5>
+                    <ul class="text-sm space-y-1 text-yellow-700">
+                      <li>• You need fast lookup by name</li>
+                      <li>• You're storing related attributes</li>
+                      <li>• You want meaningful key names</li>
+                      <li>• Example: &#123;"name": "John", "age": 16&#125;</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2D Arrays - Grids and Tables -->
+            <div class="mb-8">
+              <h3 class="text-2xl font-semibold mb-4">2D Arrays: Grids and Tables</h3>
+              
+              <div class="bg-purple-50 p-6 rounded-lg border border-purple-200 mb-6">
+                <h4 class="font-semibold text-purple-800 mb-4">What are 2D Arrays?</h4>
+                <p class="text-purple-700 text-sm mb-4">
+                  Think of a 2D array like a spreadsheet - it has rows and columns. Perfect for storing grids of data like game boards, tables, or matrices.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div class="bg-white p-4 rounded border">
+                    <h5 class="font-medium text-purple-700 mb-2">Visual Example: Tic-Tac-Toe</h5>
+                    <div class="grid grid-cols-3 gap-1 w-24 mx-auto">
+                      <div class="bg-purple-200 p-2 text-center text-sm font-mono">X</div>
+                      <div class="bg-purple-200 p-2 text-center text-sm font-mono">O</div>
+                      <div class="bg-purple-200 p-2 text-center text-sm font-mono">X</div>
+                      <div class="bg-purple-200 p-2 text-center text-sm font-mono">O</div>
+                      <div class="bg-purple-200 p-2 text-center text-sm font-mono">X</div>
+                      <div class="bg-purple-200 p-2 text-center text-sm font-mono">O</div>
+                      <div class="bg-purple-200 p-2 text-center text-sm font-mono">X</div>
+                      <div class="bg-purple-200 p-2 text-center text-sm font-mono">O</div>
+                      <div class="bg-purple-200 p-2 text-center text-sm font-mono">X</div>
+                    </div>
+                    <p class="text-xs text-center text-gray-600 mt-2">board[row][column]</p>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded border">
+                    <h5 class="font-medium text-purple-700 mb-2">Python Example:</h5>
+                    <pre class="text-sm font-mono"><code># Create 3x3 grid
+board = [
+    ["X", "O", "X"],
+    ["O", "X", "O"], 
+    ["X", "O", "X"]
+]
+
+# Access elements
+top_left = board[0][0]      # "X"
+center = board[1][1]        # "X"
+
+# Modify elements
+board[2][2] = "O"           # Change bottom-right</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Strings - Arrays of Characters -->
+            <div class="mb-8">
+              <h3 class="text-2xl font-semibold mb-4">Strings: Arrays of Characters</h3>
+              
+              <div class="bg-orange-50 p-6 rounded-lg border border-orange-200 mb-6">
+                <h4 class="font-semibold text-orange-800 mb-4">Strings are Special Arrays</h4>
+                <p class="text-orange-700 text-sm mb-4">
+                  A string is essentially an array of characters. Each character has an index position, just like items in a list.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div class="bg-white p-4 rounded border">
+                    <h5 class="font-medium text-orange-700 mb-2">Character Access:</h5>
+                    <pre class="text-sm font-mono bg-gray-50 p-3 rounded"><code>name = "Alice"
+print(name[0])    # "A"
+print(name[1])    # "l" 
+print(name[-1])   # "e" (last character)
+print(len(name))  # 5</code></pre>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded border">
+                    <h5 class="font-medium text-orange-700 mb-2">String Operations:</h5>
+                    <pre class="text-sm font-mono bg-gray-50 p-3 rounded"><code>text = "Hello World"
+print(text.upper())      # "HELLO WORLD"
+print(text.lower())      # "hello world"
+print(text.split())      # ["Hello", "World"]
+print("o" in text)       # True</code></pre>
+                  </div>
+                </div>
+                
+                <div class="mt-4 p-3 bg-white rounded border">
+                  <h5 class="font-medium text-orange-700 mb-2">Visual: String Indexing</h5>
+                  <div class="flex justify-center space-x-1 mb-2">
+                    <div class="bg-orange-200 px-2 py-1 text-sm font-mono text-center">H</div>
+                    <div class="bg-orange-200 px-2 py-1 text-sm font-mono text-center">e</div>
+                    <div class="bg-orange-200 px-2 py-1 text-sm font-mono text-center">l</div>
+                    <div class="bg-orange-200 px-2 py-1 text-sm font-mono text-center">l</div>
+                    <div class="bg-orange-200 px-2 py-1 text-sm font-mono text-center">o</div>
+                  </div>
+                  <div class="flex justify-center space-x-1 text-xs text-gray-600">
+                    <div class="px-2 py-1 text-center">0</div>
+                    <div class="px-2 py-1 text-center">1</div>
+                    <div class="px-2 py-1 text-center">2</div>
+                    <div class="px-2 py-1 text-center">3</div>
+                    <div class="px-2 py-1 text-center">4</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stacks - LIFO Structure -->
+            <div class="mb-8">
+              <h3 class="text-2xl font-semibold mb-4">2. Stacks - Last In, First Out (LIFO)</h3>
+              <p class="text-gray-600 mb-6">A stack is like a stack of plates - you can only add or remove from the top.</p>
+              
+              <div class="bg-green-50 p-6 rounded-lg border border-green-200 mb-6">
+                <h4 class="font-semibold text-green-800 mb-4">How Stacks Work</h4>
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h5 class="font-medium text-green-700 mb-2">Key Operations:</h5>
+                    <ul class="text-sm space-y-1 text-green-600">
+                      <li>• <strong>Push:</strong> Add item to top</li>
+                      <li>• <strong>Pop:</strong> Remove item from top</li>
+                      <li>• <strong>Peek:</strong> Look at top item</li>
+                      <li>• <strong>isEmpty:</strong> Check if stack is empty</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 class="font-medium text-green-700 mb-2">Real-world Examples:</h5>
+                    <ul class="text-sm space-y-1 text-green-600">
+                      <li>• Undo function in software</li>
+                      <li>• Browser back button</li>
+                      <li>• Function calls in programming</li>
+                      <li>• Stack of cafeteria trays</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Code Examples -->
+              <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                  <h5 class="font-medium mb-3">Pseudocode</h5>
+                  <pre class="bg-gray-50 p-3 rounded text-sm font-mono"><code># Stack operations
+SET stack = []
+
+# Push items
+PUSH stack "Page1"
+PUSH stack "Page2"
+PUSH stack "Page3"
+# stack now: ["Page1", "Page2", "Page3"]
+
+# Pop items (removes from top)
+SET current = POP stack    // "Page3"
+SET previous = POP stack   // "Page2"</code></pre>
+                </div>
+                
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                  <h5 class="font-medium mb-3">Python</h5>
+                  <pre class="bg-gray-900 p-3 rounded text-sm font-mono text-white"><code># Stack operations using list
+stack = []
+
+# Push items
+stack.append("Page1")
+stack.append("Page2")
+stack.append("Page3")
+# stack now: ["Page1", "Page2", "Page3"]
+
+# Pop items (removes from top)
+current = stack.pop()      # "Page3"
+previous = stack.pop()     # "Page2"</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Queues - FIFO Structure -->
+            <div class="mb-8">
+              <h3 class="text-2xl font-semibold mb-4">3. Queues - First In, First Out (FIFO)</h3>
+              <p class="text-gray-600 mb-6">A queue is like a line at the shop - first person in line is first to be served.</p>
+              
+              <div class="bg-blue-50 p-6 rounded-lg border border-blue-200 mb-6">
+                <h4 class="font-semibold text-blue-800 mb-4">How Queues Work</h4>
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h5 class="font-medium text-blue-700 mb-2">Key Operations:</h5>
+                    <ul class="text-sm space-y-1 text-blue-600">
+                      <li>• <strong>Enqueue:</strong> Add item to back</li>
+                      <li>• <strong>Dequeue:</strong> Remove item from front</li>
+                      <li>• <strong>Front:</strong> Look at front item</li>
+                      <li>• <strong>isEmpty:</strong> Check if queue is empty</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 class="font-medium text-blue-700 mb-2">Real-world Examples:</h5>
+                    <ul class="text-sm space-y-1 text-blue-600">
+                      <li>• Print job queue</li>
+                      <li>• Task scheduling</li>
+                      <li>• Customer service line</li>
+                      <li>• Buffering data streams</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Code Examples -->
+              <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                  <h5 class="font-medium mb-3">Pseudocode</h5>
+                  <pre class="bg-gray-50 p-3 rounded text-sm font-mono"><code># Queue operations
+SET queue = []
+
+# Enqueue items (add to back)
+ENQUEUE queue "Job1"
+ENQUEUE queue "Job2"
+ENQUEUE queue "Job3"
+# queue: ["Job1", "Job2", "Job3"]
+
+# Dequeue items (remove from front)
+SET first_job = DEQUEUE queue    // "Job1"
+SET second_job = DEQUEUE queue   // "Job2"</code></pre>
+                </div>
+                
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                  <h5 class="font-medium mb-3">Python</h5>
+                  <pre class="bg-gray-900 p-3 rounded text-sm font-mono text-white"><code># Queue operations using deque
+from collections import deque
+queue = deque()
+
+# Enqueue items (add to back)
+queue.append("Job1")
+queue.append("Job2")
+queue.append("Job3")
+
+# Dequeue items (remove from front)
+first_job = queue.popleft()      # "Job1"
+second_job = queue.popleft()     # "Job2"</code></pre>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Quick Reference Guide -->
+            <div class="mb-8">
+              <h3 class="text-2xl font-semibold mb-4">Quick Reference: When to Use What?</h3>
+              
+              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                  <h4 class="font-semibold text-blue-800 mb-2">Lists</h4>
+                  <p class="text-sm text-blue-600 mb-2">Use when you need:</p>
+                  <ul class="text-xs space-y-1 text-blue-600">
+                    <li>Collection of items in order</li>
+                    <li>Access by position/index</li>
+                    <li>Add/remove items easily</li>
+                  </ul>
+                  <div class="text-xs text-blue-500 mt-2 font-mono">grades = [85, 92, 78]</div>
+                </div>
+                
+                <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                  <h4 class="font-semibold text-green-800 mb-2">Dictionaries</h4>
+                  <p class="text-sm text-green-600 mb-2">Use when you need:</p>
+                  <ul class="text-xs space-y-1 text-green-600">
+                    <li>Key-value relationships</li>
+                    <li>Fast lookups by name</li>
+                    <li>Store related attributes</li>
+                  </ul>
+                  <div class="text-xs text-green-500 mt-2 font-mono">student = &#123;"name": "Alice"&#125;</div>
+                </div>
+                
+                <div class="bg-purple-50 p-4 rounded-lg border border-purple-200">
+                  <h4 class="font-semibold text-purple-800 mb-2">2D Arrays</h4>
+                  <p class="text-sm text-purple-600 mb-2">Use when you need:</p>
+                  <ul class="text-xs space-y-1 text-purple-600">
+                    <li>Grid/table of data</li>
+                    <li>Rows and columns</li>
+                    <li>Matrix operations</li>
+                  </ul>
+                  <div class="text-xs text-purple-500 mt-2 font-mono">grid[row][column]</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- NESA Exam Context -->
+            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-amber-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                  <p class="font-semibold text-amber-900 mb-1">NESA Exam Focus</p>
+                  <p class="text-amber-800 text-sm">Question 18 often tests data structures: lists, dictionaries, 2D arrays, and strings. Focus on array indexing, list operations (append, remove, access by position), dictionary key-value access, and 2D array navigation using [row][column]. Know when to use each structure and how to manipulate data within them. Practice stack (LIFO) and queue (FIFO) operations for algorithm questions.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

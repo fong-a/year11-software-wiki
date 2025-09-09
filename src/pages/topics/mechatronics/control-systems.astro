@@ -1,0 +1,263 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import MechatronicsNav from '../../../components/MechatronicsNav';
+import SearchComponent from '../../../components/SearchComponent';
+import FlipCard from '../../../components/FlipCard.astro';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Control Systems - Mechatronics" description="Learn about open loop vs closed loop control systems with feedback mechanisms">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center justify-between">
+        <nav>
+          <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+          <span class="text-sm text-gray-400 mx-2">></span>
+          <a href="/topics/mechatronics" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mechatronics Systems</a>
+          <span class="text-sm text-gray-400 mx-2">></span>
+          <span class="text-sm text-gray-900 font-medium">Control Systems</span>
+        </nav>
+        <div class="ml-4">
+          <SearchComponent client:load className="w-80" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 overflow-y-auto" style="max-height: calc(100vh - 6rem);">
+            <MechatronicsNav 
+              client:load 
+              currentPage="/topics/mechatronics/control-systems"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Control Systems</h1>
+            
+            <div class="mb-8 p-6 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+              <p class="text-purple-900 text-lg">
+                Control systems determine how mechatronic devices respond to inputs and maintain desired outputs. Understanding the difference between open and closed loop systems is fundamental to mechatronics.
+              </p>
+            </div>
+
+            <!-- Open Loop Systems -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Open Loop Systems</h2>
+              
+              <FlipCard frontTitle="Open Loop System" id="open-loop">
+                <div slot="front">
+                  <p><strong>Definition:</strong> A control system that operates without feedback</p>
+                  <p><strong>How it works:</strong> Input → Controller → Output</p>
+                  <p><strong>Click to see examples →</strong></p>
+                </div>
+                <div slot="back">
+                  <p><strong>Examples:</strong></p>
+                  <ul class="mb-3">
+                    <li>🍞 <strong>Toaster:</strong> Timer runs for set time regardless of toast color</li>
+                    <li>🚿 <strong>Basic shower:</strong> You set temperature, no automatic adjustment</li>
+                    <li>💡 <strong>Light switch:</strong> On or off, no brightness adjustment</li>
+                    <li>🔊 <strong>Basic stereo:</strong> Volume knob position determines loudness</li>
+                  </ul>
+                  <p><strong>Characteristics:</strong> Simple, cheap, but can't self-correct</p>
+                </div>
+              </FlipCard>
+
+              <div class="mt-6 bg-green-50 p-6 rounded-lg border border-green-200">
+                <h3 class="text-lg font-semibold text-green-800 mb-3">Open Loop Advantages</h3>
+                <ul class="text-green-700 space-y-1">
+                  <li>✅ <strong>Simple:</strong> Easy to design and understand</li>
+                  <li>✅ <strong>Cheap:</strong> Fewer components needed</li>
+                  <li>✅ <strong>Reliable:</strong> Less can go wrong</li>
+                  <li>✅ <strong>Fast:</strong> No time spent processing feedback</li>
+                </ul>
+              </div>
+
+              <div class="mt-4 bg-red-50 p-6 rounded-lg border border-red-200">
+                <h3 class="text-lg font-semibold text-red-800 mb-3">Open Loop Disadvantages</h3>
+                <ul class="text-red-700 space-y-1">
+                  <li>❌ <strong>No self-correction:</strong> Can't adjust if conditions change</li>
+                  <li>❌ <strong>Less accurate:</strong> Output depends on perfect initial settings</li>
+                  <li>❌ <strong>Sensitive to disturbances:</strong> External factors affect performance</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Closed Loop Systems -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Closed Loop Systems</h2>
+              
+              <FlipCard frontTitle="Closed Loop System" id="closed-loop">
+                <div slot="front">
+                  <p><strong>Definition:</strong> A control system that uses feedback to self-adjust</p>
+                  <p><strong>How it works:</strong> Input → Controller → Output → Sensor → Controller</p>
+                  <p><strong>Click to see examples →</strong></p>
+                </div>
+                <div slot="back">
+                  <p><strong>Examples:</strong></p>
+                  <ul class="mb-3">
+                    <li>🌡️ <strong>Thermostat:</strong> Measures room temperature and adjusts heating</li>
+                    <li>🚗 <strong>Cruise control:</strong> Maintains speed regardless of hills</li>
+                    <li>🎯 <strong>Auto-focus camera:</strong> Adjusts lens until image is sharp</li>
+                    <li>🏠 <strong>Smart irrigation:</strong> Waters plants based on soil moisture</li>
+                  </ul>
+                  <p><strong>Characteristics:</strong> More complex but self-correcting and accurate</p>
+                </div>
+              </FlipCard>
+
+              <div class="mt-6 bg-blue-50 p-6 rounded-lg border border-blue-200">
+                <h3 class="text-lg font-semibold text-blue-800 mb-3">Closed Loop Advantages</h3>
+                <ul class="text-blue-700 space-y-1">
+                  <li>✅ <strong>Self-correcting:</strong> Automatically adjusts to maintain desired output</li>
+                  <li>✅ <strong>Accurate:</strong> Uses feedback to achieve precise control</li>
+                  <li>✅ <strong>Stable:</strong> Compensates for disturbances and changes</li>
+                  <li>✅ <strong>Adaptable:</strong> Responds to changing conditions</li>
+                </ul>
+              </div>
+
+              <div class="mt-4 bg-orange-50 p-6 rounded-lg border border-orange-200">
+                <h3 class="text-lg font-semibold text-orange-800 mb-3">Closed Loop Disadvantages</h3>
+                <ul class="text-orange-700 space-y-1">
+                  <li>⚠️ <strong>More complex:</strong> Requires sensors and feedback processing</li>
+                  <li>⚠️ <strong>More expensive:</strong> Additional components increase cost</li>
+                  <li>⚠️ <strong>Potential instability:</strong> Poor design can cause oscillations</li>
+                  <li>⚠️ <strong>Slower response:</strong> Time needed to process feedback</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Visual Comparison -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">System Comparison</h2>
+              
+              <div class="bg-gray-50 p-6 rounded-lg">
+                <h3 class="text-lg font-semibold mb-4">Heating System Example</h3>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h4 class="font-semibold text-gray-800 mb-3">🟢 Open Loop Heating</h4>
+                    <p class="text-sm text-gray-600 mb-3">Timer-controlled heater</p>
+                    <div class="space-y-2">
+                      <div class="flex items-center">
+                        <div class="w-16 bg-blue-100 text-blue-800 text-xs p-1 rounded mr-2">Timer</div>
+                        <span class="text-xs">→</span>
+                        <div class="w-16 bg-red-100 text-red-800 text-xs p-1 rounded mx-2">Heater</div>
+                        <span class="text-xs">→</span>
+                        <div class="w-16 bg-yellow-100 text-yellow-800 text-xs p-1 rounded ml-2">Heat</div>
+                      </div>
+                      <p class="text-xs text-gray-500">Heater runs for set time regardless of room temperature</p>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h4 class="font-semibold text-gray-800 mb-3">🔄 Closed Loop Heating</h4>
+                    <p class="text-sm text-gray-600 mb-3">Thermostat-controlled heater</p>
+                    <div class="space-y-2">
+                      <div class="flex items-center text-xs">
+                        <div class="w-20 bg-blue-100 text-blue-800 p-1 rounded">Thermostat</div>
+                        <span class="mx-1">→</span>
+                        <div class="w-16 bg-red-100 text-red-800 p-1 rounded">Heater</div>
+                      </div>
+                      <div class="flex items-center text-xs">
+                        <div class="w-20 bg-green-100 text-green-800 p-1 rounded">Temp Sensor</div>
+                        <span class="mx-1">←</span>
+                        <div class="w-16 bg-yellow-100 text-yellow-800 p-1 rounded">Room</div>
+                      </div>
+                      <p class="text-xs text-gray-500">System measures temperature and adjusts heating automatically</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Feedback Mechanisms -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Understanding Feedback</h2>
+              
+              <div class="bg-blue-50 p-6 rounded-lg border border-blue-200 mb-6">
+                <h3 class="text-lg font-semibold text-blue-800 mb-3">What is Feedback?</h3>
+                <p class="text-blue-700 mb-3">
+                  Feedback is information about the system's output that is fed back to the controller to influence future behavior.
+                </p>
+                <p class="text-blue-700">
+                  <strong>The feedback loop:</strong> Measure actual output → Compare with desired output → Adjust input if needed
+                </p>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                  <h3 class="font-semibold text-green-800 mb-2">🎯 Positive Feedback</h3>
+                  <p class="text-sm text-green-700 mb-2">Output reinforces the input (amplifies the signal)</p>
+                  <p class="text-xs text-green-600"><strong>Example:</strong> Microphone too close to speaker creates loud screeching</p>
+                </div>
+                
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                  <h3 class="font-semibold text-red-800 mb-2">🔄 Negative Feedback</h3>
+                  <p class="text-sm text-red-700 mb-2">Output opposes the input (stabilizes the system)</p>
+                  <p class="text-xs text-red-600"><strong>Example:</strong> Thermostat turns off heater when temperature reaches target</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Real-World Applications -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">When to Use Each System</h2>
+              
+              <div class="space-y-6">
+                <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+                  <h3 class="text-lg font-semibold text-green-800 mb-3">Use Open Loop When:</h3>
+                  <ul class="text-green-700 space-y-1">
+                    <li>✅ The task is simple and predictable</li>
+                    <li>✅ Cost is the primary concern</li>
+                    <li>✅ High speed response is needed</li>
+                    <li>✅ Environmental conditions are stable</li>
+                    <li>✅ Feedback sensors would be impractical or expensive</li>
+                  </ul>
+                  <p class="text-sm text-green-600 mt-3"><strong>Examples:</strong> Traffic lights, washing machine cycles, microwave timers</p>
+                </div>
+                
+                <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                  <h3 class="text-lg font-semibold text-blue-800 mb-3">Use Closed Loop When:</h3>
+                  <ul class="text-blue-700 space-y-1">
+                    <li>✅ High accuracy is required</li>
+                    <li>✅ Environmental conditions vary</li>
+                    <li>✅ System must adapt to disturbances</li>
+                    <li>✅ Consistent performance is critical</li>
+                    <li>✅ Safety is a major concern</li>
+                  </ul>
+                  <p class="text-sm text-blue-600 mt-3"><strong>Examples:</strong> Aircraft autopilot, medical devices, industrial robots</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="text-lg font-semibold mb-3">Continue Learning</h3>
+              <p class="text-gray-600 mb-4">Now you understand control systems. Explore the hardware components that make them work:</p>
+              <div class="flex flex-wrap gap-2">
+                <a href="/topics/mechatronics/sensors" class="inline-flex items-center px-3 py-2 bg-orange-100 text-orange-700 rounded-md text-sm hover:bg-orange-200 transition-colors">
+                  Learn About Sensors
+                </a>
+                <a href="/topics/mechatronics/actuators" class="inline-flex items-center px-3 py-2 bg-orange-100 text-orange-700 rounded-md text-sm hover:bg-orange-200 transition-colors">
+                  Explore Actuators
+                </a>
+                <a href="/topics/mechatronics/processors" class="inline-flex items-center px-3 py-2 bg-orange-100 text-orange-700 rounded-md text-sm hover:bg-orange-200 transition-colors">
+                  Processors & Controllers
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

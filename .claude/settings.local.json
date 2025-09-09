@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build:*)",
+      "Bash(npm run astro:*)",
+      "Bash(sed:*)",
+      "Bash(npm run dev:*)",
+      "Bash(curl:*)",
+      "Bash(timeout:*)",
+      "Bash(npm outdated)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

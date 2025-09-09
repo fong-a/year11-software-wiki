@@ -1,0 +1,545 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import OOPNav from '../../../components/OOPNav';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="OOP Benefits - Object-Oriented Programming" description="Discover the advantages of object-oriented programming including code reusability, maintainability, and scalability">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/object-oriented-programming" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Object-Oriented Programming</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Benefits of OOP</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <OOPNav 
+              client:load 
+              currentPage="/topics/object-oriented-programming/benefits"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Benefits of Object-Oriented Programming</h1>
+            
+            <div class="mb-8 p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-200">
+              <p class="text-green-900 text-lg leading-relaxed">
+                <strong>Object-Oriented Programming</strong> isn't just a different way to write code - it's a powerful paradigm that makes software development more efficient, maintainable, and scalable. Discover why OOP is the foundation of modern software engineering!
+              </p>
+            </div>
+
+            <!-- Overview -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Why Choose OOP?</h2>
+              
+              <div class="bg-blue-50 p-6 rounded-lg border border-blue-200 mb-6">
+                <p class="text-blue-800 mb-4">
+                  Object-Oriented Programming makes complex software development easier to manage and organize. Instead of writing long, messy code, OOP lets you model real-world things as objects that work together naturally.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div class="bg-white p-4 rounded border">
+                    <h3 class="font-medium text-blue-800 mb-2">🚫 Without OOP (Procedural):</h3>
+                    <ul class="text-sm text-blue-700 space-y-1">
+                      <li>• Long, complex functions</li>
+                      <li>• Repeated code everywhere</li>
+                      <li>• Hard to modify and maintain</li>
+                      <li>• Difficult to test individual components</li>
+                      <li>• No clear organization</li>
+                    </ul>
+                  </div>
+                  <div class="bg-white p-4 rounded border">
+                    <h3 class="font-medium text-green-800 mb-2">✅ With OOP:</h3>
+                    <ul class="text-sm text-green-700 space-y-1">
+                      <li>• Organized, modular code</li>
+                      <li>• Reusable components</li>
+                      <li>• Easy to maintain and extend</li>
+                      <li>• Simple to test and debug</li>
+                      <li>• Clear, logical structure</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Key Benefits Grid -->
+            <div class="mb-12">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">The Six Core Benefits</h2>
+              
+              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Code Reusability -->
+                <div class="bg-green-50 p-6 rounded-lg border border-green-200 hover:shadow-md transition-shadow">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                      <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                      </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-green-800">Code Reusability</h3>
+                  </div>
+                  <p class="text-green-700 text-sm mb-3">
+                    Write once, use everywhere! Classes can be reused across different parts of your application and even in completely different projects.
+                  </p>
+                  <div class="bg-white p-3 rounded border border-green-200">
+                    <p class="text-xs text-green-600"><strong>Example:</strong> A Student class can be used in enrollment, grading, and reporting systems.</p>
+                  </div>
+                </div>
+
+                <!-- Maintainability -->
+                <div class="bg-blue-50 p-6 rounded-lg border border-blue-200 hover:shadow-md transition-shadow">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                      <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                      </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-blue-800">Maintainability</h3>
+                  </div>
+                  <p class="text-blue-700 text-sm mb-3">
+                    Changes are localized to specific classes. Fix a bug in one place, and it's fixed everywhere that class is used.
+                  </p>
+                  <div class="bg-white p-3 rounded border border-blue-200">
+                    <p class="text-xs text-blue-600"><strong>Example:</strong> Update the User class authentication method, and all login systems benefit automatically.</p>
+                  </div>
+                </div>
+
+                <!-- Scalability -->
+                <div class="bg-purple-50 p-6 rounded-lg border border-purple-200 hover:shadow-md transition-shadow">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                      <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                      </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-purple-800">Scalability</h3>
+                  </div>
+                  <p class="text-purple-700 text-sm mb-3">
+                    Add new features and classes without breaking existing code. Your application can grow organically.
+                  </p>
+                  <div class="bg-white p-3 rounded border border-purple-200">
+                    <p class="text-xs text-purple-600"><strong>Example:</strong> Add new character types to your game without modifying the existing game engine.</p>
+                  </div>
+                </div>
+
+                <!-- Modularity -->
+                <div class="bg-orange-50 p-6 rounded-lg border border-orange-200 hover:shadow-md transition-shadow">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-4">
+                      <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                      </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-orange-800">Modularity</h3>
+                  </div>
+                  <p class="text-orange-700 text-sm mb-3">
+                    Break big problems into smaller, easier pieces. Each class has one clear job to do.
+                  </p>
+                  <div class="bg-white p-3 rounded border border-orange-200">
+                    <p class="text-xs text-orange-600"><strong>Example:</strong> Separate User, Order, and Payment classes instead of one giant function.</p>
+                  </div>
+                </div>
+
+                <!-- Flexibility -->
+                <div class="bg-red-50 p-6 rounded-lg border border-red-200 hover:shadow-md transition-shadow">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mr-4">
+                      <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"></path>
+                      </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-red-800">Flexibility</h3>
+                  </div>
+                  <p class="text-red-700 text-sm mb-3">
+                    Different classes can work together smoothly by sharing common methods and behaviors.
+                  </p>
+                  <div class="bg-white p-3 rounded border border-red-200">
+                    <p class="text-xs text-red-600"><strong>Example:</strong> Process payments through credit cards, PayPal, or crypto using the same Payment interface.</p>
+                  </div>
+                </div>
+
+                <!-- Security -->
+                <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-200 hover:shadow-md transition-shadow">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mr-4">
+                      <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                      </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-indigo-800">Security</h3>
+                  </div>
+                  <p class="text-indigo-700 text-sm mb-3">
+                    Hide and protect important data from being accidentally changed or accessed by the wrong parts of your program.
+                  </p>
+                  <div class="bg-white p-3 rounded border border-indigo-200">
+                    <p class="text-xs text-indigo-600"><strong>Example:</strong> Bank account balance can only be modified through secure deposit/withdraw methods.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Detailed Comparison: Procedural vs OOP -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Procedural vs Object-Oriented: A Real Example</h2>
+              
+              <!-- Procedural Approach -->
+              <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-red-800">❌ Procedural Approach (The Old Way)</h3>
+                <div class="bg-red-50 p-6 rounded-lg border border-red-200 mb-4">
+                  <p class="text-red-800 mb-4">Building a library system the procedural way - everything mixed together:</p>
+                  
+                  <div class="bg-gray-100 rounded-lg p-4 border-l-4 border-blue-400">
+                    <pre class="text-gray-800 text-sm"><code># Procedural approach - everything mixed together
+books = []
+users = []
+loans = []
+
+def add_book(title, author, isbn, available):
+    book = [title, author, isbn, available]
+    books.append(book)
+
+def add_user(name, user_id, email):
+    user = [name, user_id, email, []]  # Last element is borrowed books
+    users.append(user)
+
+def borrow_book(user_id, isbn):
+    # Find user
+    user_found = None
+    for user in users:
+        if user[1] == user_id:
+            user_found = user
+            break
+    
+    if not user_found:
+        return "User not found"
+    
+    # Find book
+    book_found = None
+    for book in books:
+        if book[2] == isbn:
+            book_found = book
+            break
+    
+    if not book_found:
+        return "Book not found"
+    
+    if not book_found[3]:  # Not available
+        return "Book not available"
+    
+    # Update book availability
+    book_found[3] = False
+    
+    # Add to user's borrowed books
+    user_found[3].append(isbn)
+    
+    # Create loan record
+    loan = [user_id, isbn, "2024-01-15"]
+    loans.append(loan)
+    
+    return f"Book borrowed: &#123;book_found[0]&#125;"
+
+def return_book(user_id, isbn):
+    # Similar complex logic...
+    # Find user, find book, update availability, remove from borrowed list
+    # Update loan records, calculate fines, etc.
+    pass
+
+def calculate_fine(user_id, isbn):
+    # More complex logic mixed in...
+    pass
+
+# Problems with this approach:
+# 1. Data and functions are separate - hard to keep track
+# 2. Lots of repeated code (finding users, finding books)
+# 3. No validation - anyone can modify the data directly
+# 4. Hard to extend - adding new features requires changing many functions
+# 5. Difficult to test individual components
+# 6. No clear organization or relationships</code></pre>
+                  </div>
+                </div>
+                
+                <div class="bg-red-100 p-4 rounded border border-red-200">
+                  <h4 class="font-medium text-red-800 mb-2">Problems with Procedural Approach:</h4>
+                  <ul class="text-sm text-red-700 space-y-1">
+                    <li>• Data and functions are scattered everywhere</li>
+                    <li>• Lots of repeated code (finding users, finding books)</li>
+                    <li>• No data protection - anyone can modify arrays directly</li>
+                    <li>• Hard to extend - adding features affects multiple functions</li>
+                    <li>• Difficult to test individual components</li>
+                    <li>• No clear organization or relationships</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Object-Oriented Approach -->
+              <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-green-800">✅ Object-Oriented Approach (The Modern Way)</h3>
+                <div class="bg-green-50 p-6 rounded-lg border border-green-200 mb-4">
+                  <p class="text-green-800 mb-4">Building the same library system with OOP - organized, reusable, maintainable:</p>
+                  
+                  <div class="bg-gray-100 rounded-lg p-4 border-l-4 border-blue-400">
+                    <pre class="text-gray-800 text-sm"><code>class Book:
+    def __init__(self, title, author, isbn):
+        self.title = title
+        self.author = author
+        self.isbn = isbn
+        self.available = True
+    
+    def borrow(self):
+        if self.available:
+            self.available = False
+            return True
+        return False
+    
+    def return_book(self):
+        self.available = True
+    
+    def __str__(self):
+        return f"&#123;self.title&#125; by &#123;self.author&#125;"
+
+class User:
+    def __init__(self, name, user_id, email):
+        self.name = name
+        self.user_id = user_id
+        self.email = email
+        self.borrowed_books = []
+    
+    def can_borrow(self, max_books=5):
+        return len(self.borrowed_books) < max_books
+    
+    def add_borrowed_book(self, book):
+        self.borrowed_books.append(book)
+    
+    def remove_borrowed_book(self, book):
+        if book in self.borrowed_books:
+            self.borrowed_books.remove(book)
+
+class Library:
+    def __init__(self, name):
+        self.name = name
+        self.books = &#123;&#125;  # isbn -> Book
+        self.users = &#123;&#125;  # user_id -> User
+        self.loans = []
+    
+    def add_book(self, book):
+        self.books[book.isbn] = book
+        print(f"Added: &#123;book&#125;")
+    
+    def register_user(self, user):
+        self.users[user.user_id] = user
+        print(f"Registered: &#123;user.name&#125;")
+    
+    def borrow_book(self, user_id, isbn):
+        user = self.users.get(user_id)
+        book = self.books.get(isbn)
+        
+        if not user:
+            return "User not found"
+        if not book:
+            return "Book not found"
+        if not user.can_borrow():
+            return "User has reached borrowing limit"
+        if not book.borrow():
+            return "Book not available"
+        
+        user.add_borrowed_book(book)
+        loan = Loan(user, book)
+        self.loans.append(loan)
+        
+        return f"&#123;user.name&#125; borrowed '&#123;book.title&#125;'"
+    
+    def return_book(self, user_id, isbn):
+        user = self.users.get(user_id)
+        book = self.books.get(isbn)
+        
+        if not user or not book:
+            return "User or book not found"
+        
+        if book not in user.borrowed_books:
+            return "User hasn't borrowed this book"
+        
+        book.return_book()
+        user.remove_borrowed_book(book)
+        
+        return f"&#123;user.name&#125; returned '&#123;book.title&#125;'"
+
+class Loan:
+    def __init__(self, user, book):
+        self.user = user
+        self.book = book
+        self.loan_date = datetime.now()
+        self.due_date = self.loan_date + timedelta(days=14)
+    
+    def calculate_fine(self):
+        if datetime.now() > self.due_date:
+            days_overdue = (datetime.now() - self.due_date).days
+            return days_overdue * 0.50  # 50 cents per day
+        return 0.0
+
+# Usage - Clean and organized!
+library = Library("City Library")
+
+# Create objects
+book1 = Book("1984", "George Orwell", "978-0-452-28423-4")
+user1 = User("Alice Johnson", "U001", "alice@email.com")
+
+# Add to library
+library.add_book(book1)
+library.register_user(user1)
+
+# Simple operations
+print(library.borrow_book("U001", "978-0-452-28423-4"))
+print(library.return_book("U001", "978-0-452-28423-4"))</code></pre>
+                  </div>
+                </div>
+                
+                <div class="bg-green-100 p-4 rounded border border-green-200">
+                  <h4 class="font-medium text-green-800 mb-2">Benefits of OOP Approach:</h4>
+                  <ul class="text-sm text-green-700 space-y-1">
+                    <li>• <strong>Clear organization:</strong> Books, Users, and Library have their own classes</li>
+                    <li>• <strong>Data protection:</strong> Attributes are accessed through methods</li>
+                    <li>• <strong>Reusability:</strong> Book class can be used in other applications</li>
+                    <li>• <strong>Easy to extend:</strong> Add new book types by inheriting from Book</li>
+                    <li>• <strong>Easy to test:</strong> Test each class independently</li>
+                    <li>• <strong>Maintainable:</strong> Changes to Book class don't affect User class</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Real-World Impact -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Real-World Impact: Why Companies Choose OOP</h2>
+              
+              <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                  <h3 class="text-lg font-semibold text-blue-800 mb-4">🏢 Enterprise Benefits</h3>
+                  <div class="space-y-4">
+                    <div>
+                      <h4 class="font-medium text-blue-700 mb-2">Team Collaboration</h4>
+                      <p class="text-sm text-blue-600">Different developers can work on different classes simultaneously without conflicts.</p>
+                    </div>
+                    <div>
+                      <h4 class="font-medium text-blue-700 mb-2">Code Quality</h4>
+                      <p class="text-sm text-blue-600">Good organization helps prevent mistakes and makes code more reliable.</p>
+                    </div>
+                    <div>
+                      <h4 class="font-medium text-blue-700 mb-2">Rapid Development</h4>
+                      <p class="text-sm text-blue-600">Reusing existing classes makes building new features much faster.</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+                  <h3 class="text-lg font-semibold text-green-800 mb-4">💰 Business Value</h3>
+                  <div class="space-y-4">
+                    <div>
+                      <h4 class="font-medium text-green-700 mb-2">Reduced Costs</h4>
+                      <p class="text-sm text-green-600">Less time fixing bugs and more time building features that add value.</p>
+                    </div>
+                    <div>
+                      <h4 class="font-medium text-green-700 mb-2">Faster Updates</h4>
+                      <p class="text-sm text-green-600">Well-organized code makes it easier to add new features and fix problems quickly.</p>
+                    </div>
+                    <div>
+                      <h4 class="font-medium text-green-700 mb-2">Competitive Edge</h4>
+                      <p class="text-sm text-green-600">Companies can build better software faster, giving them an advantage.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- When NOT to Use OOP -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">When NOT to Use OOP</h2>
+              
+              <div class="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
+                <p class="text-yellow-800 mb-4">
+                  OOP isn't always the best choice. Here are situations where simpler approaches might be better:
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div class="bg-white p-4 rounded border">
+                    <h3 class="font-medium text-yellow-800 mb-2">⚡ Simple Scripts</h3>
+                    <p class="text-sm text-yellow-700">For quick, one-off tasks like data conversion or simple calculations, a few functions might be sufficient.</p>
+                  </div>
+                  <div class="bg-white p-4 rounded border">
+                    <h3 class="font-medium text-yellow-800 mb-2">🔧 System Programming</h3>
+                    <p class="text-sm text-yellow-700">Low-level system code often needs direct memory management and performance optimization that OOP abstractions can hinder.</p>
+                  </div>
+                  <div class="bg-white p-4 rounded border">
+                    <h3 class="font-medium text-yellow-800 mb-2">📊 Mathematical Computing</h3>
+                    <p class="text-sm text-yellow-700">Heavy numerical computations often benefit from functional programming approaches for performance and parallelization.</p>
+                  </div>
+                  <div class="bg-white p-4 rounded border">
+                    <h3 class="font-medium text-yellow-800 mb-2">⏱️ Time-Critical Code</h3>
+                    <p class="text-sm text-yellow-700">Real-time systems where every millisecond counts might need more direct, procedural approaches.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Best Practices -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">OOP Best Practices</h2>
+              
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-purple-50 p-6 rounded-lg border border-purple-200">
+                  <h3 class="text-lg font-semibold text-purple-800 mb-4">✅ Do This</h3>
+                  <ul class="space-y-2 text-sm text-purple-700">
+                    <li>• Use meaningful names for classes and methods</li>
+                    <li>• Encapsulate data with private attributes</li>
+                    <li>• Keep classes simple and focused</li>
+                    <li>• Write classes that are easy to test</li>
+                    <li>• Document your class interfaces clearly</li>
+                    <li>• Use inheritance wisely - don't overdo it</li>
+                  </ul>
+                </div>
+                
+                <div class="bg-red-50 p-6 rounded-lg border border-red-200">
+                  <h3 class="text-lg font-semibold text-red-800 mb-4">❌ Avoid This</h3>
+                  <ul class="space-y-2 text-sm text-red-700">
+                    <li>• Creating classes that try to do everything</li>
+                    <li>• Too many levels of inheritance (keep it simple)</li>
+                    <li>• Public attributes that bypass encapsulation</li>
+                    <li>• Making code more complex than needed</li>
+                    <li>• Classes that depend too heavily on each other</li>
+                    <li>• Exposing internal details unnecessarily</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- NESA Exam Context -->
+            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-amber-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                  <p class="font-semibold text-amber-900 mb-1">NESA Exam Focus</p>
+                  <p class="text-amber-800 text-sm">Be able to explain the key benefits of OOP: reusability, maintainability, scalability, modularity, flexibility, and security. Compare procedural vs object-oriented approaches with concrete examples. Understand when OOP is appropriate and when simpler approaches might be better. Practice explaining these concepts with real-world analogies and programming examples.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,279 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
+import '../styles/global.css';
+---
+
+<BaseLayout title="NESA Keywords" description="Essential NESA command terms and keywords for Year 11 Software Engineering">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">NESA Keywords</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="w-64 border-r p-4 bg-gray-50">
+      <input type="text" placeholder="Search keywords..." class="mb-4 w-full px-3 py-2 border border-gray-300 rounded-md text-sm" />
+      
+      <nav class="space-y-2">
+        <h3 class="font-semibold text-gray-900 mb-2">Categories</h3>
+        <a href="#knowledge-keywords" class="block text-sm text-blue-600 hover:text-blue-800 py-1">Knowledge & Understanding</a>
+        <a href="#analysis-keywords" class="block text-sm text-blue-600 hover:text-blue-800 py-1">Analysis & Application</a>
+        <a href="#evaluation-keywords" class="block text-sm text-blue-600 hover:text-blue-800 py-1">Evaluation & Synthesis</a>
+        <a href="#communication-keywords" class="block text-sm text-blue-600 hover:text-blue-800 py-1">Communication</a>
+      </nav>
+
+      <div class="border-t my-4"></div>
+      
+      <div class="text-xs text-gray-500">
+        <p class="mb-2">Understanding these command terms is crucial for exam success.</p>
+      </div>
+    </aside>
+
+    <!-- Content -->
+    <main class="flex-1 overflow-y-auto p-8 max-w-5xl">
+      <h1 class="text-4xl font-bold mb-2">NESA Keywords & Command Terms</h1>
+      <p class="text-lg text-gray-600 mb-6">Essential command terms used in NSW Software Engineering examinations</p>
+      
+      <div class="border-t my-6"></div>
+
+      <div class="mb-6 p-4 bg-blue-50 rounded-lg">
+        <h3 class="font-semibold text-blue-900 mb-2">About Command Terms</h3>
+        <p class="text-blue-800 text-sm">
+          Command terms tell you what to do in an exam question. Understanding what each term means is essential for providing appropriate responses that match the mark allocation.
+        </p>
+      </div>
+
+      <!-- Knowledge & Understanding Keywords -->
+      <section id="knowledge-keywords" class="mb-12">
+        <h2 class="text-3xl font-bold mb-6">Knowledge & Understanding</h2>
+        <div class="grid gap-4">
+          
+          <Card>
+            <CardHeader>
+              <CardTitle class="text-lg">Identify</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p class="text-sm text-gray-600 mb-2">Marks: Usually 1-2</p>
+              <p class="mb-3"><strong>Meaning:</strong> Recognise and name specific information, components, or features.</p>
+              <div class="bg-gray-50 p-3 rounded text-sm">
+                <strong>Example:</strong> "Identify two characteristics of the Agile methodology."<br>
+                <strong>Response:</strong> Short iterations, Regular client feedback
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle class="text-lg">Define</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p class="text-sm text-gray-600 mb-2">Marks: Usually 1-2</p>
+              <p class="mb-3"><strong>Meaning:</strong> Give the precise meaning of a word, phrase, concept or physical quantity.</p>
+              <div class="bg-gray-50 p-3 rounded text-sm">
+                <strong>Example:</strong> "Define the term 'algorithm'."<br>
+                <strong>Response:</strong> A step-by-step procedure for solving a problem or completing a task.
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle class="text-lg">Describe</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p class="text-sm text-gray-600 mb-2">Marks: Usually 2-4</p>
+              <p class="mb-3"><strong>Meaning:</strong> Provide characteristics and features of something. More detail than identify.</p>
+              <div class="bg-gray-50 p-3 rounded text-sm">
+                <strong>Example:</strong> "Describe the testing phase of software development."<br>
+                <strong>Response:</strong> The testing phase involves systematically checking software for defects and ensuring it meets requirements through unit testing, integration testing, and user acceptance testing.
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle class="text-lg">Outline</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p class="text-sm text-gray-600 mb-2">Marks: Usually 2-3</p>
+              <p class="mb-3"><strong>Meaning:</strong> Sketch in general terms; indicate the main features or general principles.</p>
+              <div class="bg-gray-50 p-3 rounded text-sm">
+                <strong>Example:</strong> "Outline the main steps in the software development lifecycle."<br>
+                <strong>Response:</strong> Requirements definition → Design → Development → Testing → Installation → Maintenance
+              </div>
+            </CardContent>
+          </Card>
+
+        </div>
+      </section>
+
+      <!-- Analysis & Application Keywords -->
+      <section id="analysis-keywords" class="mb-12">
+        <h2 class="text-3xl font-bold mb-6">Analysis & Application</h2>
+        <div class="grid gap-4">
+
+          <Card>
+            <CardHeader>
+              <CardTitle class="text-lg">Explain</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p class="text-sm text-gray-600 mb-2">Marks: Usually 3-5</p>
+              <p class="mb-3"><strong>Meaning:</strong> Make something clear by describing it in more detail, revealing relevant mechanisms or reasons.</p>
+              <div class="bg-gray-50 p-3 rounded text-sm">
+                <strong>Example:</strong> "Explain why Agile methodology is suitable for projects with changing requirements."<br>
+                <strong>Response:</strong> Agile methodology is suitable because it uses short iterations that allow for frequent reassessment and adaptation. Regular client feedback ensures changes can be incorporated quickly without major project disruption.
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle class="text-lg">Compare</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p class="text-sm text-gray-600 mb-2">Marks: Usually 4-6</p>
+              <p class="mb-3"><strong>Meaning:</strong> Show the similarities and differences between two or more items.</p>
+              <div class="bg-gray-50 p-3 rounded text-sm">
+                <strong>Example:</strong> "Compare the Waterfall and Agile methodologies."<br>
+                <strong>Response:</strong> Both follow systematic approaches, but Waterfall uses sequential phases while Agile uses iterative cycles. Waterfall requires complete requirements upfront, whereas Agile adapts to changing requirements throughout development.
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle class="text-lg">Analyse</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p class="text-sm text-gray-600 mb-2">Marks: Usually 4-6</p>
+              <p class="mb-3"><strong>Meaning:</strong> Break down concepts into parts and show relationships between them.</p>
+              <div class="bg-gray-50 p-3 rounded text-sm">
+                <strong>Example:</strong> "Analyse the impact of poor requirements definition on software development."<br>
+                <strong>Response:</strong> Poor requirements lead to scope creep, increased development time, budget overruns, and user dissatisfaction. This affects all subsequent phases as developers build incorrect functionality, requiring costly rework during testing and maintenance phases.
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle class="text-lg">Apply</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p class="text-sm text-gray-600 mb-2">Marks: Usually 3-5</p>
+              <p class="mb-3"><strong>Meaning:</strong> Use knowledge and understanding in a particular situation or context.</p>
+              <div class="bg-gray-50 p-3 rounded text-sm">
+                <strong>Example:</strong> "Apply the divide and conquer strategy to sort a list of numbers."<br>
+                <strong>Response:</strong> Divide the list into smaller sublists, recursively sort each sublist, then merge the sorted sublists back together (merge sort algorithm).
+              </div>
+            </CardContent>
+          </Card>
+
+        </div>
+      </section>
+
+      <!-- Evaluation & Synthesis Keywords -->
+      <section id="evaluation-keywords" class="mb-12">
+        <h2 class="text-3xl font-bold mb-6">Evaluation & Synthesis</h2>
+        <div class="grid gap-4">
+
+          <Card>
+            <CardHeader>
+              <CardTitle class="text-lg">Evaluate</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p class="text-sm text-gray-600 mb-2">Marks: Usually 5-8</p>
+              <p class="mb-3"><strong>Meaning:</strong> Make a judgement based on criteria; determine the value or worth of something.</p>
+              <div class="bg-gray-50 p-3 rounded text-sm">
+                <strong>Example:</strong> "Evaluate the effectiveness of unit testing in software development."<br>
+                <strong>Response:</strong> Unit testing is highly effective as it catches bugs early (reducing fix costs), ensures code reliability, and supports refactoring. However, it requires time investment and may not catch integration issues. Overall, benefits outweigh costs for most projects.
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle class="text-lg">Justify</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p class="text-sm text-gray-600 mb-2">Marks: Usually 3-5</p>
+              <p class="mb-3"><strong>Meaning:</strong> Support an argument or conclusion with evidence and reasoning.</p>
+              <div class="bg-gray-50 p-3 rounded text-sm">
+                <strong>Example:</strong> "Justify the use of pseudocode in algorithm design."<br>
+                <strong>Response:</strong> Pseudocode is language-independent, focuses on logic rather than syntax, is easily understood by stakeholders, and can be quickly modified. This makes it ideal for planning before coding begins.
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle class="text-lg">Recommend</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p class="text-sm text-gray-600 mb-2">Marks: Usually 4-6</p>
+              <p class="mb-3"><strong>Meaning:</strong> Provide reasons in favour of adopting a particular option or course of action.</p>
+              <div class="bg-gray-50 p-3 rounded text-sm">
+                <strong>Example:</strong> "Recommend an appropriate development methodology for a banking system."<br>
+                <strong>Response:</strong> Waterfall methodology is recommended due to strict regulatory requirements, need for comprehensive documentation, security criticality, and stable requirements. The sequential approach ensures thorough testing and compliance.
+              </div>
+            </CardContent>
+          </Card>
+
+        </div>
+      </section>
+
+      <!-- Communication Keywords -->
+      <section id="communication-keywords" class="mb-12">
+        <h2 class="text-3xl font-bold mb-6">Communication</h2>
+        <div class="grid gap-4">
+
+          <Card>
+            <CardHeader>
+              <CardTitle class="text-lg">Discuss</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p class="text-sm text-gray-600 mb-2">Marks: Usually 5-8</p>
+              <p class="mb-3"><strong>Meaning:</strong> Present key points, possible interpretations, and arguments for and against.</p>
+              <div class="bg-gray-50 p-3 rounded text-sm">
+                <strong>Example:</strong> "Discuss the advantages and disadvantages of object-oriented programming."<br>
+                <strong>Response:</strong> OOP provides code reusability, modularity, and maintainability through encapsulation and inheritance. However, it can be complex for beginners, may have performance overhead, and can lead to over-engineering simple problems.
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle class="text-lg">Construct</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p class="text-sm text-gray-600 mb-2">Marks: Usually 4-8</p>
+              <p class="mb-3"><strong>Meaning:</strong> Develop, build, or create using specific information or methods.</p>
+              <div class="bg-gray-50 p-3 rounded text-sm">
+                <strong>Example:</strong> "Construct a flowchart for a login validation algorithm."<br>
+                <strong>Response:</strong> [Would show actual flowchart with start/end, input boxes, decision diamonds, and process rectangles]
+              </div>
+            </CardContent>
+          </Card>
+
+        </div>
+      </section>
+
+      <!-- Footer navigation -->
+      <div class="border-t pt-6 mt-12">
+        <div class="flex justify-between items-center text-sm text-gray-600">
+          <span>Last updated: August 2025</span>
+          <div class="space-x-4">
+            <a href="#knowledge-keywords" class="hover:text-blue-600">Back to top</a>
+            <a href="/" class="hover:text-blue-600">Home</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</BaseLayout>

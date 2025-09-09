@@ -1,0 +1,296 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import MechatronicsNav from '../../../components/MechatronicsNav';
+import SearchComponent from '../../../components/SearchComponent';
+import FlipCard from '../../../components/FlipCard.astro';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Processors & Controllers - Mechatronics" description="Learn about the processors and controllers that serve as the brains of mechatronic systems">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center justify-between">
+        <nav>
+          <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+          <span class="text-sm text-gray-400 mx-2">></span>
+          <a href="/topics/mechatronics" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mechatronics Systems</a>
+          <span class="text-sm text-gray-400 mx-2">></span>
+          <span class="text-sm text-gray-900 font-medium">Processors & Controllers</span>
+        </nav>
+        <div class="ml-4">
+          <SearchComponent client:load className="w-80" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 overflow-y-auto" style="max-height: calc(100vh - 6rem);">
+            <MechatronicsNav 
+              client:load 
+              currentPage="/topics/mechatronics/processors"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Processors & Controllers</h1>
+            
+            <div class="mb-8 p-6 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+              <p class="text-purple-900 text-lg">
+                <strong>Processors and Controllers</strong> are the "brains" of mechatronic systems. They receive information from sensors, make decisions based on programming, and send commands to actuators.
+              </p>
+            </div>
+
+            <!-- What Are Processors? -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">What Are Processors?</h2>
+              
+              <div class="bg-blue-50 p-6 rounded-lg border border-blue-200 mb-6">
+                <h3 class="text-lg font-semibold text-blue-800 mb-3">Simple Definition</h3>
+                <p class="text-blue-700 mb-2">
+                  A processor (or controller) is the computing device that runs software to control a mechatronic system. It processes sensor data and controls actuators based on programmed logic.
+                </p>
+                <p class="text-blue-700">
+                  <strong>Think of processors as:</strong> The brain that makes all the decisions in a robot or automated system.
+                </p>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg border border-gray-200">
+                <h4 class="font-semibold text-gray-800 mb-2">How Processors Work:</h4>
+                <div class="text-sm text-gray-600 space-y-1">
+                  <p>1. <strong>Input Processing:</strong> Receive and interpret signals from sensors</p>
+                  <p>2. <strong>Decision Making:</strong> Run software algorithms to determine actions</p>
+                  <p>3. <strong>Output Control:</strong> Send control signals to actuators</p>
+                  <p>4. <strong>Monitoring:</strong> Continuously repeat the process in real-time</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Types of Processors -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Types of Processors & Controllers</h2>
+              
+              <div class="grid md:grid-cols-2 gap-4 mb-6">
+                <div class="border border-gray-200 rounded p-4">
+                  <h3 class="font-semibold mb-2">🔧 Microcontrollers</h3>
+                  <p class="text-sm text-gray-600 mb-2">Dedicated control for specific tasks - simple computer on a single chip</p>
+                  <p class="text-xs text-gray-500">Examples: Arduino boards, washing machine controllers, car engine management</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded p-4">
+                  <h3 class="font-semibold mb-2">💻 Single Board Computers</h3>
+                  <p class="text-sm text-gray-600 mb-2">Full computer capabilities in small package with operating system</p>
+                  <p class="text-xs text-gray-500">Examples: Raspberry Pi, smart home hubs, IoT gateways</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded p-4">
+                  <h3 class="font-semibold mb-2">🏭 Industrial PLCs</h3>
+                  <p class="text-sm text-gray-600 mb-2">Heavy-duty industrial automation specialized for factory environments</p>
+                  <p class="text-xs text-gray-500">Examples: Assembly lines, elevator control, manufacturing robots</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded p-4">
+                  <h3 class="font-semibold mb-2">📱 Embedded Systems</h3>
+                  <p class="text-sm text-gray-600 mb-2">Hidden computers in everyday devices - purpose-built controllers</p>
+                  <p class="text-xs text-gray-500">Examples: Smart TVs, car dashboards, medical devices, gaming consoles</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Popular Learning Platforms -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Popular Learning Platforms</h2>
+              
+              <div class="grid md:grid-cols-3 gap-4">
+                <div class="border border-gray-200 rounded p-4">
+                  <h3 class="font-semibold mb-2">🔷 Arduino</h3>
+                  <p class="text-sm text-gray-600 mb-2">Best for beginners and simple projects</p>
+                  <ul class="text-xs text-gray-500 space-y-1">
+                    <li>• Easy programming language</li>
+                    <li>• Huge community support</li>
+                    <li>• Perfect for learning basics</li>
+                  </ul>
+                </div>
+                
+                <div class="border border-gray-200 rounded p-4">
+                  <h3 class="font-semibold mb-2">🍓 Raspberry Pi</h3>
+                  <p class="text-sm text-gray-600 mb-2">Best for complex projects needing full computer</p>
+                  <ul class="text-xs text-gray-500 space-y-1">
+                    <li>• Runs full Linux operating system</li>
+                    <li>• Internet connectivity</li>
+                    <li>• Camera and AI support</li>
+                  </ul>
+                </div>
+                
+                <div class="border border-gray-200 rounded p-4">
+                  <h3 class="font-semibold mb-2">🎮 micro:bit</h3>
+                  <p class="text-sm text-gray-600 mb-2">Best for educational projects and beginners</p>
+                  <ul class="text-xs text-gray-500 space-y-1">
+                    <li>• Visual block programming</li>
+                    <li>• Built-in sensors and LEDs</li>
+                    <li>• Designed for students</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Examples -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Interactive Examples</h2>
+              
+              <FlipCard frontTitle="Smart Garden Controller" id="garden-controller">
+                <div slot="front">
+                  <p><strong>Project:</strong> Design an automated garden watering system.</p>
+                  <p>What would the processor need to monitor and control?</p>
+                  <p><strong>Click to see the complete controller logic →</strong></p>
+                </div>
+                <div slot="back">
+                  <p><strong>Controller responsibilities:</strong></p>
+                  <div class="text-sm space-y-2 mb-3">
+                    <div><strong>Inputs to monitor:</strong></div>
+                    <ul class="text-xs space-y-1 ml-3">
+                      <li>• Soil moisture sensors in each garden bed</li>
+                      <li>• Weather API data (rain forecast)</li>
+                      <li>• Water tank level sensor</li>
+                      <li>• Time of day from internal clock</li>
+                    </ul>
+                    <div><strong>Outputs to control:</strong></div>
+                    <ul class="text-xs space-y-1 ml-3">
+                      <li>• Water pumps for each garden section</li>
+                      <li>• LED status lights (watering active/water low)</li>
+                      <li>• Text notifications to phone app</li>
+                    </ul>
+                  </div>
+                  <p class="text-sm"><strong>Programming:</strong> IF soil dry AND no rain forecast AND water available THEN start watering</p>
+                </div>
+              </FlipCard>
+
+              <div class="mt-6">
+                <FlipCard frontTitle="Security Robot Controller" id="security-robot">
+                  <div slot="front">
+                    <p><strong>Challenge:</strong> Program a security patrol robot for a warehouse.</p>
+                    <p>What complex decisions must the processor make?</p>
+                    <p><strong>Click to explore the robot's AI logic →</strong></p>
+                  </div>
+                  <div slot="back">
+                    <p><strong>Complex controller decisions:</strong></p>
+                    <div class="text-sm space-y-2 mb-3">
+                      <div><strong>Navigation decisions:</strong></div>
+                      <ul class="text-xs space-y-1 ml-3">
+                        <li>• Process lidar data to map environment</li>
+                        <li>• Plan optimal patrol route avoiding obstacles</li>
+                        <li>• Detect and navigate around people safely</li>
+                      </ul>
+                      <div><strong>Security decisions:</strong></div>
+                      <ul class="text-xs space-y-1 ml-3">
+                        <li>• Analyze camera feeds for suspicious activity</li>
+                        <li>• Distinguish between normal and abnormal sounds</li>
+                        <li>• Decide when to alert human security</li>
+                      </ul>
+                    </div>
+                    <p class="text-sm"><strong>Result:</strong> Advanced processor runs AI algorithms for intelligent decision-making</p>
+                  </div>
+                </FlipCard>
+              </div>
+            </div>
+
+            <!-- Programming Basics -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Basic Programming Concepts</h2>
+              
+              <div class="bg-gray-50 p-6 rounded-lg">
+                <h3 class="text-lg font-semibold mb-4">Essential Programming Elements for Mechatronics:</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-2">🔄 Control Structures</h4>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                      <li>• <strong>IF statements:</strong> Make decisions based on sensor data</li>
+                      <li>• <strong>WHILE loops:</strong> Keep monitoring sensors continuously</li>
+                      <li>• <strong>FOR loops:</strong> Repeat actions a specific number of times</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-2">📊 Data Handling</h4>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                      <li>• <strong>Variables:</strong> Store sensor readings and settings</li>
+                      <li>• <strong>Arrays:</strong> Store multiple sensor values</li>
+                      <li>• <strong>Functions:</strong> Organize code for specific tasks</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div class="mt-4 p-4 bg-white rounded border">
+                  <h4 class="font-semibold text-gray-800 mb-2">Simple Example (Arduino-style):</h4>
+                  <div class="text-xs text-gray-600 font-mono bg-gray-100 p-3 rounded">
+                    <div>if (temperature > 25) &#123;</div>
+                    <div>&nbsp;&nbsp;turn_on_fan();</div>
+                    <div>&nbsp;&nbsp;led_status = GREEN;</div>
+                    <div>&#125; else &#123;</div>
+                    <div>&nbsp;&nbsp;turn_off_fan();</div>
+                    <div>&nbsp;&nbsp;led_status = RED;</div>
+                    <div>&#125;</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Processor Selection Guidelines -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Choosing the Right Processor</h2>
+              
+              <div class="space-y-4">
+                <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                  <h3 class="font-semibold text-green-800 mb-2">✅ Choose Microcontroller (Arduino) When:</h3>
+                  <ul class="text-sm text-green-700 space-y-1">
+                    <li>• Learning mechatronics basics</li>
+                    <li>• Simple sensor and actuator control</li>
+                    <li>• Real-time response is critical</li>
+                    <li>• Low power consumption needed</li>
+                    <li>• Budget is limited</li>
+                  </ul>
+                </div>
+                
+                <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                  <h3 class="font-semibold text-blue-800 mb-2">✅ Choose Single Board Computer (Raspberry Pi) When:</h3>
+                  <ul class="text-sm text-blue-700 space-y-1">
+                    <li>• Internet connectivity needed</li>
+                    <li>• Complex calculations or AI required</li>
+                    <li>• Multiple programming languages needed</li>
+                    <li>• Camera or advanced graphics needed</li>
+                    <li>• Large amounts of data storage required</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="text-lg font-semibold mb-3">Continue Learning</h3>
+              <p class="text-gray-600 mb-4">Now you understand the processors that control mechatronic systems. Learn about the circuits that connect everything:</p>
+              <div class="flex flex-wrap gap-2">
+                <a href="/topics/mechatronics/basic-circuits" class="inline-flex items-center px-3 py-2 bg-orange-100 text-orange-700 rounded-md text-sm hover:bg-orange-200 transition-colors">
+                  Basic Circuit Components
+                </a>
+                <a href="/topics/mechatronics/control-systems" class="inline-flex items-center px-3 py-2 bg-orange-100 text-orange-700 rounded-md text-sm hover:bg-orange-200 transition-colors">
+                  Review Control Systems
+                </a>
+                <a href="/topics/mechatronics/exam-questions" class="inline-flex items-center px-3 py-2 bg-orange-100 text-orange-700 rounded-md text-sm hover:bg-orange-200 transition-colors">
+                  Test Your Knowledge
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

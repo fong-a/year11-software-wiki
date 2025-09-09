@@ -1,0 +1,416 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import MechatronicsNav from '../../../components/MechatronicsNav';
+import SearchComponent from '../../../components/SearchComponent';
+import FlipCard from '../../../components/FlipCard.astro';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Industry Applications - Mechatronics" description="Explore how mechatronic systems are used across different industries and their real-world applications">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center justify-between">
+        <nav>
+          <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+          <span class="text-sm text-gray-400 mx-2">></span>
+          <a href="/topics/mechatronics" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mechatronics Systems</a>
+          <span class="text-sm text-gray-400 mx-2">></span>
+          <span class="text-sm text-gray-900 font-medium">Industry Applications</span>
+        </nav>
+        <div class="ml-4">
+          <SearchComponent client:load className="w-80" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 overflow-y-auto" style="max-height: calc(100vh - 6rem);">
+            <MechatronicsNav 
+              client:load 
+              currentPage="/topics/mechatronics/applications"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Industry Applications</h1>
+            
+            <div class="mb-8 p-6 bg-green-50 rounded-lg border-l-4 border-green-500">
+              <p class="text-green-900 text-lg">
+                Mechatronics revolutionizes industries by combining mechanical systems, electronics, and intelligent control. From manufacturing to healthcare, these systems increase efficiency, safety, and precision.
+              </p>
+            </div>
+
+            <!-- Manufacturing Industry -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">🏭 Manufacturing & Production</h2>
+              
+              <div class="bg-red-50 p-6 rounded-lg border border-red-200 mb-6">
+                <h3 class="text-lg font-semibold text-red-800 mb-3">Automated Manufacturing Revolution</h3>
+                <p class="text-red-700 mb-4">
+                  Modern factories use mechatronic systems to produce everything from cars to smartphones with incredible speed and precision.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-red-800 mb-2">🤖 Robotic Assembly Lines</h4>
+                    <ul class="text-sm text-red-700 space-y-1">
+                      <li>• Welding robots in car manufacturing</li>
+                      <li>• Pick-and-place robots for electronics</li>
+                      <li>• Painting robots for consistent finishes</li>
+                      <li>• Assembly robots that work 24/7</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-red-800 mb-2">📊 Quality Control Systems</h4>
+                    <ul class="text-sm text-red-700 space-y-1">
+                      <li>• Vision systems inspect every product</li>
+                      <li>• Automated testing of functionality</li>
+                      <li>• Reject defective items automatically</li>
+                      <li>• Real-time quality statistics</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <FlipCard frontTitle="Smart Factory Tour" id="smart-factory">
+                <div slot="front">
+                  <p><strong>Virtual Tour:</strong> Step inside a modern smart factory.</p>
+                  <p>What mechatronic systems would you see working together?</p>
+                  <p><strong>Click to explore the automated production line →</strong></p>
+                </div>
+                <div slot="back">
+                  <p><strong>Mechatronic systems in a smart factory:</strong></p>
+                  <ul class="text-sm space-y-1 mb-3">
+                    <li><strong>🏗️ Raw Material Handling:</strong> Automated cranes and conveyors move materials</li>
+                    <li><strong>⚙️ CNC Machines:</strong> Computer-controlled cutting and shaping tools</li>
+                    <li><strong>🤖 Assembly Robots:</strong> Multiple robots coordinate to build products</li>
+                    <li><strong>📷 Vision Systems:</strong> Cameras inspect quality at every stage</li>
+                    <li><strong>📦 Packaging Systems:</strong> Automated wrapping and labeling</li>
+                    <li><strong>📊 Central Control:</strong> Computer systems coordinate everything</li>
+                  </ul>
+                  <p class="text-sm"><strong>Result:</strong> 10x faster production with 99.9% quality accuracy</p>
+                </div>
+              </FlipCard>
+            </div>
+
+            <!-- Healthcare Industry -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">🏥 Healthcare & Medicine</h2>
+              
+              <div class="bg-green-50 p-6 rounded-lg border border-green-200 mb-6">
+                <h3 class="text-lg font-semibold text-green-800 mb-3">Life-Saving Medical Technology</h3>
+                <p class="text-green-700 mb-4">
+                  Mechatronic systems in healthcare improve patient outcomes, reduce human error, and enable treatments that were impossible before.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-green-800 mb-2">🏥 Patient Monitoring</h4>
+                    <ul class="text-sm text-green-700 space-y-1">
+                      <li>• Heart monitors with automatic alerts</li>
+                      <li>• Blood pressure monitoring systems</li>
+                      <li>• Oxygen level sensors</li>
+                      <li>• Fall detection systems for elderly</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-green-800 mb-2">💊 Treatment Systems</h4>
+                    <ul class="text-sm text-green-700 space-y-1">
+                      <li>• IV pumps for precise medication delivery</li>
+                      <li>• Dialysis machines for kidney patients</li>
+                      <li>• Ventilators for breathing assistance</li>
+                      <li>• Automated pharmacy dispensers</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <FlipCard frontTitle="Surgical Robot System" id="surgical-robot">
+                <div slot="front">
+                  <p><strong>Modern Surgery:</strong> Robotic surgery is revolutionizing operating rooms.</p>
+                  <p>How do mechatronic systems help surgeons perform better operations?</p>
+                  <p><strong>Click to explore robotic surgery technology →</strong></p>
+                </div>
+                <div slot="back">
+                  <p><strong>Surgical robot capabilities:</strong></p>
+                  <ul class="text-sm space-y-1 mb-3">
+                    <li><strong>🎯 Precision:</strong> Eliminate hand tremor, movements 10x more precise</li>
+                    <li><strong>👁️ Vision:</strong> 3D cameras with 10x magnification</li>
+                    <li><strong>🤏 Dexterity:</strong> Tiny instruments can rotate 360 degrees</li>
+                    <li><strong>💻 Control:</strong> Surgeon controls from console, computer assists</li>
+                    <li><strong>📊 Data:</strong> Record everything for training and improvement</li>
+                    <li><strong>🔒 Safety:</strong> Multiple safeguards prevent dangerous movements</li>
+                  </ul>
+                  <p class="text-sm"><strong>Benefits:</strong> Smaller incisions, faster recovery, better outcomes</p>
+                </div>
+              </FlipCard>
+            </div>
+
+            <!-- Transportation Industry -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">🚗 Transportation & Automotive</h2>
+              
+              <div class="bg-blue-50 p-6 rounded-lg border border-blue-200 mb-6">
+                <h3 class="text-lg font-semibold text-blue-800 mb-3">Smart Transportation Systems</h3>
+                <p class="text-blue-700 mb-4">
+                  From individual vehicles to entire traffic systems, mechatronics is transforming how we move people and goods.
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-4">
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-blue-800 mb-2">🚙 Vehicle Systems</h4>
+                    <ul class="text-sm text-blue-700 space-y-1">
+                      <li>• Anti-lock braking (ABS)</li>
+                      <li>• Electronic stability control</li>
+                      <li>• Adaptive cruise control</li>
+                      <li>• Automatic parking assist</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-blue-800 mb-2">🚦 Traffic Management</h4>
+                    <ul class="text-sm text-blue-700 space-y-1">
+                      <li>• Smart traffic lights</li>
+                      <li>• Highway toll systems</li>
+                      <li>• Traffic flow monitoring</li>
+                      <li>• Dynamic route guidance</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-blue-800 mb-2">🚇 Public Transit</h4>
+                    <ul class="text-sm text-blue-700 space-y-1">
+                      <li>• Automated train control</li>
+                      <li>• Real-time arrival displays</li>
+                      <li>• Electronic ticketing</li>
+                      <li>• Platform safety systems</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <FlipCard frontTitle="Autonomous Vehicle Technology" id="autonomous-car">
+                <div slot="front">
+                  <p><strong>Self-Driving Cars:</strong> The ultimate mechatronic system on wheels.</p>
+                  <p>What sensors and systems work together to drive without a human?</p>
+                  <p><strong>Click to see the complete autonomous system →</strong></p>
+                </div>
+                <div slot="back">
+                  <p><strong>Autonomous vehicle systems working together:</strong></p>
+                  <ul class="text-sm space-y-1 mb-3">
+                    <li><strong>👁️ LIDAR:</strong> Laser sensors create 3D map of surroundings</li>
+                    <li><strong>📹 Cameras:</strong> Multiple cameras see road signs and lane markings</li>
+                    <li><strong>📡 Radar:</strong> Radio waves detect objects in all weather</li>
+                    <li><strong>🧠 AI Computer:</strong> Processes all sensor data and makes decisions</li>
+                    <li><strong>🎛️ Control Systems:</strong> Steer, brake, and accelerate the vehicle</li>
+                    <li><strong>📊 Communication:</strong> Talk to other cars and traffic systems</li>
+                  </ul>
+                  <p class="text-sm"><strong>Goal:</strong> Reduce traffic accidents by 90% through perfect coordination</p>
+                </div>
+              </FlipCard>
+            </div>
+
+            <!-- Agriculture Industry -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">🚜 Agriculture & Farming</h2>
+              
+              <div class="bg-yellow-50 p-6 rounded-lg border border-yellow-200 mb-6">
+                <h3 class="text-lg font-semibold text-yellow-800 mb-3">Precision Agriculture Revolution</h3>
+                <p class="text-yellow-700 mb-4">
+                  Modern farming uses mechatronic systems to grow more food with less water, pesticides, and labor.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-yellow-800 mb-2">🤖 Automated Farming</h4>
+                    <ul class="text-sm text-yellow-700 space-y-1">
+                      <li>• GPS-guided tractors for precise planting</li>
+                      <li>• Harvesting robots that pick fruit</li>
+                      <li>• Weeding robots that identify and remove weeds</li>
+                      <li>• Automated irrigation systems</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-yellow-800 mb-2">📊 Smart Monitoring</h4>
+                    <ul class="text-sm text-yellow-700 space-y-1">
+                      <li>• Soil sensors for moisture and nutrients</li>
+                      <li>• Weather stations for climate monitoring</li>
+                      <li>• Drone surveillance of crop health</li>
+                      <li>• Livestock tracking and health monitoring</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Aerospace Industry -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">✈️ Aerospace & Aviation</h2>
+              
+              <div class="bg-purple-50 p-6 rounded-lg border border-purple-200 mb-6">
+                <h3 class="text-lg font-semibold text-purple-800 mb-3">Advanced Flight Systems</h3>
+                <p class="text-purple-700 mb-4">
+                  Aircraft rely on sophisticated mechatronic systems for safe, efficient flight and space exploration pushes the boundaries of automated control.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-purple-800 mb-2">🛩️ Aircraft Control</h4>
+                    <ul class="text-sm text-purple-700 space-y-1">
+                      <li>• Fly-by-wire flight control systems</li>
+                      <li>• Autopilot for cruise and landing</li>
+                      <li>• Navigation and GPS guidance</li>
+                      <li>• Engine monitoring and control</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-purple-800 mb-2">🚀 Space Systems</h4>
+                    <ul class="text-sm text-purple-700 space-y-1">
+                      <li>• Satellite attitude control systems</li>
+                      <li>• Robotic arms on space stations</li>
+                      <li>• Mars rover autonomous navigation</li>
+                      <li>• Spacecraft docking systems</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Entertainment Industry -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">🎬 Entertainment & Media</h2>
+              
+              <div class="bg-pink-50 p-6 rounded-lg border border-pink-200 mb-6">
+                <h3 class="text-lg font-semibold text-pink-800 mb-3">Immersive Entertainment Technology</h3>
+                <p class="text-pink-700 mb-4">
+                  Entertainment venues use mechatronics to create amazing experiences through motion, sound, and interactivity.
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-4">
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-pink-800 mb-2">🎢 Theme Parks</h4>
+                    <ul class="text-sm text-pink-700 space-y-1">
+                      <li>• Motion simulators</li>
+                      <li>• Animatronic characters</li>
+                      <li>• Automated ride systems</li>
+                      <li>• Interactive exhibits</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-pink-800 mb-2">🎭 Theater & Shows</h4>
+                    <ul class="text-sm text-pink-700 space-y-1">
+                      <li>• Automated stage lighting</li>
+                      <li>• Moving stage elements</li>
+                      <li>• Special effects control</li>
+                      <li>• Sound system automation</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-pink-800 mb-2">🎮 Gaming</h4>
+                    <ul class="text-sm text-pink-700 space-y-1">
+                      <li>• Motion-controlled games</li>
+                      <li>• Haptic feedback controllers</li>
+                      <li>• VR tracking systems</li>
+                      <li>• Racing simulators</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Impact Summary -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Impact Across Industries</h2>
+              
+              <div class="bg-gray-50 p-6 rounded-lg">
+                <h3 class="text-lg font-semibold mb-4">How Mechatronics Transforms Every Sector:</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-2">📈 Efficiency Improvements</h4>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                      <li>• 50-90% reduction in production time</li>
+                      <li>• 24/7 operation without breaks</li>
+                      <li>• Consistent quality and precision</li>
+                      <li>• Reduced waste and energy consumption</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-2">💰 Economic Benefits</h4>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                      <li>• Lower labor costs for dangerous tasks</li>
+                      <li>• Reduced errors and rework</li>
+                      <li>• Predictive maintenance saves money</li>
+                      <li>• New job categories for skilled technicians</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Career Opportunities -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Career Opportunities</h2>
+              
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                  <h3 class="text-lg font-semibold text-blue-800 mb-3">🔧 Technical Roles</h3>
+                  <ul class="text-sm text-blue-700 space-y-1">
+                    <li>• Mechatronics Engineer</li>
+                    <li>• Robotics Technician</li>
+                    <li>• Automation Specialist</li>
+                    <li>• Control Systems Engineer</li>
+                    <li>• Industrial IoT Developer</li>
+                  </ul>
+                </div>
+                
+                <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+                  <h3 class="text-lg font-semibold text-green-800 mb-3">💼 Industry Sectors</h3>
+                  <ul class="text-sm text-green-700 space-y-1">
+                    <li>• Automotive manufacturers</li>
+                    <li>• Medical device companies</li>
+                    <li>• Aerospace corporations</li>
+                    <li>• Consumer electronics</li>
+                    <li>• Smart home technology</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="text-lg font-semibold mb-3">Continue Learning</h3>
+              <p class="text-gray-600 mb-4">You've explored how mechatronics transforms industries. Test your understanding:</p>
+              <div class="flex flex-wrap gap-2">
+                <a href="/topics/mechatronics/quiz" class="inline-flex items-center px-3 py-2 bg-orange-100 text-orange-700 rounded-md text-sm hover:bg-orange-200 transition-colors">
+                  Take the Quiz
+                </a>
+                <a href="/topics/mechatronics/definition" class="inline-flex items-center px-3 py-2 bg-orange-100 text-orange-700 rounded-md text-sm hover:bg-orange-200 transition-colors">
+                  Review Fundamentals
+                </a>
+                <a href="/topics/mechatronics/safety" class="inline-flex items-center px-3 py-2 bg-orange-100 text-orange-700 rounded-md text-sm hover:bg-orange-200 transition-colors">
+                  Safety Benefits
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

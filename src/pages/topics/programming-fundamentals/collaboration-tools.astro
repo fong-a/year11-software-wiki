@@ -1,0 +1,281 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProgrammingFundamentalsNav from '../../../components/ProgrammingFundamentalsNav';
+import SearchComponent from '../../../components/SearchComponent';
+import GitTimeline from '../../../components/GitTimeline';
+import CollapsibleSection from '../../../components/CollapsibleSection';
+import Tooltip from '../../../components/Tooltip';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Collaboration Tools - Programming Fundamentals" description="Git, GitHub, and team development workflows for software projects">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center justify-between">
+        <nav>
+          <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+          <span class="text-sm text-gray-400 mx-2">></span>
+          <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+          <span class="text-sm text-gray-400 mx-2">></span>
+          <span class="text-sm text-gray-900 font-medium">Collaboration Tools</span>
+        </nav>
+        <div class="ml-4">
+          <SearchComponent client:load className="w-80" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <ProgrammingFundamentalsNav 
+              client:load 
+              currentPage="/topics/programming-fundamentals/collaboration-tools"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Collaboration Tools</h1>
+            
+            <div class="mb-8 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+              <p class="text-blue-900">
+                <strong>Git and GitHub</strong> are the industry standard for collaborative software development. You've already used these tools in your first two assessments - now let's understand the theory behind effective team collaboration.
+              </p>
+            </div>
+
+            <!-- Git & GitHub Overview -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-6">Git & GitHub Essentials</h2>
+              
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg border-2 border-orange-200">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-3">
+                      <img class="w-8 h-8" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/2048px-Git_icon.svg.png" alt="Git Logo" />
+                    </div>
+                    <div>
+                      <h3 class="text-xl font-semibold text-gray-900">Git</h3>
+                      <span class="text-xs bg-orange-100 text-orange-800 px-2 py-1 rounded font-medium">Local Version Control</span>
+                    </div>
+                  </div>
+                  <p class="text-gray-600 mb-4 text-sm">
+                    Local version control system that tracks every change to your files
+                  </p>
+                  <ul class="space-y-2 text-sm text-gray-700">
+                    <li class="flex items-center"><span class="text-orange-500 mr-2">✓</span>Track complete project history</li>
+                    <li class="flex items-center"><span class="text-orange-500 mr-2">✓</span>Create feature branches</li>
+                    <li class="flex items-center"><span class="text-orange-500 mr-2">✓</span>Rollback to any version</li>
+                    <li class="flex items-center"><span class="text-orange-500 mr-2">✓</span>Merge changes safely</li>
+                  </ul>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg border-2 border-gray-300">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mr-3">
+                      <svg class="w-8 h-8 text-gray-900" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 class="text-xl font-semibold text-gray-900">GitHub</h3>
+                      <span class="text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded font-medium">Cloud Platform</span>
+                    </div>
+                  </div>
+                  <p class="text-gray-600 mb-4 text-sm">
+                    Cloud hosting service for Git repositories with powerful collaboration tools
+                  </p>
+                  <ul class="space-y-2 text-sm text-gray-700">
+                    <li class="flex items-center"><span class="text-gray-500 mr-2">✓</span>Secure cloud backup</li>
+                    <li class="flex items-center"><span class="text-gray-500 mr-2">✓</span>Team collaboration</li>
+                    <li class="flex items-center"><span class="text-gray-500 mr-2">✓</span>Pull request reviews</li>
+                    <li class="flex items-center"><span class="text-gray-500 mr-2">✓</span>Project management</li>
+                  </ul>
+                </div>
+              </div>
+              
+              <!-- Repository Example -->
+              <div class="mt-6 bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg border border-blue-200">
+                <div class="flex items-start">
+                  <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <h4 class="font-semibold text-blue-800 mb-3">Example Repository</h4>
+                    <div class="bg-white p-3 rounded border">
+                      <div class="font-mono text-sm text-blue-700 mb-2">
+                        🗂️ https://github.com/Robertson-B/Password-Checker
+                      </div>
+                      <div class="text-xs text-gray-600">
+                        <span class="inline-block bg-green-100 text-green-800 px-2 py-1 rounded mr-2">15 commits</span>
+                        <span class="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded mr-2">3 branches</span>
+                        <span class="inline-block bg-purple-100 text-purple-800 px-2 py-1 rounded">Python, HTML</span>
+                      </div>
+                    </div>
+                    <p class="text-blue-600 text-sm mt-2">
+                      Complete project including source code, documentation, commit history showing development progress, and README with project setup instructions.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Key Benefits -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-6">Why Version Control Matters</h2>
+              <div class="grid md:grid-cols-4 gap-4">
+                <div class="bg-green-50 p-4 rounded-lg border border-green-200 text-center">
+                  <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                    <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                  </div>
+                  <h3 class="font-semibold text-green-800 mb-2">Track Changes</h3>
+                  <p class="text-xs text-green-600">See exactly what changed, when, and who made the change</p>
+                </div>
+                
+                <div class="bg-blue-50 p-4 rounded-lg border border-blue-200 text-center">
+                  <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                    </svg>
+                  </div>
+                  <h3 class="font-semibold text-blue-800 mb-2">Backup & Safety</h3>
+                  <p class="text-xs text-blue-600">Your code is safely stored in the cloud and can be recovered</p>
+                </div>
+                
+                <div class="bg-purple-50 p-4 rounded-lg border border-purple-200 text-center">
+                  <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                    <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                  </div>
+                  <h3 class="font-semibold text-purple-800 mb-2">Team Work</h3>
+                  <p class="text-xs text-purple-600">Multiple people can work on the same project simultaneously</p>
+                </div>
+                
+                <div class="bg-orange-50 p-4 rounded-lg border border-orange-200 text-center">
+                  <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                    <svg class="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0019 16V8a1 1 0 00-1.6-.8l-5.334 4zM4.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0011 16V8a1 1 0 00-1.6-.8l-5.334 4z"></path>
+                    </svg>
+                  </div>
+                  <h3 class="font-semibold text-orange-800 mb-2">Undo Changes</h3>
+                  <p class="text-xs text-orange-600">Roll back to any previous version when things go wrong</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Simple Collaboration Workflow -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-6">Team Collaboration Process</h2>
+              <div class="bg-gradient-to-r from-blue-50 to-green-50 p-6 rounded-lg border border-blue-200">
+                <div class="grid md:grid-cols-3 gap-4">
+                  <div class="text-center">
+                    <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-3 text-white font-bold">
+                      1
+                    </div>
+                    <h3 class="font-semibold text-blue-800 mb-2">Clone & Branch</h3>
+                    <p class="text-sm text-blue-600">Download the project and create a feature branch</p>
+                  </div>
+                  
+                  <div class="text-center">
+                    <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3 text-white font-bold">
+                      2
+                    </div>
+                    <h3 class="font-semibold text-green-800 mb-2">Code & Commit</h3>
+                    <p class="text-sm text-green-600">Write code and save progress with descriptive messages</p>
+                  </div>
+                  
+                  <div class="text-center">
+                    <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-3 text-white font-bold">
+                      3
+                    </div>
+                    <h3 class="font-semibold text-purple-800 mb-2">Review & Merge</h3>
+                    <p class="text-sm text-purple-600">Create pull request for team to review and approve</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Assessment Connection -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-6">Your Assessment Experience</h2>
+              
+              <div class="bg-gradient-to-r from-blue-50 to-green-50 p-6 rounded-lg border border-blue-200">
+                <h3 class="font-semibold text-blue-800 mb-4">Connecting Theory to Practice</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 class="font-medium text-blue-700 mb-3">Assessment 1 & 2: What You Did</h4>
+                    <ul class="text-sm text-blue-600 space-y-2">
+                      <li class="flex items-start">
+                        <span class="text-blue-500 mr-2">•</span>
+                        <span>Created GitHub repositories</span>
+                      </li>
+                      <li class="flex items-start">
+                        <span class="text-blue-500 mr-2">•</span>
+                        <span>Made commits with descriptive messages</span>
+                      </li>
+                      <li class="flex items-start">
+                        <span class="text-blue-500 mr-2">•</span>
+                        <span>Pushed code to remote repositories</span>
+                      </li>
+                      <li class="flex items-start">
+                        <span class="text-blue-500 mr-2">•</span>
+                        <span>Tracked project progress over time</span>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h4 class="font-medium text-green-700 mb-3">Why This Matters</h4>
+                    <ul class="text-sm text-green-600 space-y-2">
+                      <li class="flex items-start">
+                        <span class="text-green-500 mr-2">•</span>
+                        <span><strong>Professional Skills:</strong> Industry standard practices</span>
+                      </li>
+                      <li class="flex items-start">
+                        <span class="text-green-500 mr-2">•</span>
+                        <span><strong>Portfolio Building:</strong> Showcasing your work</span>
+                      </li>
+                      <li class="flex items-start">
+                        <span class="text-green-500 mr-2">•</span>
+                        <span><strong>Team Readiness:</strong> Collaboration skills</span>
+                      </li>
+                      <li class="flex items-start">
+                        <span class="text-green-500 mr-2">•</span>
+                        <span><strong>Project Management:</strong> Tracking progress</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Exam Tips -->
+            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-amber-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+                <div>
+                  <p class="font-semibold text-amber-900 mb-1">Exam Tips</p>
+                  <p class="text-amber-800 text-sm">Focus on understanding the <strong>benefits</strong> of version control: tracking changes, collaboration, backup, and rollback capabilities. Know the difference between Git (local version control) and GitHub (cloud hosting). Be able to explain why version control is essential for both individual developers and teams working together.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

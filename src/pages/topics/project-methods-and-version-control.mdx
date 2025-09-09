@@ -1,0 +1,313 @@
+---
+layout: ../../layouts/TopicLayout.astro
+title: Project Methods and Version Control
+description: Learn systematic approaches to software development and collaborative coding practices
+topic: Project Methods and Version Control
+---
+
+import Accordion from '../../components/Accordion.astro';
+import FlipCard from '../../components/FlipCard.astro';
+import MCQQuiz from '../../components/MCQQuiz.astro';
+import PyRunner from '../../components/PyRunner.astro';
+import DeskCheck from '../../components/DeskCheck.astro';
+import Callout from '../../components/Callout.astro';
+
+## Overview
+
+Professional software development isn't just about writing code—it's about managing complex projects, collaborating with teams, and maintaining systems over time. Project methods provide structured approaches to planning, executing, and delivering software projects successfully. Whether you're building a mobile app or a spacecraft control system, systematic project management prevents chaos and ensures quality results.
+
+Version control systems like Git revolutionized how developers work together. Instead of emailing code files or working on shared drives, version control tracks every change, enables parallel development, and provides safety nets when things go wrong. Learning Git isn't just about technology—it's about adopting professional workflows that make collaborative development possible.
+
+In Year 11 Software Engineering, mastering project methods and version control prepares you for real-world development environments. These skills differentiate hobbyist programmers from professional developers who can work effectively in teams and deliver reliable software on schedule.
+
+<Accordion title="Key Points" id="key-points">
+
+<div class="key-point">
+  <span class="key-point-icon">✅</span>
+  <div class="key-point-text">
+    **Waterfall vs Agile**: Understand traditional waterfall (sequential phases) vs agile (iterative sprints) methodologies and when each is appropriate.
+  </div>
+</div>
+
+<div class="key-point">
+  <span class="key-point-icon">✅</span>
+  <div class="key-point-text">
+    **Requirements Analysis**: Gather, document, and validate what the software must do before coding begins. Poor requirements lead to project failure.
+  </div>
+</div>
+
+<div class="key-point">
+  <span class="key-point-icon">✅</span>
+  <div class="key-point-text">
+    **Git Fundamentals**: Master clone, add, commit, push, pull workflow. Understand repositories, branches, and merge conflicts.
+  </div>
+</div>
+
+<div class="key-point">
+  <span class="key-point-icon">✅</span>
+  <div class="key-point-text">
+    **Branching Strategy**: Use branches for features and fixes. Keep main branch stable and merge only tested code.
+  </div>
+</div>
+
+<div class="key-point">
+  <span class="key-point-icon">⚠️</span>
+  <div class="key-point-text">
+    **Commit Best Practices**: Write clear, descriptive commit messages. Commit frequently but ensure each commit represents a logical change.
+  </div>
+</div>
+
+<div class="key-point">
+  <span class="key-point-icon">✅</span>
+  <div class="key-point-text">
+    **Documentation**: Maintain README files, code comments, and user guides. Good documentation enables project maintenance and collaboration.
+  </div>
+</div>
+
+<div class="key-point">
+  <span class="key-point-icon">✅</span>
+  <div class="key-point-text">
+    **Testing Integration**: Plan testing throughout development, not just at the end. Automated tests catch regressions early.
+  </div>
+</div>
+
+</Accordion>
+
+## Interactive Learning
+
+<div class="mermaid">
+gitgraph
+    commit id: "Initial commit"
+    commit id: "Add basic structure"
+    branch feature-login
+    checkout feature-login
+    commit id: "Add login form"
+    commit id: "Add validation"
+    checkout main
+    commit id: "Fix bug in main"
+    merge feature-login
+    commit id: "Release v1.0"
+    branch hotfix
+    checkout hotfix
+    commit id: "Critical security fix"
+    checkout main
+    merge hotfix
+    commit id: "Deploy v1.0.1"
+</div>
+
+<FlipCard frontTitle="Agile vs Waterfall" id="methodology-quiz">
+  <div slot="front">
+    <p><strong>Project Scenario:</strong> You're building a mobile app for a startup that's still figuring out their business model.</p>
+    <p>Requirements will likely change frequently. Which methodology would you choose and why?</p>
+  </div>
+  <div slot="back">
+    <p><strong>Choose Agile!</strong></p>
+    <ul>
+      <li><strong>Flexibility:</strong> Can adapt to changing requirements</li>
+      <li><strong>Quick feedback:</strong> Regular demos help refine features</li>
+      <li><strong>Reduced risk:</strong> Frequent iterations catch problems early</li>
+      <li><strong>Customer involvement:</strong> Stakeholders see progress regularly</li>
+    </ul>
+    <p><strong>Waterfall better for:</strong> Well-defined requirements, regulated industries, safety-critical systems</p>
+  </div>
+</FlipCard>
+
+<DeskCheck
+  title="Git Workflow Trace"
+  variables={["Working Dir", "Staging Area", "Local Repo", "Remote Repo"]}
+  steps={[
+    { line: "1", values: ["file.py*", "", "commit A", "commit A"] },
+    { line: "2", values: ["file.py*", "file.py", "commit A", "commit A"] },
+    { line: "3", values: ["file.py", "file.py", "commit B", "commit A"] },
+    { line: "4", values: ["file.py", "file.py", "commit B", "commit B"] },
+    { line: "5", values: ["file2.py*", "file.py", "commit B", "commit B"] }
+  ]}
+>
+```text
+Git Workflow Steps:
+1. Edit file.py (working directory)
+2. git add file.py (stage changes) 
+3. git commit -m "Update feature" (local repo)
+4. git push origin main (remote repo)
+5. Create file2.py (new changes)
+```
+</DeskCheck>
+
+<PyRunner 
+  title="Simulate Project Planning"
+  code={`# Simple project planning simulation
+import datetime
+
+class Task:
+    def __init__(self, name, duration_days, dependencies=None):
+        self.name = name
+        self.duration = duration_days
+        self.dependencies = dependencies or []
+        self.start_date = None
+        self.end_date = None
+        self.completed = False
+    
+    def can_start(self, completed_tasks):
+        """Check if all dependencies are completed"""
+        return all(dep in completed_tasks for dep in self.dependencies)
+    
+    def __str__(self):
+        status = "✓" if self.completed else "○"
+        return f"{status} {self.name} ({self.duration} days)"
+
+class Project:
+    def __init__(self, name):
+        self.name = name
+        self.tasks = []
+        self.start_date = datetime.date.today()
+    
+    def add_task(self, task):
+        self.tasks.append(task)
+    
+    def plan_schedule(self):
+        """Simple scheduling algorithm"""
+        completed_tasks = []
+        current_date = self.start_date
+        
+        print(f"Project: {self.name}")
+        print(f"Start Date: {current_date}\\n")
+        
+        while len(completed_tasks) < len(self.tasks):
+            # Find tasks that can start
+            available_tasks = [
+                task for task in self.tasks 
+                if not task.completed and task.can_start(completed_tasks)
+            ]
+            
+            if not available_tasks:
+                print("Warning: Circular dependency detected!")
+                break
+            
+            # Start the first available task
+            task = available_tasks[0]
+            task.start_date = current_date
+            task.end_date = current_date + datetime.timedelta(days=task.duration)
+            task.completed = True
+            completed_tasks.append(task.name)
+            
+            print(f"{task.start_date}: Start '{task.name}' (ends {task.end_date})")
+            current_date = task.end_date
+
+# Create sample project
+project = Project("Mobile App Development")
+
+# Add tasks with dependencies
+project.add_task(Task("Requirements Analysis", 3))
+project.add_task(Task("UI Design", 5, ["Requirements Analysis"]))
+project.add_task(Task("Database Design", 2, ["Requirements Analysis"])) 
+project.add_task(Task("Frontend Development", 8, ["UI Design"]))
+project.add_task(Task("Backend Development", 10, ["Database Design"]))
+project.add_task(Task("Integration Testing", 3, ["Frontend Development", "Backend Development"]))
+project.add_task(Task("Deployment", 1, ["Integration Testing"]))
+
+# Plan the schedule
+project.plan_schedule()
+
+print(f"\\nTotal project duration: {(project.tasks[-1].end_date - project.start_date).days} days")`}
+/>
+
+## How to Revise
+
+**1. Practice Git Commands**: Set up a practice repository and work through common scenarios—creating branches, making commits, resolving merge conflicts, and reverting changes. Use GitHub or GitLab to experience remote repository workflows.
+
+**2. Create Project Plans**: Take real or imagined software projects and break them into tasks with dependencies. Practice estimating timelines and identifying critical paths. Compare waterfall vs agile approaches for the same project.
+
+**3. Analyze Case Studies**: Study successful and failed software projects. What project management decisions contributed to success or failure? How did version control practices affect team productivity and code quality?
+
+## Practice Questions
+
+<MCQQuiz
+  question="What is the primary advantage of using version control systems like Git?"
+  options={[
+    "Makes code run faster",
+    "Automatically fixes bugs in code",
+    "Tracks changes and enables collaboration",
+    "Converts code between programming languages"
+  ]}
+  correctAnswer={2}
+  explanation="Version control systems track all changes to code, enable multiple developers to work on the same project safely, and provide history and backup capabilities."
+  id="version-control-quiz"
+/>
+
+**Short Answer Questions:**
+
+1. **Git Workflow** (4 marks): Describe the complete Git workflow for adding a new feature to a project. Include commands for creating a branch, making changes, committing, and merging back to main. Explain why branching is important.
+
+2. **Project Methodology Selection** (5 marks): Compare Agile and Waterfall methodologies for developing a banking system with strict regulatory requirements. Which would you recommend and why? Consider factors like requirements stability, risk tolerance, and compliance needs.
+
+3. **Requirements Analysis** (3 marks): List three techniques for gathering software requirements from stakeholders. Explain why poor requirements lead to project failure and how to validate requirements before development begins.
+
+<Accordion title="Answers & Marking Hints" id="answers">
+
+**Question 1 Answer (4 marks):**
+
+**Git Workflow Steps:** (3 marks)
+```bash
+# Create and switch to feature branch
+git checkout -b feature-user-authentication
+
+# Make changes to files, then stage and commit
+git add login.py register.py
+git commit -m "Add user authentication system"
+
+# Switch back to main and merge
+git checkout main
+git merge feature-user-authentication
+
+# Push changes to remote repository
+git push origin main
+
+# Delete feature branch (cleanup)
+git branch -d feature-user-authentication
+```
+
+**Why Branching Matters:** (1 mark)
+- Isolates feature development from stable main branch
+- Allows multiple developers to work simultaneously
+- Enables experimentation without affecting main codebase
+- Facilitates code review before merging
+
+**Question 2 Answer (5 marks):**
+
+**Waterfall Recommendation** (2 marks)
+For banking systems, Waterfall methodology is more appropriate due to:
+- Strict regulatory compliance requirements
+- Need for extensive documentation and audit trails
+- High cost of post-deployment changes
+- Safety-critical nature requiring thorough testing
+
+**Agile Drawbacks for Banking:** (2 marks)
+- Regulatory bodies require complete specification upfront
+- Changing requirements could violate compliance rules
+- Iterative releases may not meet security standards
+
+**Balanced Approach:** (1 mark)
+Some organizations use "Water-Scrum-Fall" hybrid: Waterfall for planning and compliance, Agile for implementation phases.
+
+**Question 3 Answer (3 marks):**
+
+**Requirements Gathering Techniques:** (2 marks)
+1. **Stakeholder Interviews:** One-on-one discussions with users and decision-makers
+2. **User Story Workshops:** Collaborative sessions to define user needs and acceptance criteria  
+3. **Prototype/Mockup Reviews:** Visual demonstrations to clarify expectations
+
+**Impact of Poor Requirements:** (1 mark)
+- Scope creep and budget overruns
+- Delivered system doesn't meet user needs
+- Extensive rework required late in project
+- Validation through prototypes, user acceptance criteria, and stakeholder sign-off
+
+</Accordion>
+
+<Callout type="teacher" title="Teacher Notes">
+
+**Classroom Demo Suggestion**: Set up a collaborative Git exercise where students work on the same repository. Intentionally create merge conflicts to demonstrate resolution strategies. Use a simple text-based project (like a shared story or recipe collection) to focus on Git concepts rather than complex code.
+
+**Industry Connection**: Invite a professional developer to discuss how they use project management tools (Jira, Trello) and version control in daily work. Real-world perspectives make abstract concepts concrete and show career relevance.
+
+</Callout>

@@ -1,0 +1,276 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProgrammingFundamentalsNav from '../../../components/ProgrammingFundamentalsNav';
+import Tooltip from '../../../components/Tooltip';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Algorithm Design - Programming Fundamentals" description="Understanding algorithm design patterns and problem-solving strategies">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Algorithm Design</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <ProgrammingFundamentalsNav 
+              client:load 
+              currentPage="/topics/programming-fundamentals/algorithm-design"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3 space-y-8">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Algorithm Design</h1>
+            
+            <div class="mb-8 p-6 bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl border border-purple-200">
+              <h2 class="text-2xl font-bold text-gray-900 mb-4">What is Algorithm Design?</h2>
+              <p class="text-gray-800 text-lg leading-relaxed">
+                <strong><Tooltip client:load term="Algorithm Design" definition="The systematic process of creating detailed, step-by-step instructions to solve a specific problem through logical thinking and structured planning">Algorithm design</Tooltip></strong> is the process of creating systematic, step-by-step solutions to problems. Good algorithms are efficient, clear, and solve the problem correctly for all valid inputs.
+              </p>
+            </div>
+
+            <!-- Design Process -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">The Algorithm Design Process</h2>
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                    <span class="text-blue-600 font-bold">1</span>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-semibold text-blue-800 mb-2">Understand the Problem</h3>
+                    <p class="text-gray-700 mb-3">Clearly define what needs to be solved, identify inputs and expected outputs.</p>
+                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                      <p class="text-blue-800 text-sm"><strong>Example:</strong> "Find the largest number in a list of values"</p>
+                      <ul class="text-blue-700 text-sm mt-2 space-y-1">
+                        <li><strong>Input:</strong> A list of numbers</li>
+                        <li><strong>Output:</strong> The largest number</li>
+                        <li><strong>Edge cases:</strong> Empty list, duplicate values</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                    <span class="text-green-600 font-bold">2</span>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-semibold text-green-800 mb-2">Break Down the Problem</h3>
+                    <p class="text-gray-700 mb-3">Divide complex problems into smaller, manageable sub-problems.</p>
+                    <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                      <p class="text-green-800 text-sm"><strong>For finding maximum:</strong></p>
+                      <ul class="text-green-700 text-sm mt-2 space-y-1">
+                        <li>Start with the first number as the current maximum</li>
+                        <li>Compare each remaining number with the current maximum</li>
+                        <li>Update maximum if a larger number is found</li>
+                        <li>Continue until all numbers are checked</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                    <span class="text-purple-600 font-bold">3</span>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-semibold text-purple-800 mb-2">Choose Control Structures</h3>
+                    <p class="text-gray-700 mb-3">Select appropriate programming constructs to implement your solution.</p>
+                    <div class="bg-purple-50 p-4 rounded-lg border border-purple-200">
+                      <div class="grid md:grid-cols-3 gap-4">
+                        <div class="text-center">
+                          <div class="bg-purple-200 p-2 rounded mb-2">
+                            <span class="text-purple-800 font-semibold">SEQUENCE</span>
+                          </div>
+                          <p class="text-purple-700 text-sm">Step-by-step instructions</p>
+                        </div>
+                        <div class="text-center">
+                          <div class="bg-purple-200 p-2 rounded mb-2">
+                            <span class="text-purple-800 font-semibold">SELECTION</span>
+                          </div>
+                          <p class="text-purple-700 text-sm">IF/ELSE decisions</p>
+                        </div>
+                        <div class="text-center">
+                          <div class="bg-purple-200 p-2 rounded mb-2">
+                            <span class="text-purple-800 font-semibold">ITERATION</span>
+                          </div>
+                          <p class="text-purple-700 text-sm">WHILE/FOR loops</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                    <span class="text-orange-600 font-bold">4</span>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-semibold text-orange-800 mb-2">Write the Algorithm</h3>
+                    <p class="text-gray-700 mb-3">Express your solution in pseudocode using clear, unambiguous language.</p>
+                    <div class="bg-orange-50 p-4 rounded-lg border border-orange-200">
+                      <div class="bg-white border border-orange-300 p-4 rounded font-mono text-base">
+                        <pre class="text-orange-900 leading-relaxed"><code>BEGIN
+  INPUT numbers
+  SET maximum = numbers[0]
+  SET index = 1
+  WHILE index < length(numbers) DO
+    IF numbers[index] > maximum THEN
+      SET maximum = numbers[index]
+    ENDIF
+    SET index = index + 1
+  ENDWHILE
+  OUTPUT maximum
+END</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                    <span class="text-red-600 font-bold">5</span>
+                  </div>
+                  <div>
+                    <h3 class="text-lg font-semibold text-red-800 mb-2">Test and Refine</h3>
+                    <p class="text-gray-700 mb-3">Use <Tooltip client:load term="Desk Checking" definition="A manual testing technique where developers trace through algorithm execution step-by-step using trace tables">desk checking</Tooltip> to verify your algorithm works correctly.</p>
+                    <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                      <p class="text-red-800 text-sm"><strong>Test with different inputs:</strong></p>
+                      <ul class="text-red-700 text-sm mt-2 space-y-1">
+                        <li>Normal case: [5, 2, 8, 1] → Expected: 8</li>
+                        <li>All same: [3, 3, 3] → Expected: 3</li>
+                        <li>Single value: [7] → Expected: 7</li>
+                        <li>Negative numbers: [-1, -5, -2] → Expected: -1</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Common Algorithm Patterns -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Common Algorithm Patterns</h2>
+              <div class="grid md:grid-cols-2 gap-6">
+                
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-6">
+                  <h3 class="text-lg font-semibold text-blue-800 mb-3">1. Accumulator Pattern</h3>
+                  <p class="text-blue-700 text-sm mb-4">Used for totaling, counting, or building up a result</p>
+                  <div class="bg-white border border-blue-300 p-4 rounded font-mono text-base">
+                    <pre class="text-blue-900 leading-relaxed text-sm"><code>SET total = 0
+FOR each item DO
+  SET total = total + item
+ENDFOR</code></pre>
+                  </div>
+                  <p class="text-blue-600 text-xs mt-2"><strong>Examples:</strong> Sum numbers, count items, concatenate strings</p>
+                </div>
+
+                <div class="bg-green-50 border border-green-200 rounded-lg p-6">
+                  <h3 class="text-lg font-semibold text-green-800 mb-3">2. Search Pattern</h3>
+                  <p class="text-green-700 text-sm mb-4">Used for finding specific items in collections</p>
+                  <div class="bg-white border border-green-300 p-4 rounded font-mono text-base">
+                    <pre class="text-green-900 leading-relaxed text-sm"><code>SET found = False
+FOR each item DO
+  IF item equals target THEN
+    SET found = True
+  ENDIF
+ENDFOR</code></pre>
+                  </div>
+                  <p class="text-green-600 text-xs mt-2"><strong>Examples:</strong> Find maximum, locate item, check existence</p>
+                </div>
+
+                <div class="bg-purple-50 border border-purple-200 rounded-lg p-6">
+                  <h3 class="text-lg font-semibold text-purple-800 mb-3">3. Filter Pattern</h3>
+                  <p class="text-purple-700 text-sm mb-4">Used for selecting items that meet criteria</p>
+                  <div class="bg-white border border-purple-300 p-4 rounded font-mono text-base">
+                    <pre class="text-purple-900 leading-relaxed text-sm"><code>SET results = []
+FOR each item DO
+  IF item meets criteria THEN
+    ADD item to results
+  ENDIF
+ENDFOR</code></pre>
+                  </div>
+                  <p class="text-purple-600 text-xs mt-2"><strong>Examples:</strong> Find even numbers, filter by age, select records</p>
+                </div>
+
+                <div class="bg-orange-50 border border-orange-200 rounded-lg p-6">
+                  <h3 class="text-lg font-semibold text-orange-800 mb-3">4. Transform Pattern</h3>
+                  <p class="text-orange-700 text-sm mb-4">Used for converting or modifying data</p>
+                  <div class="bg-white border border-orange-300 p-4 rounded font-mono text-base">
+                    <pre class="text-orange-900 leading-relaxed text-sm"><code>SET newList = []
+FOR each item DO
+  SET transformed = modify(item)
+  ADD transformed to newList
+ENDFOR</code></pre>
+                  </div>
+                  <p class="text-orange-600 text-xs mt-2"><strong>Examples:</strong> Convert to uppercase, calculate squares, format dates</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Design Principles -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Algorithm Design Principles</h2>
+              <div class="grid md:grid-cols-2 gap-6">
+                
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                  <h3 class="text-lg font-semibold text-gray-800 mb-3">Clarity & Readability</h3>
+                  <ul class="space-y-2 text-gray-700 text-sm">
+                    <li class="flex items-start"><span class="text-green-600 mr-3">✓</span>Use meaningful variable names</li>
+                    <li class="flex items-start"><span class="text-green-600 mr-3">✓</span>Include clear comments</li>
+                    <li class="flex items-start"><span class="text-green-600 mr-3">✓</span>Follow consistent indentation</li>
+                    <li class="flex items-start"><span class="text-green-600 mr-3">✓</span>Break complex logic into steps</li>
+                  </ul>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                  <h3 class="text-lg font-semibold text-gray-800 mb-3">Correctness & Robustness</h3>
+                  <ul class="space-y-2 text-gray-700 text-sm">
+                    <li class="flex items-start"><span class="text-blue-600 mr-3">✓</span>Handle edge cases properly</li>
+                    <li class="flex items-start"><span class="text-blue-600 mr-3">✓</span>Validate input data</li>
+                    <li class="flex items-start"><span class="text-blue-600 mr-3">✓</span>Avoid infinite loops</li>
+                    <li class="flex items-start"><span class="text-blue-600 mr-3">✓</span>Test with various inputs</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Exam Tips -->
+            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-amber-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                  <p class="font-semibold text-amber-900 mb-2">NESA Exam Tips</p>
+                  <ul class="text-amber-800 text-sm space-y-1">
+                    <li><strong>Question 18 Focus:</strong> Practice designing algorithms for array processing, searching, and mathematical calculations</li>
+                    <li><strong>Show Your Thinking:</strong> Use proper NESA pseudocode format and explain your reasoning</li>
+                    <li><strong>Test Your Logic:</strong> Always desk check your algorithm with sample data</li>
+                    <li><strong>Common Patterns:</strong> Master accumulator, search, filter, and transform patterns</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,212 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProgrammingFundamentalsNav from '../../../components/ProgrammingFundamentalsNav';
+import ModularCodeExplorer from '../../../components/ModularCodeExplorer';
+import Tooltip from '../../../components/Tooltip';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Procedures & Functions - Programming Fundamentals" description="Understanding the difference between procedures and functions, parameters, and modular programming">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Procedures & Functions</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <ProgrammingFundamentalsNav 
+              client:load 
+              currentPage="/topics/programming-fundamentals/procedures-functions"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3 space-y-8">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Procedures & Functions</h1>
+            
+            <div class="mb-8 p-6 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl border border-green-200">
+              <h2 class="text-2xl font-bold text-gray-900 mb-4">Why Use Modular Programming?</h2>
+              <p class="text-gray-800 text-lg leading-relaxed mb-4">
+                <strong><Tooltip client:load term="Modular Programming" definition="Breaking down complex programs into smaller, manageable sub-programs for better organisation and reusability">Modular programming</Tooltip></strong> breaks complex problems into smaller, reusable pieces. Instead of writing one giant program, you create <Tooltip client:load term="Functions" definition="Named blocks of code that perform calculations and return values">functions</Tooltip> that return values and <Tooltip client:load term="Procedures" definition="Named blocks of code that perform specific tasks but don't return values">procedures</Tooltip> that perform actions.
+              </p>
+              
+              <div class="grid md:grid-cols-3 gap-4">
+                <div class="bg-white p-4 rounded-lg border border-green-300">
+                  <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mb-3">
+                    <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                    </svg>
+                  </div>
+                  <h3 class="font-semibold text-green-800 mb-2">Reusability</h3>
+                  <p class="text-sm text-green-700">Write once, use everywhere in your program</p>
+                </div>
+                
+                <div class="bg-white p-4 rounded-lg border border-blue-300">
+                  <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-3">
+                    <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                  </div>
+                  <h3 class="font-semibold text-blue-800 mb-2">Maintainability</h3>
+                  <p class="text-sm text-blue-700">Fix bugs in one place, update everywhere</p>
+                </div>
+                
+                <div class="bg-white p-4 rounded-lg border border-purple-300">
+                  <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mb-3">
+                    <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                    </svg>
+                  </div>
+                  <h3 class="font-semibold text-purple-800 mb-2">Teamwork</h3>
+                  <p class="text-sm text-purple-700">Different people work on different modules</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Reference -->
+            <div class="bg-white rounded-lg shadow-sm p-6 border border-gray-200 mb-8">
+              <h3 class="text-xl font-semibold mb-4">Quick Reference: When to Use Each</h3>
+              
+              <div class="grid md:grid-cols-2 gap-6">
+                <!-- Functions -->
+                <div class="bg-purple-50 border-l-4 border-purple-500 p-4 rounded-r-lg">
+                  <h4 class="text-lg font-semibold text-purple-800 mb-2">✓ Use Functions When You Need:</h4>
+                  <ul class="space-y-1 text-sm text-purple-700">
+                    <li>To <strong>calculate</strong> something (area, tax, discount)</li>
+                    <li>To <strong>validate</strong> data (email format, age range)</li>
+                    <li>To <strong>return a result</strong> for use elsewhere</li>
+                    <li>To <strong>transform</strong> data (uppercase, format)</li>
+                  </ul>
+                  <div class="mt-4 bg-purple-100 border border-purple-300 p-4 rounded font-mono text-base">
+                    <pre class="text-purple-800 leading-relaxed"><code>def calculate_total(price, tax):
+    return price + (price * tax)</code></pre>
+                  </div>
+                </div>
+
+                <!-- Procedures -->
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+                  <h4 class="text-lg font-semibold text-blue-800 mb-2">✓ Use Procedures When You Need:</h4>
+                  <ul class="space-y-1 text-sm text-blue-700">
+                    <li>To <strong>display</strong> information to users</li>
+                    <li>To <strong>save</strong> data to files</li>
+                    <li>To <strong>perform actions</strong> (send email, play sound)</li>
+                    <li>To <strong>organise</strong> code into logical sections</li>
+                  </ul>
+                  <div class="mt-4 bg-blue-100 border border-blue-300 p-4 rounded font-mono text-base">
+                    <pre class="text-blue-800 leading-relaxed"><code>def display_receipt(items, total):
+    print(f"Items: &#123;'&#123;'&#125;items&#125;")
+    print(f"Total: \$&#123;total&#125;")</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Critical Concept: Return vs Print -->
+            <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-500 mb-8">
+              <h3 class="text-xl font-semibold text-red-800 mb-4">🚨 Most Important Concept: Return vs Print</h3>
+              
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-4 rounded-lg border border-red-200">
+                  <h4 class="font-semibold text-red-700 mb-3">❌ Wrong - Can't Use Result</h4>
+                  <div class="bg-red-50 border border-red-300 p-4 rounded font-mono text-base">
+                    <pre class="text-red-800 leading-relaxed"><code>def calculate_total(price, tax):
+    total = price + tax
+    print(total)  # Just shows it
+
+# This doesn't work!
+result = calculate_total(100, 10)
+print(result)  # Shows: None</code></pre>
+                  </div>
+                </div>
+                
+                <div class="bg-white p-4 rounded-lg border border-green-200">
+                  <h4 class="font-semibold text-green-700 mb-3">✅ Correct - Returns Value</h4>
+                  <div class="bg-green-50 border border-green-300 p-4 rounded font-mono text-base">
+                    <pre class="text-green-800 leading-relaxed"><code>def calculate_total(price, tax):
+    total = price + tax
+    return total  # Gives it back
+
+# This works!
+result = calculate_total(100, 10)
+print(result)  # Shows: 110</code></pre>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mt-4 p-4 bg-yellow-100 rounded-lg">
+                <p class="text-yellow-800 font-medium">
+                  <strong>Key Rule:</strong> If you need to use the answer somewhere else, use <code>return</code>. If you just want to show it to the user, use <code>print</code>.
+                </p>
+              </div>
+            </div>
+
+            <!-- Parameters: The Basics -->
+            <div class="bg-yellow-50 p-6 rounded-lg border border-yellow-200 mb-8">
+              <h3 class="text-xl font-semibold text-yellow-800 mb-4">Parameters & Arguments</h3>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-4 rounded-lg border border-yellow-300">
+                  <h4 class="font-semibold text-yellow-700 mb-2">Parameters (In Definition)</h4>
+                  <p class="text-sm text-yellow-600 mb-3">Variable names when you define the function</p>
+                  <div class="bg-yellow-50 border border-yellow-400 p-4 rounded font-mono text-base mt-3">
+                    <pre class="text-yellow-800 leading-relaxed"><code>def calculate_area(length, width):
+    return length * width</code></pre>
+                  </div>
+                  <p class="text-xs text-yellow-600 mt-2">length and width are <strong>parameters</strong></p>
+                </div>
+                
+                <div class="bg-white p-4 rounded-lg border border-yellow-300">
+                  <h4 class="font-semibold text-yellow-700 mb-2">Arguments (In Call)</h4>
+                  <p class="text-sm text-yellow-600 mb-3">Actual values when you call the function</p>
+                  <div class="bg-yellow-50 border border-yellow-400 p-4 rounded font-mono text-base mt-3">
+                    <pre class="text-yellow-800 leading-relaxed"><code>area = calculate_area(5, 3)
+print(area)  # Shows: 15</code></pre>
+                  </div>
+                  <p class="text-xs text-yellow-600 mt-2">5 and 3 are <strong>arguments</strong></p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          
+          <!-- Modular Code Examples -->
+          <ModularCodeExplorer client:load />
+          
+          <!-- Exam Tips -->
+          <div class="bg-amber-50 p-6 rounded-lg border border-amber-200">
+            <div class="flex items-start">
+              <svg class="w-5 h-5 text-amber-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <div>
+                <p class="font-semibold text-amber-900 mb-2">NESA Exam Tips</p>
+                <ul class="text-amber-800 text-sm space-y-1">
+                  <li><strong>Functions:</strong> Use when you need to calculate and return a value</li>
+                  <li><strong>Procedures:</strong> Use when you need to perform an action (display, save)</li>
+                  <li><strong>Parameters:</strong> Names in function definition (def function(x, y))</li>
+                  <li><strong>Arguments:</strong> Values passed when calling (function(5, 3))</li>
+                  <li><strong>Benefits:</strong> Reusability, maintainability, team collaboration</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

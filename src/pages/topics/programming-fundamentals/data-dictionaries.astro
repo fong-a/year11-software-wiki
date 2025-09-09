@@ -1,0 +1,209 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProgrammingFundamentalsNav from '../../../components/ProgrammingFundamentalsNav';
+import Tooltip from '../../../components/Tooltip';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Data Dictionaries - Programming Fundamentals" description="Creating and using data dictionaries to document data structures and database fields">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Data Dictionaries</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <ProgrammingFundamentalsNav 
+              client:load 
+              currentPage="/topics/programming-fundamentals/data-dictionaries"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Data Dictionaries</h1>
+            
+            <div class="mb-8 p-6 bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl border border-indigo-200">
+              <p class="text-indigo-900 text-lg leading-relaxed">
+                A <strong><Tooltip client:load term="Data Dictionary" definition="A comprehensive document that describes the structure, format, and meaning of all data elements used in a system">data dictionary</Tooltip></strong> is a table that documents every piece of data in your system - like a glossary for your database fields. It tells developers exactly what each field contains, what type of data it stores, and any rules that apply to it.
+              </p>
+            </div>
+
+            <!-- Why Use Data Dictionaries? -->
+            <div class="mb-8">
+              <h3 class="text-xl font-semibold mb-4">Why Do Developers Use Data Dictionaries?</h3>
+              
+              <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+                <div class="grid md:grid-cols-3 gap-6">
+                  <div class="text-center">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                      <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                      </svg>
+                    </div>
+                    <h4 class="font-semibold text-green-800 mb-2">Avoid Confusion</h4>
+                    <p class="text-sm text-green-700">Everyone knows exactly what each field contains and how it should be used</p>
+                  </div>
+                  
+                  <div class="text-center">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                      <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                      </svg>
+                    </div>
+                    <h4 class="font-semibold text-green-800 mb-2">Save Time</h4>
+                    <p class="text-sm text-green-700">New developers can understand the database structure quickly without guessing</p>
+                  </div>
+                  
+                  <div class="text-center">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-3">
+                      <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                      </svg>
+                    </div>
+                    <h4 class="font-semibold text-green-800 mb-2">Prevent Errors</h4>
+                    <p class="text-sm text-green-700">Clear rules about data types and constraints stop bugs before they happen</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Example Data Dictionary -->
+            <div class="mb-8">
+              <h3 class="text-xl font-semibold mb-4">Example: Online Shopping App Data Dictionary</h3>
+              
+              <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                <h4 class="font-semibold text-blue-800 mb-4">Customer Table</h4>
+                <div class="overflow-x-auto">
+                  <table class="w-full text-sm border-collapse border border-blue-300 bg-white">
+                    <thead>
+                      <tr class="bg-blue-100">
+                        <th class="border border-blue-300 p-3 text-left font-semibold">Field Name</th>
+                        <th class="border border-blue-300 p-3 text-left font-semibold">Data Type</th>
+                        <th class="border border-blue-300 p-3 text-left font-semibold">Size</th>
+                        <th class="border border-blue-300 p-3 text-left font-semibold">Rules</th>
+                        <th class="border border-blue-300 p-3 text-left font-semibold">Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="border border-blue-300 p-3 font-mono bg-blue-50">customer_id</td>
+                        <td class="border border-blue-300 p-3">Integer</td>
+                        <td class="border border-blue-300 p-3">10 digits</td>
+                        <td class="border border-blue-300 p-3">Unique, Auto-increment</td>
+                        <td class="border border-blue-300 p-3">Unique ID for each customer</td>
+                      </tr>
+                      <tr>
+                        <td class="border border-blue-300 p-3 font-mono bg-blue-50">email</td>
+                        <td class="border border-blue-300 p-3">Text</td>
+                        <td class="border border-blue-300 p-3">100 characters</td>
+                        <td class="border border-blue-300 p-3">Must contain @ and ., Unique</td>
+                        <td class="border border-blue-300 p-3">Customer's email address for login</td>
+                      </tr>
+                      <tr>
+                        <td class="border border-blue-300 p-3 font-mono bg-blue-50">first_name</td>
+                        <td class="border border-blue-300 p-3">Text</td>
+                        <td class="border border-blue-300 p-3">50 characters</td>
+                        <td class="border border-blue-300 p-3">Required, Letters only</td>
+                        <td class="border border-blue-300 p-3">Customer's first name</td>
+                      </tr>
+                      <tr>
+                        <td class="border border-blue-300 p-3 font-mono bg-blue-50">age</td>
+                        <td class="border border-blue-300 p-3">Integer</td>
+                        <td class="border border-blue-300 p-3">3 digits</td>
+                        <td class="border border-blue-300 p-3">Must be 13 or older</td>
+                        <td class="border border-blue-300 p-3">Customer's age for age verification</td>
+                      </tr>
+                      <tr>
+                        <td class="border border-blue-300 p-3 font-mono bg-blue-50">account_balance</td>
+                        <td class="border border-blue-300 p-3">Decimal</td>
+                        <td class="border border-blue-300 p-3">8.2 (8 digits, 2 decimal)</td>
+                        <td class="border border-blue-300 p-3">Cannot be negative</td>
+                        <td class="border border-blue-300 p-3">Money available in customer's account</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <!-- Real-World Scenario -->
+            <div class="mb-8">
+              <h3 class="text-xl font-semibold mb-4">How Developers Use This in Practice</h3>
+              
+              <div class="bg-purple-50 p-6 rounded-lg border border-purple-200">
+                <h4 class="font-semibold text-purple-800 mb-4">Scenario: Building a School Portal</h4>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div class="bg-white p-4 rounded-lg border border-purple-300">
+                    <h5 class="font-semibold text-purple-700 mb-3">Without Data Dictionary:</h5>
+                    <div class="space-y-2 text-sm">
+                      <p class="text-red-700">❌ Developer A creates "student_grade" field as text</p>
+                      <p class="text-red-700">❌ Developer B creates "grade" field as number</p>
+                      <p class="text-red-700">❌ Confusion about what "active" means</p>
+                      <p class="text-red-700">❌ Some allow negative ages, others don't</p>
+                      <p class="text-red-700">❌ Bugs and inconsistent data everywhere!</p>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded-lg border border-green-300">
+                    <h5 class="font-semibold text-green-700 mb-3">With Data Dictionary:</h5>
+                    <div class="space-y-2 text-sm">
+                      <p class="text-green-700">✅ Everyone knows "student_grade" is text A-F</p>
+                      <p class="text-green-700">✅ "active" clearly means "currently enrolled"</p>
+                      <p class="text-green-700">✅ Age must be 5-18, no exceptions</p>
+                      <p class="text-green-700">✅ Email format enforced everywhere</p>
+                      <p class="text-green-700">✅ Consistent, reliable system!</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="mt-4 p-4 bg-purple-100 rounded">
+                  <p class="text-purple-800 text-sm">
+                    <strong>Key Point:</strong> When everyone follows the same data dictionary, the whole team builds features that work together perfectly. New developers can join the project and immediately understand how all the data is structured.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- NESA Exam Context -->
+            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-amber-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                  <p class="font-semibold text-amber-900 mb-1">NESA Exam Focus</p>
+                  <ul class="text-amber-800 text-sm space-y-1">
+                    <li>• <strong>Creating entries:</strong> Know how to define field name, data type, size, rules, and description</li>
+                    <li>• <strong>Choosing data types:</strong> Text for names, Integer for IDs, Date for birthdays, Decimal for money</li>
+                    <li>• <strong>Setting constraints:</strong> Unique for emails, Required for essential fields, Range limits for ages</li>
+                    <li>• <strong>Benefits:</strong> Prevents confusion, saves development time, reduces errors</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,547 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProgrammingFundamentalsNav from '../../../components/ProgrammingFundamentalsNav';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Pseudocode Practice Questions - Programming Fundamentals" description="NESA-style pseudocode practice questions with marking criteria, sample answers, and comprehensive algorithm solutions">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Pseudocode Practice Questions</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <ProgrammingFundamentalsNav 
+              client:load 
+              currentPage="/topics/programming-fundamentals/pseudocode-questions"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Pseudocode</h1>
+            <h2 class="text-2xl font-semibold text-blue-600 mb-8">Practice Questions</h2>
+            
+            <!-- NESA Keywords -->
+            <div class="mb-8 p-6 bg-gradient-to-r from-amber-50 to-orange-50 rounded-lg border border-amber-200">
+              <h3 class="text-xl font-bold text-amber-800 mb-4">📚 NESA Command Words</h3>
+              <p class="text-amber-700 text-sm mb-4">The Software Engineering exam uses specific keywords that tell you what kind of response is expected:</p>
+              
+              <div class="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong class="text-amber-800">Write:</strong> Create complete pseudocode solution</p>
+                  <p><strong class="text-amber-800">Design:</strong> Plan algorithm structure and logic</p>
+                  <p><strong class="text-amber-800">Develop:</strong> Build upon existing code or extend functionality</p>
+                </div>
+                <div>
+                  <p><strong class="text-amber-800">Trace:</strong> Follow algorithm execution step by step</p>
+                  <p><strong class="text-amber-800">Modify:</strong> Change existing algorithm for new requirements</p>
+                  <p><strong class="text-amber-800">Complete:</strong> Fill in missing parts of pseudocode</p>
+                </div>
+              </div>
+
+              <!-- NESA Pseudocode Conventions -->
+              <div class="mt-4 p-4 bg-white rounded border border-amber-300">
+                <h4 class="font-semibold text-amber-800 mb-2">NESA Pseudocode Conventions:</h4>
+                <div class="grid md:grid-cols-2 gap-4 text-xs text-amber-800">
+                  <div>
+                    <p><code>←</code> Assignment operator</p>
+                    <p><code>FUNCTION...END FUNCTION</code> Function definition</p>
+                    <p><code>FOR...END FOR</code> For loops</p>
+                    <p><code>WHILE...END WHILE</code> While loops</p>
+                  </div>
+                  <div>
+                    <p><code>IF...THEN...END IF</code> Conditional statements</p>
+                    <p><code>DISPLAY</code> Output to user</p>
+                    <p><code>INPUT</code> Get user input</p>
+                    <p><code>RETURN</code> Return value from function</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Question 1 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 1 (4 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Write pseudocode for a function called <code class="bg-gray-100 px-2 py-1 rounded text-sm">calculateAverage</code> that accepts three integers as parameters and returns their average as a floating-point number.
+                </p>
+                <p class="text-gray-600 mt-2 text-sm">
+                  Include a demonstration of calling the function with the values (5, 7, 10) and displaying the result.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>4 marks:</strong> Complete function with FUNCTION/END FUNCTION, correct parameter handling, proper calculation (division by 3.0), return statement, and function call demonstration</li>
+                      <li><strong>3 marks:</strong> Function structure mostly correct but minor errors in NESA conventions (e.g., missing END FUNCTION, incorrect assignment operator)</li>
+                      <li><strong>2 marks:</strong> Basic function structure with calculation attempted but some errors in syntax or logic</li>
+                      <li><strong>1 mark:</strong> Shows understanding of function concept but significant errors in pseudocode structure or conventions</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-gray-100 text-gray-800 p-4 rounded border font-mono overflow-x-auto border-l-4 border-blue-400">
+<pre>FUNCTION calculateAverage(a, b, c)
+    sum ← a + b + c
+    result ← sum / 3.0
+    RETURN result
+END FUNCTION
+
+// Demonstration of function call
+average ← calculateAverage(5, 7, 10)
+DISPLAY "The average is: " + average
+
+// Expected output: The average is: 7.333...</pre>
+                    </div>
+                    <div class="mt-3 p-3 bg-green-100 rounded text-xs">
+                      <p><strong>Key Points:</strong> Use FUNCTION/END FUNCTION, ← for assignment, divide by 3.0 for floating-point result, RETURN statement, proper function call demonstration.</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 2 (5 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Write pseudocode that stores five test scores in an array, then finds and displays the highest score.
+                </p>
+                <p class="text-gray-600 mt-2 text-sm">
+                  Use the test scores: 85, 92, 78, 96, 88
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>5 marks:</strong> Array declaration with specified values, proper initialization of highest variable, correct FOR loop with bounds (1 TO 4), accurate comparison logic, and clear output</li>
+                      <li><strong>4 marks:</strong> Most elements correct but minor errors (e.g., loop bounds off by one, initialization issues)</li>
+                      <li><strong>3 marks:</strong> Basic loop structure and array handling attempted but some logical errors in comparison or bounds</li>
+                      <li><strong>2 marks:</strong> Shows understanding of arrays and loops but significant implementation errors</li>
+                      <li><strong>1 mark:</strong> Basic attempt at finding maximum but lacks proper array or loop structure</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-gray-100 text-gray-800 p-4 rounded border font-mono overflow-x-auto border-l-4 border-blue-400">
+<pre>// Store test scores in array
+scores[5] ← [85, 92, 78, 96, 88]
+
+// Initialize highest with first element
+highest ← scores[0]
+
+// Loop through remaining elements to find highest
+FOR i ← 1 TO 4
+    IF scores[i] > highest THEN
+        highest ← scores[i]
+    END IF
+END FOR
+
+// Display the highest score
+DISPLAY "Highest score: " + highest
+
+// Expected output: Highest score: 96</pre>
+                    </div>
+                    <div class="mt-3 p-3 bg-green-100 rounded text-xs">
+                      <p><strong>Key Points:</strong> Array declaration with size, initialize highest to first element, loop from index 1, use proper IF/THEN/END IF structure, clear output message.</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 3 (6 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  A cinema seating system uses a 2D array to track seat availability. The array has 3 rows and 4 columns. A value of 0 represents an available seat, and 1 represents a booked seat.
+                </p>
+                <div class="mt-3 bg-gray-100 p-3 rounded text-sm font-mono">
+                  seats = [[1,0,0,1],<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0,1,0,0],<br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[1,1,0,0]]
+                </div>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Write pseudocode that:
+                </p>
+                <ul class="mt-2 text-gray-600 text-sm ml-6 space-y-1">
+                  <li>a) Counts and displays the total number of available seats</li>
+                  <li>b) Asks the user for a row number and displays how many available seats are in that row</li>
+                </ul>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>6 marks:</strong> Complete 2D array declaration, nested loops for total count, user input handling, row-specific counting with input validation, and clear output messages</li>
+                      <li><strong>5 marks:</strong> Both parts (total and row-specific) implemented correctly but may lack input validation or have minor loop errors</li>
+                      <li><strong>4 marks:</strong> One part complete and working, second part attempted with basic structure but some errors</li>
+                      <li><strong>2-3 marks:</strong> Shows understanding of 2D array concept and nested loops but significant implementation issues</li>
+                      <li><strong>1 mark:</strong> Basic understanding of array concept but lacks proper 2D array processing</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-gray-100 text-gray-800 p-4 rounded border font-mono overflow-x-auto border-l-4 border-blue-400">
+<pre>// Initialize 2D array for cinema seating
+seats[3][4] ← [[1,0,0,1],
+               [0,1,0,0],
+               [1,1,0,0]]
+
+// Part a) Count total available seats
+totalAvailable ← 0
+FOR row ← 0 TO 2
+    FOR col ← 0 TO 3
+        IF seats[row][col] = 0 THEN
+            totalAvailable ← totalAvailable + 1
+        END IF
+    END FOR
+END FOR
+
+DISPLAY "Total available seats: " + totalAvailable
+
+// Part b) Count available seats in specific row
+DISPLAY "Enter row number (0-2): "
+INPUT userRow
+
+// Validate input
+IF userRow >= 0 AND userRow <= 2 THEN
+    rowAvailable ← 0
+    FOR col ← 0 TO 3
+        IF seats[userRow][col] = 0 THEN
+            rowAvailable ← rowAvailable + 1
+        END IF
+    END FOR
+    DISPLAY "Available seats in row " + userRow + ": " + rowAvailable
+ELSE
+    DISPLAY "Invalid row number. Please enter 0, 1, or 2."
+END IF</pre>
+                    </div>
+                    <div class="mt-3 p-3 bg-green-100 rounded text-xs">
+                      <p><strong>Key Points:</strong> 2D array declaration, nested FOR loops, proper indexing [row][col], input validation, clear variable names, appropriate output messages.</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 4 (5 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Write pseudocode for a simple password validation function that checks if a password meets the following criteria:
+                </p>
+                <ul class="mt-2 text-gray-600 text-sm ml-6 space-y-1">
+                  <li>• At least 8 characters long</li>
+                  <li>• Contains at least one uppercase letter</li>
+                  <li>• Contains at least one digit</li>
+                </ul>
+                <p class="text-gray-700 mt-2 font-medium">
+                  The function should return TRUE if valid, FALSE if invalid. Include a demonstration of testing the password "MyPass123".
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>5 marks:</strong> Complete function with length check, character iteration loop, uppercase and digit detection logic, boolean returns, and working demonstration</li>
+                      <li><strong>4 marks:</strong> All validation checks present but minor errors in logic (e.g., loop bounds, character range checking)</li>
+                      <li><strong>3 marks:</strong> Function structure with 2-3 validation requirements working but some logical errors or missing checks</li>
+                      <li><strong>2 marks:</strong> Shows understanding of string processing and validation but significant implementation errors</li>
+                      <li><strong>1 mark:</strong> Basic function structure attempted but lacks proper validation logic or character checking</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-gray-100 text-gray-800 p-4 rounded border font-mono overflow-x-auto border-l-4 border-blue-400">
+<pre>FUNCTION validatePassword(password)
+    // Check length requirement
+    IF LENGTH(password) < 8 THEN
+        RETURN FALSE
+    END IF
+    
+    // Initialize flags for requirements
+    hasUppercase ← FALSE
+    hasDigit ← FALSE
+    
+    // Check each character in password
+    FOR i ← 0 TO LENGTH(password) - 1
+        char ← password[i]
+        
+        // Check for uppercase letter (A-Z)
+        IF char >= 'A' AND char <= 'Z' THEN
+            hasUppercase ← TRUE
+        END IF
+        
+        // Check for digit (0-9)
+        IF char >= '0' AND char <= '9' THEN
+            hasDigit ← TRUE
+        END IF
+    END FOR
+    
+    // Return TRUE only if all requirements met
+    IF hasUppercase = TRUE AND hasDigit = TRUE THEN
+        RETURN TRUE
+    ELSE
+        RETURN FALSE
+    END IF
+END FUNCTION
+
+// Demonstration with "MyPass123"
+testPassword ← "MyPass123"
+isValid ← validatePassword(testPassword)
+
+IF isValid = TRUE THEN
+    DISPLAY testPassword + " is a valid password"
+ELSE
+    DISPLAY testPassword + " is not a valid password"
+END IF
+
+// Expected output: MyPass123 is a valid password</pre>
+                    </div>
+                    <div class="mt-3 p-3 bg-green-100 rounded text-xs">
+                      <p><strong>Key Points:</strong> LENGTH() function for string length, character range checking (A-Z, 0-9), boolean flags, loop through string characters, logical AND conditions, clear return statements.</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 5 (4 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Complete the following pseudocode algorithm that converts a decimal number to binary. Fill in the missing parts:
+                </p>
+                <div class="mt-3 bg-gray-100 p-4 rounded text-sm font-mono">
+                  <pre>FUNCTION decimalToBinary(number)
+    binary ← ""
+    
+    WHILE number > 0
+        remainder ← _____________
+        binary ← _____________ + binary
+        number ← _____________
+    END WHILE
+    
+    IF binary = "" THEN
+        binary ← "0"
+    END IF
+    
+    RETURN binary
+END FUNCTION</pre>
+                </div>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>4 marks:</strong> All three blanks completed correctly: remainder ← number MOD 2, binary ← remainder + binary, number ← number DIV 2</li>
+                      <li><strong>3 marks:</strong> Two blanks correct showing understanding of binary conversion algorithm</li>
+                      <li><strong>2 marks:</strong> One blank correct OR shows understanding of modulo/division concepts but errors in implementation</li>
+                      <li><strong>1 mark:</strong> Shows basic understanding of binary conversion concept but significant errors in algorithm completion</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-gray-100 text-gray-800 p-4 rounded border font-mono overflow-x-auto border-l-4 border-blue-400">
+<pre>FUNCTION decimalToBinary(number)
+    binary ← ""
+    
+    WHILE number > 0
+        remainder ← number MOD 2
+        binary ← remainder + binary
+        number ← number DIV 2
+    END WHILE
+    
+    IF binary = "" THEN
+        binary ← "0"
+    END IF
+    
+    RETURN binary
+END FUNCTION
+
+// Example usage:
+result ← decimalToBinary(13)
+DISPLAY result
+// Expected output: 1101</pre>
+                    </div>
+                    <div class="mt-3 p-3 bg-green-100 rounded text-xs">
+                      <p><strong>Key Points:</strong> MOD 2 gets remainder (0 or 1), prepend remainder to build binary string from right to left, DIV 2 for integer division, handle edge case of 0.</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Study Tips -->
+            <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+              <h3 class="text-xl font-bold text-blue-800 mb-4">💡 Pseudocode Success Tips</h3>
+              <div class="grid md:grid-cols-2 gap-4 text-sm text-blue-700">
+                <div>
+                  <h4 class="font-semibold mb-2">NESA Conventions:</h4>
+                  <ul class="space-y-1">
+                    <li>• Always use ← for assignment</li>
+                    <li>• Include END statements (END IF, END FOR, etc.)</li>
+                    <li>• Use proper FUNCTION/END FUNCTION structure</li>
+                    <li>• Initialize variables before using them</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">Algorithm Design:</h4>
+                  <ul class="space-y-1">
+                    <li>• Break complex problems into smaller steps</li>
+                    <li>• Validate user input when required</li>
+                    <li>• Use meaningful variable names</li>
+                    <li>• Include clear output messages</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mt-4 p-3 bg-blue-100 rounded">
+                <p class="font-semibold text-blue-800">Common Question Types:</p>
+                <p class="text-blue-700 text-xs">Functions with parameters • Array processing • 2D arrays • String manipulation • Number base conversions • Input validation • Loop patterns</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

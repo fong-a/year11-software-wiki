@@ -1,0 +1,532 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import MechatronicsNav from '../../../components/MechatronicsNav';
+import SearchComponent from '../../../components/SearchComponent';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Mechatronics Exam Questions - Mechatronics Systems" description="NESA-style exam questions for mechatronic systems with sample answers and marking criteria">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <nav class="min-w-0 flex-1">
+          <div class="flex items-center text-sm overflow-x-auto pb-1 sm:pb-0">
+            <a href="/" class="text-gray-600 hover:text-gray-900 transition-colors whitespace-nowrap">Home</a>
+            <span class="text-gray-400 mx-2">></span>
+            <a href="/topics/mechatronics" class="text-gray-600 hover:text-gray-900 transition-colors whitespace-nowrap">Mechatronics Systems</a>
+            <span class="text-gray-400 mx-2">></span>
+            <span class="text-gray-900 font-medium whitespace-nowrap">Exam Questions</span>
+          </div>
+        </nav>
+        <div class="flex-shrink-0 w-full sm:w-auto sm:ml-4">
+          <SearchComponent client:load className="w-full sm:w-80" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-4 lg:py-8">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 lg:gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1 order-2 lg:order-1">
+          <div class="sticky top-4 lg:top-8 bg-white rounded-lg shadow-sm p-4 lg:p-6 overflow-y-auto" style="max-height: calc(100vh - 6rem);">
+            <MechatronicsNav 
+              client:load 
+              currentPage="/topics/mechatronics/exam-questions"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3 order-1 lg:order-2">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Mechatronics Systems</h1>
+            <h2 class="text-2xl font-semibold text-blue-600 mb-8">Practice Exam Questions</h2>
+            
+            <!-- NESA Keywords -->
+            <div class="mb-8 p-6 bg-gradient-to-r from-amber-50 to-orange-50 rounded-lg border border-amber-200">
+              <h3 class="text-xl font-bold text-amber-800 mb-4">📚 NESA Command Words</h3>
+              <p class="text-amber-700 text-sm mb-4">The Software Engineering exam uses specific keywords that tell you what kind of response is expected:</p>
+              
+              <div class="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong class="text-amber-800">Identify:</strong> Name it (1-2 words)</p>
+                  <p><strong class="text-amber-800">Outline:</strong> Key features in a sentence or two</p>
+                  <p><strong class="text-amber-800">Describe:</strong> What it is + some detail about features/purpose</p>
+                </div>
+                <div>
+                  <p><strong class="text-amber-800">Explain:</strong> Show HOW or WHY (cause → effect)</p>
+                  <p><strong class="text-amber-800">Distinguish:</strong> Point out the difference clearly</p>
+                  <p><strong class="text-amber-800">Justify:</strong> Give reasons and evidence</p>
+                </div>
+              </div>
+            </div>
+            <!-- Question 1 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 1 (2 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Identify two types of sensors commonly used in mechatronic systems.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>2 marks:</strong> Correctly identifies two distinct types of sensors used in mechatronic systems</li>
+                      <li><strong>1 mark:</strong> Identifies one type of sensor OR provides relevant but incomplete information</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p>• Temperature sensors</p>
+                      <p>• Motion sensors</p>
+                      <p class="text-gray-600 mt-2 italic">Other acceptable answers: Light sensors, Pressure sensors, Distance sensors, Touch sensors</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+            <!-- Question 2 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 2 (3 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Distinguish between open loop and closed loop control systems.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>3 marks:</strong> Clearly distinguishes between open and closed loop systems with specific contrasting features (e.g., feedback presence vs absence)</li>
+                      <li><strong>2 marks:</strong> Identifies key differences between both systems but lacks clear distinction or specific contrasting examples</li>
+                      <li><strong>1 mark:</strong> Describes one system correctly but fails to distinguish from the other OR provides vague differences</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p>Open loop systems operate without feedback and cannot adjust their output based on results, whereas closed loop systems use sensor feedback to monitor their output and make automatic adjustments. For example, a toaster (open loop) runs for a set time regardless of how brown the bread is, while a thermostat (closed loop) continuously monitors temperature and adjusts heating to maintain the desired temperature.</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+            <!-- Question 3 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 3 (4 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Explain how sensors and actuators work together in a smart home thermostat system.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>4 marks:</strong> Explains clearly how sensors and actuators work together with cause-and-effect relationships (e.g., temperature sensor detects → processor compares → actuator responds)</li>
+                      <li><strong>3 marks:</strong> Explains connection between sensors and actuators but lacks clear cause-and-effect structure</li>
+                      <li><strong>2 marks:</strong> Identifies roles of sensors and actuators but explanation is incomplete or unclear</li>
+                      <li><strong>1 mark:</strong> Shows basic understanding of either sensors or actuators but fails to connect their interaction</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p><strong>Cause-and-effect structure:</strong></p>
+                      <p>The temperature sensor continuously monitors room temperature and sends this data to the processor (cause), which compares the current temperature to the desired setting (effect). When the temperature drops below the set point (cause), the processor signals the heating actuator to turn on the furnace (effect). Once the sensor detects that the desired temperature is reached (cause), the processor turns off the heating actuator, creating a continuous feedback loop that maintains comfortable temperature automatically (effect).</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+            <!-- Question 4 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 4 (3 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Justify why closed loop control systems are more suitable than open loop systems for robotic manufacturing applications.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>3 marks:</strong> Justifies closed loop systems for manufacturing with specific reasons (e.g., precision control, adaptability to variations, quality assurance)</li>
+                      <li><strong>2 marks:</strong> Provides valid reasons for using closed loop systems but lacks specific connection to manufacturing requirements</li>
+                      <li><strong>1 mark:</strong> Shows basic understanding of closed loop benefits but fails to connect to manufacturing applications</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p>Closed loop systems use sensor feedback to ensure precise positioning and movement of robotic arms, which is essential for accurate assembly and welding operations. They can adapt to variations in part dimensions or positioning that commonly occur in manufacturing, whereas open loop systems would continue with predetermined movements regardless of actual conditions. The continuous monitoring and adjustment capability of closed loop systems ensures consistent quality and reduces waste from defective products.</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 5 (2 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Identify two advantages of implementing mechatronic systems in manufacturing.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>2 marks:</strong> Correctly identifies two distinct advantages of mechatronic systems in manufacturing</li>
+                      <li><strong>1 mark:</strong> Identifies one advantage OR provides relevant but incomplete information</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p>• Increased production efficiency and speed</p>
+                      <p>• Improved workplace safety by reducing human exposure to hazardous tasks</p>
+                      <p class="text-gray-600 mt-2 italic">Other acceptable answers: Higher precision and quality, Reduced labor costs, 24/7 operation capability, Consistent output quality</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 6 (4 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Explain how degrees of freedom affect the functionality of industrial robotic arms.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>4 marks:</strong> Explains clearly how degrees of freedom affect robot functionality with cause-and-effect relationships (e.g., more DOF → greater positioning flexibility → ability to reach complex angles)</li>
+                      <li><strong>3 marks:</strong> Explains connection between DOF and functionality but lacks clear cause-and-effect structure</li>
+                      <li><strong>2 marks:</strong> Shows understanding of degrees of freedom concept but explanation of functionality impact is incomplete</li>
+                      <li><strong>1 mark:</strong> Demonstrates basic knowledge of degrees of freedom but fails to connect to robotic functionality</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p>More degrees of freedom allow robotic arms to position and orient their end-effector (tool) with greater flexibility (cause), enabling them to reach complex angles and positions that would be impossible with fewer DOF (effect). For example, a 6-DOF robot can position its welding tool at any location (X,Y,Z coordinates) and orient it at any angle (roll, pitch, yaw) (cause), allowing it to weld complex geometries like car body panels from multiple angles (effect). However, additional degrees of freedom increase system complexity and cost, so the optimal number depends on the specific application requirements.</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 7 (3 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Study the circuit diagram below and identify the three main components labeled A, B, and C.
+                </p>
+              </div>
+              
+              <!-- Circuit Diagram -->
+              <div class="mb-6 flex justify-center bg-gray-50 p-4 rounded-lg">
+                <svg width="400" height="200" viewBox="0 0 400 200" class="max-w-full h-auto">
+                  <!-- Battery (Power Source) -->
+                  <g id="battery">
+                    <line x1="50" y1="100" x2="80" y2="100" stroke="black" stroke-width="2"/>
+                    <line x1="80" y1="85" x2="80" y2="115" stroke="black" stroke-width="3"/>
+                    <line x1="90" y1="90" x2="90" y2="110" stroke="black" stroke-width="2"/>
+                    <text x="65" y="135" text-anchor="middle" font-size="14" font-weight="bold" fill="red">A</text>
+                    <text x="65" y="150" text-anchor="middle" font-size="10" fill="gray">9V</text>
+                  </g>
+                  
+                  <!-- Connecting wires -->
+                  <line x1="90" y1="100" x2="140" y2="100" stroke="black" stroke-width="2"/>
+                  <line x1="200" y1="100" x2="250" y2="100" stroke="black" stroke-width="2"/>
+                  <line x1="310" y1="100" x2="350" y2="100" stroke="black" stroke-width="2"/>
+                  <line x1="350" y1="100" x2="350" y2="150" stroke="black" stroke-width="2"/>
+                  <line x1="350" y1="150" x2="50" y2="150" stroke="black" stroke-width="2"/>
+                  <line x1="50" y1="150" x2="50" y2="100" stroke="black" stroke-width="2"/>
+                  
+                  <!-- Resistor -->
+                  <g id="resistor">
+                    <rect x="140" y="95" width="60" height="10" fill="white" stroke="black" stroke-width="2"/>
+                    <path d="M145,100 L155,95 L165,105 L175,95 L185,105 L195,100" fill="none" stroke="black" stroke-width="2"/>
+                    <text x="170" y="135" text-anchor="middle" font-size="14" font-weight="bold" fill="red">B</text>
+                    <text x="170" y="150" text-anchor="middle" font-size="10" fill="gray">470Ω</text>
+                  </g>
+                  
+                  <!-- LED -->
+                  <g id="led">
+                    <polygon points="250,95 250,105 270,100" fill="white" stroke="black" stroke-width="2"/>
+                    <line x1="270" y1="95" x2="270" y2="105" stroke="black" stroke-width="2"/>
+                    <line x1="280" y1="95" x2="280" y2="105" stroke="black" stroke-width="2"/>
+                    <line x1="270" y1="100" x2="280" y2="100" stroke="black" stroke-width="2"/>
+                    <!-- Light rays -->
+                    <line x1="285" y1="90" x2="295" y2="85" stroke="orange" stroke-width="1"/>
+                    <line x1="285" y1="95" x2="295" y2="90" stroke="orange" stroke-width="1"/>
+                    <line x1="290" y1="85" x2="300" y2="80" stroke="orange" stroke-width="1"/>
+                    <line x1="290" y1="90" x2="300" y2="85" stroke="orange" stroke-width="1"/>
+                    <text x="280" y="135" text-anchor="middle" font-size="14" font-weight="bold" fill="red">C</text>
+                  </g>
+                  
+                  <!-- Connection points -->
+                  <circle cx="50" cy="100" r="2" fill="black"/>
+                  <circle cx="90" cy="100" r="2" fill="black"/>
+                  <circle cx="140" cy="100" r="2" fill="black"/>
+                  <circle cx="200" cy="100" r="2" fill="black"/>
+                  <circle cx="250" cy="100" r="2" fill="black"/>
+                  <circle cx="310" cy="100" r="2" fill="black"/>
+                  <circle cx="350" cy="100" r="2" fill="black"/>
+                  <circle cx="350" cy="150" r="2" fill="black"/>
+                  <circle cx="50" cy="150" r="2" fill="black"/>
+                </svg>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <p class="text-sm text-gray-600 mb-2">Component A: _____________________</p>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <p class="text-sm text-gray-600 mb-2">Component B: _____________________</p>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <p class="text-sm text-gray-600 mb-2">Component C: _____________________</p>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>3 marks:</strong> Correctly identifies all three components (1 mark each)</li>
+                      <li><strong>2 marks:</strong> Correctly identifies two components</li>
+                      <li><strong>1 mark:</strong> Correctly identifies one component</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p><strong>Component A:</strong> Battery (or Power Source, or 9V Battery)</p>
+                      <p><strong>Component B:</strong> Resistor (or 470Ω Resistor)</p>
+                      <p><strong>Component C:</strong> LED (or Light Emitting Diode)</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 8 (5 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  A hospital wants to implement an automated medication dispensing system. The system must verify patient identity, dispense the correct medication, and track inventory levels. Analyze the sensors, actuators, and processors required for this mechatronic system.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>5 marks:</strong> Analyzes all three components (sensors, actuators, processors) with specific examples relevant to the medication dispensing scenario</li>
+                      <li><strong>4 marks:</strong> Identifies most required components with good scenario-specific examples but may miss some details</li>
+                      <li><strong>3 marks:</strong> Shows understanding of mechatronic components but analysis lacks depth or scenario relevance</li>
+                      <li><strong>2 marks:</strong> Identifies some components correctly but analysis is incomplete or not well-connected to the scenario</li>
+                      <li><strong>1 mark:</strong> Demonstrates basic knowledge of mechatronic components but fails to analyze the specific system requirements</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p><strong>Sensors:</strong> RFID or barcode readers for patient identification, weight sensors to detect medication quantities for inventory tracking, and optical sensors to verify correct medication selection.</p>
+                      <p><strong>Actuators:</strong> Motor-driven dispensing mechanisms to release specific quantities of medication, robotic arms or conveyors to move medications to dispensing area, and electronic locks to secure medication compartments.</p>
+                      <p><strong>Processors:</strong> Central computer system to verify patient prescriptions against database, control dispensing sequence and quantities, maintain inventory records, and coordinate communication between all sensors and actuators for safe, accurate medication delivery.</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Study Tips -->
+            <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+              <h3 class="text-xl font-bold text-blue-800 mb-4">💡 Exam Success Tips</h3>
+              <div class="grid md:grid-cols-2 gap-4 text-sm text-blue-700">
+                <div>
+                  <h4 class="font-semibold mb-2">For "Explain" Questions:</h4>
+                  <ul class="space-y-1">
+                    <li>• Always show CAUSE → EFFECT</li>
+                    <li>• Use connecting words: "because", "therefore", "as a result"</li>
+                    <li>• Link your reasons to specific outcomes</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">For "Distinguish" Questions:</h4>
+                  <ul class="space-y-1">
+                    <li>• Don't just define both - show the difference</li>
+                    <li>• Use contrast words: "whereas", "while", "unlike"</li>
+                    <li>• Be specific about how they differ</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

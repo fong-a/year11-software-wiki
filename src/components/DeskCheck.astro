@@ -1,0 +1,322 @@
+---
+export interface Props {
+  variables: string[];
+  steps: Array<{
+    line: string;
+    values: Array<string | number>;
+  }>;
+  title?: string;
+  id?: string;
+}
+
+const { variables, steps, title = 'Desk Check', id } = Astro.props;
+const uniqueId = id || `deskcheck-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<div class="desk-check" id=&#123;uniqueId&#125;>
+  <div class="desk-check-header">
+    <h4>&#123;title&#125;</h4>
+    <div class="desk-check-controls">
+      <button type="button" class="step-btn" onclick=&#123;`stepThrough('$&#123;uniqueId&#125;')`&#125;>
+        ▶️ Step Through
+      </button>
+      <button type="button" class="reset-btn" onclick=&#123;`resetDeskCheck('$&#123;uniqueId&#125;')`&#125;>
+        🔄 Reset
+      </button>
+    </div>
+  </div>
+  
+  <div class="desk-check-content">
+    <div class="variables-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Line</th>
+            &#123;variables.map(variable => (
+              <th>&#123;variable&#125;</th>
+            ))&#125;
+          </tr>
+        </thead>
+        <tbody>
+          &#123;steps.map((step, index) => (
+            <tr class="step-row" data-step=&#123;index&#125;>
+              <td class="line-number">&#123;step.line&#125;</td>
+              &#123;step.values.map((value, valueIndex) => (
+                <td class="variable-value" data-variable=&#123;valueIndex&#125;>
+                  <span class="value-content">&#123;value&#125;</span>
+                </td>
+              ))&#125;
+            </tr>
+          ))&#125;
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="step-indicator">
+      <span class="current-step">Step: <span class="step-number">0</span> / &#123;steps.length&#125;</span>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 0%"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="code-context">
+    <slot />
+  </div>
+</div>
+
+<script>
+  function stepThrough(deskCheckId) {
+    const deskCheck = document.getElementById(deskCheckId);
+    const rows = deskCheck.querySelectorAll('.step-row');
+    const stepNumber = deskCheck.querySelector('.step-number');
+    const progressFill = deskCheck.querySelector('.progress-fill');
+    const stepBtn = deskCheck.querySelector('.step-btn');
+    
+    let currentStep = parseInt(stepNumber.textContent) || 0;
+    const totalSteps = rows.length;
+    
+    if (currentStep < totalSteps) {
+      // Highlight current row
+      rows[currentStep].classList.add('active');
+      
+      // Show values progressively
+      const currentRow = rows[currentStep];
+      const values = currentRow.querySelectorAll('.variable-value');
+      
+      values.forEach((value, index) => {
+        setTimeout(() => {
+          value.classList.add('revealed');
+        }, index * 200);
+      });
+      
+      currentStep++;
+      stepNumber.textContent = currentStep;
+      
+      // Update progress bar
+      const progress = (currentStep / totalSteps) * 100;
+      progressFill.style.width = `${progress}%`;
+      
+      if (currentStep >= totalSteps) {
+        stepBtn.textContent = '✅ Complete';
+        stepBtn.disabled = true;
+      }
+    }
+  }
+  
+  function resetDeskCheck(deskCheckId) {
+    const deskCheck = document.getElementById(deskCheckId);
+    const rows = deskCheck.querySelectorAll('.step-row');
+    const values = deskCheck.querySelectorAll('.variable-value');
+    const stepNumber = deskCheck.querySelector('.step-number');
+    const progressFill = deskCheck.querySelector('.progress-fill');
+    const stepBtn = deskCheck.querySelector('.step-btn');
+    
+    // Reset all visual states
+    rows.forEach(row => row.classList.remove('active'));
+    values.forEach(value => value.classList.remove('revealed'));
+    
+    stepNumber.textContent = '0';
+    progressFill.style.width = '0%';
+    stepBtn.textContent = '▶️ Step Through';
+    stepBtn.disabled = false;
+  }
+</script>
+
+<style>
+  .desk-check {
+    border: 1px solid #e1e1e1;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    overflow: hidden;
+  }
+
+  .desk-check-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #4a5568;
+    color: white;
+  }
+
+  .desk-check-header h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .desk-check-controls {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .step-btn, .reset-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .step-btn {
+    background: #48bb78;
+    color: white;
+  }
+
+  .step-btn:hover:not(:disabled) {
+    background: #38a169;
+  }
+
+  .step-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .reset-btn {
+    background: #ed8936;
+    color: white;
+  }
+
+  .reset-btn:hover {
+    background: #dd6b20;
+  }
+
+  .desk-check-content {
+    padding: 1rem;
+  }
+
+  .variables-table {
+    overflow-x: auto;
+    margin-bottom: 1rem;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Fira Code', Consolas, monospace;
+    font-size: 0.9rem;
+  }
+
+  th, td {
+    border: 1px solid #e1e1e1;
+    padding: 0.75rem;
+    text-align: center;
+  }
+
+  th {
+    background: #f7fafc;
+    font-weight: 600;
+    color: #4a5568;
+  }
+
+  .line-number {
+    background: #edf2f7;
+    font-weight: 600;
+    color: #2d3748;
+  }
+
+  .step-row {
+    transition: all 0.3s ease;
+  }
+
+  .step-row.active {
+    background-color: #fff5d6;
+  }
+
+  .step-row.active .line-number {
+    background-color: #fdd835;
+    color: #333;
+  }
+
+  .variable-value {
+    position: relative;
+  }
+
+  .value-content {
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+  }
+
+  .variable-value.revealed .value-content {
+    opacity: 1;
+    animation: fadeInScale 0.4s ease;
+  }
+
+  @keyframes fadeInScale {
+    0% {
+      opacity: 0.3;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .step-indicator {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: #f7fafc;
+    border-radius: 6px;
+  }
+
+  .current-step {
+    font-weight: 600;
+    color: #4a5568;
+    white-space: nowrap;
+  }
+
+  .progress-bar {
+    flex: 1;
+    height: 6px;
+    background: #e1e1e1;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #48bb78, #38a169);
+    transition: width 0.3s ease;
+    border-radius: 3px;
+  }
+
+  .code-context {
+    border-top: 1px solid #e1e1e1;
+    padding: 1rem;
+    background: #fafafa;
+  }
+
+  @media (max-width: 768px) {
+    .desk-check-header {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: stretch;
+    }
+    
+    .desk-check-controls {
+      justify-content: center;
+    }
+    
+    .step-indicator {
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: stretch;
+    }
+    
+    table {
+      font-size: 0.8rem;
+    }
+    
+    th, td {
+      padding: 0.5rem;
+    }
+  }
+</style>

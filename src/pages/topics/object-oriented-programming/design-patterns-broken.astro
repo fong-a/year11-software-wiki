@@ -1,0 +1,289 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import OOPNav from '../../../components/OOPNav';
+import Tooltip from '../../../components/Tooltip';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Design Patterns - Object-Oriented Programming" description="Common design patterns in object-oriented programming including Singleton, Factory, and Observer patterns">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/object-oriented-programming" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Object-Oriented Programming</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Design Patterns</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6">
+            <OOPNav 
+              client:load 
+              currentPage="/topics/object-oriented-programming/design-patterns"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Design Patterns</h1>
+            
+            <div class="mb-8 p-6 bg-gradient-to-r from-green-50 to-blue-50 rounded-xl border border-green-200">
+              <h2 class="text-2xl font-bold text-gray-900 mb-4">What are Design Patterns?</h2>
+              <p class="text-gray-800 text-lg leading-relaxed">
+                <strong><Tooltip client:load term="Design Patterns" definition="Reusable solutions to commonly occurring problems in software design">Design patterns</Tooltip></strong> are proven solutions to common programming problems. Think of them as blueprints that you can adapt to solve design problems in your code. They represent best practices that experienced developers have discovered over time.
+              </p>
+            </div>
+
+            <!-- Singleton Pattern -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Common Design Patterns</h2>
+              
+              <div class="mb-6 bg-blue-50 p-6 rounded-lg border border-blue-200">
+                <h3 class="text-xl font-semibold text-blue-800 mb-4">1. Singleton Pattern</h3>
+                <p class="text-blue-700 mb-4">Ensures only one instance of a class exists throughout the program.</p>
+                
+                <div class="bg-white p-4 rounded border border-blue-300 mb-4">
+                  <h4 class="font-medium text-blue-700 mb-2">When to Use:</h4>
+                  <ul class="text-sm text-blue-600 space-y-1">
+                    <li>• Database connections</li>
+                    <li>• Logging systems</li>
+                    <li>• Configuration settings</li>
+                    <li>• Print spoolers</li>
+                  </ul>
+                </div>
+                
+                <div class="bg-white p-4 rounded border border-blue-300">
+                  <h4 class="font-medium text-blue-700 mb-2">Python Example:</h4>
+                  <pre class="text-sm font-mono bg-gray-100 text-gray-800 p-3 rounded border-l-4 border-blue-400"><code>class DatabaseConnection:
+    _instance = None
+    
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+            cls._instance.connection = "Connected to database"
+        return cls._instance
+    
+    def query(self, sql):
+        return f"Executing: &#123;sql&#125;"
+
+# Usage - always returns the same instance
+db1 = DatabaseConnection()
+db2 = DatabaseConnection()
+
+print(db1 is db2)  # True - same object
+print(db1.query("SELECT * FROM users"))</code></pre>
+                </div>
+              </div>
+
+              <!-- Factory Pattern -->
+              <div class="mb-6 bg-green-50 p-6 rounded-lg border border-green-200">
+                <h3 class="text-xl font-semibold text-green-800 mb-4">2. Factory Pattern</h3>
+                <p class="text-green-700 mb-4">Creates objects without specifying the exact class to create.</p>
+                
+                <div class="bg-white p-4 rounded border border-green-300 mb-4">
+                  <h4 class="font-medium text-green-700 mb-2">When to Use:</h4>
+                  <ul class="text-sm text-green-600 space-y-1">
+                    <li>• Creating different types of similar objects</li>
+                    <li>• Complex object creation logic</li>
+                    <li>• Need to decouple object creation from usage</li>
+                  </ul>
+                </div>
+                
+                <div class="bg-white p-4 rounded border border-green-300">
+                  <h4 class="font-medium text-green-700 mb-2">Python Example:</h4>
+                  <pre class="text-sm font-mono bg-gray-100 text-gray-800 p-3 rounded border-l-4 border-green-400"><code>class Dog:
+    def sound(self):
+        return "Woof!"
+    
+    def type(self):
+        return "Dog"
+
+class Cat:
+    def sound(self):
+        return "Meow!"
+    
+    def type(self):
+        return "Cat"
+
+class AnimalFactory:
+    @staticmethod
+    def create_animal(animal_type):
+        if animal_type.lower() == "dog":
+            return Dog()
+        elif animal_type.lower() == "cat":
+            return Cat()
+        else:
+            raise ValueError("Unknown animal type")
+
+# Usage - factory decides which class to create
+factory = AnimalFactory()
+pet1 = factory.create_animal("dog")
+pet2 = factory.create_animal("cat")
+
+print(pet1.sound())  # "Woof!"
+print(pet2.sound())  # "Meow!"</code></pre>
+                </div>
+              </div>
+
+              <!-- Observer Pattern -->
+              <div class="mb-6 bg-purple-50 p-6 rounded-lg border border-purple-200">
+                <h3 class="text-xl font-semibold text-purple-800 mb-4">3. Observer Pattern</h3>
+                <p class="text-purple-700 mb-4">Allows objects to notify other objects about changes in their state.</p>
+                
+                <div class="bg-white p-4 rounded border border-purple-300 mb-4">
+                  <h4 class="font-medium text-purple-700 mb-2">When to Use:</h4>
+                  <ul class="text-sm text-purple-600 space-y-1">
+                    <li>• User interface updates</li>
+                    <li>• Event handling systems</li>
+                    <li>• Model-View architectures</li>
+                    <li>• Notification systems</li>
+                  </ul>
+                </div>
+                
+                <div class="bg-white p-4 rounded border border-purple-300">
+                  <h4 class="font-medium text-purple-700 mb-2">Python Example:</h4>
+                  <pre class="text-sm font-mono bg-gray-100 text-gray-800 p-3 rounded border-l-4 border-purple-400"><code>class NewsAgency:
+    def __init__(self):
+        self._news = ""
+        self._observers = []
+    
+    def add_observer(self, observer):
+        self._observers.append(observer)
+    
+    def remove_observer(self, observer):
+        self._observers.remove(observer)
+    
+    def set_news(self, news):
+        self._news = news
+        self._notify_all()
+    
+    def _notify_all(self):
+        for observer in self._observers:
+            observer.update(self._news)
+
+class NewsChannel:
+    def __init__(self, name):
+        self.name = name
+    
+    def update(self, news):
+        print(f"&#123;self.name&#125; received: &#123;news&#125;")
+
+# Usage
+agency = NewsAgency()
+cnn = NewsChannel("CNN")
+bbc = NewsChannel("BBC")
+
+agency.add_observer(cnn)
+agency.add_observer(bbc)
+
+agency.set_news("Breaking: New Python version released!")</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pattern Benefits -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Why Use Design Patterns?</h2>
+              
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                  <h3 class="text-lg font-semibold text-gray-900 mb-4">Benefits</h3>
+                  <ul class="space-y-2 text-gray-700">
+                    <li class="flex items-start">
+                      <span class="text-green-500 mr-2 mt-1">✓</span>
+                      <span>Proven solutions to common problems</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="text-green-500 mr-2 mt-1">✓</span>
+                      <span>Improve code reusability and maintainability</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="text-green-500 mr-2 mt-1">✓</span>
+                      <span>Common vocabulary for developers</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="text-green-500 mr-2 mt-1">✓</span>
+                      <span>Best practices from experienced developers</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                  <h3 class="text-lg font-semibold text-gray-900 mb-4">Cautions</h3>
+                  <ul class="space-y-2 text-gray-700">
+                    <li class="flex items-start">
+                      <span class="text-yellow-500 mr-2 mt-1">!</span>
+                      <span>Don't force patterns where they're not needed</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="text-yellow-500 mr-2 mt-1">!</span>
+                      <span>Can add complexity if overused</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="text-yellow-500 mr-2 mt-1">!</span>
+                      <span>Learn the problem before applying the pattern</span>
+                    </li>
+                    <li class="flex items-start">
+                      <span class="text-yellow-500 mr-2 mt-1">!</span>
+                      <span>Simple solutions are often better</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Practice Questions -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Practice Questions</h2>
+              
+              <div class="space-y-6">
+                <!-- Question 1 -->
+                <div class="bg-white p-6 rounded-lg border-l-4 border-blue-500 shadow-sm">
+                  <h3 class="font-semibold text-gray-900 mb-3">Question 1 (3 marks)</h3>
+                  <p class="text-gray-700 mb-4"><strong>Identify</strong> which design pattern would be most appropriate for each scenario:</p>
+                  <ul class="text-gray-700 ml-6 mb-4 space-y-2">
+                    <li>a) A logging system with only one instance</li>
+                    <li>b) Creating different vehicle types dynamically</li>
+                    <li>c) Notifying displays when data changes</li>
+                  </ul>
+                  
+                  <details class="mt-4">
+                    <summary class="cursor-pointer text-blue-600 hover:text-blue-800 font-medium">Show Answer</summary>
+                    <div class="mt-3 p-4 bg-gray-50 rounded">
+                      <p class="text-sm mb-2"><strong>a) Singleton</strong> - One instance only</p>
+                      <p class="text-sm mb-2"><strong>b) Factory</strong> - Dynamic object creation</p>
+                      <p class="text-sm mb-2"><strong>c) Observer</strong> - Automatic notifications</p>
+                    </div>
+                  </details>
+                </div>
+              </div>
+            </div>
+
+            <!-- NESA Exam Context -->
+            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-amber-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                  <p class="font-semibold text-amber-900 mb-1">NESA Exam Focus</p>
+                  <p class="text-amber-800 text-sm">Design patterns are advanced OOP concepts that may appear in extension questions. Focus on understanding when and why you'd use each pattern rather than memorizing the exact code. Be able to identify scenarios where Singleton, Factory, or Observer patterns would be appropriate solutions.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

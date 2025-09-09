@@ -1,0 +1,394 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProgrammingFundamentalsNav from '../../../components/ProgrammingFundamentalsNav';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Development Tools Exam Questions - Programming Fundamentals" description="NESA-style exam questions for development tools including Git, GitHub, version control, and collaborative tools with sample answers and marking criteria">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Development Tools Exam Questions</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <ProgrammingFundamentalsNav 
+              client:load 
+              currentPage="/topics/programming-fundamentals/development-tools-exam"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Development Tools</h1>
+            <h2 class="text-2xl font-semibold text-blue-600 mb-8">Practice Exam Questions</h2>
+            
+            <!-- NESA Keywords -->
+            <div class="mb-8 p-6 bg-gradient-to-r from-amber-50 to-orange-50 rounded-lg border border-amber-200">
+              <h3 class="text-xl font-bold text-amber-800 mb-4">📚 NESA Command Words</h3>
+              <p class="text-amber-700 text-sm mb-4">The Software Engineering exam uses specific keywords that tell you what kind of response is expected:</p>
+              
+              <div class="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong class="text-amber-800">Identify:</strong> Name it (1-2 words)</p>
+                  <p><strong class="text-amber-800">Outline:</strong> Key features in a sentence or two</p>
+                  <p><strong class="text-amber-800">Describe:</strong> What it is + some detail about features/purpose</p>
+                </div>
+                <div>
+                  <p><strong class="text-amber-800">Explain:</strong> Show HOW or WHY (cause → effect)</p>
+                  <p><strong class="text-amber-800">Distinguish:</strong> Point out the difference clearly</p>
+                  <p><strong class="text-amber-800">Justify:</strong> Give reasons and evidence</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Question 1 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 1 (3 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Identify three benefits of using version control systems like Git in software development projects.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>3 marks:</strong> Correctly identifies three distinct benefits of version control systems with clear explanations</li>
+                      <li><strong>2 marks:</strong> Identifies two benefits correctly OR three benefits with one unclear explanation</li>
+                      <li><strong>1 mark:</strong> Identifies one benefit correctly OR shows basic understanding of version control purpose</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p>• Track changes and maintain complete history of all code modifications</p>
+                      <p>• Enable collaboration between multiple developers without conflicts</p>
+                      <p>• Provide backup and recovery capabilities for code</p>
+                      <p class="text-gray-600 mt-2 italic">Other acceptable answers: Branch management, Revert to previous versions, Merge conflict resolution, Distributed development support</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 2 (4 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Explain how GitHub enhances collaborative software development beyond basic version control functionality.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>4 marks:</strong> Explains how GitHub enhances collaboration with cause-and-effect relationships (e.g., pull requests → code review; issue tracking → organized workflow)</li>
+                      <li><strong>3 marks:</strong> Identifies GitHub collaboration features but lacks clear cause-and-effect explanations</li>
+                      <li><strong>2 marks:</strong> Shows understanding of some GitHub features but explanation incomplete or unclear</li>
+                      <li><strong>1 mark:</strong> Shows basic understanding of GitHub but fails to address collaboration enhancement effectively</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p>GitHub provides pull requests that allow developers to propose changes and conduct code reviews (cause), which leads to higher code quality and knowledge sharing between team members (effect). The issue tracking system enables teams to organize and prioritize work (cause), resulting in better project management and clear assignment of tasks (effect). Additionally, GitHub's web interface provides visual diff tools and discussion threads (cause), making it easier for distributed teams to communicate about code changes and maintain project documentation (effect).</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 3 (5 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  A software development team of 5 developers is working on a web application. Compare the advantages and disadvantages of using Git with GitHub versus traditional file sharing methods (such as email attachments or shared network drives) for managing their code.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-3">
+                    <div>
+                      <p class="text-sm font-medium text-gray-600 mb-1">Git/GitHub Advantages:</p>
+                      <div class="space-y-2">
+                        <div class="border-b border-gray-300 h-6"></div>
+                        <div class="border-b border-gray-300 h-6"></div>
+                        <div class="border-b border-gray-300 h-6"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <p class="text-sm font-medium text-gray-600 mb-1">Git/GitHub Disadvantages:</p>
+                      <div class="space-y-2">
+                        <div class="border-b border-gray-300 h-6"></div>
+                        <div class="border-b border-gray-300 h-6"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <p class="text-sm font-medium text-gray-600 mb-1">Traditional File Sharing Disadvantages:</p>
+                      <div class="space-y-2">
+                        <div class="border-b border-gray-300 h-6"></div>
+                        <div class="border-b border-gray-300 h-6"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>5 marks:</strong> Comprehensive comparison covering Git/GitHub advantages (conflict resolution, history, branching) AND disadvantages (learning curve, complexity) AND traditional method limitations</li>
+                      <li><strong>4 marks:</strong> Good comparison covering most aspects but may miss some advantages/disadvantages or lack detail in one area</li>
+                      <li><strong>3 marks:</strong> Basic comparison showing understanding of key differences between approaches</li>
+                      <li><strong>2 marks:</strong> Shows understanding of version control benefits but comparison lacks depth or structure</li>
+                      <li><strong>1 mark:</strong> Shows basic understanding of file management differences but limited comparative analysis</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p><strong>Git/GitHub Advantages:</strong></p>
+                      <p>• Automatic merge conflict resolution prevents loss of work when multiple developers edit the same files</p>
+                      <p>• Complete change history allows reverting to previous versions and understanding why changes were made</p>
+                      <p>• Branch management enables parallel feature development without disrupting the main codebase</p>
+                      
+                      <p class="mt-3"><strong>Git/GitHub Disadvantages:</strong></p>
+                      <p>• Learning curve requires time investment for team members unfamiliar with Git commands</p>
+                      <p>• Initial setup complexity for repositories, branching strategies, and access permissions</p>
+                      
+                      <p class="mt-3"><strong>Traditional File Sharing Disadvantages:</strong></p>
+                      <p>• No conflict resolution leads to overwritten files and lost work when multiple developers edit simultaneously</p>
+                      <p>• Lack of change tracking makes it impossible to identify who made specific changes or revert problematic updates</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 4 (3 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Distinguish between local and remote repositories in Git, providing one example of when each would be used.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-3">
+                    <div>
+                      <p class="text-sm font-medium text-gray-600 mb-1">Local Repository:</p>
+                      <div class="space-y-2">
+                        <div class="border-b border-gray-300 h-6"></div>
+                        <div class="border-b border-gray-300 h-6"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <p class="text-sm font-medium text-gray-600 mb-1">Remote Repository:</p>
+                      <div class="space-y-2">
+                        <div class="border-b border-gray-300 h-6"></div>
+                        <div class="border-b border-gray-300 h-6"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <p class="text-sm font-medium text-gray-600 mb-1">Example use of Local:</p>
+                      <div class="border-b border-gray-300 h-6"></div>
+                    </div>
+                    <div>
+                      <p class="text-sm font-medium text-gray-600 mb-1">Example use of Remote:</p>
+                      <div class="border-b border-gray-300 h-6"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>3 marks:</strong> Clearly distinguishes between local and remote repositories with accurate definitions AND provides appropriate use case examples for both</li>
+                      <li><strong>2 marks:</strong> Distinguishes between repository types well but examples may be unclear OR good examples but distinction lacks clarity</li>
+                      <li><strong>1 mark:</strong> Shows basic understanding of repository concept but fails to clearly distinguish or provide appropriate examples</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p><strong>Local Repository:</strong> Stored on developer's computer, contains complete project history and allows offline work</p>
+                      <p><strong>Remote Repository:</strong> Stored on external server (like GitHub), acts as central location for team collaboration</p>
+                      <p><strong>Local Example:</strong> Developer working on laptop during flight without internet access can still commit changes and view history</p>
+                      <p><strong>Remote Example:</strong> Team uses GitHub repository as central hub where all developers push changes and pull updates from teammates</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 5 (6 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  A development team is working on a critical bug fix for their mobile app. The bug needs to be fixed urgently while the team continues working on new features for the next release.
+                </p>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Explain how Git branching would help manage this situation, including the specific branches that should be created and the workflow steps the team should follow.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>6 marks:</strong> Complete explanation covering branch strategy (hotfix/main/develop), specific workflow steps, and benefits for parallel development</li>
+                      <li><strong>5 marks:</strong> Good explanation of branching strategy with most workflow steps but may miss some details</li>
+                      <li><strong>4 marks:</strong> Shows understanding of branching concept for bug fixes but workflow explanation incomplete</li>
+                      <li><strong>2-3 marks:</strong> Basic understanding of branching benefits but lacks specific workflow for the scenario</li>
+                      <li><strong>1 mark:</strong> Shows awareness of Git branching but fails to address the specific scenario requirements</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p><strong>Branching Strategy:</strong></p>
+                      <p>Git branching allows parallel development by creating separate lines of development. The team should create a "hotfix" or "bugfix" branch from the main/master branch specifically for the critical bug fix, while maintaining a separate "develop" or "feature" branch for ongoing new feature work.</p>
+                      
+                      <p class="mt-3"><strong>Workflow Steps:</strong></p>
+                      <p>1. Create hotfix branch from main branch: git checkout -b hotfix-critical-bug</p>
+                      <p>2. Developer fixes the bug and commits changes to hotfix branch</p>
+                      <p>3. Test the fix thoroughly on the hotfix branch</p>
+                      <p>4. Merge hotfix branch into main branch for immediate deployment</p>
+                      <p>5. Merge hotfix changes into develop branch to ensure bug fix is included in future releases</p>
+                      <p>6. Continue feature development on develop branch uninterrupted</p>
+                      
+                      <p class="mt-3"><strong>Benefits:</strong> This approach ensures the critical bug fix can be deployed quickly without including incomplete new features, while preventing disruption to ongoing development work.</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Study Tips -->
+            <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+              <h3 class="text-xl font-bold text-blue-800 mb-4">💡 Development Tools Exam Success Tips</h3>
+              <div class="grid md:grid-cols-2 gap-4 text-sm text-blue-700">
+                <div>
+                  <h4 class="font-semibold mb-2">For Version Control Questions:</h4>
+                  <ul class="space-y-1">
+                    <li>• Always explain both the feature AND its benefit</li>
+                    <li>• Use real-world scenarios in your examples</li>
+                    <li>• Show understanding of team collaboration aspects</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold mb-2">For Comparison Questions:</h4>
+                  <ul class="space-y-1">
+                    <li>• Structure your answer with clear headings</li>
+                    <li>• Include both advantages AND disadvantages</li>
+                    <li>• Connect features to practical development scenarios</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mt-4 p-3 bg-blue-100 rounded">
+                <p class="font-semibold text-blue-800">Key Focus Areas:</p>
+                <p class="text-blue-700 text-xs">Git workflows, GitHub collaboration features, branching strategies, merge conflicts, and the benefits of distributed version control systems.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

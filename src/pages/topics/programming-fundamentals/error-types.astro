@@ -1,0 +1,552 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProgrammingFundamentalsNav from '../../../components/ProgrammingFundamentalsNav';
+import ErrorExplorer from '../../../components/ErrorExplorer';
+import CollapsibleSection from '../../../components/CollapsibleSection';
+import Tooltip from '../../../components/Tooltip';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Error Types - Programming Fundamentals" description="Understanding syntax, runtime, and logic errors in programming">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Error Types</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <ProgrammingFundamentalsNav 
+              client:load 
+              currentPage="/topics/programming-fundamentals/error-types"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Understanding Error Types</h1>
+            
+            <div class="mb-6 p-4 bg-red-50 rounded-lg border-l-4 border-red-500">
+              <p class="text-red-900">
+                <strong><Tooltip client:load term="Programming Errors" definition="Mistakes in code that prevent programs from running correctly or producing expected results. These can be categorised into syntax errors (incorrect grammar), runtime errors (crashes during execution), and logic errors (wrong results). Understanding error types is crucial for effective debugging and quality software development.">Programming errors</Tooltip></strong> come in three main types: <Tooltip client:load term="Syntax Errors" definition="Violations of the programming language's grammar rules that prevent code from being parsed or compiled. These include missing semicolons, unmatched brackets, misspelled keywords, or incorrect indentation. IDEs typically highlight these errors immediately, making them the easiest to identify and fix.">syntax</Tooltip>, <Tooltip client:load term="Runtime Errors" definition="Errors that occur during program execution, causing the program to crash or terminate unexpectedly. Common examples include division by zero, accessing invalid memory locations, file not found errors, or network timeouts. These errors are harder to detect as they only appear under specific conditions during runtime.">runtime</Tooltip>, and <Tooltip client:load term="Logic Errors" definition="Flaws in the program's algorithm or reasoning that produce incorrect results while allowing the code to run without crashing. These are the most difficult errors to find as the program appears to work but gives wrong outputs. Examples include incorrect mathematical formulas, wrong loop conditions, or faulty decision-making logic.">logic errors</Tooltip>. Understanding these helps with effective <Tooltip client:load term="Debugging" definition="The systematic process of identifying, analysing, and fixing errors in software. This involves techniques like adding print statements, using debugger tools, examining error messages, testing with different inputs, and tracing through code execution step-by-step to understand where and why problems occur.">debugging</Tooltip>.
+              </p>
+            </div>
+
+            <!-- Error Types Overview -->
+            <div class="mb-8">
+              <h3 class="text-xl font-semibold mb-4">Three Types of Programming Errors</h3>
+              <p class="text-gray-600 mb-6">Explore different examples of each error type using the sliders below.</p>
+              
+              <div class="space-y-6">
+                <!-- Syntax Errors -->
+                <div class="bg-white border border-red-200 rounded-lg p-6">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mr-3">
+                      <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 class="text-xl font-semibold text-red-800">Syntax Errors</h4>
+                      <p class="text-gray-600 text-sm">Python's interpreter provides helpful error messages that point directly to the problem.</p>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-red-50 p-4 rounded-lg mb-4">
+                    <div class="grid md:grid-cols-3 gap-4 text-sm">
+                      <div><strong>When detected:</strong> Before the program runs</div>
+                      <div><strong>Examples:</strong> Indentation, spelling, missing colons</div>
+                      <div><strong>Easy to fix:</strong> Python shows exact line and position</div>
+                    </div>
+                  </div>
+
+                  <div class="syntax-error-slider mb-4" data-error-type="syntax">
+                    <div class="flex items-center justify-between mb-3">
+                      <label class="text-sm font-medium text-gray-700">Click arrows to see different examples:</label>
+                      <div class="flex items-center space-x-3 bg-red-100 px-3 py-2 rounded-lg">
+                        <button class="syntax-prev bg-red-200 hover:bg-red-300 text-red-800 px-3 py-2 rounded font-medium text-sm transition-colors">← Previous</button>
+                        <span class="syntax-counter text-sm text-red-700 font-medium min-w-[3rem] text-center">1 / 3</span>
+                        <button class="syntax-next bg-red-200 hover:bg-red-300 text-red-800 px-3 py-2 rounded font-medium text-sm transition-colors">Next →</button>
+                      </div>
+                    </div>
+                    
+                    <div class="syntax-examples">
+                      <div class="syntax-example active" data-example="0">
+                        <h5 class="font-medium mb-2 text-red-800">Indentation Error</h5>
+                        <div class="bg-gray-900 p-3 rounded text-sm font-mono">
+                          <div class="text-gray-300">File "example.py", line 2</div>
+                          <div class="text-white">print("Hello")</div>
+                          <div class="text-red-400">^</div>
+                          <div class="text-red-400">IndentationError: expected an indented block</div>
+                        </div>
+                      </div>
+                      
+                      <div class="syntax-example hidden" data-example="1">
+                        <h5 class="font-medium mb-2 text-red-800">Spelling Mistake</h5>
+                        <div class="bg-gray-900 p-3 rounded text-sm font-mono">
+                          <div class="text-gray-300">File "example.py", line 1</div>
+                          <div class="text-white">pirnt("Hello World")</div>
+                          <div class="text-red-400">^^^^^</div>
+                          <div class="text-red-400">NameError: name 'pirnt' is not defined</div>
+                        </div>
+                      </div>
+                      
+                      <div class="syntax-example hidden" data-example="2">
+                        <h5 class="font-medium mb-2 text-red-800">Missing Colon</h5>
+                        <div class="bg-gray-900 p-3 rounded text-sm font-mono">
+                          <div class="text-gray-300">File "example.py", line 1</div>
+                          <div class="text-white">if x == 5</div>
+                          <div class="text-red-400">          ^</div>
+                          <div class="text-red-400">SyntaxError: invalid syntax</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Runtime Errors -->
+                <div class="bg-white border border-orange-200 rounded-lg p-6">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-3">
+                      <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 class="text-xl font-semibold text-orange-800">Runtime Errors</h4>
+                      <p class="text-gray-600 text-sm">Errors that occur while the program is executing, causing it to crash unexpectedly.</p>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-orange-50 p-4 rounded-lg mb-4">
+                    <div class="grid md:grid-cols-3 gap-4 text-sm">
+                      <div><strong>When detected:</strong> During program execution</div>
+                      <div><strong>Examples:</strong> Division by zero, invalid indices</div>
+                      <div><strong>Prevention:</strong> Input validation, try/except blocks</div>
+                    </div>
+                  </div>
+
+                  <div class="runtime-error-slider mb-4" data-error-type="runtime">
+                    <div class="flex items-center justify-between mb-3">
+                      <label class="text-sm font-medium text-gray-700">Click arrows to see different examples:</label>
+                      <div class="flex items-center space-x-3 bg-orange-100 px-3 py-2 rounded-lg">
+                        <button class="runtime-prev bg-orange-200 hover:bg-orange-300 text-orange-800 px-3 py-2 rounded font-medium text-sm transition-colors">← Previous</button>
+                        <span class="runtime-counter text-sm text-orange-700 font-medium min-w-[3rem] text-center">1 / 3</span>
+                        <button class="runtime-next bg-orange-200 hover:bg-orange-300 text-orange-800 px-3 py-2 rounded font-medium text-sm transition-colors">Next →</button>
+                      </div>
+                    </div>
+                    
+                    <div class="runtime-examples">
+                      <div class="runtime-example active" data-example="0">
+                        <h5 class="font-medium mb-2 text-orange-800">Division by Zero</h5>
+                        <div class="bg-gray-900 p-3 rounded text-sm font-mono">
+                          <div class="text-white">result = 10 / 0</div>
+                          <div class="text-orange-400 mt-2">ZeroDivisionError: division by zero</div>
+                        </div>
+                      </div>
+                      
+                      <div class="runtime-example hidden" data-example="1">
+                        <h5 class="font-medium mb-2 text-orange-800">Index Out of Range</h5>
+                        <div class="bg-gray-900 p-3 rounded text-sm font-mono">
+                          <div class="text-white">numbers = [1, 2, 3]</div>
+                          <div class="text-white">print(numbers[5])</div>
+                          <div class="text-orange-400 mt-2">IndexError: list index out of range</div>
+                        </div>
+                      </div>
+                      
+                      <div class="runtime-example hidden" data-example="2">
+                        <h5 class="font-medium mb-2 text-orange-800">File Not Found</h5>
+                        <div class="bg-gray-900 p-3 rounded text-sm font-mono">
+                          <div class="text-white">file = open("missing.txt", "r")</div>
+                          <div class="text-orange-400 mt-2">FileNotFoundError: No such file or directory: 'missing.txt'</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Logic Errors -->
+                <div class="bg-white border border-purple-200 rounded-lg p-6">
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
+                      <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 class="text-xl font-semibold text-purple-800">Logic Errors</h4>
+                      <p class="text-gray-600 text-sm">The program runs without crashing but produces incorrect results due to flawed program logic.</p>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-purple-50 p-4 rounded-lg mb-4">
+                    <div class="grid md:grid-cols-3 gap-4 text-sm">
+                      <div><strong>When detected:</strong> During testing or use</div>
+                      <div><strong>Examples:</strong> Wrong calculations, incorrect conditions</div>
+                      <div><strong>Hardest to find:</strong> Program appears to work but gives wrong answers</div>
+                    </div>
+                  </div>
+
+                  <div class="logic-error-slider mb-4" data-error-type="logic">
+                    <div class="flex items-center justify-between mb-3">
+                      <label class="text-sm font-medium text-gray-700">Click arrows to see different examples:</label>
+                      <div class="flex items-center space-x-3 bg-purple-100 px-3 py-2 rounded-lg">
+                        <button class="logic-prev bg-purple-200 hover:bg-purple-300 text-purple-800 px-3 py-2 rounded font-medium text-sm transition-colors">← Previous</button>
+                        <span class="logic-counter text-sm text-purple-700 font-medium min-w-[3rem] text-center">1 / 3</span>
+                        <button class="logic-next bg-purple-200 hover:bg-purple-300 text-purple-800 px-3 py-2 rounded font-medium text-sm transition-colors">Next →</button>
+                      </div>
+                    </div>
+                    
+                    <div class="logic-examples">
+                      <div class="logic-example active" data-example="0">
+                        <h5 class="font-medium mb-2 text-purple-800">Wrong Calculation</h5>
+                        <div class="bg-gray-900 p-3 rounded text-sm font-mono">
+                          <div class="text-white"># Calculate average of 3 numbers</div>
+                          <div class="text-white">average = (a + b + c) / 2  # Should be / 3!</div>
+                          <div class="text-gray-400 mt-2"># No error message, but result is wrong</div>
+                        </div>
+                      </div>
+                      
+                      <div class="logic-example hidden" data-example="1">
+                        <h5 class="font-medium mb-2 text-purple-800">Wrong Condition</h5>
+                        <div class="bg-gray-900 p-3 rounded text-sm font-mono">
+                          <div class="text-white"># Check if number is positive</div>
+                          <div class="text-white">if x > 0:  # Should be >= 0 to include zero</div>
+                          <div class="text-white">    print("Positive")</div>
+                          <div class="text-gray-400 mt-2"># Zero incorrectly treated as negative</div>
+                        </div>
+                      </div>
+                      
+                      <div class="logic-example hidden" data-example="2">
+                        <h5 class="font-medium mb-2 text-purple-800">Infinite Loop</h5>
+                        <div class="bg-gray-900 p-3 rounded text-sm font-mono">
+                          <div class="text-white">count = 0</div>
+                          <div class="text-white">while count < 10:</div>
+                          <div class="text-white">    print(count)</div>
+                          <div class="text-white">    # Missing: count += 1</div>
+                          <div class="text-gray-400 mt-2"># Loop never ends - count stays 0</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <script>
+            // Error Type Sliders
+            document.addEventListener('DOMContentLoaded', function() {
+              // Syntax Error Slider
+              let syntaxIndex = 0;
+              const syntaxExamples = document.querySelectorAll('.syntax-example');
+              const syntaxCounter = document.querySelector('.syntax-counter');
+              
+              function showSyntaxExample(index) {
+                syntaxExamples.forEach(ex => ex.classList.add('hidden'));
+                syntaxExamples.forEach(ex => ex.classList.remove('active'));
+                syntaxExamples[index].classList.remove('hidden');
+                syntaxExamples[index].classList.add('active');
+                syntaxCounter.textContent = `${index + 1} / ${syntaxExamples.length}`;
+              }
+              
+              document.querySelector('.syntax-next').addEventListener('click', () => {
+                syntaxIndex = (syntaxIndex + 1) % syntaxExamples.length;
+                showSyntaxExample(syntaxIndex);
+              });
+              
+              document.querySelector('.syntax-prev').addEventListener('click', () => {
+                syntaxIndex = (syntaxIndex - 1 + syntaxExamples.length) % syntaxExamples.length;
+                showSyntaxExample(syntaxIndex);
+              });
+              
+              // Runtime Error Slider
+              let runtimeIndex = 0;
+              const runtimeExamples = document.querySelectorAll('.runtime-example');
+              const runtimeCounter = document.querySelector('.runtime-counter');
+              
+              function showRuntimeExample(index) {
+                runtimeExamples.forEach(ex => ex.classList.add('hidden'));
+                runtimeExamples.forEach(ex => ex.classList.remove('active'));
+                runtimeExamples[index].classList.remove('hidden');
+                runtimeExamples[index].classList.add('active');
+                runtimeCounter.textContent = `${index + 1} / ${runtimeExamples.length}`;
+              }
+              
+              document.querySelector('.runtime-next').addEventListener('click', () => {
+                runtimeIndex = (runtimeIndex + 1) % runtimeExamples.length;
+                showRuntimeExample(runtimeIndex);
+              });
+              
+              document.querySelector('.runtime-prev').addEventListener('click', () => {
+                runtimeIndex = (runtimeIndex - 1 + runtimeExamples.length) % runtimeExamples.length;
+                showRuntimeExample(runtimeIndex);
+              });
+              
+              // Logic Error Slider
+              let logicIndex = 0;
+              const logicExamples = document.querySelectorAll('.logic-example');
+              const logicCounter = document.querySelector('.logic-counter');
+              
+              function showLogicExample(index) {
+                logicExamples.forEach(ex => ex.classList.add('hidden'));
+                logicExamples.forEach(ex => ex.classList.remove('active'));
+                logicExamples[index].classList.remove('hidden');
+                logicExamples[index].classList.add('active');
+                logicCounter.textContent = `${index + 1} / ${logicExamples.length}`;
+              }
+              
+              document.querySelector('.logic-next').addEventListener('click', () => {
+                logicIndex = (logicIndex + 1) % logicExamples.length;
+                showLogicExample(logicIndex);
+              });
+              
+              document.querySelector('.logic-prev').addEventListener('click', () => {
+                logicIndex = (logicIndex - 1 + logicExamples.length) % logicExamples.length;
+                showLogicExample(logicIndex);
+              });
+            });
+            </script>
+
+            <!-- Interactive Error Explorer -->
+            <div class="mb-8">
+              <h3 class="text-xl font-semibold mb-4">Interactive Error Examples</h3>
+              <p class="text-gray-700 mb-6">
+                Explore real examples of each error type. Click through the tabs to see different error categories, then select specific examples to understand the problems and their solutions.
+              </p>
+              
+              <ErrorExplorer client:load />
+            </div>
+
+            <!-- Error Detection Strategies -->
+            <div class="mb-8">
+              <CollapsibleSection 
+                client:load
+                title="Error Detection Strategies"
+              >
+                <div class="space-y-6">
+                  <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <h4 class="font-semibold mb-3 text-blue-800">Prevention Techniques</h4>
+                      <ul class="space-y-2 text-sm">
+                        <li class="flex items-start">
+                          <span class="text-blue-600 mr-2">•</span>
+                          <div>
+                            <strong><Tooltip client:load term="Code Review" definition="Systematic examination of code by other developers to find errors and improve quality">Code review</Tooltip>:</strong> Have others check your code
+                          </div>
+                        </li>
+                        <li class="flex items-start">
+                          <span class="text-blue-600 mr-2">•</span>
+                          <div>
+                            <strong><Tooltip client:load term="Input Validation" definition="Checking user input to ensure it meets expected criteria before processing">Input validation</Tooltip>:</strong> Check data before using it
+                          </div>
+                        </li>
+                        <li class="flex items-start">
+                          <span class="text-blue-600 mr-2">•</span>
+                          <div>
+                            <strong>Defensive programming:</strong> Assume inputs might be wrong
+                          </div>
+                        </li>
+                        <li class="flex items-start">
+                          <span class="text-blue-600 mr-2">•</span>
+                          <div>
+                            <strong><Tooltip client:load term="Unit Testing" definition="Testing individual components or functions in isolation to verify they work correctly">Unit testing</Tooltip>:</strong> Test small parts separately
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div>
+                      <h4 class="font-semibold mb-3 text-green-800">Detection Tools</h4>
+                      <ul class="space-y-2 text-sm">
+                        <li class="flex items-start">
+                          <span class="text-green-600 mr-2">•</span>
+                          <div>
+                            <strong><Tooltip client:load term="IDE" definition="Integrated Development Environment - software that provides tools for writing, testing, and debugging code">IDE</Tooltip> warnings:</strong> Real-time error highlighting
+                          </div>
+                        </li>
+                        <li class="flex items-start">
+                          <span class="text-green-600 mr-2">•</span>
+                          <div>
+                            <strong><Tooltip client:load term="Static Analysis" definition="Automated examination of code without running it to find potential errors">Static analysis</Tooltip>:</strong> Automated code scanning
+                          </div>
+                        </li>
+                        <li class="flex items-start">
+                          <span class="text-green-600 mr-2">•</span>
+                          <div>
+                            <strong><Tooltip client:load term="Debugger" definition="A tool that allows developers to run code step-by-step and inspect variables">Debugger</Tooltip> tools:</strong> Step through code execution
+                          </div>
+                        </li>
+                        <li class="flex items-start">
+                          <span class="text-green-600 mr-2">•</span>
+                          <div>
+                            <strong><Tooltip client:load term="Logging" definition="Recording program events and data to help track down errors">Logging</Tooltip>:</strong> Record program behaviour
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  
+                  <!-- Python Examples Section -->
+                  <div class="bg-gradient-to-r from-blue-50 to-green-50 p-6 rounded-lg border border-blue-200">
+                    <h4 class="font-semibold mb-4 text-blue-900 flex items-center">
+                      <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                      </svg>
+                      Python Error Detection Examples
+                    </h4>
+                    
+                    <div class="grid lg:grid-cols-2 gap-6">
+                      <!-- Input Validation Example -->
+                      <div class="bg-white p-4 rounded-lg border border-gray-200">
+                        <h5 class="font-medium text-green-800 mb-2">Input Validation</h5>
+                        <pre class="bg-gray-50 p-3 rounded text-sm font-mono overflow-x-auto"><code># Without validation (prone to errors)
+user_age = int(input("Enter age: "))
+if user_age >= 18:
+    print("Adult")
+
+# With validation (error prevention)
+def get_valid_age():
+    while True:
+        try:
+            age = int(input("Enter age (0-120): "))
+            if 0 <= age <= 120:
+                return age
+            print("Age must be between 0 and 120")
+        except ValueError:
+            print("Please enter a valid number")
+
+user_age = get_valid_age()
+if user_age >= 18:
+    print("Adult")</code></pre>
+                      </div>
+
+                      <!-- Defensive Programming Example -->
+                      <div class="bg-white p-4 rounded-lg border border-gray-200">
+                        <h5 class="font-medium text-blue-800 mb-2">Defensive Programming</h5>
+                        <pre class="bg-gray-50 p-3 rounded text-sm font-mono overflow-x-auto"><code># Risky code
+def calculate_average(numbers):
+    return sum(numbers) / len(numbers)
+
+# Defensive programming
+def calculate_average(numbers):
+    # Check if input is valid
+    if not isinstance(numbers, list):
+        raise TypeError("Input must be a list")
+    
+    if len(numbers) == 0:
+        raise ValueError("Cannot calculate average of empty list")
+    
+    # Check all items are numbers
+    for num in numbers:
+        if not isinstance(num, (int, float)):
+            raise TypeError("All items must be numbers")
+    
+    return sum(numbers) / len(numbers)</code></pre>
+                      </div>
+
+                      <!-- Logging Example -->
+                      <div class="bg-white p-4 rounded-lg border border-gray-200">
+                        <h5 class="font-medium text-purple-800 mb-2">Error Logging</h5>
+                        <pre class="bg-gray-50 p-3 rounded text-sm font-mono overflow-x-auto" set:html=&#123;`<code>import logging
+
+# Set up logging
+logging.basicConfig(level=logging.INFO, 
+                   format='%(asctime)s - %(levelname)s - %(message)s')
+
+def divide_numbers(a, b):
+    logging.info(f"Attempting to divide &#123;'&#123;'&#125;&#123;a&#125;&#123;'&#125;'&#125; by &#123;'&#123;'&#125;&#123;b&#125;&#123;'&#125;'&#125;")
+    
+    try:
+        result = a / b
+        logging.info(f"Division successful: &#123;'&#123;'&#125;&#123;result&#125;&#123;'&#125;'&#125;")
+        return result
+    except ZeroDivisionError as e:
+        logging.error(f"Division by zero error: &#123;'&#123;'&#125;&#123;e&#125;&#123;'&#125;'&#125;")
+        return None
+    except Exception as e:
+        logging.error(f"Unexpected error: &#123;'&#123;'&#125;&#123;e&#125;&#123;'&#125;'&#125;")
+        return None
+
+# Usage
+result = divide_numbers(10, 0)  # Logs the error</code>`&#125;></pre>
+                      </div>
+
+                      <!-- Unit Testing Example -->
+                      <div class="bg-white p-4 rounded-lg border border-gray-200">
+                        <h5 class="font-medium text-orange-800 mb-2">Unit Testing</h5>
+                        <pre class="bg-gray-50 p-3 rounded text-sm font-mono overflow-x-auto"><code>def calculate_discount(price, discount_percent):
+    """Calculate discounted price"""
+    if price < 0:
+        raise ValueError("Price cannot be negative")
+    if not 0 <= discount_percent <= 100:
+        raise ValueError("Discount must be between 0-100%")
+    
+    return price * (1 - discount_percent / 100)
+
+# Unit tests
+def test_calculate_discount():
+    # Test normal case
+    assert calculate_discount(100, 20) == 80
+    
+    # Test edge cases
+    assert calculate_discount(100, 0) == 100
+    assert calculate_discount(100, 100) == 0
+    
+    # Test error cases
+    try:
+        calculate_discount(-10, 20)
+        assert False, "Should raise ValueError"
+    except ValueError:
+        pass  # Expected
+    
+    print("All tests passed!")</code></pre>
+                      </div>
+                    </div>
+
+                    <!-- Best Practices Summary -->
+                    <div class="mt-6 bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                      <h5 class="font-semibold text-yellow-800 mb-2">🎯 Key Takeaways</h5>
+                      <ul class="text-sm text-yellow-700 space-y-1">
+                        <li><strong>Validate early:</strong> Check inputs before processing them</li>
+                        <li><strong>Fail fast:</strong> Detect and report errors as soon as possible</li>
+                        <li><strong>Log everything:</strong> Record what your program is doing for debugging</li>
+                        <li><strong>Test thoroughly:</strong> Write tests for normal and edge cases</li>
+                        <li><strong>Handle exceptions:</strong> Use try/except blocks for risky operations</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </CollapsibleSection>
+            </div>
+
+            <!-- NESA Exam Context -->
+            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-amber-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                  <p class="font-semibold text-amber-900 mb-1">NESA Exam Focus</p>
+                  <p class="text-amber-800 text-sm">Error identification questions are common in NESA exams. You'll be asked to identify error types, explain why they occur, and suggest fixes. Focus on recognising patterns: syntax errors prevent compilation, runtime errors crash programs, logic errors produce wrong results.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

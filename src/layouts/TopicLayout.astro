@@ -1,0 +1,181 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+  topic: string;
+}
+
+const { title, description, topic } = Astro.props;
+---
+
+<BaseLayout title=&#123;title&#125; description=&#123;description&#125;>
+  <div class="topic-container">
+    <div class="topic-header">
+      <div class="topic-breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-separator">›</span>
+        <span class="current-topic">&#123;topic&#125;</span>
+      </div>
+      <h1 class="topic-title">&#123;title&#125;</h1>
+    </div>
+    
+    <div class="topic-content">
+      <slot />
+    </div>
+    
+    <div class="topic-navigation">
+      <div class="nav-links">
+        <a href="#overview" class="nav-link">Overview</a>
+        <a href="#key-points" class="nav-link">Key Points</a>
+        <a href="#interactive" class="nav-link">Interactive</a>
+        <a href="#revision" class="nav-link">How to Revise</a>
+        <a href="#practice" class="nav-link">Practice</a>
+        <a href="#answers" class="nav-link">Answers</a>
+        <a href="#teacher-notes" class="nav-link">Teacher Notes</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .topic-container {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .topic-header {
+    grid-column: 1 / -1;
+    margin-bottom: 2rem;
+  }
+
+  .topic-breadcrumb {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+
+  .topic-breadcrumb a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+
+  .topic-breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .breadcrumb-separator {
+    margin: 0 0.5rem;
+  }
+
+  .current-topic {
+    font-weight: 500;
+  }
+
+  .topic-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .topic-content {
+    grid-column: 1;
+  }
+
+  .topic-navigation {
+    grid-column: 2;
+    position: sticky;
+    top: 80px;
+    background: white;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0.5rem 0;
+    color: #555;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+    border-bottom: 1px solid transparent;
+  }
+
+  .nav-link:hover {
+    color: #0066cc;
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .topic-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .topic-navigation {
+      position: static;
+      margin-top: 2rem;
+    }
+    
+    .nav-links {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    
+    .topic-title {
+      font-size: 2rem;
+    }
+  }
+
+  /* Global styles for topic content */
+  :global(.topic-content h2) {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    margin: 2rem 0 1rem 0;
+    border-bottom: 2px solid #0066cc;
+    padding-bottom: 0.5rem;
+  }
+
+  :global(.topic-content h3) {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #444;
+    margin: 1.5rem 0 0.75rem 0;
+  }
+
+  :global(.topic-content p) {
+    margin: 1rem 0;
+    color: #555;
+  }
+
+  :global(.topic-content ul, .topic-content ol) {
+    margin: 1rem 0;
+    padding-left: 2rem;
+  }
+
+  :global(.topic-content li) {
+    margin: 0.5rem 0;
+    color: #555;
+  }
+
+  :global(.topic-content blockquote) {
+    border-left: 4px solid #0066cc;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 4px;
+  }
+</style>

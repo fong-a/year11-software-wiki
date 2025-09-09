@@ -1,0 +1,751 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProgrammingFundamentalsNav from '../../../components/ProgrammingFundamentalsNav';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Data Exam Questions - Programming Fundamentals" description="NESA-style exam questions for data structures and representation with sample answers and marking criteria">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Data Exam Questions</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <ProgrammingFundamentalsNav 
+              client:load 
+              currentPage="/topics/programming-fundamentals/data-exam"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Data</h1>
+            <h2 class="text-2xl font-semibold text-blue-600 mb-8">Practice Exam Questions</h2>
+            
+            <!-- NESA Keywords -->
+            <div class="mb-8 p-6 bg-gradient-to-r from-amber-50 to-orange-50 rounded-lg border border-amber-200">
+              <h3 class="text-xl font-bold text-amber-800 mb-4">📚 NESA Command Words</h3>
+              <p class="text-amber-700 text-sm mb-4">The Software Engineering exam uses specific keywords that tell you what kind of response is expected:</p>
+              
+              <div class="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p><strong class="text-amber-800">Identify:</strong> Name it (1-2 words)</p>
+                  <p><strong class="text-amber-800">Outline:</strong> Key features in a sentence or two</p>
+                  <p><strong class="text-amber-800">Describe:</strong> What it is + some detail about features/purpose</p>
+                </div>
+                <div>
+                  <p><strong class="text-amber-800">Explain:</strong> Show HOW or WHY (cause → effect)</p>
+                  <p><strong class="text-amber-800">Distinguish:</strong> Point out the difference clearly</p>
+                  <p><strong class="text-amber-800">Compare:</strong> Show similarities and differences</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Question 1 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 1 (3 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Identify three different data types commonly used in programming and provide an example of data that would be stored using each type.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="flex items-center space-x-4">
+                      <span class="text-sm font-medium text-gray-600 w-20">Type 1:</span>
+                      <div class="border-b border-gray-300 h-6 flex-1"></div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                      <span class="text-sm font-medium text-gray-600 w-20">Example:</span>
+                      <div class="border-b border-gray-300 h-6 flex-1"></div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                      <span class="text-sm font-medium text-gray-600 w-20">Type 2:</span>
+                      <div class="border-b border-gray-300 h-6 flex-1"></div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                      <span class="text-sm font-medium text-gray-600 w-20">Example:</span>
+                      <div class="border-b border-gray-300 h-6 flex-1"></div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                      <span class="text-sm font-medium text-gray-600 w-20">Type 3:</span>
+                      <div class="border-b border-gray-300 h-6 flex-1"></div>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                      <span class="text-sm font-medium text-gray-600 w-20">Example:</span>
+                      <div class="border-b border-gray-300 h-6 flex-1"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>3 marks:</strong> Correctly identifies three different data types with appropriate examples for each</li>
+                      <li><strong>2 marks:</strong> Identifies two different data types with appropriate examples OR three types with one weak example</li>
+                      <li><strong>1 mark:</strong> Identifies one data type with appropriate example OR shows basic understanding of data types</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p><strong>Type 1:</strong> Integer - Example: Age (17), Number of students (25)</p>
+                      <p><strong>Type 2:</strong> String/Text - Example: Name ("Alice"), Address ("123 Main St")</p>
+                      <p><strong>Type 3:</strong> Boolean - Example: Pass/Fail status (True/False), Online status</p>
+                      <p class="text-gray-600 mt-2 italic">Other acceptable: Float/Decimal, List/Array, Date</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 2 (4 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Explain the difference between a dictionary and an array in data structures. Provide one example of when you would use each structure.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-3">
+                    <div>
+                      <p class="text-sm font-medium text-gray-600 mb-1">Dictionary:</p>
+                      <div class="space-y-2">
+                        <div class="border-b border-gray-300 h-6"></div>
+                        <div class="border-b border-gray-300 h-6"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <p class="text-sm font-medium text-gray-600 mb-1">Array:</p>
+                      <div class="space-y-2">
+                        <div class="border-b border-gray-300 h-6"></div>
+                        <div class="border-b border-gray-300 h-6"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <p class="text-sm font-medium text-gray-600 mb-1">Example use for Dictionary:</p>
+                      <div class="border-b border-gray-300 h-6"></div>
+                    </div>
+                    <div>
+                      <p class="text-sm font-medium text-gray-600 mb-1">Example use for Array:</p>
+                      <div class="border-b border-gray-300 h-6"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>4 marks:</strong> Clearly explains both data structures with accurate differences (key-value pairs vs indexed elements) AND provides appropriate use case examples</li>
+                      <li><strong>3 marks:</strong> Explains both structures well but examples may be unclear OR good examples but explanation of differences incomplete</li>
+                      <li><strong>2 marks:</strong> Shows understanding of both structures but lacks clear distinction or appropriate examples</li>
+                      <li><strong>1 mark:</strong> Shows basic understanding of one data structure but fails to explain differences effectively</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p><strong>Dictionary:</strong> Groups different related data types together under field names</p>
+                      <p><strong>Array:</strong> Stores multiple items of the same data type in ordered positions</p>
+                      <p><strong>Dictionary example:</strong> Student information (name: "Alice", age: 17, grade: 85) where attributes are related</p>
+                      <p><strong>Array example:</strong> List of test scores [85, 92, 78, 95] - all same type (numbers)</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 3 (5 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  A school library system needs to store book information. For each book, the following data is required:
+                </p>
+                <div class="mt-3 text-sm text-gray-600">
+                  <p>• Title (text)</p>
+                  <p>• Author (text)</p>
+                  <p>• ISBN (10-digit number)</p>
+                  <p>• Year published (4-digit number)</p>
+                  <p>• Available for loan (true/false)</p>
+                </div>
+                <p class="text-gray-700 mt-3 font-medium">
+                  Design a data dictionary entry for the book dictionary, including field names, data types, field sizes, and descriptions.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <table class="w-full border-collapse">
+                    <thead>
+                      <tr class="border-b border-gray-300">
+                        <th class="text-left text-sm font-medium text-gray-600 pb-2 pr-4">Field Name</th>
+                        <th class="text-left text-sm font-medium text-gray-600 pb-2 pr-4">Data Type</th>
+                        <th class="text-left text-sm font-medium text-gray-600 pb-2 pr-4">Size</th>
+                        <th class="text-left text-sm font-medium text-gray-600 pb-2">Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2"><div class="border-b border-gray-300 h-6"></div></td>
+                      </tr>
+                      <tr>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2"><div class="border-b border-gray-300 h-6"></div></td>
+                      </tr>
+                      <tr>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2"><div class="border-b border-gray-300 h-6"></div></td>
+                      </tr>
+                      <tr>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2"><div class="border-b border-gray-300 h-6"></div></td>
+                      </tr>
+                      <tr>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2"><div class="border-b border-gray-300 h-6"></div></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>5 marks:</strong> Complete data dictionary with all 5 fields, appropriate data types, realistic field sizes, and clear descriptions</li>
+                      <li><strong>4 marks:</strong> Four fields correctly specified with appropriate types and sizes, minor issues with one field</li>
+                      <li><strong>3 marks:</strong> Three fields correctly specified OR all fields present but significant errors in types or sizes</li>
+                      <li><strong>2 marks:</strong> Shows understanding of data dictionary structure but several errors in implementation</li>
+                      <li><strong>1 mark:</strong> Basic attempt at data dictionary structure but lacks understanding of field specifications</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <table class="w-full text-xs border-collapse">
+                        <thead>
+                          <tr class="border-b">
+                            <th class="text-left py-1 pr-2 font-semibold">Field Name</th>
+                            <th class="text-left py-1 pr-2 font-semibold">Data Type</th>
+                            <th class="text-left py-1 pr-2 font-semibold">Size</th>
+                            <th class="text-left py-1 font-semibold">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="border-b">
+                            <td class="py-1 pr-2">Title</td>
+                            <td class="py-1 pr-2">Text/String</td>
+                            <td class="py-1 pr-2">100 chars</td>
+                            <td class="py-1">Name of the book</td>
+                          </tr>
+                          <tr class="border-b">
+                            <td class="py-1 pr-2">Author</td>
+                            <td class="py-1 pr-2">Text/String</td>
+                            <td class="py-1 pr-2">50 chars</td>
+                            <td class="py-1">Person who wrote the book</td>
+                          </tr>
+                          <tr class="border-b">
+                            <td class="py-1 pr-2">ISBN</td>
+                            <td class="py-1 pr-2">Text/String</td>
+                            <td class="py-1 pr-2">10 chars</td>
+                            <td class="py-1">Unique book identifier</td>
+                          </tr>
+                          <tr class="border-b">
+                            <td class="py-1 pr-2">Year_Published</td>
+                            <td class="py-1 pr-2">Integer</td>
+                            <td class="py-1 pr-2">4 digits</td>
+                            <td class="py-1">Year book was published</td>
+                          </tr>
+                          <tr>
+                            <td class="py-1 pr-2">Available</td>
+                            <td class="py-1 pr-2">Boolean</td>
+                            <td class="py-1 pr-2">1 bit</td>
+                            <td class="py-1">Whether book can be borrowed</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 4 (3 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Convert the decimal number 156 to binary representation. Show your working.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>3 marks:</strong> Shows complete working with correct division steps and final binary result (10011100)</li>
+                      <li><strong>2 marks:</strong> Shows working method with minor calculation errors OR correct final answer with incomplete working</li>
+                      <li><strong>1 mark:</strong> Shows understanding of binary conversion process but significant errors in calculation or method</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p><strong>Working:</strong></p>
+                      <p>156 ÷ 2 = 78 remainder 0</p>
+                      <p>78 ÷ 2 = 39 remainder 0</p>
+                      <p>39 ÷ 2 = 19 remainder 1</p>
+                      <p>19 ÷ 2 = 9 remainder 1</p>
+                      <p>9 ÷ 2 = 4 remainder 1</p>
+                      <p>4 ÷ 2 = 2 remainder 0</p>
+                      <p>2 ÷ 2 = 1 remainder 0</p>
+                      <p>1 ÷ 2 = 0 remainder 1</p>
+                      <p class="mt-2"><strong>Answer:</strong> 10011100 (reading remainders from bottom to top)</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 5 (4 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Describe two advantages and two disadvantages of using a stack data structure for managing a program's function calls compared to using an array.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-3">
+                    <div>
+                      <p class="text-sm font-medium text-gray-600 mb-1">Advantage 1:</p>
+                      <div class="border-b border-gray-300 h-6"></div>
+                    </div>
+                    <div>
+                      <p class="text-sm font-medium text-gray-600 mb-1">Advantage 2:</p>
+                      <div class="border-b border-gray-300 h-6"></div>
+                    </div>
+                    <div>
+                      <p class="text-sm font-medium text-gray-600 mb-1">Disadvantage 1:</p>
+                      <div class="border-b border-gray-300 h-6"></div>
+                    </div>
+                    <div>
+                      <p class="text-sm font-medium text-gray-600 mb-1">Disadvantage 2:</p>
+                      <div class="border-b border-gray-300 h-6"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>4 marks:</strong> Identifies two valid advantages AND two valid disadvantages specific to function call management</li>
+                      <li><strong>3 marks:</strong> Identifies 1-2 advantages and 1-2 disadvantages with good understanding but may lack specificity to function calls</li>
+                      <li><strong>2 marks:</strong> Shows understanding of stack properties but advantages/disadvantages may be generic or partially incorrect</li>
+                      <li><strong>1 mark:</strong> Shows basic understanding of stacks but fails to connect to function call management effectively</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p><strong>Advantages:</strong></p>
+                      <p>1. Automatic memory management - functions automatically removed when they finish</p>
+                      <p>2. Natural LIFO (Last In, First Out) order matches function call/return pattern</p>
+                      <p><strong>Disadvantages:</strong></p>
+                      <p>1. Limited access - can only access the top function (most recent call)</p>
+                      <p>2. Stack overflow risk if too many nested function calls exceed memory limit</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 6 (3 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Convert the binary number 10110101 to decimal. Show your working using place values.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-2">
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                    <div class="border-b border-gray-300 h-6"></div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>3 marks:</strong> Shows complete working with correct division steps and final binary result (10011100)</li>
+                      <li><strong>2 marks:</strong> Shows working method with minor calculation errors OR correct final answer with incomplete working</li>
+                      <li><strong>1 mark:</strong> Shows understanding of binary conversion process but significant errors in calculation or method</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p><strong>Place values:</strong></p>
+                      <table class="w-full text-xs mt-2 border-collapse">
+                        <tr>
+                          <td class="border p-1 text-center">Position</td>
+                          <td class="border p-1 text-center">7</td>
+                          <td class="border p-1 text-center">6</td>
+                          <td class="border p-1 text-center">5</td>
+                          <td class="border p-1 text-center">4</td>
+                          <td class="border p-1 text-center">3</td>
+                          <td class="border p-1 text-center">2</td>
+                          <td class="border p-1 text-center">1</td>
+                          <td class="border p-1 text-center">0</td>
+                        </tr>
+                        <tr>
+                          <td class="border p-1 text-center">Place Value</td>
+                          <td class="border p-1 text-center">128</td>
+                          <td class="border p-1 text-center">64</td>
+                          <td class="border p-1 text-center">32</td>
+                          <td class="border p-1 text-center">16</td>
+                          <td class="border p-1 text-center">8</td>
+                          <td class="border p-1 text-center">4</td>
+                          <td class="border p-1 text-center">2</td>
+                          <td class="border p-1 text-center">1</td>
+                        </tr>
+                        <tr>
+                          <td class="border p-1 text-center">Binary Digit</td>
+                          <td class="border p-1 text-center">1</td>
+                          <td class="border p-1 text-center">0</td>
+                          <td class="border p-1 text-center">1</td>
+                          <td class="border p-1 text-center">1</td>
+                          <td class="border p-1 text-center">0</td>
+                          <td class="border p-1 text-center">1</td>
+                          <td class="border p-1 text-center">0</td>
+                          <td class="border p-1 text-center">1</td>
+                        </tr>
+                      </table>
+                      <p class="mt-3"><strong>Calculation:</strong></p>
+                      <p>128 + 0 + 32 + 16 + 0 + 4 + 0 + 1 = 181</p>
+                      <p class="mt-2"><strong>Answer:</strong> 181</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 7 (5 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  A gaming company needs to store player information for an online multiplayer game. Design a data dictionary for a player record that includes:
+                </p>
+                <div class="mt-3 text-sm text-gray-600">
+                  <p>• Player username (up to 20 characters)</p>
+                  <p>• Player level (number from 1-100)</p>
+                  <p>• Experience points (number up to 999,999)</p>
+                  <p>• Premium member status (yes/no)</p>
+                  <p>• Last login date (DD/MM/YYYY format)</p>
+                  <p>• Character class (Warrior, Mage, Archer, or Rogue)</p>
+                </div>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <table class="w-full border-collapse">
+                    <thead>
+                      <tr class="border-b border-gray-300">
+                        <th class="text-left text-sm font-medium text-gray-600 pb-2 pr-4">Field Name</th>
+                        <th class="text-left text-sm font-medium text-gray-600 pb-2 pr-4">Data Type</th>
+                        <th class="text-left text-sm font-medium text-gray-600 pb-2 pr-4">Size/Range</th>
+                        <th class="text-left text-sm font-medium text-gray-600 pb-2">Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2"><div class="border-b border-gray-300 h-6"></div></td>
+                      </tr>
+                      <tr>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2"><div class="border-b border-gray-300 h-6"></div></td>
+                      </tr>
+                      <tr>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2"><div class="border-b border-gray-300 h-6"></div></td>
+                      </tr>
+                      <tr>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2"><div class="border-b border-gray-300 h-6"></div></td>
+                      </tr>
+                      <tr>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2"><div class="border-b border-gray-300 h-6"></div></td>
+                      </tr>
+                      <tr>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2 pr-4"><div class="border-b border-gray-300 h-6"></div></td>
+                        <td class="py-2"><div class="border-b border-gray-300 h-6"></div></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>5 marks:</strong> Complete data dictionary with all 6 fields (username, level, experience points, premium status, login date, character class), appropriate data types and sizes</li>
+                      <li><strong>4 marks:</strong> Five fields correctly specified with appropriate types and realistic size constraints</li>
+                      <li><strong>3 marks:</strong> Four fields correctly specified OR all fields present but several errors in data types or sizes</li>
+                      <li><strong>2 marks:</strong> Shows understanding of data dictionary concept but multiple errors in field specifications</li>
+                      <li><strong>1 mark:</strong> Basic attempt at data dictionary but lacks understanding of appropriate data types or constraints</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <table class="w-full text-xs border-collapse">
+                        <thead>
+                          <tr class="border-b">
+                            <th class="text-left py-1 pr-2 font-semibold">Field Name</th>
+                            <th class="text-left py-1 pr-2 font-semibold">Data Type</th>
+                            <th class="text-left py-1 pr-2 font-semibold">Size/Range</th>
+                            <th class="text-left py-1 font-semibold">Description</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="border-b">
+                            <td class="py-1 pr-2">Username</td>
+                            <td class="py-1 pr-2">Text/String</td>
+                            <td class="py-1 pr-2">20 chars</td>
+                            <td class="py-1">Unique player identifier</td>
+                          </tr>
+                          <tr class="border-b">
+                            <td class="py-1 pr-2">Level</td>
+                            <td class="py-1 pr-2">Integer</td>
+                            <td class="py-1 pr-2">1-100</td>
+                            <td class="py-1">Player's current game level</td>
+                          </tr>
+                          <tr class="border-b">
+                            <td class="py-1 pr-2">Experience_Points</td>
+                            <td class="py-1 pr-2">Integer</td>
+                            <td class="py-1 pr-2">0-999999</td>
+                            <td class="py-1">Points earned through gameplay</td>
+                          </tr>
+                          <tr class="border-b">
+                            <td class="py-1 pr-2">Premium_Member</td>
+                            <td class="py-1 pr-2">Boolean</td>
+                            <td class="py-1 pr-2">True/False</td>
+                            <td class="py-1">Whether player has premium account</td>
+                          </tr>
+                          <tr class="border-b">
+                            <td class="py-1 pr-2">Last_Login</td>
+                            <td class="py-1 pr-2">Date</td>
+                            <td class="py-1 pr-2">DD/MM/YYYY</td>
+                            <td class="py-1">Most recent login date</td>
+                          </tr>
+                          <tr>
+                            <td class="py-1 pr-2">Character_Class</td>
+                            <td class="py-1 pr-2">Text/String</td>
+                            <td class="py-1 pr-2">10 chars</td>
+                            <td class="py-1">Player's chosen character type</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="mb-8 p-6 bg-white border-2 border-gray-200 rounded-lg">
+              <div class="border-b border-gray-200 pb-4 mb-6">
+                <h3 class="text-lg font-bold text-gray-800">Question 8 (4 marks)</h3>
+                <p class="text-gray-700 mt-2 font-medium">
+                  Explain why validation is important when storing data in databases, and provide two specific examples of validation rules that could be applied to student information.
+                </p>
+              </div>
+              
+              <div class="mb-4">
+                <div class="border-l-4 border-gray-300 pl-4">
+                  <div class="space-y-3">
+                    <div>
+                      <p class="text-sm font-medium text-gray-600 mb-1">Why validation is important:</p>
+                      <div class="space-y-2">
+                        <div class="border-b border-gray-300 h-6"></div>
+                        <div class="border-b border-gray-300 h-6"></div>
+                      </div>
+                    </div>
+                    <div>
+                      <p class="text-sm font-medium text-gray-600 mb-1">Validation example 1:</p>
+                      <div class="border-b border-gray-300 h-6"></div>
+                    </div>
+                    <div>
+                      <p class="text-sm font-medium text-gray-600 mb-1">Validation example 2:</p>
+                      <div class="border-b border-gray-300 h-6"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <details class="mt-6">
+                <summary class="cursor-pointer bg-green-50 p-3 rounded text-green-800 font-medium hover:bg-green-100">
+                  📋 View Marking Criteria & Sample Answer
+                </summary>
+                <div class="mt-4 p-4 bg-gray-50 rounded">
+                  <div class="mb-4">
+                    <h4 class="font-bold text-green-700 mb-2">Marking Criteria:</h4>
+                    <ul class="text-sm space-y-1">
+                      <li><strong>4 marks:</strong> Explains importance of validation (data integrity, preventing errors) AND provides two specific, appropriate validation examples for student data</li>
+                      <li><strong>3 marks:</strong> Explains validation importance well but only one clear example OR two examples but weak explanation of importance</li>
+                      <li><strong>2 marks:</strong> Shows understanding of validation concept with basic explanation and/or one relevant example</li>
+                      <li><strong>1 mark:</strong> Shows basic understanding of data validation but lacks clear examples or explanation of importance</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-green-700 mb-2">Sample Answer:</h4>
+                    <div class="text-sm bg-white p-3 rounded border">
+                      <p><strong>Importance of validation:</strong></p>
+                      <p>Validation ensures data integrity and consistency by preventing incorrect, incomplete, or malicious data from being stored. This maintains database reliability and prevents errors in data processing and reporting.</p>
+                      
+                      <p class="mt-3"><strong>Example 1:</strong> Student ID must be exactly 8 digits - prevents duplicate or invalid IDs that could cause confusion in records</p>
+                      
+                      <p><strong>Example 2:</strong> Age must be between 5 and 18 for school students - prevents unrealistic ages that could indicate data entry errors</p>
+                    </div>
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- NESA Curriculum Alignment -->
+            <div class="bg-amber-50 p-6 rounded-lg border border-amber-200">
+              <h3 class="font-semibold text-amber-900 mb-2">NSW Year 11 Software Engineering Alignment</h3>
+              <p class="text-amber-800 text-sm mb-4">
+                These questions align with the NESA Software Engineering syllabus, covering fundamental data concepts including data types, structures, representation, and storage methods essential for understanding how programs organize and manipulate information.
+              </p>
+              <div class="grid md:grid-cols-2 gap-4 text-sm text-amber-700">
+                <div>
+                  <strong>Key Data Concepts:</strong>
+                  <ul class="mt-1 space-y-1 list-disc list-inside">
+                    <li>Data types and their applications</li>
+                    <li>Data structures (arrays, records, stacks)</li>
+                    <li>Data dictionaries and documentation</li>
+                  </ul>
+                </div>
+                <div>
+                  <strong>Assessment Focus:</strong>
+                  <ul class="mt-1 space-y-1 list-disc list-inside">
+                    <li>Data representation and conversion</li>
+                    <li>Structure design and selection</li>
+                    <li>Advantages and disadvantages analysis</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

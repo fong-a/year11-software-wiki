@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProgrammingFundamentalsNav from '../../../components/ProgrammingFundamentalsNav';
+import Tooltip from '../../../components/Tooltip';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Debugging Tools - Programming Fundamentals" description="Learning to identify, isolate, and fix errors using various debugging techniques and tools">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Debugging Tools</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <ProgrammingFundamentalsNav 
+              client:load 
+              currentPage="/topics/programming-fundamentals/debugging-tools"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Debugging Tools & Techniques</h1>
+            
+            <div class="mb-8 p-6 bg-gradient-to-r from-red-50 to-orange-50 rounded-xl border border-red-200">
+              <h2 class="text-2xl font-bold text-gray-900 mb-4">What is Debugging?</h2>
+              <p class="text-gray-800 text-lg leading-relaxed">
+                <strong><Tooltip client:load term="Debugging" definition="The systematic process of finding, isolating, and fixing errors or bugs in computer programs">Debugging</Tooltip></strong> is the systematic process of finding and fixing errors in code. It's like being a detective - you gather clues, test theories, and solve problems step by step.
+              </p>
+            </div>
+
+
+            <!-- Essential Debugging Technique -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Core Debugging Approach</h2>
+              
+              <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-xl border border-blue-200">
+                <div class="text-center mb-8">
+                  <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h.01M15 14h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                  </div>
+                  <h3 class="text-2xl font-bold text-gray-900 mb-4">Interactive Debugging with VS Code</h3>
+                  <p class="text-gray-600 max-w-2xl mx-auto">
+                    Master the art of debugging by stepping through code, inspecting variables, and understanding program flow in real-time
+                  </p>
+                </div>
+                
+                <!-- Video Placeholder with Annotations -->
+                <div class="bg-gray-900 rounded-lg overflow-hidden shadow-2xl">
+                  <!-- Video Header -->
+                  <div class="bg-gray-800 px-6 py-3 flex items-center justify-between">
+                    <div class="flex items-center space-x-3">
+                      <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                      <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                      <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                      <span class="text-gray-300 text-sm font-medium ml-4">🎥 VS Code Debugging Masterclass</span>
+                    </div>
+                    <div class="text-gray-400 text-sm">Duration: 8:45</div>
+                  </div>
+                  
+                  <!-- Embedded YouTube Video -->
+                  <div class="aspect-video">
+                    <iframe 
+                      src="https://www.youtube.com/embed/oCcTiRGPogQ" 
+                      title="VS Code Debugging Tutorial" 
+                      frameborder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                      allowfullscreen
+                      class="w-full h-full rounded-lg"
+                    ></iframe>
+                  </div>
+                  
+                  <!-- Video Description -->
+                  <div class="bg-gray-100 px-6 py-4 rounded-b-lg">
+                    <p class="text-gray-700 text-sm">
+                      The video shows breakpoints, single line stepping and variable watch techniques for effective debugging.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Essential Debugging Technique -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Printing as a Debugging Strategy</h2>
+              
+              <div class="bg-gradient-to-r from-yellow-50 to-orange-50 p-8 rounded-lg border border-yellow-200">
+                <div class="flex items-start space-x-6">
+                  <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-4">Using Print Statements for Debugging</h3>
+                    <p class="text-gray-700 mb-6">
+                      Print statements are the most accessible and widely-used debugging technique. By strategically placing print statements in your code, you can track variable values, verify program flow, and identify exactly where problems occur.
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                      <div class="bg-white p-4 rounded-lg border border-yellow-300">
+                        <h4 class="font-semibold text-gray-800 mb-3">When to Use Print Debugging:</h4>
+                        <ul class="text-sm space-y-2 text-gray-700">
+                          <li class="flex items-center"><span class="text-yellow-500 mr-2">•</span>Understand what values variables hold</li>
+                          <li class="flex items-center"><span class="text-yellow-500 mr-2">•</span>Trace which parts of your code execute</li>
+                          <li class="flex items-center"><span class="text-yellow-500 mr-2">•</span>Monitor how data changes through loops</li>
+                          <li class="flex items-center"><span class="text-yellow-500 mr-2">•</span>Verify user input is processed correctly</li>
+                        </ul>
+                      </div>
+                      
+                      <div class="bg-gray-50 p-4 rounded-lg border border-gray-300">
+                        <h4 class="font-semibold text-gray-800 mb-3">Example:</h4>
+                        <pre class="text-sm font-mono text-gray-800"><code>def calculate_grade(scores):
+    print(f"Input received: &#123;scores&#125;")
+    
+    total = sum(scores)
+    print(f"Sum calculated: &#123;total&#125;")
+    
+    average = total / len(scores)
+    print(f"Average result: &#123;average:.1f&#125;")
+    
+    return average</code></pre>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- NESA Exam Tips -->
+            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-amber-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                  <p class="font-semibold text-amber-900 mb-1">NESA Exam Focus</p>
+                  <p class="text-amber-800 text-sm">For NESA exams, focus on understanding debugging concepts: step-by-step execution, variable tracing, and breakpoint placement. You may be asked to identify bugs in pseudocode, explain debugging strategies, or trace through code execution manually using desk checking techniques.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

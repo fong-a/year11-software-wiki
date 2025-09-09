@@ -1,0 +1,291 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import MechatronicsNav from '../../../components/MechatronicsNav';
+import SearchComponent from '../../../components/SearchComponent';
+import FlipCard from '../../../components/FlipCard.astro';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Actuators - Mechatronics Hardware" description="Learn about actuators, the output devices that create physical motion and action in mechatronic systems">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center justify-between">
+        <nav>
+          <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+          <span class="text-sm text-gray-400 mx-2">></span>
+          <a href="/topics/mechatronics" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mechatronics Systems</a>
+          <span class="text-sm text-gray-400 mx-2">></span>
+          <span class="text-sm text-gray-900 font-medium">Actuators</span>
+        </nav>
+        <div class="ml-4">
+          <SearchComponent client:load className="w-80" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 overflow-y-auto" style="max-height: calc(100vh - 6rem);">
+            <MechatronicsNav 
+              client:load 
+              currentPage="/topics/mechatronics/actuators"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Actuators (Output Devices)</h1>
+            
+            <div class="mb-8 p-6 bg-green-50 rounded-lg border-l-4 border-green-500">
+              <p class="text-green-900 text-lg">
+                <strong>Actuators</strong> are the "muscles" of mechatronic systems. They receive electrical signals from controllers and convert them into physical movement, creating the actions that make systems work.
+              </p>
+            </div>
+
+            <!-- What Are Actuators? -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">What Are Actuators?</h2>
+              
+              <div class="bg-blue-50 p-6 rounded-lg border border-blue-200 mb-6">
+                <h3 class="text-lg font-semibold text-blue-800 mb-3">Simple Definition</h3>
+                <p class="text-blue-700 mb-2">
+                  An actuator is a device that converts electrical energy into physical movement or action. It's the component that makes things happen in a mechatronic system.
+                </p>
+                <p class="text-blue-700">
+                  <strong>Think of actuators as:</strong> The arms, legs, and hands of a robot or automated system.
+                </p>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg border border-gray-200">
+                <h4 class="font-semibold text-gray-800 mb-2">How Actuators Work:</h4>
+                <div class="text-sm text-gray-600 space-y-1">
+                  <p>1. <strong>Signal Reception:</strong> Receive electrical control signal from controller</p>
+                  <p>2. <strong>Energy Conversion:</strong> Convert electrical energy to mechanical motion</p>
+                  <p>3. <strong>Physical Action:</strong> Create movement, rotation, or force</p>
+                  <p>4. <strong>Task Completion:</strong> Perform the required action (open door, move robot arm, etc.)</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Types of Actuators -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Types of Actuators</h2>
+              
+              <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-red-50 p-6 rounded-lg border border-red-200">
+                  <h3 class="text-lg font-semibold text-red-800 mb-3">⚙️ Electric Motors</h3>
+                  <p class="text-red-700 mb-3"><strong>Purpose:</strong> Create rotational movement</p>
+                  <p class="text-sm text-red-600 mb-2"><strong>How they work:</strong> Magnetic fields cause rotor to spin</p>
+                  <div class="bg-white p-3 rounded border">
+                    <p class="text-xs font-semibold text-red-800 mb-1">Real Examples:</p>
+                    <ul class="text-xs text-red-600 space-y-1">
+                      <li>• Electric car wheels</li>
+                      <li>• Washing machine drum rotation</li>
+                      <li>• Computer cooling fans</li>
+                      <li>• Robot joint movement</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div class="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
+                  <h3 class="text-lg font-semibold text-yellow-800 mb-3">🔧 Linear Actuators</h3>
+                  <p class="text-yellow-700 mb-3"><strong>Purpose:</strong> Create straight-line movement</p>
+                  <p class="text-sm text-yellow-600 mb-2"><strong>How they work:</strong> Convert rotational motion to linear motion</p>
+                  <div class="bg-white p-3 rounded border">
+                    <p class="text-xs font-semibold text-yellow-800 mb-1">Real Examples:</p>
+                    <ul class="text-xs text-yellow-600 space-y-1">
+                      <li>• Hospital bed height adjustment</li>
+                      <li>• Car window lifters</li>
+                      <li>• Automatic door openers</li>
+                      <li>• 3D printer print head movement</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div class="bg-purple-50 p-6 rounded-lg border border-purple-200">
+                  <h3 class="text-lg font-semibold text-purple-800 mb-3">💨 Pneumatic Actuators</h3>
+                  <p class="text-purple-700 mb-3"><strong>Purpose:</strong> Use compressed air for powerful movement</p>
+                  <p class="text-sm text-purple-600 mb-2"><strong>How they work:</strong> Air pressure pushes pistons to create motion</p>
+                  <div class="bg-white p-3 rounded border">
+                    <p class="text-xs font-semibold text-purple-800 mb-1">Real Examples:</p>
+                    <ul class="text-xs text-purple-600 space-y-1">
+                      <li>• Bus door opening systems</li>
+                      <li>• Factory assembly line robots</li>
+                      <li>• Dental chair adjustments</li>
+                      <li>• Air brakes on trucks</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                  <h3 class="text-lg font-semibold text-blue-800 mb-3">🔊 Solenoids</h3>
+                  <p class="text-blue-700 mb-3"><strong>Purpose:</strong> Quick on/off switching actions</p>
+                  <p class="text-sm text-blue-600 mb-2"><strong>How they work:</strong> Electromagnetic coil pulls metal rod in/out</p>
+                  <div class="bg-white p-3 rounded border">
+                    <p class="text-xs font-semibold text-blue-800 mb-1">Real Examples:</p>
+                    <ul class="text-xs text-blue-600 space-y-1">
+                      <li>• Electronic door locks</li>
+                      <li>• Washing machine water valves</li>
+                      <li>• Car starter switches</li>
+                      <li>• Pinball machine flippers</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+                  <h3 class="text-lg font-semibold text-green-800 mb-3">🎯 Servo Motors</h3>
+                  <p class="text-green-700 mb-3"><strong>Purpose:</strong> Precise position control</p>
+                  <p class="text-sm text-green-600 mb-2"><strong>How they work:</strong> Built-in feedback for exact positioning</p>
+                  <div class="bg-white p-3 rounded border">
+                    <p class="text-xs font-semibold text-green-800 mb-1">Real Examples:</p>
+                    <ul class="text-xs text-green-600 space-y-1">
+                      <li>• RC car steering control</li>
+                      <li>• Security camera pan/tilt</li>
+                      <li>• Robot arm joints</li>
+                      <li>• Aircraft control surfaces</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div class="bg-orange-50 p-6 rounded-lg border border-orange-200">
+                  <h3 class="text-lg font-semibold text-orange-800 mb-3">🔥 Other Common Actuators</h3>
+                  <div class="text-sm text-orange-700 space-y-2">
+                    <div><strong>Heaters:</strong> Convert electricity to heat (ovens, 3D printer beds)</div>
+                    <div><strong>LEDs:</strong> Convert electricity to light (displays, indicators)</div>
+                    <div><strong>Speakers:</strong> Convert electricity to sound (alarms, music)</div>
+                    <div><strong>Pumps:</strong> Move liquids or gases (water systems, fuel injection)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Examples -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Interactive Examples</h2>
+              
+              <FlipCard frontTitle="Robotic Arm Design" id="robot-arm">
+                <div slot="front">
+                  <p><strong>Scenario:</strong> You're building a robotic arm to pick up and move objects.</p>
+                  <p>What actuators would you need for each joint and movement?</p>
+                  <p><strong>Click to see the complete actuator setup →</strong></p>
+                </div>
+                <div slot="back">
+                  <p><strong>Actuators needed for robotic arm:</strong></p>
+                  <ul class="text-sm space-y-1 mb-3">
+                    <li><strong>Base rotation:</strong> Servo motor for precise turning</li>
+                    <li><strong>Shoulder joint:</strong> High-torque servo for lifting arm</li>
+                    <li><strong>Elbow joint:</strong> Servo motor for bending motion</li>
+                    <li><strong>Wrist rotation:</strong> Small servo for tool orientation</li>
+                    <li><strong>Gripper:</strong> Linear actuator or servo to open/close fingers</li>
+                    <li><strong>Status indicators:</strong> LEDs to show operational state</li>
+                  </ul>
+                  <p class="text-sm"><strong>Result:</strong> Multiple coordinated actuators create complex, precise movements</p>
+                </div>
+              </FlipCard>
+
+              <div class="mt-6">
+                <FlipCard frontTitle="Smart Door System" id="smart-door">
+                  <div slot="front">
+                    <p><strong>Challenge:</strong> Design an automated door system for a building entrance.</p>
+                    <p>What actuators and outputs would make it user-friendly and secure?</p>
+                    <p><strong>Click to explore the complete system →</strong></p>
+                  </div>
+                  <div slot="back">
+                    <p><strong>Actuators for smart door system:</strong></p>
+                    <ul class="text-sm space-y-1 mb-3">
+                      <li><strong>Door motor:</strong> Linear actuator to open/close sliding door</li>
+                      <li><strong>Lock mechanism:</strong> Solenoid for electronic locking</li>
+                      <li><strong>LED indicators:</strong> Green/red lights for access status</li>
+                      <li><strong>Speaker:</strong> Audio alerts and voice prompts</li>
+                      <li><strong>Card reader motor:</strong> Small motor to eject access cards</li>
+                      <li><strong>Emergency release:</strong> Pneumatic actuator for fire safety</li>
+                    </ul>
+                    <p class="text-sm"><strong>Integration:</strong> All actuators work together for seamless, safe operation</p>
+                  </div>
+                </FlipCard>
+              </div>
+            </div>
+
+            <!-- Actuator Selection Guidelines -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Choosing the Right Actuator</h2>
+              
+              <div class="bg-gray-50 p-6 rounded-lg">
+                <h3 class="text-lg font-semibold mb-4">Questions to Ask When Selecting Actuators:</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-2">⚡ Power Requirements</h4>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                      <li>• How much force or torque is needed?</li>
+                      <li>• How fast does it need to move?</li>
+                      <li>• What power source is available?</li>
+                      <li>• How precise must the movement be?</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-gray-800 mb-2">🌍 Environmental Factors</h4>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                      <li>• Will it operate in harsh conditions?</li>
+                      <li>• How often will it be used (duty cycle)?</li>
+                      <li>• Are there space constraints?</li>
+                      <li>• What's the budget for the actuator?</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Actuator vs Sensor Relationship -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">How Actuators Work with Sensors</h2>
+              
+              <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                <h3 class="text-lg font-semibold text-blue-800 mb-3">The Perfect Partnership</h3>
+                <div class="space-y-4">
+                  <div class="bg-white p-4 rounded border">
+                    <p class="font-semibold text-blue-800 mb-2">🎯 Closed Loop Control Example</p>
+                    <div class="text-sm text-blue-700 space-y-1">
+                      <p><strong>1. Sensor detects:</strong> "Room temperature is 18°C"</p>
+                      <p><strong>2. Controller decides:</strong> "Target is 22°C, need to heat"</p>
+                      <p><strong>3. Actuator responds:</strong> Electric heater turns on</p>
+                      <p><strong>4. Sensor monitors:</strong> Temperature rising to 22°C</p>
+                      <p><strong>5. Controller adjusts:</strong> Heater turns off when target reached</p>
+                    </div>
+                  </div>
+                  <p class="text-blue-700">
+                    <strong>Key Point:</strong> Sensors provide input information, actuators create output actions. Together they create intelligent, responsive systems.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="text-lg font-semibold mb-3">Continue Learning</h3>
+              <p class="text-gray-600 mb-4">You've learned about actuators (outputs). Now explore the processors that control them:</p>
+              <div class="flex flex-wrap gap-2">
+                <a href="/topics/mechatronics/processors" class="inline-flex items-center px-3 py-2 bg-orange-100 text-orange-700 rounded-md text-sm hover:bg-orange-200 transition-colors">
+                  Processors & Controllers
+                </a>
+                <a href="/topics/mechatronics/basic-circuits" class="inline-flex items-center px-3 py-2 bg-orange-100 text-orange-700 rounded-md text-sm hover:bg-orange-200 transition-colors">
+                  Basic Circuit Components
+                </a>
+                <a href="/topics/mechatronics/sensors" class="inline-flex items-center px-3 py-2 bg-orange-100 text-orange-700 rounded-md text-sm hover:bg-orange-200 transition-colors">
+                  Review Sensors (Inputs)
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

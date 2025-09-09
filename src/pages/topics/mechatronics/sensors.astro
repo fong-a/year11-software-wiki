@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import MechatronicsNav from '../../../components/MechatronicsNav';
+import SearchComponent from '../../../components/SearchComponent';
+import FlipCard from '../../../components/FlipCard.astro';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Sensors - Mechatronics Hardware" description="Learn about different types of sensors used in mechatronic systems and how they detect environmental changes">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center justify-between">
+        <nav>
+          <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+          <span class="text-sm text-gray-400 mx-2">></span>
+          <a href="/topics/mechatronics" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mechatronics Systems</a>
+          <span class="text-sm text-gray-400 mx-2">></span>
+          <span class="text-sm text-gray-900 font-medium">Sensors</span>
+        </nav>
+        <div class="ml-4">
+          <SearchComponent client:load className="w-80" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 overflow-y-auto" style="max-height: calc(100vh - 6rem);">
+            <MechatronicsNav 
+              client:load 
+              currentPage="/topics/mechatronics/sensors"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Sensors (Input Devices)</h1>
+            
+            <div class="mb-8 p-6 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+              <p class="text-blue-900 text-lg">
+                <strong>Sensors</strong> are the "senses" of mechatronic systems. They detect changes in the environment and convert them into electrical signals that controllers can understand and process.
+              </p>
+            </div>
+
+            <!-- What Are Sensors? -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">What Are Sensors?</h2>
+              
+              <div class="bg-green-50 p-6 rounded-lg border border-green-200 mb-6">
+                <h3 class="text-lg font-semibold text-green-800 mb-3">Simple Definition</h3>
+                <p class="text-green-700 mb-2">
+                  A sensor is a device that detects physical changes in the environment (like temperature, light, or movement) and converts them into electrical signals.
+                </p>
+                <p class="text-green-700">
+                  <strong>Think of sensors as:</strong> The eyes, ears, nose, and touch of a robot or automated system.
+                </p>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg border border-gray-200">
+                <h4 class="font-semibold text-gray-800 mb-2">How Sensors Work:</h4>
+                <div class="text-sm text-gray-600 space-y-1">
+                  <p>1. <strong>Detection:</strong> Sensor detects a physical change (heat, light, pressure, etc.)</p>
+                  <p>2. <strong>Conversion:</strong> Physical change is converted to an electrical signal</p>
+                  <p>3. <strong>Transmission:</strong> Electrical signal is sent to the controller</p>
+                  <p>4. <strong>Processing:</strong> Controller processes the signal and makes decisions</p>
+                </div>
+              </div>
+            </div>
+
+            <h2 class="text-2xl font-bold mb-4">Common Sensor Types</h2>
+            <div class="grid md:grid-cols-2 gap-4 mb-6">
+              <div class="border border-gray-200 rounded p-4">
+                <h3 class="font-semibold mb-2">🌡️ Temperature Sensors</h3>
+                <p class="text-sm text-gray-600 mb-2">Measure heat and cold using electrical resistance changes</p>
+                <p class="text-xs text-gray-500">Examples: Car engine monitoring, thermostats, CPU protection</p>
+              </div>
+              
+              <div class="border border-gray-200 rounded p-4">
+                <h3 class="font-semibold mb-2">💡 Light Sensors</h3>
+                <p class="text-sm text-gray-600 mb-2">Detect brightness levels and generate electricity from light</p>
+                <p class="text-xs text-gray-500">Examples: Street lights, camera exposure, screen brightness</p>
+              </div>
+              
+              <div class="border border-gray-200 rounded p-4">
+                <h3 class="font-semibold mb-2">📏 Distance Sensors</h3>
+                <p class="text-sm text-gray-600 mb-2">Measure distance using sound/light waves and timing</p>
+                <p class="text-xs text-gray-500">Examples: Parking sensors, robot navigation, automatic doors</p>
+              </div>
+              
+              <div class="border border-gray-200 rounded p-4">
+                <h3 class="font-semibold mb-2">🏃 Motion Sensors</h3>
+                <p class="text-sm text-gray-600 mb-2">Detect movement using infrared heat or acceleration</p>
+                <p class="text-xs text-gray-500">Examples: Security alarms, automatic lights, gaming controllers</p>
+              </div>
+              
+              <div class="border border-gray-200 rounded p-4">
+                <h3 class="font-semibold mb-2">🎛️ Switch/Touch Sensors</h3>
+                <p class="text-sm text-gray-600 mb-2">Detect contact by completing/breaking circuits</p>
+                <p class="text-xs text-gray-500">Examples: Elevator doors, gaming buttons, touchscreens</p>
+              </div>
+              
+              <div class="border border-gray-200 rounded p-4">
+                <h3 class="font-semibold mb-2">💧 Other Sensors</h3>
+                <p class="text-sm text-gray-600 mb-2">Humidity, pressure, sound, gas detection</p>
+                <p class="text-xs text-gray-500">Examples: Weather stations, scales, smoke detectors</p>
+              </div>
+            </div>
+
+            <h2 class="text-2xl font-bold mb-4">Real-World Example</h2>
+            <div class="border border-gray-200 rounded p-4 mb-6">
+              <h3 class="font-semibold mb-3">Smart Home Security System</h3>
+              <div class="grid md:grid-cols-2 gap-4 text-sm">
+                <div>
+                  <h4 class="font-medium mb-2">Required Sensors:</h4>
+                  <ul class="text-gray-600 space-y-1">
+                    <li>• Motion sensors (detect intruders)</li>
+                    <li>• Door/window sensors (detect opening)</li>
+                    <li>• Smoke sensors (fire detection)</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-medium mb-2">System Integration:</h4>
+                  <p class="text-gray-600">All sensors connect to a central controller that processes the data and triggers appropriate responses.</p>
+                </div>
+              </div>
+            </div>
+
+            <h2 class="text-2xl font-bold mb-4">Common Problems</h2>
+            <div class="space-y-3 mb-6">
+              <div class="border border-gray-200 rounded p-3">
+                <h3 class="font-semibold mb-1">Electrical Noise</h3>
+                <p class="text-sm text-gray-600">Problem: False readings from interference. Solution: Use shielded cables and proper grounding.</p>
+              </div>
+              
+              <div class="border border-gray-200 rounded p-3">
+                <h3 class="font-semibold mb-1">Calibration Drift</h3>
+                <p class="text-sm text-gray-600">Problem: Accuracy changes over time. Solution: Regular calibration and self-testing.</p>
+              </div>
+            </div>
+
+            <div class="text-center py-4">
+              <a href="/topics/mechatronics/actuators" class="inline-block px-4 py-2 bg-orange-100 text-orange-700 rounded hover:bg-orange-200 transition-colors">
+                Next: Actuators (Outputs) →
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

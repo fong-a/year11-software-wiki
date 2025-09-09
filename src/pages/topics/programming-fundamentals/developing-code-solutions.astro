@@ -1,0 +1,218 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProgrammingFundamentalsNav from '../../../components/ProgrammingFundamentalsNav';
+import CollapsibleSection from '../../../components/CollapsibleSection';
+import Tooltip from '../../../components/Tooltip';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Developing Code Solutions - Programming Fundamentals" description="Systematic approaches to analyzing problems, designing algorithms, and implementing robust code solutions">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Developing Code Solutions</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <ProgrammingFundamentalsNav 
+              client:load 
+              currentPage="/topics/programming-fundamentals/developing-code-solutions"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Developing Code Solutions</h1>
+            
+            <div class="mb-8 p-6 bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl border border-indigo-200">
+              <p class="text-indigo-900 text-lg leading-relaxed">
+                Once an algorithm has been planned (in pseudocode or flowchart format), the developer can choose a suitable programming language to implement the solution. As HSC Software Engineering students, <strong>Python is your go-to language</strong> for implementing algorithms and solving problems.
+              </p>
+            </div>
+
+            <!-- From Algorithm to Python Implementation -->
+            <div class="mb-8">
+              <h3 class="text-xl font-semibold mb-4">From Algorithm to Python: Student Grade Calculator</h3>
+              
+              <div class="bg-green-50 p-6 rounded-lg border border-green-200 mb-6">
+                <h4 class="font-semibold text-green-800 mb-3">Example: Student Grade Calculator</h4>
+                <p class="text-green-700 text-sm mb-4">
+                  Let's walk through implementing a grade calculator that takes assignment scores, calculates a weighted average, and converts it to a letter grade. This demonstrates the software development steps in action.
+                </p>
+              </div>
+            </div>
+
+            <!-- Step 1: Pseudocode Algorithm -->
+            <div class="mb-8">
+              <h3 class="text-2xl font-semibold mb-4">Step 1: The Algorithm (Pseudocode)</h3>
+              
+              <div class="bg-purple-50 p-6 rounded-lg border border-purple-200 mb-6">
+                <h4 class="font-semibold text-purple-800 mb-4">Grade Calculator Algorithm</h4>
+                <pre class="text-sm font-mono bg-white p-4 rounded border"><code>BEGIN Grade Calculator
+  INPUT student_name
+  INPUT assignment1_score, assignment2_score, test_score
+  
+  SET assignment_weight = 0.4
+  SET test_weight = 0.6
+  
+  SET weighted_average = (assignment1_score + assignment2_score) / 2 * assignment_weight + test_score * test_weight
+  
+  IF weighted_average >= 90 THEN
+    SET letter_grade = "A"
+  ELSE IF weighted_average >= 80 THEN
+    SET letter_grade = "B"
+  ELSE IF weighted_average >= 70 THEN
+    SET letter_grade = "C"
+  ELSE IF weighted_average >= 60 THEN
+    SET letter_grade = "D"
+  ELSE
+    SET letter_grade = "F"
+  ENDIF
+  
+  OUTPUT student_name, weighted_average, letter_grade
+END</code></pre>
+              </div>
+            </div>
+
+            <!-- Step 2: Python Implementation -->
+            <div class="mb-8">
+              <h3 class="text-2xl font-semibold mb-4">Step 2: Python Implementation</h3>
+              
+              <div class="bg-green-50 p-6 rounded-lg border border-green-200 mb-6">
+                <h4 class="font-semibold text-green-800 mb-4">Converting Pseudocode to Python</h4>
+                <p class="text-green-700 text-sm mb-4">
+                  Now we translate the pseudocode algorithm directly into Python, following the same logical structure.
+                </p>
+                
+                <div class="bg-white p-4 rounded border">
+                  <h5 class="font-medium text-green-800 mb-3">Complete Python Solution:</h5>
+                  <pre class="text-sm font-mono bg-gray-900 text-white p-4 rounded"><code>def calculate_student_grade():
+    # Input student information
+    student_name = input("Enter student name: ")
+    assignment1_score = float(input("Enter assignment 1 score (0-100): "))
+    assignment2_score = float(input("Enter assignment 2 score (0-100): "))
+    test_score = float(input("Enter test score (0-100): "))
+    
+    # Set weighting system
+    assignment_weight = 0.4
+    test_weight = 0.6
+    
+    # Calculate weighted average
+    assignment_avg = (assignment1_score + assignment2_score) / 2
+    weighted_average = assignment_avg * assignment_weight + test_score * test_weight
+    
+    # Convert to letter grade
+    if weighted_average >= 90:
+        letter_grade = "A"
+    elif weighted_average >= 80:
+        letter_grade = "B"
+    elif weighted_average >= 70:
+        letter_grade = "C"
+    elif weighted_average >= 60:
+        letter_grade = "D"
+    else:
+        letter_grade = "F"
+    
+    # Output results
+    print(f"Student: &#123;student_name&#125;")
+    print(f"Weighted Average: &#123;round(weighted_average, 1)&#125;")
+    print(f"Letter Grade: &#123;letter_grade&#125;")
+    
+    return weighted_average, letter_grade
+
+# Run the program
+calculate_student_grade()</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3: Testing the Solution -->
+            <div class="mb-8">
+              <h3 class="text-2xl font-semibold mb-4">Step 3: Testing the Solution</h3>
+              
+              <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                <h4 class="font-semibold text-blue-800 mb-4">Example Test Cases</h4>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div class="bg-white p-4 rounded border">
+                    <h5 class="font-medium text-blue-800 mb-2">Test Case 1: High Performer</h5>
+                    <div class="text-sm font-mono bg-gray-100 p-3 rounded">
+                      <div>Assignment 1: 85</div>
+                      <div>Assignment 2: 90</div>
+                      <div>Test: 92</div>
+                      <div class="mt-2 text-green-600">Expected: A (90.7)</div>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded border">
+                    <h5 class="font-medium text-blue-800 mb-2">Test Case 2: Average Student</h5>
+                    <div class="text-sm font-mono bg-gray-100 p-3 rounded">
+                      <div>Assignment 1: 75</div>
+                      <div>Assignment 2: 80</div>
+                      <div>Test: 70</div>
+                      <div class="mt-2 text-orange-600">Expected: C (73.0)</div>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded border">
+                    <h5 class="font-medium text-blue-800 mb-2">Test Case 3: Struggling Student</h5>
+                    <div class="text-sm font-mono bg-gray-100 p-3 rounded">
+                      <div>Assignment 1: 60</div>
+                      <div>Assignment 2: 55</div>
+                      <div>Test: 45</div>
+                      <div class="mt-2 text-red-600">Expected: F (50.0)</div>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded border">
+                    <h5 class="font-medium text-blue-800 mb-2">Running the Tests</h5>
+                    <div class="text-sm font-mono bg-gray-900 text-white p-3 rounded">
+                      <div class="text-green-400"># Test the calculation manually</div>
+                      <div>avg = (85+90)/2 * 0.4 + 92 * 0.6</div>
+                      <div>avg = 87.5 * 0.4 + 55.2</div>
+                      <div>avg = 35.0 + 55.2 = 90.2 ✓</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- NESA Exam Context -->
+            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-amber-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                  <p class="font-semibold text-amber-900 mb-1">NESA Exam Focus</p>
+                  <ul class="text-amber-800 text-sm space-y-1">
+                    <li>• <strong>Problem Analysis:</strong> Break problems into smaller parts</li>
+                    <li>• <strong>Algorithm Design:</strong> Write clear pseudocode before coding</li>
+                    <li>• <strong>Implementation:</strong> Use good naming, error handling, modular design</li>
+                    <li>• <strong>Testing:</strong> Test normal, edge, and error cases thoroughly</li>
+                    <li>• <strong>Refinement:</strong> Improve performance and code quality</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

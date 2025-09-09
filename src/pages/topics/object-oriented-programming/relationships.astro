@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import OOPNav from '../../../components/OOPNav';
+import Tooltip from '../../../components/Tooltip';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Object Relationships - Object-Oriented Programming" description="Understanding relationships between objects: association, aggregation, composition, and dependency">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-blue-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/object-oriented-programming" class="text-sm text-gray-600 hover:text-blue-900 transition-colors">Object-Oriented Programming</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-blue-900 font-medium">Object Relationships</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <OOPNav 
+              client:load 
+              currentPage="/topics/object-oriented-programming/relationships"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Object Relationships</h1>
+            
+            <div class="mb-8 p-6 bg-gradient-to-r from-blue-50 to-green-50 rounded-xl border border-blue-200">
+              <h2 class="text-2xl font-bold text-gray-900 mb-4">What are Object Relationships?</h2>
+              <p class="text-gray-800 text-lg leading-relaxed">
+                <strong>Object relationships</strong> describe how different classes and objects connect and interact with each other. Understanding these relationships helps design better software systems.
+              </p>
+            </div>
+
+            <!-- Association -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Types of Relationships</h2>
+              
+              <div class="mb-6 bg-blue-50 p-6 rounded-lg border border-blue-200">
+                <h3 class="text-xl font-semibold text-blue-800 mb-4">1. Association (Uses)</h3>
+                <p class="text-blue-700 mb-4">Objects know about each other and can interact, but are independent.</p>
+                
+                <div class="bg-white p-4 rounded border border-blue-300">
+                  <h4 class="font-medium text-blue-700 mb-2">Python Example:</h4>
+                  <pre class="text-sm font-mono bg-gray-100 text-gray-800 p-3 rounded border-l-4 border-blue-400"><code>class Student:
+    def __init__(self, name):
+        self.name = name
+    
+    def enroll_in_course(self, course):
+        course.add_student(self)
+        print(self.name + " enrolled in " + course.name)
+
+class Course:
+    def __init__(self, name):
+        self.name = name
+        self.students = []
+    
+    def add_student(self, student):
+        self.students.append(student)
+
+# Association - Student and Course can exist independently
+student = Student("Alice")
+course = Course("Math 101")
+student.enroll_in_course(course)</code></pre>
+                </div>
+              </div>
+
+              <!-- Aggregation -->
+              <div class="mb-6 bg-green-50 p-6 rounded-lg border border-green-200">
+                <h3 class="text-xl font-semibold text-green-800 mb-4">2. Aggregation (Has-A)</h3>
+                <p class="text-green-700 mb-4">One object contains others, but they can exist independently.</p>
+                
+                <div class="bg-white p-4 rounded border border-green-300">
+                  <h4 class="font-medium text-green-700 mb-2">Python Example:</h4>
+                  <pre class="text-sm font-mono bg-gray-100 text-gray-800 p-3 rounded border-l-4 border-green-400"><code>class Team:
+    def __init__(self, name):
+        self.name = name
+        self.players = []
+    
+    def add_player(self, player):
+        self.players.append(player)
+    
+    def show_team(self):
+        print("Team: " + self.name)
+        for player in self.players:
+            print("- " + player.name)
+
+class Player:
+    def __init__(self, name):
+        self.name = name
+
+# Players exist independently of the team
+player1 = Player("John")
+player2 = Player("Sarah")
+
+team = Team("Eagles")
+team.add_player(player1)
+team.add_player(player2)
+team.show_team()</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Practice Questions -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Practice Questions</h2>
+              
+              <div class="space-y-6">
+                <!-- Question 1 -->
+                <div class="bg-white p-6 rounded-lg border-l-4 border-blue-500 shadow-sm">
+                  <h3 class="font-semibold text-gray-900 mb-3">Question 1 (3 marks)</h3>
+                  <p class="text-gray-700 mb-4"><strong>Identify</strong> the type of relationship between these classes and <strong>explain</strong> your reasoning:</p>
+                  
+                  <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                    <pre class="text-sm font-mono"><code>class Library:
+    def __init__(self):
+        self.books = []
+    
+    def add_book(self, book):
+        self.books.append(book)
+
+class Book:
+    def __init__(self, title):
+        self.title = title</code></pre>
+                  </div>
+                  
+                  <details class="mt-4">
+                    <summary class="cursor-pointer text-blue-600 hover:text-blue-800 font-medium">Show Answer</summary>
+                    <div class="mt-3 p-4 bg-gray-50 rounded">
+                      <p class="text-sm mb-2"><strong>Relationship type (1 mark):</strong> Aggregation</p>
+                      <p class="text-sm"><strong>Explanation (2 marks):</strong> Library has-a collection of Books, but Books can exist independently of the Library. If the Library is destroyed, the Books still exist.</p>
+                    </div>
+                  </details>
+                </div>
+              </div>
+            </div>
+
+            <!-- NESA Exam Context -->
+            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-amber-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                  <p class="font-semibold text-amber-900 mb-1">NESA Exam Focus</p>
+                  <p class="text-amber-800 text-sm">Object relationship questions ask you to identify association, aggregation, or composition from code examples. Focus on whether objects can exist independently and the strength of the relationship between classes.</p>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

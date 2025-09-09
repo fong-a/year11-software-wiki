@@ -1,0 +1,243 @@
+---
+export interface Props {
+  question: string;
+  options: string[];
+  correctAnswer: number;
+  explanation?: string;
+  id?: string;
+}
+
+const { question, options, correctAnswer, explanation, id } = Astro.props;
+const uniqueId = id || `mcq-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<div class="mcq-quiz" id=&#123;uniqueId&#125;>
+  <div class="question">
+    <h4>&#123;question&#125;</h4>
+  </div>
+  
+  <div class="options">
+    &#123;options.map((option, index) => (
+      <label class="option">
+        <input 
+          type="radio" 
+          name=&#123;`mcq-$&#123;uniqueId&#125;`&#125; 
+          value=&#123;index&#125;
+          data-correct=&#123;index === correctAnswer&#125;
+        />
+        <span class="option-text">
+          <span class="option-letter">&#123;String.fromCharCode(65 + index)&#125;.</span>
+          &#123;option&#125;
+        </span>
+      </label>
+    ))&#125;
+  </div>
+
+  <div class="quiz-controls">
+    <button type="button" class="check-btn" onclick=&#123;`checkAnswer('$&#123;uniqueId&#125;')`&#125;>
+      Check Answer
+    </button>
+    <button type="button" class="reset-btn" onclick=&#123;`resetQuiz('$&#123;uniqueId&#125;')`&#125; style="display: none;">
+      Try Again
+    </button>
+  </div>
+
+  <div class="feedback" style="display: none;">
+    <div class="feedback-content"></div>
+    &#123;explanation && (
+      <div class="explanation">
+        <strong>Explanation:</strong> &#123;explanation&#125;
+      </div>
+    )&#125;
+  </div>
+</div>
+
+<script>
+  function checkAnswer(quizId) {
+    const quiz = document.getElementById(quizId);
+    const selectedOption = quiz.querySelector('input[type="radio"]:checked');
+    const feedbackDiv = quiz.querySelector('.feedback');
+    const feedbackContent = quiz.querySelector('.feedback-content');
+    const checkBtn = quiz.querySelector('.check-btn');
+    const resetBtn = quiz.querySelector('.reset-btn');
+    
+    if (!selectedOption) {
+      alert('Please select an answer first!');
+      return;
+    }
+    
+    const isCorrect = selectedOption.dataset.correct === 'true';
+    const options = quiz.querySelectorAll('.option');
+    
+    // Disable all options
+    quiz.querySelectorAll('input[type="radio"]').forEach(input => {
+      input.disabled = true;
+    });
+    
+    // Color code the options
+    options.forEach((option, index) => {
+      const input = option.querySelector('input');
+      if (input.dataset.correct === 'true') {
+        option.classList.add('correct');
+      } else if (input.checked) {
+        option.classList.add('incorrect');
+      }
+    });
+    
+    // Show feedback
+    feedbackContent.innerHTML = isCorrect 
+      ? '<span class="correct-text">✅ Correct!</span>'
+      : '<span class="incorrect-text">❌ Incorrect. The correct answer is highlighted above.</span>';
+    
+    feedbackDiv.style.display = 'block';
+    checkBtn.style.display = 'none';
+    resetBtn.style.display = 'inline-block';
+  }
+  
+  function resetQuiz(quizId) {
+    const quiz = document.getElementById(quizId);
+    const options = quiz.querySelectorAll('.option');
+    const feedbackDiv = quiz.querySelector('.feedback');
+    const checkBtn = quiz.querySelector('.check-btn');
+    const resetBtn = quiz.querySelector('.reset-btn');
+    
+    // Reset options
+    options.forEach(option => {
+      option.classList.remove('correct', 'incorrect');
+      const input = option.querySelector('input');
+      input.disabled = false;
+      input.checked = false;
+    });
+    
+    // Hide feedback
+    feedbackDiv.style.display = 'none';
+    checkBtn.style.display = 'inline-block';
+    resetBtn.style.display = 'none';
+  }
+</script>
+
+<style>
+  .mcq-quiz {
+    border: 1px solid #e1e1e1;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  .question h4 {
+    margin: 0 0 1rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.4;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin: 1rem 0;
+  }
+
+  .option {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    padding: 0.75rem;
+    border: 2px solid #e1e1e1;
+    border-radius: 8px;
+    transition: all 0.2s;
+    background: #fafafa;
+  }
+
+  .option:hover {
+    border-color: #0066cc;
+    background: #f0f8ff;
+  }
+
+  .option input[type="radio"] {
+    margin-right: 0.75rem;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+  }
+
+  .option-text {
+    flex: 1;
+    line-height: 1.4;
+    color: #333;
+  }
+
+  .option-letter {
+    font-weight: 600;
+    margin-right: 0.5rem;
+    color: #0066cc;
+  }
+
+  .option.correct {
+    border-color: #28a745;
+    background-color: #d4edda;
+  }
+
+  .option.incorrect {
+    border-color: #dc3545;
+    background-color: #f8d7da;
+  }
+
+  .quiz-controls {
+    margin: 1.5rem 0 1rem 0;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .check-btn, .reset-btn {
+    background: #0066cc;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .check-btn:hover, .reset-btn:hover {
+    background: #0052a3;
+  }
+
+  .reset-btn {
+    background: #6c757d;
+  }
+
+  .reset-btn:hover {
+    background: #545b62;
+  }
+
+  .feedback {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background: #f8f9fa;
+    border: 1px solid #e1e1e1;
+  }
+
+  .correct-text {
+    color: #28a745;
+    font-weight: 600;
+  }
+
+  .incorrect-text {
+    color: #dc3545;
+    font-weight: 600;
+  }
+
+  .explanation {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #e1e1e1;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+  }
+</style>

@@ -1,16 +1,31 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TopicTiles from '../components/TopicTiles.tsx';
+import StudyGuideTile from '../components/StudyGuideTile.tsx';
+import StudyRoadmap from '../components/StudyRoadmap.tsx';
+import '../styles/global.css';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Home" description="Year 11 Software Engineering Revision Wiki - Master programming fundamentals, OOP, algorithms, and more">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-white py-8">
+    <div class="container mx-auto px-6 space-y-12">
+      <!-- Three main topic tiles -->
+      <TopicTiles client:load />
+      
+      
+      <!-- Study Roadmap -->
+      <div class="max-w-7xl mx-auto">
+        <StudyRoadmap client:load />
+      </div>
+    </div>
+  </div>
+</BaseLayout>

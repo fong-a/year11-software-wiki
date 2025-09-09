@@ -1,0 +1,741 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProgrammingFundamentalsNav from '../../../components/ProgrammingFundamentalsNav';
+import SearchComponent from '../../../components/SearchComponent';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Glossary" description="Comprehensive glossary of programming terms and concepts for Year 11 Software Engineering">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center justify-between">
+        <nav>
+          <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+          <span class="text-sm text-gray-400 mx-2">&gt;</span>
+          <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+          <span class="text-sm text-gray-400 mx-2">&gt;</span>
+          <span class="text-sm text-gray-900 font-medium">Glossary</span>
+        </nav>
+        <div class="ml-4">
+          <SearchComponent client:load className="w-80" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <ProgrammingFundamentalsNav 
+              client:load 
+              currentPage="/topics/programming-fundamentals/glossary"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Glossary</h1>
+            
+            <div class="mb-8 p-4 bg-indigo-50 rounded-lg border-l-4 border-indigo-500">
+              <p class="text-indigo-900">
+                This comprehensive glossary contains definitions for all key programming concepts covered in the NSW Year 11 Software Engineering curriculum. Use this as a reference for assignments, study, and exam preparation.
+              </p>
+            </div>
+
+            <!-- Search and Filter -->
+            <div class="mb-8">
+              <div class="bg-gray-50 p-4 rounded-lg">
+                <div class="flex items-center justify-between mb-4">
+                  <h2 class="text-xl font-semibold">Quick Navigation</h2>
+                  <div class="text-sm text-gray-600">
+                    Click on letters to jump to sections
+                  </div>
+                </div>
+                
+                <!-- Topic Filter Pills -->
+                <div class="mb-4">
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">🟦 Programming Fundamentals</span>
+                    <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium">🟪 Object-Oriented Programming</span>
+                    <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-medium">🟩 Mechatronics</span>
+                  </div>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <a href="#A" class="px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded text-sm transition-colors">A</a>
+                  <a href="#B" class="px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded text-sm transition-colors">B</a>
+                  <a href="#C" class="px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded text-sm transition-colors">C</a>
+                  <a href="#D" class="px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded text-sm transition-colors">D</a>
+                  <a href="#E" class="px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded text-sm transition-colors">E</a>
+                  <a href="#F" class="px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded text-sm transition-colors">F</a>
+                  <a href="#G" class="px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded text-sm transition-colors">G</a>
+                  <a href="#I" class="px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded text-sm transition-colors">I</a>
+                  <a href="#L" class="px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded text-sm transition-colors">L</a>
+                  <a href="#M" class="px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded text-sm transition-colors">M</a>
+                  <a href="#N" class="px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded text-sm transition-colors">N</a>
+                  <a href="#O" class="px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded text-sm transition-colors">O</a>
+                  <a href="#P" class="px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded text-sm transition-colors">P</a>
+                  <a href="#R" class="px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded text-sm transition-colors">R</a>
+                  <a href="#S" class="px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded text-sm transition-colors">S</a>
+                  <a href="#T" class="px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded text-sm transition-colors">T</a>
+                  <a href="#U" class="px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded text-sm transition-colors">U</a>
+                  <a href="#V" class="px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded text-sm transition-colors">V</a>
+                  <a href="#W" class="px-3 py-1 bg-blue-100 hover:bg-blue-200 text-blue-800 rounded text-sm transition-colors">W</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Glossary Terms -->
+            <div class="space-y-8">
+              
+              <!-- A -->
+              <div id="A" class="scroll-mt-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-800 border-b-2 border-blue-200 pb-2">A</h2>
+                <div class="space-y-4">
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <div class="flex items-start justify-between mb-2">
+                      <h3 class="font-bold text-lg text-gray-800">Agile Methodology</h3>
+                      <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium ml-2">🟦 Fundamentals</span>
+                    </div>
+                    <p class="text-gray-700">
+                      An iterative software development approach that emphasises collaboration, flexibility, and rapid delivery of working software. Development occurs in short cycles called sprints (1-4 weeks), with continuous feedback and adaptation to changing requirements. Contrasts with Waterfall methodology by allowing changes throughout the development process.
+                    </p>
+                  </div>
+                  
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Algorithm</h3>
+                    <p class="text-gray-700 mt-2">
+                      A step-by-step procedure or set of rules designed to solve a specific problem or perform a task. Algorithms must be finite (complete in finite steps), definite (each step clearly defined), and effective (achievable with available resources). Essential foundation for all programming and problem-solving.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Algorithm Design</h3>
+                    <p class="text-gray-700 mt-2">
+                      The systematic process of creating detailed, step-by-step instructions to solve a specific problem. This involves breaking down complex problems into smaller, manageable tasks, defining the sequence of operations, specifying input and output requirements, and ensuring the solution is efficient, correct, and implementable in code.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">ASCII</h3>
+                    <p class="text-gray-700 mt-2">
+                      American Standard Code for Information Interchange - a character encoding standard using 7 bits to represent 128 characters including letters (A-Z, a-z), numbers (0-9), punctuation marks, and control characters. Each character has a unique numeric value (e.g., 'A' = 65, 'a' = 97, '0' = 48). Foundation for text representation in computers.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- B -->
+              <div id="B" class="scroll-mt-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-800 border-b-2 border-blue-200 pb-2">B</h2>
+                <div class="space-y-4">
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Binary Numbers</h3>
+                    <p class="text-gray-700 mt-2">
+                      A base-2 number system using only the digits 0 and 1, which corresponds directly to the electrical states in computer circuits (off=0, on=1). Every piece of data in a computer - numbers, text, images, sound - is ultimately stored as patterns of binary digits (bits). This system forms the foundation of all digital computing.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Bit</h3>
+                    <p class="text-gray-700 mt-2">
+                      The smallest unit of data in computing, representing a single binary digit (0 or 1). Short for "binary digit." Bits are grouped together to form larger units like bytes (8 bits), which can represent more complex data such as characters, numbers, and instructions.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Bitmap</h3>
+                    <p class="text-gray-700 mt-2">
+                      A digital image representation made up of a grid of pixels, where each pixel has a specific colour value stored as binary data. The image quality depends on resolution (number of pixels) and colour depth (bits per pixel). Common bitmap formats include BMP, PNG, and JPEG.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Boolean Condition</h3>
+                    <p class="text-gray-700 mt-2">
+                      An expression that evaluates to either true or false, used in decision-making structures like IF statements and loops. Boolean conditions use comparison operators (=, &gt;, &lt;, &gt;=, &lt;=, !=) and logical operators (AND, OR, NOT) to test relationships between values and control program flow.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Byte</h3>
+                    <p class="text-gray-700 mt-2">
+                      A unit of digital information consisting of 8 bits, enough to represent one character in most encoding systems. Bytes are the basic addressable unit of memory in most computer systems and form the basis for larger storage measurements (kilobyte, megabyte, gigabyte, etc.).
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- C -->
+              <div id="C" class="scroll-mt-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-800 border-b-2 border-blue-200 pb-2">C</h2>
+                <div class="space-y-4">
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Code Review</h3>
+                    <p class="text-gray-700 mt-2">
+                      Systematic examination of source code by other developers to identify errors, improve quality, ensure coding standards compliance, and share knowledge. An essential practice in professional software development that helps catch bugs early, improve code maintainability, and develop team skills.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Compiler</h3>
+                    <p class="text-gray-700 mt-2">
+                      A program that translates source code written in a high-level programming language into machine code or executable instructions. The compiler checks for syntax errors, optimises code performance, and produces an executable file that can run independently on the target system.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Colour Model</h3>
+                    <p class="text-gray-700 mt-2">
+                      A mathematical system for representing colours digitally. RGB (Red, Green, Blue) is the most common model for screens, using 8 bits each for red, green, and blue components (24-bit colour total). Other models include CMYK for printing and HSV for colour selection interfaces.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- D -->
+              <div id="D" class="scroll-mt-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-800 border-b-2 border-blue-200 pb-2">D</h2>
+                <div class="space-y-4">
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Database Management System (DBMS)</h3>
+                    <p class="text-gray-700 mt-2">
+                      Software that manages databases and their data dictionaries. A DBMS provides tools for creating, reading, updating, and deleting data, managing user access, ensuring data integrity, and maintaining metadata about database structure and relationships.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Data Dictionary</h3>
+                    <p class="text-gray-700 mt-2">
+                      A comprehensive document that describes the structure, format, and meaning of all data elements used in a system. Contains details like field names, data types, sizes, constraints, and relationships. Essential for maintaining data consistency and facilitating team communication in software development.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Data Elements</h3>
+                    <p class="text-gray-700 mt-2">
+                      Individual pieces of data with specific properties such as name, type, size, format, and validation rules. Data elements are the building blocks of databases and information systems, each serving a specific purpose and following defined constraints.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Data Structure</h3>
+                    <p class="text-gray-700 mt-2">
+                      A specialised format for organising, storing, and managing data to enable efficient access and modification. Common structures include arrays (indexed collections), stacks (LIFO), queues (FIFO), and trees (hierarchical). Choice of data structure significantly impacts algorithm performance.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Data Type</h3>
+                    <p class="text-gray-700 mt-2">
+                      The classification of data that determines what operations can be performed on it and how it's stored in memory. Common types include integers (whole numbers), strings (text), booleans (true/false), and floats (decimal numbers). Proper data type selection ensures efficient storage and prevents errors.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Debugger</h3>
+                    <p class="text-gray-700 mt-2">
+                      A software tool that allows developers to run programs step-by-step, pause execution at specific points (breakpoints), examine variable values, and trace through code logic. Essential for identifying and fixing runtime and logic errors in programs.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Debugging</h3>
+                    <p class="text-gray-700 mt-2">
+                      The systematic process of identifying, analysing, and fixing errors in software. This involves techniques like adding print statements, using debugger tools, examining error messages, testing with different inputs, and tracing through code execution step-by-step to understand where and why problems occur.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Desk Checking</h3>
+                    <p class="text-gray-700 mt-2">
+                      A manual testing technique where developers trace through algorithm execution step-by-step using pen and paper, without running the actual code. This method helps identify logic errors early, verify algorithm correctness, and understand program flow by systematically tracking variable values through each operation using trace tables.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- E -->
+              <div id="E" class="scroll-mt-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-800 border-b-2 border-blue-200 pb-2">E</h2>
+                <div class="space-y-4">
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Edge Cases</h3>
+                    <p class="text-gray-700 mt-2">
+                      Unusual or extreme input values that test the boundaries of program behaviour. These include minimum/maximum values, empty inputs, null values, or unusual combinations that might cause unexpected results. Testing edge cases is crucial for creating robust, reliable software.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- F -->
+              <div id="F" class="scroll-mt-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-800 border-b-2 border-blue-200 pb-2">F</h2>
+                <div class="space-y-4">
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Function</h3>
+                    <p class="text-gray-700 mt-2">
+                      A reusable block of code that performs a specific task and returns a value. Functions take input parameters, process them according to defined logic, and produce output. They promote code reusability, modularity, and maintainability by avoiding duplication and organising code into logical units.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- G -->
+              <div id="G" class="scroll-mt-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-800 border-b-2 border-blue-200 pb-2">G</h2>
+                <div class="space-y-4">
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Git</h3>
+                    <p class="text-gray-700 mt-2">
+                      A distributed version control system that tracks changes in source code during software development. Git allows multiple developers to collaborate on projects, maintains complete history of changes, enables branching for parallel development, and provides tools for merging changes and resolving conflicts.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">GitHub</h3>
+                    <p class="text-gray-700 mt-2">
+                      A cloud-based platform for hosting Git repositories and collaborating with other developers. GitHub provides remote storage for code, tools for code review through pull requests, issue tracking, project management features, and a social platform for sharing and contributing to open-source projects.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Grammar Rules</h3>
+                    <p class="text-gray-700 mt-2">
+                      The formal syntax rules that define how code must be written in a programming language. These include proper use of keywords, operators, punctuation, indentation, and statement structure. Violating grammar rules results in syntax errors that prevent code compilation or execution.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- I -->
+              <div id="I" class="scroll-mt-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-800 border-b-2 border-blue-200 pb-2">I</h2>
+                <div class="space-y-4">
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">IDE (Integrated Development Environment)</h3>
+                    <p class="text-gray-700 mt-2">
+                      Software that provides comprehensive tools for writing, testing, and debugging code. IDEs typically include a code editor with syntax highlighting, compiler/interpreter, debugger, project management tools, and integration with version control systems. Examples include Visual Studio Code, IntelliJ IDEA, and Eclipse.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Input Validation</h3>
+                    <p class="text-gray-700 mt-2">
+                      The process of checking user input to ensure it meets expected criteria before processing. This includes verifying data types, ranges, formats, and business rules to prevent errors, security vulnerabilities, and data corruption. Essential for creating robust, secure applications.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Iterative Development</h3>
+                    <p class="text-gray-700 mt-2">
+                      A development approach where software is built incrementally through repeated cycles of design, coding, testing, and evaluation. Each iteration produces a working version that is refined and expanded in subsequent cycles. Key principle of Agile methodology.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- L -->
+              <div id="L" class="scroll-mt-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-800 border-b-2 border-blue-200 pb-2">L</h2>
+                <div class="space-y-4">
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Linters</h3>
+                    <p class="text-gray-700 mt-2">
+                      Tools that analyse source code to flag programming errors, bugs, stylistic errors, and suspicious constructs. Linters help maintain code quality, enforce coding standards, and identify potential issues before runtime. Examples include ESLint for JavaScript and Pylint for Python.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Logic Errors</h3>
+                    <p class="text-gray-700 mt-2">
+                      Flaws in the program's algorithm or reasoning that produce incorrect results while allowing the code to run without crashing. These are the most difficult errors to find as the program appears to work but gives wrong outputs. Examples include incorrect mathematical formulas, wrong loop conditions, or faulty decision-making logic.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Logging</h3>
+                    <p class="text-gray-700 mt-2">
+                      Recording program events and data during execution to help track down errors, monitor system behaviour, and understand program flow. Logs can include error messages, variable values, execution timing, and user actions. Essential for debugging and system monitoring.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Loop Condition</h3>
+                    <p class="text-gray-700 mt-2">
+                      A boolean expression that determines whether a loop continues executing or terminates. The condition is evaluated before each iteration (in WHILE loops) or after each iteration (in DO-WHILE loops). Properly designed loop conditions prevent infinite loops and ensure correct program termination.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- M -->
+              <div id="M" class="scroll-mt-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-800 border-b-2 border-blue-200 pb-2">M</h2>
+                <div class="space-y-4">
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Modular Programming</h3>
+                    <p class="text-gray-700 mt-2">
+                      A programming approach that breaks complex programs into smaller, independent modules or functions. Each module performs a specific task and can be developed, tested, and maintained separately. This approach improves code organisation, reusability, and team collaboration.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- N -->
+              <div id="N" class="scroll-mt-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-800 border-b-2 border-blue-200 pb-2">N</h2>
+                <div class="space-y-4">
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Number Systems</h3>
+                    <p class="text-gray-700 mt-2">
+                      Mathematical notation systems for representing numbers using different bases or radixes. Decimal (base-10) uses digits 0-9, binary (base-2) uses 0-1, and hexadecimal (base-16) uses 0-9 and A-F. Each position in a number represents a power of the base, allowing conversion between systems through mathematical operations.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- O -->
+              <div id="O" class="scroll-mt-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-800 border-b-2 border-blue-200 pb-2">O</h2>
+                <div class="space-y-4">
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Optimisation</h3>
+                    <p class="text-gray-700 mt-2">
+                      The process of improving software performance, efficiency, or resource usage. This can involve algorithm improvements, code refactoring, memory management, database query optimisation, or system architecture changes. Goal is to make programs faster, use less memory, or consume fewer resources.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- P -->
+              <div id="P" class="scroll-mt-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-800 border-b-2 border-blue-200 pb-2">P</h2>
+                <div class="space-y-4">
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Pixel</h3>
+                    <p class="text-gray-700 mt-2">
+                      The smallest unit of a digital image, representing a single point of colour. Short for "picture element." Digital images are composed of grids of pixels, with image quality determined by resolution (number of pixels) and colour depth (bits per pixel).
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Procedure</h3>
+                    <p class="text-gray-700 mt-2">
+                      A reusable block of code that performs a specific task but doesn't return a value (or returns void). Procedures help organise code, reduce duplication, and make programs more modular and maintainable. They can accept parameters to work with different data.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Program Crash</h3>
+                    <p class="text-gray-700 mt-2">
+                      When a program stops running unexpectedly due to an error, typically a runtime error such as accessing invalid memory, division by zero, or encountering unexpected data. Crashes often produce error messages that help identify the cause of the problem.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Program Logic</h3>
+                    <p class="text-gray-700 mt-2">
+                      The sequence of instructions, decisions, and operations that determine what a program does and how it processes data. Logic includes algorithms, control structures (loops, conditionals), data manipulation, and the overall flow of execution that transforms inputs into desired outputs.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Programming Errors</h3>
+                    <p class="text-gray-700 mt-2">
+                      Mistakes in code that prevent programs from running correctly or producing expected results. These can be categorised into syntax errors (incorrect grammar), runtime errors (crashes during execution), and logic errors (wrong results). Understanding error types is crucial for effective debugging and quality software development.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Pseudocode</h3>
+                    <p class="text-gray-700 mt-2">
+                      A simplified, informal way of describing algorithms using structured English rather than specific programming language syntax. Pseudocode helps plan program logic before coding and communicates algorithms clearly to both technical and non-technical audiences.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- R -->
+              <div id="R" class="scroll-mt-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-800 border-b-2 border-blue-200 pb-2">R</h2>
+                <div class="space-y-4">
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Refactoring</h3>
+                    <p class="text-gray-700 mt-2">
+                      Restructuring existing code without changing its external behaviour to improve readability, reduce complexity, enhance maintainability, or improve performance. Common refactoring techniques include extracting functions, renaming variables, eliminating code duplication, and simplifying complex logic.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">RGB Colour Model</h3>
+                    <p class="text-gray-700 mt-2">
+                      A colour representation system using red, green, and blue light components to create colours. Each component uses 8 bits (0-255 values), allowing 24-bit colour with over 16 million possible colours. RGB is the standard for computer displays and digital imaging.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Runtime Errors</h3>
+                    <p class="text-gray-700 mt-2">
+                      Errors that occur during program execution, causing the program to crash or terminate unexpectedly. Common examples include division by zero, accessing invalid memory locations, file not found errors, or network timeouts. These errors are harder to detect as they only appear under specific conditions during runtime.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- S -->
+              <div id="S" class="scroll-mt-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-800 border-b-2 border-blue-200 pb-2">S</h2>
+                <div class="space-y-4">
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Sprint</h3>
+                    <p class="text-gray-700 mt-2">
+                      A time-boxed iteration in Agile development, typically lasting 1-4 weeks, during which a potentially shippable product increment is created. Each sprint includes planning, development, testing, and review phases, with the goal of delivering working software regularly.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Stack</h3>
+                    <p class="text-gray-700 mt-2">
+                      A Last-In-First-Out (LIFO) data structure where elements are added (pushed) and removed (popped) from the same end, called the top. Like a stack of plates, you can only access the top element. Used in function calls, expression evaluation, and undo operations.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Static Analysis</h3>
+                    <p class="text-gray-700 mt-2">
+                      Automated examination of code without executing it to find potential errors, security vulnerabilities, coding standard violations, and performance issues. Static analysis tools can identify problems before runtime and enforce code quality standards across development teams.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Syntax Errors</h3>
+                    <p class="text-gray-700 mt-2">
+                      Violations of the programming language's grammar rules that prevent code from being parsed or compiled. These include missing semicolons, unmatched brackets, misspelled keywords, or incorrect indentation. IDEs typically highlight these errors immediately, making them the easiest to identify and fix.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- T -->
+              <div id="T" class="scroll-mt-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-800 border-b-2 border-blue-200 pb-2">T</h2>
+                <div class="space-y-4">
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Trace Table</h3>
+                    <p class="text-gray-700 mt-2">
+                      A structured table used in desk checking to systematically record how variable values change during algorithm execution. Each row represents a step in the algorithm, with columns showing the current values of all variables. This visual method helps identify logic errors, verify correctness, and understand program behaviour before actual implementation.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Two's Complement</h3>
+                    <p class="text-gray-700 mt-2">
+                      A mathematical method for representing negative numbers in binary by inverting all bits and adding 1. This system allows computers to use the same arithmetic circuits for both positive and negative numbers, making it the standard for signed integer representation in most computer systems.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- U -->
+              <div id="U" class="scroll-mt-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-800 border-b-2 border-blue-200 pb-2">U</h2>
+                <div class="space-y-4">
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Unicode</h3>
+                    <p class="text-gray-700 mt-2">
+                      A universal character encoding standard that can represent characters from all writing systems worldwide, including emojis and special symbols. Unicode uses variable-length encoding (UTF-8, UTF-16, UTF-32) and can represent over 1 million different characters, making it essential for internationalisation.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Unit Testing</h3>
+                    <p class="text-gray-700 mt-2">
+                      Testing individual components or functions in isolation to verify they work correctly according to their specifications. Unit tests are automated, run frequently during development, and help catch errors early while providing documentation of expected behaviour.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- V -->
+              <div id="V" class="scroll-mt-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-800 border-b-2 border-blue-200 pb-2">V</h2>
+                <div class="space-y-4">
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Validation Rules</h3>
+                    <p class="text-gray-700 mt-2">
+                      Constraints and checks that ensure data meets specific criteria before being accepted into a system. These include data type validation, range checks, format verification, uniqueness constraints, and business rule enforcement. Essential for data integrity and system reliability.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Variable</h3>
+                    <p class="text-gray-700 mt-2">
+                      A named storage location in computer memory that holds data values that can change during program execution. Variables have a name (identifier), data type, and value. They provide a way to store, retrieve, and manipulate data throughout a program's execution.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Variable Initialisation</h3>
+                    <p class="text-gray-700 mt-2">
+                      Setting initial values for variables before they are used in calculations or operations. Proper initialisation prevents undefined behaviour, ensures predictable program execution, and helps avoid common programming errors caused by using unassigned variables.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-lg text-gray-800">Version Control</h3>
+                    <p class="text-gray-700 mt-2">
+                      A system for tracking and managing changes to files over time, essential for software development. Version control allows multiple developers to collaborate, maintains complete change history, enables branching for parallel development, and provides tools for merging changes and resolving conflicts.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- W -->
+              <div id="W" class="scroll-mt-8">
+                <h2 class="text-2xl font-bold mb-4 text-blue-800 border-b-2 border-blue-200 pb-2">W</h2>
+                <div class="space-y-4">
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <div class="flex items-start justify-between mb-2">
+                      <h3 class="font-bold text-lg text-gray-800">WAGILE</h3>
+                      <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium ml-2">🟦 Fundamentals</span>
+                    </div>
+                    <p class="text-gray-700">
+                      A hybrid methodology combining Waterfall's structured planning with Agile's iterative development approach. Projects begin with comprehensive requirements analysis and design (Waterfall phase), then execute development using Agile sprints. Offers balance between planning rigour and development flexibility.
+                    </p>
+                  </div>
+
+                  <div class="bg-gray-50 p-4 rounded-lg">
+                    <div class="flex items-start justify-between mb-2">
+                      <h3 class="font-bold text-lg text-gray-800">Waterfall Methodology</h3>
+                      <span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium ml-2">🟦 Fundamentals</span>
+                    </div>
+                    <p class="text-gray-700">
+                      A sequential software development approach where each phase (requirements, design, implementation, testing, deployment) must be completed before moving to the next. Emphasises thorough documentation and planning. Suitable for projects with stable requirements and regulatory compliance needs.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- New OOP Terms Section -->
+              <div class="mt-12 mb-8 p-4 bg-purple-50 rounded-lg border border-purple-200">
+                <h2 class="text-2xl font-bold text-purple-800 mb-4">Object-Oriented Programming Terms</h2>
+                <p class="text-purple-700 text-sm">
+                  Key concepts for understanding classes, objects, and OOP principles used throughout the curriculum.
+                </p>
+              </div>
+
+              <div class="space-y-6">
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <div class="flex items-start justify-between mb-2">
+                    <h3 class="font-bold text-lg text-gray-800">Class</h3>
+                    <span class="px-2 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium ml-2">🟪 OOP</span>
+                  </div>
+                  <p class="text-gray-700">
+                    A blueprint or template that defines the structure and behavior of objects. Classes contain attributes (data) and methods (functions) that operate on that data. Like a cookie cutter that shapes multiple cookies, a class can create multiple objects with the same structure.
+                  </p>
+                </div>
+
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <div class="flex items-start justify-between mb-2">
+                    <h3 class="font-bold text-lg text-gray-800">Object</h3>
+                    <span class="px-2 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium ml-2">🟪 OOP</span>
+                  </div>
+                  <p class="text-gray-700">
+                    An instance of a class containing actual data and behavior. Objects are created from classes and can have different attribute values while sharing the same methods. For example, 'student1' and 'student2' are objects of the Student class.
+                  </p>
+                </div>
+
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <div class="flex items-start justify-between mb-2">
+                    <h3 class="font-bold text-lg text-gray-800">Encapsulation</h3>
+                    <span class="px-2 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium ml-2">🟪 OOP</span>
+                  </div>
+                  <p class="text-gray-700">
+                    The bundling of data (attributes) and methods that work on that data within a single unit (class), while restricting direct access to some components. Uses private attributes (prefixed with _) to control access and maintain data integrity.
+                  </p>
+                </div>
+
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <div class="flex items-start justify-between mb-2">
+                    <h3 class="font-bold text-lg text-gray-800">Inheritance</h3>
+                    <span class="px-2 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium ml-2">🟪 OOP</span>
+                  </div>
+                  <p class="text-gray-700">
+                    The ability for a child class to inherit attributes and methods from a parent class. Promotes code reuse and creates logical hierarchies. For example, Warrior and Mage classes can inherit from a base Character class.
+                  </p>
+                </div>
+
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <div class="flex items-start justify-between mb-2">
+                    <h3 class="font-bold text-lg text-gray-800">Polymorphism</h3>
+                    <span class="px-2 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium ml-2">🟪 OOP</span>
+                  </div>
+                  <p class="text-gray-700">
+                    The ability for different objects to respond to the same method call in their own way. Each class can override inherited methods to provide specialized behavior. For example, Dog and Cat objects both have make_sound() methods but produce different outputs.
+                  </p>
+                </div>
+
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <div class="flex items-start justify-between mb-2">
+                    <h3 class="font-bold text-lg text-gray-800">Abstraction</h3>
+                    <span class="px-2 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium ml-2">🟪 OOP</span>
+                  </div>
+                  <p class="text-gray-700">
+                    The process of hiding complex implementation details while showing only essential features. Users can interact with objects through simple interfaces without needing to understand internal complexity. Like using account.deposit() without knowing the internal banking logic.
+                  </p>
+                </div>
+
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <div class="flex items-start justify-between mb-2">
+                    <h3 class="font-bold text-lg text-gray-800">Constructor (__init__)</h3>
+                    <span class="px-2 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium ml-2">🟪 OOP</span>
+                  </div>
+                  <p class="text-gray-700">
+                    A special method that initializes new objects when they are created. The __init__ method sets up initial attribute values and performs any necessary setup. Always takes 'self' as the first parameter to refer to the object being created.
+                  </p>
+                </div>
+
+                <div class="bg-gray-50 p-4 rounded-lg">
+                  <div class="flex items-start justify-between mb-2">
+                    <h3 class="font-bold text-lg text-gray-800">Method</h3>
+                    <span class="px-2 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-medium ml-2">🟪 OOP</span>
+                  </div>
+                  <p class="text-gray-700">
+                    A function defined within a class that operates on objects of that class. Methods always take 'self' as their first parameter to access the object's attributes and other methods. They define what objects can do.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Study Tips -->
+            <div class="mt-12 bg-amber-50 p-6 rounded-lg border border-amber-200">
+              <div class="flex items-start">
+                <svg class="w-6 h-6 text-amber-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 19 7.5 19s3.332-.523 4.5-1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C20.332 18.523 18.746 19 16.5 19c-1.746 0-3.332-.523-4.5-1.253"></path>
+                </svg>
+                <div>
+                  <p class="font-semibold text-amber-900 mb-2">Study Tips for Using This Glossary</p>
+                  <ul class="text-amber-800 text-sm space-y-1">
+                    <li>• Use this glossary alongside your class notes and textbook</li>
+                    <li>• Focus on understanding concepts, not just memorising definitions</li>
+                    <li>• Practice explaining terms in your own words to test understanding</li>
+                    <li>• Look for connections between related terms and concepts</li>
+                    <li>• Use the interactive examples and components throughout the site</li>
+                    <li>• Create flashcards for key terms that appear frequently in assessments</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

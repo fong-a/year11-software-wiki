@@ -1,0 +1,113 @@
+---
+export interface Props {
+  type?: 'info' | 'warning' | 'success' | 'error' | 'teacher';
+  title?: string;
+  icon?: string;
+}
+
+const { 
+  type = 'info', 
+  title,
+  icon 
+} = Astro.props;
+
+const typeConfig = {
+  info: { icon: 'ℹ️', color: '#0066cc', bg: '#e6f3ff', border: '#b3d9ff' },
+  warning: { icon: '⚠️', color: '#e67e22', bg: '#fef3e6', border: '#f8d7a3' },
+  success: { icon: '✅', color: '#27ae60', bg: '#e8f5e8', border: '#b8e6b8' },
+  error: { icon: '❌', color: '#e74c3c', bg: '#ffeaea', border: '#ffb3b3' },
+  teacher: { icon: '👩‍🏫', color: '#8e44ad', bg: '#f4f0ff', border: '#d1b3ff' }
+};
+
+const config = typeConfig[type];
+const displayIcon = icon || config.icon;
+---
+
+<div class="callout" data-type={type}>
+  <div class="callout-header">
+    <span class="callout-icon">{displayIcon}</span>
+    {title && <span class="callout-title">{title}</span>}
+  </div>
+  <div class="callout-content">
+    <slot />
+  </div>
+</div>
+
+<style define:vars={{
+  color: typeConfig[type].color,
+  bg: typeConfig[type].bg,
+  border: typeConfig[type].border
+}}>
+  .callout {
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg);
+    margin: 1.5rem 0;
+    overflow: hidden;
+  }
+
+  .callout-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.5);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .callout-icon {
+    font-size: 1.2rem;
+  }
+
+  .callout-title {
+    font-weight: 600;
+    color: var(--color);
+    font-size: 1rem;
+  }
+
+  .callout-content {
+    padding: 1rem;
+    color: #333;
+  }
+
+  .callout-content :global(p:first-child) {
+    margin-top: 0;
+  }
+
+  .callout-content :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .callout-content :global(ul, ol) {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .callout-content :global(li) {
+    margin: 0.25rem 0;
+  }
+
+  /* Special styling for teacher callouts */
+  .callout[data-type="teacher"] {
+    border-style: dashed;
+  }
+
+  .callout[data-type="teacher"] .callout-header {
+    background: linear-gradient(135deg, #f4f0ff, #e8d5ff);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .callout {
+      margin: 1rem 0;
+    }
+    
+    .callout-header {
+      padding: 0.5rem 0.75rem;
+    }
+    
+    .callout-content {
+      padding: 0.75rem;
+    }
+  }
+</style>

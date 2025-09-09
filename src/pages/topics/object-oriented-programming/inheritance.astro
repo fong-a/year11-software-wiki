@@ -1,0 +1,480 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import OOPNav from '../../../components/OOPNav';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Inheritance - Object-Oriented Programming" description="Master inheritance in Python with banking and character examples. Learn how to create specialized classes from base classes.">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/object-oriented-programming" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Object-Oriented Programming</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Inheritance</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <OOPNav 
+              client:load 
+              currentPage="/topics/object-oriented-programming/inheritance"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Inheritance</h1>
+            
+            <div class="mb-8 p-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-200">
+              <p class="text-green-900 text-lg leading-relaxed">
+                <strong>Inheritance</strong> allows you to create specialized classes from general ones. Like how SavingsAccount and CheckingAccount both inherit from a base BankAccount class while having their own unique features.
+              </p>
+            </div>
+
+            <!-- What is Inheritance? -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">What is Inheritance?</h2>
+              
+              <div class="bg-green-50 p-6 rounded-lg border border-green-200 mb-6">
+                <p class="text-green-800 mb-4">
+                  Inheritance is when a new class (child/subclass) inherits properties and methods from an existing class (parent/superclass). The child class gets all the functionality of the parent, plus it can add its own unique features.
+                </p>
+                
+                <div class="bg-white p-4 rounded border border-green-300">
+                  <h3 class="font-medium text-green-800 mb-2">Think of it like bank account types:</h3>
+                  <ul class="text-sm text-green-700 space-y-1">
+                    <li>• All accounts have <code>account_number</code>, <code>balance</code>, and can <code>deposit()</code></li>
+                    <li>• SavingsAccount inherits these but adds <code>interest_rate</code> and <code>calculate_interest()</code></li>
+                    <li>• CheckingAccount inherits these but adds <code>overdraft_limit</code> and <code>write_check()</code></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Banking Inheritance Example -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Banking Example - Parent Class</h2>
+              
+              <div class="bg-gray-100 rounded-lg p-4 mb-4 border-l-4 border-green-400">
+                <pre class="text-gray-800 text-sm"><code>class BankAccount:
+    def __init__(self, account_number, owner_name, initial_balance=0):
+        self.account_number = account_number
+        self.owner_name = owner_name
+        self.balance = initial_balance
+        self.transaction_history = []
+    
+    def deposit(self, amount):
+        """All accounts can accept deposits"""
+        if amount > 0:
+            self.balance += amount
+            self.transaction_history.append(f"Deposit: +$&#123;amount&#125;")
+            return f"Deposited $&#123;amount&#125;. Balance: $&#123;self.balance&#125;"
+        return "Invalid deposit amount"
+    
+    def withdraw(self, amount):
+        """Basic withdrawal - can be overridden by child classes"""
+        if amount > 0 and amount <= self.balance:
+            self.balance -= amount
+            self.transaction_history.append(f"Withdrawal: -$&#123;amount&#125;")
+            return f"Withdrew $&#123;amount&#125;. Balance: $&#123;self.balance&#125;"
+        return "Insufficient funds or invalid amount"
+    
+    def get_balance(self):
+        return self.balance
+    
+    def get_account_info(self):
+        return f"Account &#123;self.account_number&#125; - &#123;self.owner_name&#125;: $&#123;self.balance&#125;"</code></pre>
+              </div>
+              
+              <p class="text-gray-600 text-sm">
+                This is our <strong>parent/base class</strong>. It defines the common features all bank accounts share.
+              </p>
+            </div>
+
+            <!-- Savings Account (Child) -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">SavingsAccount - Inheriting from BankAccount</h2>
+              
+              <div class="bg-gray-100 rounded-lg p-4 mb-4 border-l-4 border-green-400">
+                <pre class="text-gray-800 text-sm"><code>class SavingsAccount(BankAccount):  # Inherits from BankAccount
+    def __init__(self, account_number, owner_name, initial_balance=0, interest_rate=0.02):
+        super().__init__(account_number, owner_name, initial_balance)  # Call parent constructor
+        self.interest_rate = interest_rate  # 2% default interest
+        self.withdrawal_count = 0  # Track withdrawals
+    
+    def withdraw(self, amount):  # Override parent's withdrawal method
+        """Savings accounts have withdrawal limits"""
+        if self.withdrawal_count >= 3:
+            return "Maximum 3 withdrawals per month exceeded"
+        
+        if amount > 0 and amount <= self.balance:
+            self.balance -= amount
+            self.withdrawal_count += 1
+            self.transaction_history.append(f"Withdrawal: -$&#123;amount&#125; (#&#123;self.withdrawal_count&#125;)")
+            return f"Withdrew $&#123;amount&#125;. Balance: $&#123;self.balance&#125;. Withdrawals left: &#123;3 - self.withdrawal_count&#125;"
+        return "Insufficient funds or invalid amount"
+    
+    def calculate_interest(self):  # New method only SavingsAccount has
+        """Calculate monthly interest"""
+        interest = self.balance * self.interest_rate / 12
+        self.balance += interest
+        self.transaction_history.append(f"Interest: +$&#123;interest:.2f&#125;")
+        return f"Interest added: $&#123;interest:.2f&#125;. New balance: $&#123;self.balance:.2f&#125;"
+    
+    def reset_withdrawal_count(self):  # New method for monthly reset
+        """Reset withdrawal count each month"""
+        self.withdrawal_count = 0
+        return "Withdrawal count reset for new month"</code></pre>
+              </div>
+              
+              <div class="bg-blue-50 p-4 rounded border border-blue-200">
+                <h3 class="font-medium text-blue-800 mb-2">What the SavingsAccount class gets:</h3>
+                <ul class="text-sm text-blue-700 space-y-1">
+                  <li>✅ <strong>Inherited:</strong> account_number, balance, deposit(), get_balance()</li>
+                  <li>🔄 <strong>Overridden:</strong> withdraw() - now has withdrawal limits</li>
+                  <li>➕ <strong>Added:</strong> interest_rate, calculate_interest(), withdrawal tracking</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Checking Account (Child) -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">CheckingAccount - Another Child Class</h2>
+              
+              <div class="bg-gray-100 rounded-lg p-4 mb-4 border-l-4 border-green-400">
+                <pre class="text-gray-800 text-sm"><code>class CheckingAccount(BankAccount):  # Also inherits from BankAccount
+    def __init__(self, account_number, owner_name, initial_balance=0, overdraft_limit=100):
+        super().__init__(account_number, owner_name, initial_balance)  # Call parent constructor
+        self.overdraft_limit = overdraft_limit
+        self.monthly_fee = 5.00
+    
+    def withdraw(self, amount):  # Override parent's withdrawal method differently
+        """Checking accounts allow overdraft up to a limit"""
+        if amount > 0:
+            available_balance = self.balance + self.overdraft_limit
+            if amount <= available_balance:
+                self.balance -= amount
+                self.transaction_history.append(f"Withdrawal: -$&#123;amount&#125;")
+                
+                overdraft_message = ""
+                if self.balance < 0:
+                    overdraft_message = f" (Overdraft: $&#123;abs(self.balance)&#125;)"
+                
+                return f"Withdrew $&#123;amount&#125;. Balance: $&#123;self.balance&#125;&#123;overdraft_message&#125;"
+        return "Amount exceeds overdraft limit"
+    
+    def write_check(self, amount, payee):  # New method only CheckingAccount has
+        """Write a check - special type of withdrawal"""
+        if amount > 0:
+            available_balance = self.balance + self.overdraft_limit
+            if amount <= available_balance:
+                self.balance -= amount
+                self.transaction_history.append(f"Check to &#123;payee&#125;: -$&#123;amount&#125;")
+                return f"Check written to &#123;payee&#125; for $&#123;amount&#125;. Balance: $&#123;self.balance&#125;"
+        return "Insufficient funds including overdraft"
+    
+    def charge_monthly_fee(self):  # New method for maintenance
+        """Charge monthly maintenance fee"""
+        self.balance -= self.monthly_fee
+        self.transaction_history.append(f"Monthly fee: -$&#123;self.monthly_fee&#125;")
+        return f"Monthly fee charged. Balance: $&#123;self.balance&#125;"</code></pre>
+              </div>
+              
+              <div class="bg-purple-50 p-4 rounded border border-purple-200">
+                <h3 class="font-medium text-purple-800 mb-2">What the CheckingAccount class gets:</h3>
+                <ul class="text-sm text-purple-700 space-y-1">
+                  <li>✅ <strong>Inherited:</strong> account_number, balance, deposit(), get_balance()</li>
+                  <li>🔄 <strong>Overridden:</strong> withdraw() - now allows overdraft</li>
+                  <li>➕ <strong>Added:</strong> overdraft_limit, write_check(), monthly_fee</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Using the Banking Classes -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Using Our Banking Classes</h2>
+              
+              <div class="bg-gray-100 rounded-lg p-4 mb-4 border-l-4 border-green-400">
+                <pre class="text-gray-800 text-sm"><code># Creating different types of accounts
+savings = SavingsAccount("SAV001", "Alice Johnson", 1000, 0.03)  # 3% interest
+checking = CheckingAccount("CHK001", "Bob Smith", 500, 200)  # $200 overdraft limit
+
+# Both can use basic BankAccount methods
+print(savings.deposit(200))     # Deposited $200. Balance: $1200
+print(checking.deposit(100))    # Deposited $100. Balance: $600
+
+# But they behave differently for withdrawals
+print(savings.withdraw(100))    # Withdrew $100. Balance: $1100. Withdrawals left: 2
+print(checking.withdraw(700))   # Withdrew $700. Balance: -$100 (Overdraft: $100)
+
+# Each has their unique methods
+print(savings.calculate_interest())  # Interest added: $2.75. New balance: $1102.75
+print(checking.write_check(50, "Electric Company"))  # Check written to Electric Company for $50
+
+# All can use inherited methods
+print(savings.get_account_info())   # Account SAV001 - Alice Johnson: $1102.75
+print(checking.get_account_info())  # Account CHK001 - Bob Smith: -$150</code></pre>
+              </div>
+            </div>
+
+            <!-- Shape Example for Comparison -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Shape Example - Another Inheritance Pattern</h2>
+              
+              <div class="bg-gray-100 rounded-lg p-4 mb-4 border-l-4 border-blue-400">
+                <pre class="text-gray-800 text-sm"><code>class Shape:
+    def __init__(self, name, color="white"):
+        self.name = name
+        self.color = color
+    
+    def get_area(self):
+        """Basic area method - will be overridden by child classes"""
+        return 0
+    
+    def get_info(self):
+        """All shapes can describe themselves"""
+        return f"&#123;self.name&#125; shape - Color: &#123;self.color&#125;"</code></pre>
+              </div>
+              
+              <p class="text-gray-600 text-sm">
+                This is our <strong>parent/base class</strong>. It defines the common features all shapes share.
+              </p>
+            </div>
+
+            <!-- Warrior Class (Child) -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Rectangle Class - Inheriting from Shape</h2>
+              
+              <div class="bg-gray-100 rounded-lg p-4 mb-4 border-l-4 border-blue-400">
+                <pre class="text-gray-800 text-sm"><code>class Rectangle(Shape):  # Inherits from Shape
+    def __init__(self, name, width, height, color="white"):
+        super().__init__(name, color)  # Call parent constructor
+        self.width = width
+        self.height = height
+    
+    def get_area(self):  # Override parent's area method
+        """Rectangles have width * height area"""
+        return self.width * self.height
+    
+    def get_perimeter(self):  # New method only Rectangles have
+        """Calculate perimeter of rectangle"""
+        return 2 * (self.width + self.height)</code></pre>
+              </div>
+              
+              <div class="bg-blue-50 p-4 rounded border border-blue-200">
+                <h3 class="font-medium text-blue-800 mb-2">What the Rectangle class gets:</h3>
+                <ul class="text-sm text-blue-700 space-y-1">
+                  <li>✅ <strong>Inherited:</strong> name, color, get_info()</li>
+                  <li>🔄 <strong>Overridden:</strong> get_area() - now calculates width * height</li>
+                  <li>➕ <strong>Added:</strong> width, height, get_perimeter()</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Mage Class (Child) -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Circle Class - Another Child Class</h2>
+              
+              <div class="bg-gray-100 rounded-lg p-4 mb-4 border-l-4 border-blue-400">
+                <pre class="text-gray-800 text-sm"><code>class Circle(Shape):  # Also inherits from Shape
+    def __init__(self, name, radius, color="white"):
+        super().__init__(name, color)  # Call parent constructor
+        self.radius = radius
+    
+    def get_area(self):  # Override parent's area method differently
+        """Circles have π * radius² area"""
+        import math
+        area = math.pi * (self.radius ** 2)
+        return round(area, 2)
+    
+    def get_circumference(self):  # New method only Circles have
+        """Calculate circumference of circle"""
+        import math
+        return round(2 * math.pi * self.radius, 2)</code></pre>
+              </div>
+              
+              <div class="bg-purple-50 p-4 rounded border border-purple-200">
+                <h3 class="font-medium text-purple-800 mb-2">What the Circle class gets:</h3>
+                <ul class="text-sm text-purple-700 space-y-1">
+                  <li>✅ <strong>Inherited:</strong> name, color, get_info()</li>
+                  <li>🔄 <strong>Overridden:</strong> get_area() - now calculates π * radius²</li>
+                  <li>➕ <strong>Added:</strong> radius, get_circumference()</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Using Inherited Classes -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Using Inherited Classes</h2>
+              
+              <div class="bg-gray-100 rounded-lg p-4 mb-4 border-l-4 border-blue-400">
+                <pre class="text-gray-800 text-sm"><code># Create different types of shapes
+rect1 = Rectangle("Rectangle1", 10, 5, "blue")
+circle1 = Circle("Circle1", 3, "red")
+
+# Both can use inherited methods
+print(rect1.get_info())         # "Rectangle1 shape - Color: blue"
+print(circle1.get_info())       # "Circle1 shape - Color: red"
+
+# Each has their own version of get_area()
+print(f"Area: &#123;rect1.get_area()&#125;")       # "Area: 50"
+print(f"Area: &#123;circle1.get_area()&#125;")     # "Area: 28.27"
+
+# Each has their own unique methods
+print(f"Perimeter: &#123;rect1.get_perimeter()&#125;")  # "Perimeter: 30"
+print(f"Circumference: &#123;circle1.get_circumference()&#125;")  # "Circumference: 18.85"
+
+# Both are Shape objects
+print(isinstance(rect1, Shape))    # True
+print(isinstance(circle1, Shape))  # True</code></pre>
+              </div>
+            </div>
+
+            <!-- Banking System Example -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Real-World Example: Banking System</h2>
+              
+              <div class="bg-blue-50 p-6 rounded-lg border border-blue-200 mb-6">
+                <p class="text-blue-800 mb-4">
+                  Let's see inheritance in a professional context with bank accounts:
+                </p>
+                
+                <div class="bg-gray-100 rounded-lg p-4 border-l-4 border-blue-400">
+                  <pre class="text-gray-800 text-sm"><code>class BankAccount:  # Base class
+    def __init__(self, account_number, holder_name, balance=0):
+        self.account_number = account_number
+        self.holder_name = holder_name
+        self.balance = balance
+    
+    def deposit(self, amount):
+        self.balance += amount
+        return f"Deposited $&#123;amount&#125;. Balance: $&#123;self.balance&#125;"
+    
+    def withdraw(self, amount):
+        if amount <= self.balance:
+            self.balance -= amount
+            return f"Withdrew $&#123;amount&#125;. Balance: $&#123;self.balance&#125;"
+        return "Insufficient funds"
+
+class SavingsAccount(BankAccount):  # Child class
+    def __init__(self, account_number, holder_name, balance=0, interest_rate=0.02):
+        super().__init__(account_number, holder_name, balance)
+        self.interest_rate = interest_rate
+    
+    def apply_interest(self):  # New method for savings accounts
+        interest = self.balance * self.interest_rate
+        self.balance += interest
+        return f"Applied &#123;self.interest_rate*100&#125;% interest: $&#123;interest:.2f&#125;"
+
+class CheckingAccount(BankAccount):  # Another child class
+    def __init__(self, account_number, holder_name, balance=0, overdraft_limit=100):
+        super().__init__(account_number, holder_name, balance)
+        self.overdraft_limit = overdraft_limit
+    
+    def withdraw(self, amount):  # Override withdraw to allow overdraft
+        if amount <= (self.balance + self.overdraft_limit):
+            self.balance -= amount
+            return f"Withdrew $&#123;amount&#125;. Balance: $&#123;self.balance&#125;"
+        return f"Exceeds overdraft limit of $&#123;self.overdraft_limit&#125;"</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Key Concepts -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Key Inheritance Concepts</h2>
+              
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+                  <h3 class="text-lg font-semibold text-green-800 mb-4">super() Function</h3>
+                  <p class="text-green-700 text-sm mb-3">
+                    Calls methods from the parent class. Essential in <code>__init__</code> to set up inherited attributes.
+                  </p>
+                  <div class="bg-white p-3 rounded border border-green-300">
+                    <code class="text-sm">super().__init__(name, health, level)</code>
+                  </div>
+                </div>
+                
+                <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                  <h3 class="text-lg font-semibold text-blue-800 mb-4">Method Overriding</h3>
+                  <p class="text-blue-700 text-sm mb-3">
+                    Child classes can replace parent methods with their own version while keeping the same name.
+                  </p>
+                  <div class="bg-white p-3 rounded border border-blue-300">
+                    <code class="text-sm">def attack(self):  # New version</code>
+                  </div>
+                </div>
+                
+                <div class="bg-purple-50 p-6 rounded-lg border border-purple-200">
+                  <h3 class="text-lg font-semibold text-purple-800 mb-4">isinstance() Check</h3>
+                  <p class="text-purple-700 text-sm mb-3">
+                    Test if an object is an instance of a class or its parent classes.
+                  </p>
+                  <div class="bg-white p-3 rounded border border-purple-300">
+                    <code class="text-sm">isinstance(rectangle, Shape)</code>
+                  </div>
+                </div>
+                
+                <div class="bg-orange-50 p-6 rounded-lg border border-orange-200">
+                  <h3 class="text-lg font-semibold text-orange-800 mb-4">Multiple Inheritance</h3>
+                  <p class="text-orange-700 text-sm mb-3">
+                    A class can inherit from multiple parent classes (advanced topic).
+                  </p>
+                  <div class="bg-white p-3 rounded border border-orange-300">
+                    <code class="text-sm">class Square(Rectangle, Shape):</code>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Benefits of Inheritance -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Why Use Inheritance?</h2>
+              
+              <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-green-100 p-4 rounded-lg">
+                  <h3 class="font-semibold text-green-800 mb-2">Code Reuse</h3>
+                  <p class="text-green-700 text-sm">Write common features once in the parent class, use everywhere.</p>
+                </div>
+                
+                <div class="bg-blue-100 p-4 rounded-lg">
+                  <h3 class="font-semibold text-blue-800 mb-2">Organization</h3>
+                  <p class="text-blue-700 text-sm">Logical hierarchy - general to specific classes.</p>
+                </div>
+                
+                <div class="bg-purple-100 p-4 rounded-lg">
+                  <h3 class="font-semibold text-purple-800 mb-2">Extensibility</h3>
+                  <p class="text-purple-700 text-sm">Add new character types without changing existing code.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- NESA Exam Context -->
+            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-amber-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                  <p class="font-semibold text-amber-900 mb-1">NESA Exam Focus</p>
+                  <p class="text-amber-800 text-sm">Understand class inheritance syntax using <code>class Child(Parent):</code>. Know how <code>super().__init__()</code> calls the parent constructor. Be able to identify overridden methods vs inherited methods vs new methods in child classes. Practice with <code>isinstance()</code> for type checking.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

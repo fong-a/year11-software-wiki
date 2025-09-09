@@ -1,0 +1,271 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import OOPNav from '../../components/OOPNav';
+import SearchComponent from '../../components/SearchComponent';
+import '../../styles/global.css';
+---
+
+<BaseLayout title="Object-Oriented Programming" description="Object-Oriented Programming concepts with Python examples using Elden Ring characters and banking systems">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center justify-between">
+        <nav>
+          <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+          <span class="text-sm text-gray-400 mx-2">></span>
+          <span class="text-sm text-gray-900 font-medium">Object-Oriented Programming</span>
+        </nav>
+        <div class="ml-4">
+          <SearchComponent client:load className="w-80" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <OOPNav 
+              client:load 
+              currentPage="/topics/object-oriented-programming"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Object-Oriented Programming</h1>
+            <p class="text-lg text-gray-600 mb-8">Master OOP concepts through engaging examples using Elden Ring characters and banking systems</p>
+            
+            <div class="mb-8 p-4 bg-purple-50 rounded-lg border-l-4 border-purple-500">
+              <p class="text-purple-900">
+                Object-Oriented Programming (OOP) is a programming paradigm that organizes code around objects and classes. Learn the four pillars of OOP - Encapsulation, Inheritance, Polymorphism, and Abstraction - through practical examples that make complex concepts easy to understand.
+              </p>
+            </div>
+
+            <!-- Quick Access Cards -->
+            <div class="mb-12">
+              <h2 class="text-2xl font-semibold mb-6">OOP Fundamentals</h2>
+              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Classes & Objects -->
+                <a href="/topics/object-oriented-programming/fundamentals" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-purple-300">
+                  <div class="flex items-center mb-3">
+                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                      </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold ml-3">Classes & Objects</h3>
+                  </div>
+                  <p class="text-gray-600 text-sm">Understanding blueprints and instances in object-oriented design</p>
+                </a>
+
+                <!-- Encapsulation -->
+                <a href="/topics/object-oriented-programming/encapsulation" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-purple-300">
+                  <div class="flex items-center mb-3">
+                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                      </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold ml-3">Encapsulation</h3>
+                  </div>
+                  <p class="text-gray-600 text-sm">Bundling data and methods while controlling access</p>
+                </a>
+
+                <!-- Benefits of OOP -->
+                <a href="/topics/object-oriented-programming/benefits" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-purple-300">
+                  <div class="flex items-center mb-3">
+                    <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                      <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                      </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold ml-3">Benefits of OOP</h3>
+                  </div>
+                  <p class="text-gray-600 text-sm">Why object-oriented programming improves code quality</p>
+                </a>
+
+              </div>
+            </div>
+
+            <!-- Core Concepts -->
+            <div class="mb-12">
+              <h2 class="text-2xl font-semibold mb-6">Core OOP Concepts</h2>
+              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Inheritance -->
+                <a href="/topics/object-oriented-programming/inheritance" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-green-300">
+                  <div class="flex items-center mb-3">
+                    <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                      <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.636 18.364a9 9 0 010-12.728m12.728 0a9 9 0 010 12.728m-9.9-2.829a5 5 0 010-7.07m7.072 0a5 5 0 010 7.07M13 12a1 1 0 11-2 0 1 1 0 012 0z"/>
+                      </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold ml-3">Inheritance</h3>
+                  </div>
+                  <p class="text-gray-600 text-sm">Creating specialized classes from general ones</p>
+                </a>
+
+                <!-- Polymorphism -->
+                <a href="/topics/object-oriented-programming/polymorphism" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-purple-300">
+                  <div class="flex items-center mb-3">
+                    <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                      <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                      </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold ml-3">Polymorphism</h3>
+                  </div>
+                  <p class="text-gray-600 text-sm">Same method name, different behaviors</p>
+                </a>
+
+                <!-- Abstraction -->
+                <a href="/topics/object-oriented-programming/abstraction" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-orange-300">
+                  <div class="flex items-center mb-3">
+                    <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                      <svg class="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                      </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold ml-3">Abstraction</h3>
+                  </div>
+                  <p class="text-gray-600 text-sm">Hiding complexity behind simple interfaces</p>
+                </a>
+
+              </div>
+            </div>
+
+            <!-- Advanced Topics -->
+            <div class="mb-12">
+              <h2 class="text-2xl font-semibold mb-6">Advanced Topics</h2>
+              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Object Relationships -->
+                <a href="/topics/object-oriented-programming/object-relationships" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-indigo-300">
+                  <div class="flex items-center mb-3">
+                    <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
+                      <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                      </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold ml-3">Object Relationships</h3>
+                  </div>
+                  <p class="text-gray-600 text-sm">Associations, aggregation, and composition</p>
+                </a>
+
+                <!-- Design Patterns -->
+                <a href="/topics/object-oriented-programming/design-patterns" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-teal-300">
+                  <div class="flex items-center mb-3">
+                    <div class="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center">
+                      <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a1 1 0 01-1-1V9a1 1 0 011-1h1a2 2 0 100-4H4a1 1 0 01-1-1V4a1 1 0 011-1h3a1 1 0 001-1z"/>
+                      </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold ml-3">Design Patterns</h3>
+                  </div>
+                  <p class="text-gray-600 text-sm">Common solutions to recurring design problems</p>
+                </a>
+
+                <!-- UML & Modeling -->
+                <a href="/topics/object-oriented-programming/uml-modelling" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-red-300">
+                  <div class="flex items-center mb-3">
+                    <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
+                      <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                      </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold ml-3">UML & Modeling</h3>
+                  </div>
+                  <p class="text-gray-600 text-sm">Visual modeling and documentation techniques</p>
+                </a>
+
+              </div>
+            </div>
+
+            <!-- Practice & Assessment -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6">Practice & Assessment</h2>
+              <div class="grid md:grid-cols-2 gap-6">
+                
+                <!-- Examples Gallery -->
+                <a href="/topics/object-oriented-programming/examples-gallery" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-yellow-300">
+                  <div class="flex items-center mb-3">
+                    <div class="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
+                      <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                      </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold ml-3">Examples Gallery</h3>
+                  </div>
+                  <p class="text-gray-600 text-sm">Interactive examples using Elden Ring and banking scenarios</p>
+                </a>
+
+                <!-- Exam Questions -->
+                <a href="/topics/object-oriented-programming/exam-questions" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-pink-300">
+                  <div class="flex items-center mb-3">
+                    <div class="w-10 h-10 bg-pink-100 rounded-lg flex items-center justify-center">
+                      <svg class="w-5 h-5 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+                      </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold ml-3">Exam Questions</h3>
+                  </div>
+                  <p class="text-gray-600 text-sm">NESA-style practice questions with detailed solutions</p>
+                </a>
+
+              </div>
+            </div>
+
+            <!-- Learning Path -->
+            <div class="bg-gradient-to-r from-purple-50 to-blue-50 p-6 rounded-lg border border-purple-200">
+              <h3 class="text-xl font-semibold text-gray-900 mb-4">🚀 Recommended Learning Path</h3>
+              <div class="grid md:grid-cols-2 gap-6 text-sm">
+                <div>
+                  <h4 class="font-medium text-purple-700 mb-3">Start Here:</h4>
+                  <ol class="space-y-2 text-purple-600">
+                    <li class="flex items-center">
+                      <span class="w-6 h-6 bg-purple-100 text-purple-700 rounded-full flex items-center justify-center text-xs font-bold mr-3">1</span>
+                      <span>Classes & Objects fundamentals</span>
+                    </li>
+                    <li class="flex items-center">
+                      <span class="w-6 h-6 bg-purple-100 text-purple-700 rounded-full flex items-center justify-center text-xs font-bold mr-3">2</span>
+                      <span>Encapsulation and data protection</span>
+                    </li>
+                    <li class="flex items-center">
+                      <span class="w-6 h-6 bg-purple-100 text-purple-700 rounded-full flex items-center justify-center text-xs font-bold mr-3">3</span>
+                      <span>Inheritance relationships</span>
+                    </li>
+                  </ol>
+                </div>
+                
+                <div>
+                  <h4 class="font-medium text-blue-700 mb-3">Then Master:</h4>
+                  <ol class="space-y-2 text-blue-600">
+                    <li class="flex items-center">
+                      <span class="w-6 h-6 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-xs font-bold mr-3">4</span>
+                      <span>Polymorphism and method overriding</span>
+                    </li>
+                    <li class="flex items-center">
+                      <span class="w-6 h-6 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-xs font-bold mr-3">5</span>
+                      <span>Abstraction techniques</span>
+                    </li>
+                    <li class="flex items-center">
+                      <span class="w-6 h-6 bg-blue-100 text-blue-700 rounded-full flex items-center justify-center text-xs font-bold mr-3">6</span>
+                      <span>Practice with exam questions</span>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,318 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import OOPNav from '../../../components/OOPNav';
+import Tooltip from '../../../components/Tooltip';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Object Relationships - Object-Oriented Programming" description="Understanding association, aggregation, composition, and dependency relationships between objects in OOP">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/object-oriented-programming" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Object-Oriented Programming</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Object Relationships</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6">
+            <OOPNav 
+              client:load 
+              currentPage="/topics/object-oriented-programming/relationships"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Object Relationships</h1>
+            
+            <div class="mb-8 p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl border border-blue-200">
+              <h2 class="text-2xl font-bold text-gray-900 mb-4">What are Object Relationships?</h2>
+              <p class="text-gray-800 text-lg leading-relaxed">
+                <strong><Tooltip client:load term="Object Relationships" definition="The ways that objects interact and depend on each other in object-oriented systems">Object relationships</Tooltip></strong> describe how different objects work together in your program. Just like people have relationships (friends, family, coworkers), objects have different types of relationships that determine how they interact and depend on each other.
+              </p>
+            </div>
+
+            <!-- Types of Relationships -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Types of Object Relationships</h2>
+              
+              <!-- Association -->
+              <div class="mb-6 bg-blue-50 p-6 rounded-lg border border-blue-200">
+                <h3 class="text-xl font-semibold text-blue-800 mb-4">1. Association - "Uses a"</h3>
+                <p class="text-blue-700 mb-4">Association is the most basic relationship where one object uses another object.</p>
+                
+                <div class="bg-white p-4 rounded border border-blue-300">
+                  <h4 class="font-medium text-blue-700 mb-2">Example: Student and Course</h4>
+                  <pre class="text-sm font-mono bg-gray-100 text-gray-800 p-3 rounded border-l-4 border-blue-400"><code>class Student:
+    def __init__(self, name):
+        self.name = name
+    
+    def enroll_in_course(self, course):
+        print(f"&#123;self.name&#125; enrolled in &#123;course.name&#125;")
+
+class Course:
+    def __init__(self, name):
+        self.name = name
+
+# Association in action
+student = Student("Alice")
+math_course = Course("Mathematics")
+student.enroll_in_course(math_course)  # Student uses Course</code></pre>
+                </div>
+              </div>
+
+              <!-- Aggregation -->
+              <div class="mb-6 bg-green-50 p-6 rounded-lg border border-green-200">
+                <h3 class="text-xl font-semibold text-green-800 mb-4">2. Aggregation - "Has a"</h3>
+                <p class="text-green-700 mb-4">Aggregation represents a "whole-part" relationship where objects can exist independently.</p>
+                
+                <div class="bg-white p-4 rounded border border-green-300">
+                  <h4 class="font-medium text-green-700 mb-2">Example: Team and Players</h4>
+                  <pre class="text-sm font-mono bg-gray-100 text-gray-800 p-3 rounded border-l-4 border-green-400"><code>class Player:
+    def __init__(self, name):
+        self.name = name
+
+class Team:
+    def __init__(self, name):
+        self.name = name
+        self.players = []  # Team HAS players
+    
+    def add_player(self, player):
+        self.players.append(player)
+    
+    def remove_player(self, player):
+        self.players.remove(player)
+
+# Players can exist without the team
+player1 = Player("John")
+player2 = Player("Sarah")
+
+team = Team("Eagles")
+team.add_player(player1)
+team.add_player(player2)</code></pre>
+                </div>
+              </div>
+
+              <!-- Composition -->
+              <div class="mb-6 bg-purple-50 p-6 rounded-lg border border-purple-200">
+                <h3 class="text-xl font-semibold text-purple-800 mb-4">3. Composition - "Owns a"</h3>
+                <p class="text-purple-700 mb-4">Composition is a stronger relationship where parts cannot exist without the whole.</p>
+                
+                <div class="bg-white p-4 rounded border border-purple-300">
+                  <h4 class="font-medium text-purple-700 mb-2">Example: House and Rooms</h4>
+                  <pre class="text-sm font-mono bg-gray-100 text-gray-800 p-3 rounded border-l-4 border-purple-400"><code>class Room:
+    def __init__(self, name, size):
+        self.name = name
+        self.size = size
+
+class House:
+    def __init__(self, address):
+        self.address = address
+        # Rooms are created as part of the house
+        self.rooms = [
+            Room("Living Room", 200),
+            Room("Kitchen", 150),
+            Room("Bedroom", 120)
+        ]
+    
+    def get_total_area(self):
+        return sum(room.size for room in self.rooms)
+
+# Rooms exist only as part of the house
+house = House("123 Main St")
+print(f"Total area: &#123;house.get_total_area()&#125; sq ft")</code></pre>
+                </div>
+              </div>
+
+              <!-- Dependency -->
+              <div class="mb-6 bg-orange-50 p-6 rounded-lg border border-orange-200">
+                <h3 class="text-xl font-semibold text-orange-800 mb-4">4. Dependency - "Depends on"</h3>
+                <p class="text-orange-700 mb-4">Dependency means one class relies on another class to function properly.</p>
+                
+                <div class="bg-white p-4 rounded border border-orange-300">
+                  <h4 class="font-medium text-orange-700 mb-2">Example: Car and Fuel</h4>
+                  <pre class="text-sm font-mono bg-gray-100 text-gray-800 p-3 rounded border-l-4 border-orange-400"><code>class Fuel:
+    def __init__(self, fuel_type, amount):
+        self.fuel_type = fuel_type
+        self.amount = amount
+
+class Car:
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model
+    
+    def start(self, fuel):  # Car depends on Fuel to start
+        if fuel.amount > 0:
+            print(f"&#123;self.make&#125; &#123;self.model&#125; started with &#123;fuel.fuel_type&#125;")
+        else:
+            print("Cannot start - no fuel")
+
+# Car needs fuel to operate
+car = Car("Toyota", "Camry")
+gasoline = Fuel("Gasoline", 10)
+car.start(gasoline)</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Relationship Comparison -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Relationship Comparison</h2>
+              
+              <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-300">
+                  <thead class="bg-gray-50">
+                    <tr>
+                      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Relationship</th>
+                      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Description</th>
+                      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Independence</th>
+                      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Example</th>
+                    </tr>
+                  </thead>
+                  <tbody class="bg-white divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-blue-600">Association</td>
+                      <td class="px-6 py-4 text-sm text-gray-900">Objects use each other</td>
+                      <td class="px-6 py-4 text-sm text-gray-900">Fully independent</td>
+                      <td class="px-6 py-4 text-sm text-gray-900">Student enrolls in Course</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-green-600">Aggregation</td>
+                      <td class="px-6 py-4 text-sm text-gray-900">Whole has parts</td>
+                      <td class="px-6 py-4 text-sm text-gray-900">Parts can exist alone</td>
+                      <td class="px-6 py-4 text-sm text-gray-900">Team has Players</td>
+                    </tr>
+                    <tr>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-purple-600">Composition</td>
+                      <td class="px-6 py-4 text-sm text-gray-900">Whole owns parts</td>
+                      <td class="px-6 py-4 text-sm text-gray-900">Parts cannot exist without whole</td>
+                      <td class="px-6 py-4 text-sm text-gray-900">House owns Rooms</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                      <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-orange-600">Dependency</td>
+                      <td class="px-6 py-4 text-sm text-gray-900">One depends on another</td>
+                      <td class="px-6 py-4 text-sm text-gray-900">Temporary relationship</td>
+                      <td class="px-6 py-4 text-sm text-gray-900">Car depends on Fuel</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Practice Questions -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Practice Questions</h2>
+              
+              <div class="space-y-6">
+                <!-- Question 1 -->
+                <div class="bg-white p-6 rounded-lg border-l-4 border-blue-500 shadow-sm">
+                  <h3 class="font-semibold text-gray-900 mb-3">Question 1 (3 marks)</h3>
+                  <p class="text-gray-700 mb-4"><strong>Identify</strong> the type of relationship between the following pairs and <strong>justify</strong> your answer:</p>
+                  <ul class="text-gray-700 ml-6 mb-4 space-y-2">
+                    <li>a) A School and its Students</li>
+                    <li>b) A Car and its Engine</li>
+                    <li>c) A Customer and their Orders</li>
+                  </ul>
+                  
+                  <details class="mt-4">
+                    <summary class="cursor-pointer text-blue-600 hover:text-blue-800 font-medium">Show Answer & Marking Criteria</summary>
+                    <div class="mt-3 p-4 bg-gray-50 rounded">
+                      <p class="font-medium mb-2">Sample Answer (3 marks):</p>
+                      <p class="text-sm mb-2"><strong>a) Association/Aggregation (1 mark)</strong> - Students can exist independently of the school and can be enrolled in multiple schools.</p>
+                      <p class="text-sm mb-2"><strong>b) Composition (1 mark)</strong> - An engine is created as part of the car and cannot exist meaningfully without the car.</p>
+                      <p class="text-sm mb-2"><strong>c) Association (1 mark)</strong> - Customers and orders are independent entities that reference each other.</p>
+                      
+                      <div class="mt-3 pt-3 border-t border-gray-300">
+                        <p class="text-xs text-gray-600"><strong>Marking Criteria:</strong></p>
+                        <p class="text-xs text-gray-600">3 marks: Correctly identifies all three relationship types with appropriate justification</p>
+                        <p class="text-xs text-gray-600">2 marks: Correctly identifies two relationship types</p>
+                        <p class="text-xs text-gray-600">1 mark: Correctly identifies one relationship type</p>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="bg-white p-6 rounded-lg border-l-4 border-green-500 shadow-sm">
+                  <h3 class="font-semibold text-gray-900 mb-3">Question 2 (4 marks)</h3>
+                  <p class="text-gray-700 mb-4"><strong>Describe</strong> the difference between aggregation and composition relationships. <strong>Provide</strong> one example of each with appropriate justification.</p>
+                  
+                  <details class="mt-4">
+                    <summary class="cursor-pointer text-green-600 hover:text-green-800 font-medium">Show Answer & Marking Criteria</summary>
+                    <div class="mt-3 p-4 bg-gray-50 rounded">
+                      <p class="font-medium mb-2">Sample Answer (4 marks):</p>
+                      <p class="text-sm mb-2"><strong>Aggregation (1 mark):</strong> A "has-a" relationship where parts can exist independently of the whole.</p>
+                      <p class="text-sm mb-2"><strong>Composition (1 mark):</strong> A stronger "owns-a" relationship where parts cannot exist without the whole.</p>
+                      <p class="text-sm mb-2"><strong>Aggregation Example (1 mark):</strong> Team has Players - players can exist without the team and join other teams.</p>
+                      <p class="text-sm mb-2"><strong>Composition Example (1 mark):</strong> House owns Rooms - rooms cannot exist without the house structure.</p>
+                      
+                      <div class="mt-3 pt-3 border-t border-gray-300">
+                        <p class="text-xs text-gray-600"><strong>Marking Criteria:</strong></p>
+                        <p class="text-xs text-gray-600">4 marks: Clear explanation of both concepts with appropriate examples</p>
+                        <p class="text-xs text-gray-600">3 marks: Good explanation with one appropriate example</p>
+                        <p class="text-xs text-gray-600">2 marks: Basic understanding shown</p>
+                        <p class="text-xs text-gray-600">1 mark: Minimal understanding demonstrated</p>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="bg-white p-6 rounded-lg border-l-4 border-purple-500 shadow-sm">
+                  <h3 class="font-semibold text-gray-900 mb-3">Question 3 (5 marks)</h3>
+                  <p class="text-gray-700 mb-4">A library system manages Books, Members, and Loans. <strong>Design</strong> appropriate object relationships for this system and <strong>explain</strong> your choices.</p>
+                  
+                  <details class="mt-4">
+                    <summary class="cursor-pointer text-purple-600 hover:text-purple-800 font-medium">Show Answer & Marking Criteria</summary>
+                    <div class="mt-3 p-4 bg-gray-50 rounded">
+                      <p class="font-medium mb-2">Sample Answer (5 marks):</p>
+                      <p class="text-sm mb-2"><strong>Library-Book relationship (1 mark):</strong> Aggregation - Library has Books, but books can exist independently and could be transferred to other libraries.</p>
+                      <p class="text-sm mb-2"><strong>Library-Member relationship (1 mark):</strong> Association - Members use Library services but exist independently.</p>
+                      <p class="text-sm mb-2"><strong>Member-Loan relationship (1 mark):</strong> Association - Members create loans but both can exist independently.</p>
+                      <p class="text-sm mb-2"><strong>Book-Loan relationship (1 mark):</strong> Association - Books are referenced in loans but exist independently.</p>
+                      <p class="text-sm mb-2"><strong>Justification (1 mark):</strong> These relationships allow flexibility - members can leave, books can be moved between libraries, and loan records can be maintained independently.</p>
+                      
+                      <div class="mt-3 pt-3 border-t border-gray-300">
+                        <p class="text-xs text-gray-600"><strong>Marking Criteria:</strong></p>
+                        <p class="text-xs text-gray-600">5 marks: Complete design with all relationships correctly identified and justified</p>
+                        <p class="text-xs text-gray-600">4 marks: Most relationships correct with good justification</p>
+                        <p class="text-xs text-gray-600">3 marks: Some relationships identified correctly</p>
+                        <p class="text-xs text-gray-600">2 marks: Basic understanding of object relationships shown</p>
+                        <p class="text-xs text-gray-600">1 mark: Minimal attempt at design</p>
+                      </div>
+                    </div>
+                  </details>
+                </div>
+              </div>
+            </div>
+
+            <!-- NESA Exam Context -->
+            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-amber-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0z"></path>
+                </svg>
+                <div>
+                  <p class="font-semibold text-amber-900 mb-1">NESA Exam Focus</p>
+                  <p class="text-amber-800 text-sm">Understanding object relationships helps you design better class hierarchies and answer questions about system architecture. Focus on identifying whether objects can exist independently (aggregation) or must be created together (composition). Practice reading UML diagrams that show these relationships.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

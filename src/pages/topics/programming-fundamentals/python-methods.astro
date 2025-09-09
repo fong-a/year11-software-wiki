@@ -1,0 +1,349 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProgrammingFundamentalsNav from '../../../components/ProgrammingFundamentalsNav';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Python Methods Reference - Programming Fundamentals" description="Essential Python methods and functions for NESA exams with practical examples">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Python Methods Reference</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <ProgrammingFundamentalsNav 
+              client:load 
+              currentPage="/topics/programming-fundamentals/python-methods"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Python Methods Reference</h1>
+            
+            <div class="mb-8 p-6 bg-gradient-to-r from-orange-50 to-red-50 rounded-xl border border-orange-200">
+              <p class="text-orange-900 text-lg leading-relaxed">
+                <strong>Essential Python methods</strong> you'll use in NESA exams and HSC projects. These built-in functions and methods are your toolkit for manipulating strings, numbers, and collections efficiently.
+              </p>
+            </div>
+
+            <!-- String Methods -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">String Methods</h2>
+              
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                  <h3 class="text-lg font-semibold text-blue-800 mb-4">Case Conversion</h3>
+                  <pre class="text-sm font-mono bg-white p-3 rounded border mb-3"><code>text = "Hello World"
+
+# Convert case
+print(text.upper())        # "HELLO WORLD"
+print(text.lower())        # "hello world"
+print(text.title())        # "Hello World"
+print(text.capitalize())   # "Hello world"
+print(text.swapcase())     # "hELLO wORLD"</code></pre>
+                  
+                  <h4 class="font-medium text-blue-800 mb-2">Case Checking:</h4>
+                  <pre class="text-sm font-mono bg-white p-3 rounded border"><code>text = "HELLO"
+print(text.isupper())      # True
+print(text.islower())      # False
+print(text.istitle())      # False
+print("123".isdigit())     # True
+print("abc".isalpha())     # True</code></pre>
+                </div>
+
+                <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+                  <h3 class="text-lg font-semibold text-green-800 mb-4">String Manipulation</h3>
+                  <pre class="text-sm font-mono bg-white p-3 rounded border mb-3"><code>text = "  Hello World  "
+
+# Remove whitespace
+print(text.strip())        # "Hello World"
+print(text.lstrip())       # "Hello World  "
+print(text.rstrip())       # "  Hello World"
+
+# Replace text
+print(text.replace("World", "Python"))  # "  Hello Python  "</code></pre>
+                  
+                  <h4 class="font-medium text-green-800 mb-2">Split and Join:</h4>
+                  <pre class="text-sm font-mono bg-white p-3 rounded border"><code>sentence = "apple,banana,cherry"
+words = sentence.split(",")    # ["apple", "banana", "cherry"]
+
+# Join list back to string
+result = " | ".join(words)     # "apple | banana | cherry"</code></pre>
+                </div>
+
+                <div class="bg-purple-50 p-6 rounded-lg border border-purple-200">
+                  <h3 class="text-lg font-semibold text-purple-800 mb-4">String Searching</h3>
+                  <pre class="text-sm font-mono bg-white p-3 rounded border"><code>text = "Python Programming"
+
+# Find text
+print(text.find("gram"))       # 10 (index position)
+print(text.find("Java"))       # -1 (not found)
+print(text.index("Python"))    # 0 (like find, but raises error if not found)
+
+# Check if starts/ends with
+print(text.startswith("Py"))   # True
+print(text.endswith("ing"))    # True
+
+# Count occurrences
+print(text.count("m"))         # 2</code></pre>
+                </div>
+
+                <div class="bg-orange-50 p-6 rounded-lg border border-orange-200">
+                  <h3 class="text-lg font-semibold text-orange-800 mb-4">String Formatting</h3>
+                  <pre class="text-sm font-mono bg-white p-3 rounded border"><code>name = "Alice"
+age = 16
+grade = 85.7
+
+# F-string formatting (preferred)
+message = f"Hi &#123;name&#125;, age &#123;age&#125;, grade: &#123;grade:.1f&#125;"
+# "Hi Alice, age 16, grade: 85.7"
+
+# Format method
+message = "Hi &#123;0&#125;, grade: &#123;1:.1f&#125;".format(name, grade)
+
+# Center and pad strings
+print(name.center(10, "-"))    # "---Alice--"
+print(str(age).zfill(3))       # "016"</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Built-in Math Functions -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Built-in Math Functions</h2>
+              
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-red-50 p-6 rounded-lg border border-red-200">
+                  <h3 class="text-lg font-semibold text-red-800 mb-4">Basic Math</h3>
+                  <pre class="text-sm font-mono bg-white p-3 rounded border"><code>numbers = [85, 92, 78, 96, 81]
+
+# Aggregate functions
+print(sum(numbers))            # 432
+print(max(numbers))            # 96
+print(min(numbers))            # 78
+print(len(numbers))            # 5
+
+# Average calculation
+average = sum(numbers) / len(numbers)  # 86.4
+
+# Absolute value and rounding
+print(abs(-5.7))               # 5.7
+print(round(3.14159, 2))       # 3.14
+print(int(3.9))                # 3 (truncate)
+print(float("85"))             # 85.0</code></pre>
+                </div>
+
+                <div class="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
+                  <h3 class="text-lg font-semibold text-yellow-800 mb-4">Range and Enumeration</h3>
+                  <pre class="text-sm font-mono bg-white p-3 rounded border"><code># Generate number sequences
+for i in range(5):             # 0, 1, 2, 3, 4
+    print(i)
+
+for i in range(1, 6):          # 1, 2, 3, 4, 5
+    print(i)
+
+for i in range(0, 10, 2):      # 0, 2, 4, 6, 8
+    print(i)
+
+# Enumerate for index and value
+names = ["Alice", "Bob", "Carol"]
+for index, name in enumerate(names):
+    print(f"&#123;index&#125;: &#123;name&#125;")
+# 0: Alice, 1: Bob, 2: Carol</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- List and Dictionary Methods -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Collection Methods</h2>
+              
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-teal-50 p-6 rounded-lg border border-teal-200">
+                  <h3 class="text-lg font-semibold text-teal-800 mb-4">List Operations</h3>
+                  <pre class="text-sm font-mono bg-white p-3 rounded border"><code>grades = [85, 92, 78]
+
+# Add and remove
+grades.append(96)              # Add to end
+grades.insert(1, 88)           # Insert at position
+grades.extend([75, 82])        # Add multiple items
+grades.remove(78)              # Remove first occurrence
+last = grades.pop()            # Remove and return last
+
+# Sort and reverse
+grades.sort()                  # Sort in place
+grades.reverse()               # Reverse in place
+sorted_copy = sorted(grades)   # Return new sorted list
+
+# Find items
+index = grades.index(92)       # Find index of item
+count = grades.count(85)       # Count occurrences</code></pre>
+                </div>
+
+                <div class="bg-pink-50 p-6 rounded-lg border border-pink-200">
+                  <h3 class="text-lg font-semibold text-pink-800 mb-4">Dictionary Operations</h3>
+                  <pre class="text-sm font-mono bg-white p-3 rounded border"><code>student = &#123;"name": "Alice", "age": 16&#125;
+
+# Access safely
+name = student.get("name", "Unknown")     # "Alice"
+email = student.get("email", "")          # "" (default)
+
+# Get collections
+keys = list(student.keys())               # ["name", "age"]
+values = list(student.values())           # ["Alice", 16]
+items = list(student.items())             # [("name", "Alice"), ("age", 16)]
+
+# Update and remove
+student.update(&#123;"grade": "A", "age": 17&#125;) 
+removed = student.pop("age", 0)           # Remove and return value</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Input/Output Functions -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Input/Output Functions</h2>
+              
+              <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">Getting User Input</h3>
+                <pre class="text-sm font-mono bg-white p-3 rounded border mb-4"><code># Get string input
+name = input("Enter your name: ")
+
+# Get number input (with validation)
+try:
+    age = int(input("Enter your age: "))
+    grade = float(input("Enter your grade: "))
+except ValueError:
+    print("Invalid number entered!")
+
+# Get yes/no input
+response = input("Continue? (y/n): ").lower()
+if response in ["y", "yes"]:
+    print("Continuing...")</code></pre>
+                
+                <h4 class="font-medium text-gray-800 mb-2">Printing Output:</h4>
+                <pre class="text-sm font-mono bg-white p-3 rounded border"><code># Basic printing
+print("Hello World")
+print("Name:", name, "Age:", age)
+
+# Formatted printing
+print(f"Average: &#123;average:.2f&#125;")           # 2 decimal places
+print(f"Score: &#123;score:03d&#125;")               # Pad with zeros: 085
+
+# Print without newline
+print("Loading", end="")
+for i in range(3):
+    print(".", end="")                     # Loading...
+print()  # Add newline at end</code></pre>
+              </div>
+            </div>
+
+            <!-- Type Conversion -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Type Conversion</h2>
+              
+              <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
+                <h3 class="text-lg font-semibold text-indigo-800 mb-4">Converting Between Types</h3>
+                <pre class="text-sm font-mono bg-white p-3 rounded border"><code># String to number
+text_grade = "85"
+grade = int(text_grade)                    # 85
+decimal = float("3.14")                    # 3.14
+
+# Number to string
+score = 95
+text_score = str(score)                    # "95"
+
+# List/tuple/set conversions
+numbers = [1, 2, 3, 2, 1]
+unique = list(set(numbers))                # [1, 2, 3] (removes duplicates)
+text = "hello"
+letters = list(text)                       # ["h", "e", "l", "l", "o"]
+
+# Boolean conversion
+print(bool(0))                             # False
+print(bool(1))                             # True
+print(bool(""))                            # False
+print(bool("text"))                        # True</code></pre>
+              </div>
+            </div>
+
+            <!-- Quick Reference -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Quick Reference Cheat Sheet</h2>
+              
+              <div class="grid md:grid-cols-3 gap-4">
+                <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                  <h4 class="font-semibold text-blue-800 mb-2">String Methods</h4>
+                  <div class="text-xs space-y-1 text-blue-700 font-mono">
+                    <div><code>.upper()</code> - to uppercase</div>
+                    <div><code>.lower()</code> - to lowercase</div>
+                    <div><code>.strip()</code> - remove whitespace</div>
+                    <div><code>.split()</code> - split into list</div>
+                    <div><code>.replace()</code> - replace text</div>
+                    <div><code>.find()</code> - find position</div>
+                    <div><code>.startswith()</code> - starts with text</div>
+                  </div>
+                </div>
+
+                <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                  <h4 class="font-semibold text-green-800 mb-2">List Methods</h4>
+                  <div class="text-xs space-y-1 text-green-700 font-mono">
+                    <div><code>.append()</code> - add to end</div>
+                    <div><code>.insert()</code> - add at position</div>
+                    <div><code>.remove()</code> - remove by value</div>
+                    <div><code>.pop()</code> - remove by index</div>
+                    <div><code>.sort()</code> - sort in place</div>
+                    <div><code>.index()</code> - find position</div>
+                    <div><code>.count()</code> - count items</div>
+                  </div>
+                </div>
+
+                <div class="bg-orange-50 p-4 rounded-lg border border-orange-200">
+                  <h4 class="font-semibold text-orange-800 mb-2">Built-in Functions</h4>
+                  <div class="text-xs space-y-1 text-orange-700 font-mono">
+                    <div><code>len()</code> - get length</div>
+                    <div><code>sum()</code> - add numbers</div>
+                    <div><code>max()</code> - find largest</div>
+                    <div><code>min()</code> - find smallest</div>
+                    <div><code>round()</code> - round number</div>
+                    <div><code>abs()</code> - absolute value</div>
+                    <div><code>sorted()</code> - return sorted copy</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- NESA Exam Context -->
+            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-amber-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                  <p class="font-semibold text-amber-900 mb-1">NESA Exam Focus</p>
+                  <p class="text-amber-800 text-sm">These methods frequently appear in Question 18 coding problems. Practice string manipulation with <code>.upper()</code>, <code>.lower()</code>, <code>.strip()</code>, and <code>.split()</code>. Know list methods like <code>.append()</code>, <code>.remove()</code>, and <code>.sort()</code>. Use built-in functions <code>sum()</code>, <code>max()</code>, <code>min()</code>, and <code>len()</code> for data processing. Master input validation and type conversion for robust programs.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

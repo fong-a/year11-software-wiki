@@ -1,0 +1,393 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProgrammingFundamentalsNav from '../../../components/ProgrammingFundamentalsNav';
+import Tooltip from '../../../components/Tooltip';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Python Data Types - Programming Fundamentals" description="Essential Python data types: lists, dictionaries, and objects with practical methods and examples">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Python Data Types</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <ProgrammingFundamentalsNav 
+              client:load 
+              currentPage="/topics/programming-fundamentals/python-data-types"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Python Data Types</h1>
+            
+            <div class="mb-8 p-6 bg-gradient-to-r from-blue-50 to-green-50 rounded-xl border border-blue-200">
+              <p class="text-blue-900 text-lg leading-relaxed">
+                <strong>Python data types</strong> are the building blocks of your programs. From simple numbers and text to complex collections like lists and dictionaries, understanding data types is essential for effective programming.
+              </p>
+            </div>
+
+            <!-- Basic Python Data Types -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Basic Data Types</h2>
+              
+              <div class="bg-yellow-50 p-6 rounded-lg border border-yellow-200 mb-6">
+                <h3 class="text-lg font-semibold text-yellow-800 mb-4">Fundamental Python Data Types</h3>
+                <p class="text-yellow-700 text-sm mb-4">
+                  Before working with complex data structures, it's important to understand Python's basic data types that store single values.
+                </p>
+              </div>
+
+              <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                  <h4 class="font-medium text-gray-800 mb-3">Numeric Types</h4>
+                  <pre class="text-sm font-mono bg-gray-900 text-white p-3 rounded mb-2"><code># Integer (whole numbers)
+age = 16
+score = -5
+year = 2024
+
+# Float (decimal numbers)  
+height = 1.75
+temperature = -2.5
+pi = 3.14159</code></pre>
+                </div>
+
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                  <h4 class="font-medium text-gray-800 mb-3">Text and Boolean Types</h4>
+                  <pre class="text-sm font-mono bg-gray-900 text-white p-3 rounded mb-2"><code># String (text)
+name = "Alice"
+message = 'Hello World'
+email = "student@school.edu"
+
+# Boolean (True/False)
+is_student = True
+passed_exam = False
+is_raining = True</code></pre>
+                </div>
+              </div>
+
+              <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <h4 class="font-medium text-gray-800 mb-3">Checking Data Types</h4>
+                <pre class="text-sm font-mono bg-gray-900 text-white p-3 rounded"><code># Use type() to check what data type a variable holds
+print(type(16))        # &lt;class 'int'&gt;
+print(type(3.14))      # &lt;class 'float'&gt;  
+print(type("Hello"))   # &lt;class 'str'&gt;
+print(type(True))      # &lt;class 'bool'&gt;</code></pre>
+              </div>
+            </div>
+
+            <!-- Data Structures vs Data Types -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Data Structures: Collections of Data</h2>
+              
+              <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-200 mb-6">
+                <h3 class="text-lg font-semibold text-indigo-800 mb-4">Data Types vs Data Structures</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 class="font-medium text-indigo-700 mb-2">📦 Data Types (Single Values)</h4>
+                    <ul class="text-sm text-indigo-600 space-y-1">
+                      <li><strong>int:</strong> Single whole number (16)</li>
+                      <li><strong>float:</strong> Single decimal number (3.14)</li>
+                      <li><strong>str:</strong> Single text value ("Hello")</li>
+                      <li><strong>bool:</strong> Single True/False value</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-indigo-700 mb-2">📚 Data Structures (Collections)</h4>
+                    <ul class="text-sm text-indigo-600 space-y-1">
+                      <li><strong>list:</strong> Ordered collection [1, 2, 3]</li>
+                      <li><strong>dict:</strong> Key-value pairs &#123;"name": "Alice"&#125;</li>
+                      <li><strong>tuple:</strong> Fixed collection (1, 2, 3)</li>
+                      <li><strong>set:</strong> Unique values &#123;1, 2, 3&#125;</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Python Lists -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Lists - Ordered Collections</h2>
+              
+              <div class="bg-blue-50 p-6 rounded-lg border border-blue-200 mb-6">
+                <h3 class="text-lg font-semibold text-blue-800 mb-4">What are Lists?</h3>
+                <p class="text-blue-700 text-sm mb-4">
+                  Lists store multiple items in order. You can add, remove, and access items by their position (index).
+                </p>
+                
+                <div class="bg-white p-4 rounded border border-blue-300">
+                  <h4 class="font-medium text-blue-800 mb-2">Creating and Using Lists:</h4>
+                  <pre class="text-sm font-mono bg-gray-900 text-white p-3 rounded"><code># Create a list
+grades = [85, 92, 78, 96, 81]
+names = ["Alice", "Bob", "Carol", "David"]
+mixed = [1, "hello", 3.14, True]
+
+# Access items by index
+print(grades[0])        # 85 (first item)
+print(grades[-1])       # 81 (last item)
+print(names[1:3])       # ["Bob", "Carol"] (slice)</code></pre>
+                </div>
+              </div>
+
+              <!-- List Methods -->
+              <div class="mb-6">
+                <h3 class="text-lg font-semibold text-blue-800 mb-4">Essential List Methods</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                  
+                  <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h4 class="font-medium text-gray-800 mb-3">Adding Items</h4>
+                    <pre class="text-sm font-mono bg-gray-900 text-white p-3 rounded mb-2"><code>grades = [85, 92, 78]
+
+# Add to end
+grades.append(96)           # [85, 92, 78, 96]
+
+# Insert at position
+grades.insert(1, 88)        # [85, 88, 92, 78, 96]
+
+# Add multiple items
+grades.extend([75, 82])     # [85, 88, 92, 78, 96, 75, 82]</code></pre>
+                  </div>
+
+                  <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h4 class="font-medium text-gray-800 mb-3">Removing Items</h4>
+                    <pre class="text-sm font-mono bg-gray-900 text-white p-3 rounded mb-2"><code>grades = [85, 92, 78, 96, 81]
+
+# Remove by value
+grades.remove(78)           # [85, 92, 96, 81]
+
+# Remove by index
+grade = grades.pop(0)       # grade = 85, list = [92, 96, 81]
+
+# Remove last item
+last = grades.pop()         # last = 81, list = [92, 96]</code></pre>
+                  </div>
+
+                  <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h4 class="font-medium text-gray-800 mb-3">Finding and Sorting</h4>
+                    <pre class="text-sm font-mono bg-gray-900 text-white p-3 rounded mb-2"><code>names = ["Alice", "Bob", "Carol", "Alice"]
+
+# Find items
+index = names.index("Bob")  # 1
+count = names.count("Alice") # 2
+
+# Sort list
+grades = [85, 92, 78, 96]
+grades.sort()               # [78, 85, 92, 96]
+grades.sort(reverse=True)   # [96, 92, 85, 78]</code></pre>
+                  </div>
+
+                  <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h4 class="font-medium text-gray-800 mb-3">Other Useful Methods</h4>
+                    <pre class="text-sm font-mono bg-gray-900 text-white p-3 rounded mb-2"><code>grades = [85, 92, 78]
+
+# Length and membership
+length = len(grades)        # 3
+has_90 = 90 in grades      # False
+
+# Copy and clear
+backup = grades.copy()      # [85, 92, 78]
+grades.clear()             # []</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Python Dictionaries -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Dictionaries - Key-Value Pairs</h2>
+              
+              <div class="bg-green-50 p-6 rounded-lg border border-green-200 mb-6">
+                <h3 class="text-lg font-semibold text-green-800 mb-4">What are Dictionaries?</h3>
+                <p class="text-green-700 text-sm mb-4">
+                  Dictionaries store data as key-value pairs. Perfect for associating related information and fast lookups.
+                </p>
+                
+                <div class="bg-white p-4 rounded border border-green-300">
+                  <h4 class="font-medium text-green-800 mb-2">Creating and Using Dictionaries:</h4>
+                  <pre class="text-sm font-mono bg-gray-900 text-white p-3 rounded"><code># Create dictionaries
+student = &#123;"name": "Alice", "age": 16, "grade": "A"&#125;
+grades = &#123;"math": 85, "english": 92, "science": 78&#125;
+
+# Access values
+print(student["name"])      # "Alice"
+print(grades["math"])       # 85
+print(student.get("email")) # None (key doesn't exist)</code></pre>
+                </div>
+              </div>
+
+              <!-- Dictionary Methods -->
+              <div class="mb-6">
+                <h3 class="text-lg font-semibold text-green-800 mb-4">Essential Dictionary Methods</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                  
+                  <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h4 class="font-medium text-gray-800 mb-3">Adding and Updating</h4>
+                    <pre class="text-sm font-mono bg-gray-900 text-white p-3 rounded mb-2"><code>student = &#123;"name": "Alice", "age": 16&#125;
+
+# Add new key-value pair
+student["grade"] = "A"
+
+# Update existing value
+student["age"] = 17
+
+# Update multiple values
+student.update(&#123;"grade": "A+", "email": "alice@school.edu"&#125;)
+
+# Set default if key doesn't exist
+student.setdefault("phone", "unknown")</code></pre>
+                  </div>
+
+                  <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h4 class="font-medium text-gray-800 mb-3">Accessing Keys and Values</h4>
+                    <pre class="text-sm font-mono bg-gray-900 text-white p-3 rounded mb-2"><code>grades = &#123;"math": 85, "english": 92, "science": 78&#125;
+
+# Get all keys
+subjects = list(grades.keys())     # ["math", "english", "science"]
+
+# Get all values  
+scores = list(grades.values())     # [85, 92, 78]
+
+# Get key-value pairs
+items = list(grades.items())       # [("math", 85), ...]</code></pre>
+                  </div>
+
+                  <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h4 class="font-medium text-gray-800 mb-3">Removing Items</h4>
+                    <pre class="text-sm font-mono bg-gray-900 text-white p-3 rounded mb-2"><code>student = &#123;"name": "Alice", "age": 16, "grade": "A"&#125;
+
+# Remove specific key
+del student["age"]
+
+# Remove and return value
+grade = student.pop("grade")        # grade = "A"
+
+# Remove last item (Python 3.7+)
+item = student.popitem()            # ("name", "Alice")
+
+# Clear all items
+student.clear()                     # &#123;&#125;</code></pre>
+                  </div>
+
+                  <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h4 class="font-medium text-gray-800 mb-3">Checking and Copying</h4>
+                    <pre class="text-sm font-mono bg-gray-900 text-white p-3 rounded mb-2"><code>student = &#123;"name": "Alice", "age": 16&#125;
+
+# Check if key exists
+has_name = "name" in student       # True
+has_email = "email" in student     # False
+
+# Get value safely
+age = student.get("age", 0)        # 16
+email = student.get("email", "")   # ""
+
+# Copy dictionary
+backup = student.copy()</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Python Objects (Classes) -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Objects - Custom Data Types</h2>
+              
+              <div class="bg-purple-50 p-6 rounded-lg border border-purple-200 mb-6">
+                <h3 class="text-lg font-semibold text-purple-800 mb-4">What are Objects?</h3>
+                <p class="text-purple-700 text-sm mb-4">
+                  Objects let you create custom data types with their own properties and methods. Perfect for modeling real-world entities.
+                </p>
+                
+                <div class="bg-white p-4 rounded border border-purple-300">
+                  <h4 class="font-medium text-purple-800 mb-2">Creating Simple Objects:</h4>
+                  <pre class="text-sm font-mono bg-gray-900 text-white p-3 rounded"><code>class Student:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        self.grades = []
+    
+    def add_grade(self, grade):
+        self.grades.append(grade)
+    
+    def get_average(self):
+        if len(self.grades) == 0:
+            return 0
+        return sum(self.grades) / len(self.grades)
+
+# Create and use objects
+alice = Student("Alice", 16)
+alice.add_grade(85)
+alice.add_grade(92)
+print(f"Average: &#123;alice.get_average()&#125;")  # Average: 88.5</code></pre>
+                </div>
+              </div>
+
+              <div class="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
+                <h3 class="text-lg font-semibold text-yellow-800 mb-4">When to Use Each Data Type</h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                  <div class="bg-white p-3 rounded border">
+                    <h4 class="font-medium text-blue-800 mb-2">Use Lists when:</h4>
+                    <ul class="text-sm space-y-1 text-blue-700">
+                      <li>Items are in order</li>
+                      <li>You need to access by position</li>
+                      <li>Items can be duplicates</li>
+                      <li><strong>Example:</strong> grades, shopping list</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="bg-white p-3 rounded border">
+                    <h4 class="font-medium text-green-800 mb-2">Use Dictionaries when:</h4>
+                    <ul class="text-sm space-y-1 text-green-700">
+                      <li>You need fast lookups by name</li>
+                      <li>Data has relationships</li>
+                      <li>Keys are unique</li>
+                      <li><strong>Example:</strong> student info, settings</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="bg-white p-3 rounded border">
+                    <h4 class="font-medium text-purple-800 mb-2">Use Objects when:</h4>
+                    <ul class="text-sm space-y-1 text-purple-700">
+                      <li>Data has complex behavior</li>
+                      <li>You need custom methods</li>
+                      <li>Modeling real entities</li>
+                      <li><strong>Example:</strong> Student, Car, Game</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- NESA Exam Context -->
+            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-amber-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                  <p class="font-semibold text-amber-900 mb-1">NESA Exam Focus</p>
+                  <p class="text-amber-800 text-sm">Master list methods like <code>.append()</code>, <code>.remove()</code>, <code>.pop()</code>, and <code>.sort()</code>. Know dictionary operations: <code>.get()</code>, <code>.keys()</code>, <code>.values()</code>, and <code>.items()</code>. For objects, understand <code>__init__</code> constructors and basic method definitions. Practice accessing data with bracket notation and dot notation.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

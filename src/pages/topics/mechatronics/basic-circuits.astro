@@ -1,0 +1,762 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import MechatronicsNav from '../../../components/MechatronicsNav';
+import SearchComponent from '../../../components/SearchComponent';
+import FlipCard from '../../../components/FlipCard.astro';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Basic Circuits - Mechatronics" description="Learn about basic electrical circuits and component symbols used in mechatronic systems">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center justify-between">
+        <nav>
+          <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+          <span class="text-sm text-gray-400 mx-2">></span>
+          <a href="/topics/mechatronics" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mechatronics Systems</a>
+          <span class="text-sm text-gray-400 mx-2">></span>
+          <span class="text-sm text-gray-900 font-medium">Basic Circuits</span>
+        </nav>
+        <div class="ml-4">
+          <SearchComponent client:load className="w-80" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 overflow-y-auto" style="max-height: calc(100vh - 6rem);">
+            <MechatronicsNav 
+              client:load 
+              currentPage="/topics/mechatronics/basic-circuits"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Basic Circuit Components</h1>
+            
+            <div class="mb-8 p-6 bg-yellow-50 rounded-lg border-l-4 border-yellow-500">
+              <p class="text-yellow-900 text-lg">
+                Understanding <strong>basic electrical circuits</strong> is essential for mechatronics. These circuits provide power and control signals to sensors, processors, and actuators.
+              </p>
+            </div>
+
+            <!-- What Are Circuits? -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">What Are Electrical Circuits?</h2>
+              
+              <div class="bg-blue-50 p-6 rounded-lg border border-blue-200 mb-6">
+                <h3 class="text-lg font-semibold text-blue-800 mb-3">Simple Definition</h3>
+                <p class="text-blue-700 mb-2">
+                  An electrical circuit is a closed path that allows electrical current to flow from a power source, through components, and back to the source.
+                </p>
+                <p class="text-blue-700">
+                  <strong>Think of circuits like:</strong> A highway system for electricity - it needs a complete path to flow.
+                </p>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg border border-gray-200">
+                <h4 class="font-semibold text-gray-800 mb-2">Circuit Requirements:</h4>
+                <div class="text-sm text-gray-600 space-y-1">
+                  <p>1. <strong>Power Source:</strong> Battery or wall outlet (provides electrical energy)</p>
+                  <p>2. <strong>Load:</strong> Component that uses electricity (LED, motor, sensor)</p>
+                  <p>3. <strong>Conductors:</strong> Wires that carry electricity</p>
+                  <p>4. <strong>Complete Path:</strong> Electricity must be able to flow in a loop</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Essential Components -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Essential Circuit Components</h2>
+              
+              <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <!-- Battery -->
+                <div class="bg-red-50 p-6 rounded-lg border border-red-200">
+                  <div class="flex items-center mb-3">
+                    <div class="text-2xl mr-3">🔋</div>
+                    <h3 class="text-lg font-semibold text-red-800">Battery (Power Source)</h3>
+                  </div>
+                  <p class="text-red-700 mb-3"><strong>Purpose:</strong> Provides electrical energy to power the circuit</p>
+                  
+                  <!-- Circuit Symbol -->
+                  <div class="bg-white p-3 rounded border mb-3">
+                    <p class="text-xs font-semibold text-red-800 mb-2">Circuit Symbol:</p>
+                    <div class="flex items-center space-x-2">
+                      <div class="flex items-center">
+                        <div class="w-1 h-8 bg-red-600"></div>
+                        <div class="w-1 h-4 bg-red-400 ml-1"></div>
+                        <span class="text-xs text-red-600 ml-2">+ -</span>
+                      </div>
+                      <p class="text-xs text-red-600">Long line = positive (+), Short line = negative (-)</p>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-white p-3 rounded border">
+                    <p class="text-xs font-semibold text-red-800 mb-1">Real Examples:</p>
+                    <ul class="text-xs text-red-600 space-y-1">
+                      <li>• AA batteries in remote control</li>
+                      <li>• Car battery (12V)</li>
+                      <li>• Laptop battery</li>
+                      <li>• Phone wall charger (power supply)</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <!-- LED -->
+                <div class="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
+                  <div class="flex items-center mb-3">
+                    <div class="text-2xl mr-3">💡</div>
+                    <h3 class="text-lg font-semibold text-yellow-800">LED (Light Output)</h3>
+                  </div>
+                  <p class="text-yellow-700 mb-3"><strong>Purpose:</strong> Converts electrical energy into light</p>
+                  
+                  <!-- Circuit Symbol -->
+                  <div class="bg-white p-3 rounded border mb-3">
+                    <p class="text-xs font-semibold text-yellow-800 mb-2">Circuit Symbol:</p>
+                    <div class="flex items-center space-x-2">
+                      <div class="relative">
+                        <div class="w-0 h-0 border-l-4 border-l-yellow-600 border-t-4 border-t-transparent border-b-4 border-b-transparent"></div>
+                        <div class="absolute -top-1 left-4 text-xs text-yellow-600">→ →</div>
+                      </div>
+                      <p class="text-xs text-yellow-600 ml-6">Triangle with arrows = light emission</p>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-white p-3 rounded border">
+                    <p class="text-xs font-semibold text-yellow-800 mb-1">Real Examples:</p>
+                    <ul class="text-xs text-yellow-600 space-y-1">
+                      <li>• Status indicator lights</li>
+                      <li>• Arduino built-in LED</li>
+                      <li>• Traffic light bulbs</li>
+                      <li>• TV power indicators</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <!-- Resistor -->
+                <div class="bg-purple-50 p-6 rounded-lg border border-purple-200">
+                  <div class="flex items-center mb-3">
+                    <div class="text-2xl mr-3">⚡</div>
+                    <h3 class="text-lg font-semibold text-purple-800">Resistor (Current Control)</h3>
+                  </div>
+                  <p class="text-purple-700 mb-3"><strong>Purpose:</strong> Limits electrical current to protect components</p>
+                  
+                  <!-- Circuit Symbol -->
+                  <div class="bg-white p-3 rounded border mb-3">
+                    <p class="text-xs font-semibold text-purple-800 mb-2">Circuit Symbol:</p>
+                    <div class="flex items-center space-x-2">
+                      <div class="flex items-center">
+                        <div class="w-8 h-1 bg-purple-600"></div>
+                        <div class="w-8 h-3 bg-purple-600 border border-purple-800" style="clip-path: polygon(0 0, 20% 50%, 40% 0, 60% 50%, 80% 0, 100% 50%, 80% 100%, 60% 50%, 40% 100%, 20% 50%, 0 100%)"></div>
+                        <div class="w-8 h-1 bg-purple-600"></div>
+                      </div>
+                      <p class="text-xs text-purple-600">Zigzag pattern</p>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-white p-3 rounded border">
+                    <p class="text-xs font-semibold text-purple-800 mb-1">Why We Need Resistors:</p>
+                    <ul class="text-xs text-purple-600 space-y-1">
+                      <li>• Prevent LEDs from burning out</li>
+                      <li>• Control motor speeds</li>
+                      <li>• Set sensor sensitivity</li>
+                      <li>• Protect microcontroller pins</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <!-- Switch -->
+                <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+                  <div class="flex items-center mb-3">
+                    <div class="text-2xl mr-3">🔘</div>
+                    <h3 class="text-lg font-semibold text-green-800">Switch (Control)</h3>
+                  </div>
+                  <p class="text-green-700 mb-3"><strong>Purpose:</strong> Opens or closes circuit to control current flow</p>
+                  
+                  <!-- Circuit Symbol -->
+                  <div class="bg-white p-3 rounded border mb-3">
+                    <p class="text-xs font-semibold text-green-800 mb-2">Circuit Symbol:</p>
+                    <div class="flex items-center space-x-4">
+                      <div class="flex items-center">
+                        <div class="w-4 h-1 bg-green-600"></div>
+                        <div class="w-4 h-1 bg-green-400 transform rotate-12"></div>
+                        <div class="w-4 h-1 bg-green-600"></div>
+                      </div>
+                      <p class="text-xs text-green-600">Open switch (off)</p>
+                    </div>
+                    <div class="flex items-center space-x-4 mt-2">
+                      <div class="flex items-center">
+                        <div class="w-4 h-1 bg-green-600"></div>
+                        <div class="w-4 h-1 bg-green-600"></div>
+                        <div class="w-4 h-1 bg-green-600"></div>
+                      </div>
+                      <p class="text-xs text-green-600">Closed switch (on)</p>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-white p-3 rounded border">
+                    <p class="text-xs font-semibold text-green-800 mb-1">Real Examples:</p>
+                    <ul class="text-xs text-green-600 space-y-1">
+                      <li>• Light switches in your room</li>
+                      <li>• Push buttons on devices</li>
+                      <li>• Emergency stop buttons</li>
+                      <li>• Keyboard keys</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Simple Circuit Examples -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Simple Circuit Examples</h2>
+              
+              <FlipCard frontTitle="Basic LED Circuit" id="led-circuit">
+                <div slot="front">
+                  <p><strong>Challenge:</strong> Create a simple circuit to light up an LED with a battery.</p>
+                  <p>What components do you need and how do you connect them?</p>
+                  <p><strong>Click to see the circuit diagram →</strong></p>
+                </div>
+                <div slot="back">
+                  <p><strong>Required Components:</strong></p>
+                  <ul class="text-sm space-y-1 mb-4">
+                    <li>• 9V battery (power source)</li>
+                    <li>• LED (light output)</li>
+                    <li>• 470Ω resistor (current limiter)</li>
+                    <li>• Connecting wires</li>
+                  </ul>
+                  
+                  <p class="text-sm mb-2"><strong>Connection:</strong></p>
+                  <div class="text-xs bg-gray-100 p-3 rounded font-mono">
+                    Battery (+) → Resistor → LED (+) → LED (-) → Battery (-)
+                  </div>
+                  
+                  <p class="text-sm mt-3"><strong>Why the resistor?</strong> Without it, too much current flows and burns out the LED!</p>
+                </div>
+              </FlipCard>
+
+              <div class="mt-6">
+                <FlipCard frontTitle="Switch-Controlled LED" id="switch-led">
+                  <div slot="front">
+                    <p><strong>Upgrade:</strong> Add a switch to turn the LED on and off.</p>
+                    <p>Where does the switch go in the circuit?</p>
+                    <p><strong>Click to see the improved circuit →</strong></p>
+                  </div>
+                  <div slot="back">
+                    <p><strong>Enhanced Circuit:</strong></p>
+                    <div class="text-xs bg-gray-100 p-3 rounded font-mono mb-3">
+                      Battery (+) → Switch → Resistor → LED (+) → LED (-) → Battery (-)
+                    </div>
+                    
+                    <p class="text-sm mb-2"><strong>How it works:</strong></p>
+                    <ul class="text-xs space-y-1 mb-3">
+                      <li>• Switch CLOSED: Current flows, LED lights up</li>
+                      <li>• Switch OPEN: No current flows, LED stays off</li>
+                    </ul>
+                    
+                    <p class="text-sm"><strong>Real Application:</strong> This is how a flashlight works - battery, switch, bulb!</p>
+                  </div>
+                </FlipCard>
+              </div>
+            </div>
+
+            <!-- Circuit Analysis -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Understanding Circuit Behavior</h2>
+              
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+                  <h3 class="text-lg font-semibold text-green-800 mb-3">✅ Series Circuits</h3>
+                  <p class="text-sm text-green-700 mb-3">Components connected in a single path</p>
+                  <ul class="text-sm text-green-700 space-y-1 mb-3">
+                    <li>• Current is the same through all components</li>
+                    <li>• If one component fails, whole circuit stops</li>
+                    <li>• Voltage divides across components</li>
+                  </ul>
+                  <p class="text-xs text-green-600"><strong>Example:</strong> Christmas lights (old style) - if one bulb breaks, all go out</p>
+                </div>
+                
+                <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                  <h3 class="text-lg font-semibold text-blue-800 mb-3">⚡ Parallel Circuits</h3>
+                  <p class="text-sm text-blue-700 mb-3">Components connected in multiple paths</p>
+                  <ul class="text-sm text-blue-700 space-y-1 mb-3">
+                    <li>• Each component gets full battery voltage</li>
+                    <li>• Components can work independently</li>
+                    <li>• Current divides between paths</li>
+                  </ul>
+                  <p class="text-xs text-blue-600"><strong>Example:</strong> House lights - each room switch works independently</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Safety Guidelines -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Circuit Safety</h2>
+              
+              <div class="bg-red-50 p-6 rounded-lg border border-red-200">
+                <h3 class="text-lg font-semibold text-red-800 mb-3">⚠️ Important Safety Rules</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 class="font-semibold text-red-800 mb-2">Before Building:</h4>
+                    <ul class="text-sm text-red-700 space-y-1">
+                      <li>• Always turn off power before making connections</li>
+                      <li>• Check all connections are secure</li>
+                      <li>• Use appropriate voltage ratings</li>
+                      <li>• Never work on live circuits</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-red-800 mb-2">Component Protection:</h4>
+                    <ul class="text-sm text-red-700 space-y-1">
+                      <li>• Always use resistors with LEDs</li>
+                      <li>• Check polarity (+ and -) carefully</li>
+                      <li>• Don't exceed component ratings</li>
+                      <li>• Use fuses for high-power circuits</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Complete Wiring Diagram Symbols -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Standard Wiring Diagram Symbols</h2>
+              
+              <div class="bg-yellow-50 p-6 rounded-lg border border-yellow-200 mb-6">
+                <h3 class="text-lg font-semibold text-yellow-800 mb-3">📋 Official Circuit Symbols Reference</h3>
+                <p class="text-yellow-700 mb-4">Mechatronic systems use standardized symbols to represent components in wiring diagrams. Learn these symbols to read and create circuit diagrams effectively.</p>
+                
+                <!-- Symbols Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                  
+                  <!-- Basic Components -->
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-gray-800 mb-2 text-sm">Capacitor</h4>
+                    <div class="flex items-center justify-center h-12 mb-2">
+                      <svg width="60" height="30" viewBox="0 0 60 30">
+                        <line x1="10" y1="15" x2="25" y2="15" stroke="black" stroke-width="2"/>
+                        <line x1="25" y1="8" x2="25" y2="22" stroke="black" stroke-width="2"/>
+                        <line x1="35" y1="8" x2="35" y2="22" stroke="black" stroke-width="2"/>
+                        <line x1="35" y1="15" x2="50" y2="15" stroke="black" stroke-width="2"/>
+                        <text x="30" y="28" text-anchor="middle" font-size="8">C 10 F</text>
+                      </svg>
+                    </div>
+                    <p class="text-xs text-gray-600">Stores electrical energy</p>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-gray-800 mb-2 text-sm">Diode</h4>
+                    <div class="flex items-center justify-center h-12 mb-2">
+                      <svg width="60" height="30" viewBox="0 0 60 30">
+                        <line x1="10" y1="15" x2="25" y2="15" stroke="black" stroke-width="2"/>
+                        <polygon points="25,10 25,20 35,15" fill="white" stroke="black" stroke-width="2"/>
+                        <line x1="35" y1="10" x2="35" y2="20" stroke="black" stroke-width="2"/>
+                        <line x1="35" y1="15" x2="50" y2="15" stroke="black" stroke-width="2"/>
+                      </svg>
+                    </div>
+                    <p class="text-xs text-gray-600">Allows current in one direction</p>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-gray-800 mb-2 text-sm">Resistor</h4>
+                    <div class="flex items-center justify-center h-12 mb-2">
+                      <svg width="60" height="30" viewBox="0 0 60 30">
+                        <line x1="10" y1="15" x2="20" y2="15" stroke="black" stroke-width="2"/>
+                        <path d="M20,15 L25,10 L30,20 L35,10 L40,20 L45,15" fill="none" stroke="black" stroke-width="2"/>
+                        <line x1="45" y1="15" x2="50" y2="15" stroke="black" stroke-width="2"/>
+                        <text x="32" y="28" text-anchor="middle" font-size="8">R 100 Ω</text>
+                      </svg>
+                    </div>
+                    <p class="text-xs text-gray-600">Limits current flow</p>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-gray-800 mb-2 text-sm">LED</h4>
+                    <div class="flex items-center justify-center h-12 mb-2">
+                      <svg width="60" height="30" viewBox="0 0 60 30">
+                        <line x1="10" y1="15" x2="25" y2="15" stroke="black" stroke-width="2"/>
+                        <polygon points="25,10 25,20 35,15" fill="white" stroke="black" stroke-width="2"/>
+                        <line x1="35" y1="10" x2="35" y2="20" stroke="black" stroke-width="2"/>
+                        <line x1="35" y1="15" x2="50" y2="15" stroke="black" stroke-width="2"/>
+                        <line x1="30" y1="8" x2="35" y2="5" stroke="black" stroke-width="1"/>
+                        <line x1="32" y1="6" x2="37" y2="3" stroke="black" stroke-width="1"/>
+                        <polygon points="35,5 33,4 34,6" fill="black"/>
+                        <polygon points="37,3 35,2 36,4" fill="black"/>
+                      </svg>
+                    </div>
+                    <p class="text-xs text-gray-600">Light emitting diode</p>
+                  </div>
+                  
+                  <!-- Output Components -->
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-gray-800 mb-2 text-sm">Lightbulb</h4>
+                    <div class="flex items-center justify-center h-12 mb-2">
+                      <svg width="60" height="30" viewBox="0 0 60 30">
+                        <line x1="10" y1="15" x2="20" y2="15" stroke="black" stroke-width="2"/>
+                        <circle cx="30" cy="15" r="8" fill="white" stroke="black" stroke-width="2"/>
+                        <line x1="25" y1="10" x2="35" y2="20" stroke="black" stroke-width="1"/>
+                        <line x1="25" y1="20" x2="35" y2="10" stroke="black" stroke-width="1"/>
+                        <line x1="38" y1="15" x2="50" y2="15" stroke="black" stroke-width="2"/>
+                      </svg>
+                    </div>
+                    <p class="text-xs text-gray-600">Incandescent light source</p>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-gray-800 mb-2 text-sm">Motor</h4>
+                    <div class="flex items-center justify-center h-12 mb-2">
+                      <svg width="60" height="30" viewBox="0 0 60 30">
+                        <line x1="10" y1="15" x2="18" y2="15" stroke="black" stroke-width="2"/>
+                        <circle cx="30" cy="15" r="8" fill="white" stroke="black" stroke-width="2"/>
+                        <text x="30" y="18" text-anchor="middle" font-size="10" font-weight="bold">M</text>
+                        <line x1="42" y1="15" x2="50" y2="15" stroke="black" stroke-width="2"/>
+                      </svg>
+                    </div>
+                    <p class="text-xs text-gray-600">Electric motor</p>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-gray-800 mb-2 text-sm">Speaker</h4>
+                    <div class="flex items-center justify-center h-12 mb-2">
+                      <svg width="60" height="30" viewBox="0 0 60 30">
+                        <line x1="10" y1="15" x2="20" y2="15" stroke="black" stroke-width="2"/>
+                        <polygon points="20,12 20,18 25,20 35,20 35,10 25,10" fill="white" stroke="black" stroke-width="2"/>
+                        <line x1="37" y1="8" x2="37" y2="22" stroke="black" stroke-width="1"/>
+                        <line x1="40" y1="6" x2="40" y2="24" stroke="black" stroke-width="1"/>
+                      </svg>
+                    </div>
+                    <p class="text-xs text-gray-600">Audio output device</p>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-gray-800 mb-2 text-sm">Amplifier</h4>
+                    <div class="flex items-center justify-center h-12 mb-2">
+                      <svg width="60" height="30" viewBox="0 0 60 30">
+                        <line x1="10" y1="15" x2="20" y2="15" stroke="black" stroke-width="2"/>
+                        <polygon points="20,10 20,20 40,15" fill="white" stroke="black" stroke-width="2"/>
+                        <line x1="40" y1="15" x2="50" y2="15" stroke="black" stroke-width="2"/>
+                        <text x="30" y="27" text-anchor="middle" font-size="8">Amplifier</text>
+                      </svg>
+                    </div>
+                    <p class="text-xs text-gray-600">Signal amplifier</p>
+                  </div>
+                  
+                  <!-- Switches -->
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-gray-800 mb-2 text-sm">2-way Switch</h4>
+                    <div class="flex items-center justify-center h-12 mb-2">
+                      <svg width="60" height="30" viewBox="0 0 60 30">
+                        <line x1="10" y1="15" x2="20" y2="15" stroke="black" stroke-width="2"/>
+                        <circle cx="20" cy="15" r="2" fill="black"/>
+                        <line x1="20" y1="15" x2="35" y2="10" stroke="black" stroke-width="2"/>
+                        <circle cx="35" cy="10" r="2" fill="white" stroke="black" stroke-width="2"/>
+                        <circle cx="35" cy="20" r="2" fill="white" stroke="black" stroke-width="2"/>
+                        <line x1="37" y1="10" x2="50" y2="10" stroke="black" stroke-width="2"/>
+                        <line x1="37" y1="20" x2="50" y2="20" stroke="black" stroke-width="2"/>
+                      </svg>
+                    </div>
+                    <p class="text-xs text-gray-600">Selects between two paths</p>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-gray-800 mb-2 text-sm">On/off Switch</h4>
+                    <div class="flex items-center justify-center h-12 mb-2">
+                      <svg width="60" height="30" viewBox="0 0 60 30">
+                        <line x1="10" y1="15" x2="20" y2="15" stroke="black" stroke-width="2"/>
+                        <circle cx="20" cy="15" r="2" fill="black"/>
+                        <line x1="22" y1="15" x2="35" y2="8" stroke="black" stroke-width="2"/>
+                        <circle cx="40" cy="15" r="2" fill="white" stroke="black" stroke-width="2"/>
+                        <line x1="42" y1="15" x2="50" y2="15" stroke="black" stroke-width="2"/>
+                      </svg>
+                    </div>
+                    <p class="text-xs text-gray-600">Simple on/off control</p>
+                  </div>
+                  
+                  <!-- Advanced Components -->
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-gray-800 mb-2 text-sm">Integrated Circuit</h4>
+                    <div class="flex items-center justify-center h-12 mb-2">
+                      <svg width="60" height="30" viewBox="0 0 60 30">
+                        <rect x="20" y="8" width="20" height="14" fill="white" stroke="black" stroke-width="2"/>
+                        <text x="30" y="13" text-anchor="middle" font-size="6">IC 1000</text>
+                        <line x1="18" y1="10" x2="20" y2="10" stroke="black" stroke-width="1"/>
+                        <line x1="18" y1="15" x2="20" y2="15" stroke="black" stroke-width="1"/>
+                        <line x1="18" y1="20" x2="20" y2="20" stroke="black" stroke-width="1"/>
+                        <line x1="40" y1="10" x2="42" y2="10" stroke="black" stroke-width="1"/>
+                        <line x1="40" y1="15" x2="42" y2="15" stroke="black" stroke-width="1"/>
+                        <line x1="40" y1="20" x2="42" y2="20" stroke="black" stroke-width="1"/>
+                        <text x="14" y="11" text-anchor="middle" font-size="6">1</text>
+                        <text x="14" y="16" text-anchor="middle" font-size="6">2</text>
+                        <text x="14" y="21" text-anchor="middle" font-size="6">3</text>
+                        <text x="46" y="11" text-anchor="middle" font-size="6">6</text>
+                        <text x="46" y="16" text-anchor="middle" font-size="6">5</text>
+                        <text x="46" y="21" text-anchor="middle" font-size="6">4</text>
+                      </svg>
+                    </div>
+                    <p class="text-xs text-gray-600">Complex electronic component</p>
+                  </div>
+                  
+                  <!-- Power Sources -->
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-gray-800 mb-2 text-sm">Voltage Source</h4>
+                    <div class="flex items-center justify-center h-12 mb-2">
+                      <svg width="60" height="30" viewBox="0 0 60 30">
+                        <line x1="10" y1="15" x2="18" y2="15" stroke="black" stroke-width="2"/>
+                        <circle cx="30" cy="15" r="8" fill="white" stroke="black" stroke-width="2"/>
+                        <text x="30" y="12" text-anchor="middle" font-size="8">+</text>
+                        <text x="30" y="20" text-anchor="middle" font-size="8">-</text>
+                        <text x="30" y="27" text-anchor="middle" font-size="7">10 V</text>
+                        <line x1="38" y1="15" x2="50" y2="15" stroke="black" stroke-width="2"/>
+                      </svg>
+                    </div>
+                    <p class="text-xs text-gray-600">AC voltage source</p>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-gray-800 mb-2 text-sm">DC Voltage Source</h4>
+                    <div class="flex items-center justify-center h-12 mb-2">
+                      <svg width="60" height="30" viewBox="0 0 60 30">
+                        <line x1="10" y1="15" x2="22" y2="15" stroke="black" stroke-width="2"/>
+                        <line x1="22" y1="8" x2="22" y2="22" stroke="black" stroke-width="2"/>
+                        <line x1="28" y1="10" x2="28" y2="20" stroke="black" stroke-width="2"/>
+                        <line x1="28" y1="15" x2="50" y2="15" stroke="black" stroke-width="2"/>
+                        <text x="25" y="27" text-anchor="middle" font-size="7">10 V</text>
+                      </svg>
+                    </div>
+                    <p class="text-xs text-gray-600">DC battery source</p>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-gray-800 mb-2 text-sm">DC Voltage Source</h4>
+                    <div class="flex items-center justify-center h-12 mb-2">
+                      <svg width="60" height="30" viewBox="0 0 60 30">
+                        <line x1="10" y1="15" x2="20" y2="15" stroke="black" stroke-width="2"/>
+                        <line x1="20" y1="10" x2="20" y2="20" stroke="black" stroke-width="2"/>
+                        <line x1="22" y1="10" x2="22" y2="20" stroke="black" stroke-width="2"/>
+                        <line x1="22" y1="15" x2="50" y2="15" stroke="black" stroke-width="2"/>
+                        <text x="21" y="27" text-anchor="middle" font-size="7">10 V</text>
+                      </svg>
+                    </div>
+                    <p class="text-xs text-gray-600">Alternative DC representation</p>
+                  </div>
+                  
+                </div>
+                
+                <div class="mt-6 p-4 bg-white rounded border">
+                  <h4 class="font-semibold text-yellow-800 mb-2">💡 How to Use These Symbols</h4>
+                  <div class="text-sm text-yellow-700 space-y-2">
+                    <p>1. <strong>Reading Diagrams:</strong> Learn these symbols to understand mechatronic system wiring</p>
+                    <p>2. <strong>Creating Diagrams:</strong> Use these standard symbols when designing your own circuits</p>
+                    <p>3. <strong>Exam Preparation:</strong> NESA exams expect you to recognize and use these symbols correctly</p>
+                    <p>4. <strong>Real-World Application:</strong> Professional engineers use these same symbols worldwide</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Circuit Recognition Practice -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Circuit Component Recognition</h2>
+              
+              <div class="grid md:grid-cols-2 gap-6">
+                <!-- Component Symbols Reference -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                  <h3 class="text-lg font-semibold mb-4">Standard Circuit Symbols</h3>
+                  
+                  <div class="space-y-4">
+                    <div class="flex items-center space-x-4 p-3 bg-white rounded border">
+                      <div class="flex-shrink-0">
+                        <svg width="60" height="30" viewBox="0 0 60 30" class="border rounded">
+                          <line x1="10" y1="15" x2="25" y2="15" stroke="black" stroke-width="2"/>
+                          <line x1="25" y1="8" x2="25" y2="22" stroke="black" stroke-width="3"/>
+                          <line x1="35" y1="10" x2="35" y2="20" stroke="black" stroke-width="2"/>
+                          <line x1="35" y1="15" x2="50" y2="15" stroke="black" stroke-width="2"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold">Battery</h4>
+                        <p class="text-sm text-gray-600">Long line = positive (+), Short line = negative (-)</p>
+                      </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4 p-3 bg-white rounded border">
+                      <div class="flex-shrink-0">
+                        <svg width="60" height="30" viewBox="0 0 60 30" class="border rounded">
+                          <path d="M10,15 L20,10 L30,20 L40,10 L50,15" fill="none" stroke="black" stroke-width="2"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold">Resistor</h4>
+                        <p class="text-sm text-gray-600">Zigzag pattern limits current flow</p>
+                      </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4 p-3 bg-white rounded border">
+                      <div class="flex-shrink-0">
+                        <svg width="60" height="30" viewBox="0 0 60 30" class="border rounded">
+                          <polygon points="15,12 15,18 25,15" fill="white" stroke="black" stroke-width="2"/>
+                          <line x1="25" y1="12" x2="25" y2="18" stroke="black" stroke-width="2"/>
+                          <line x1="30" y1="10" x2="35" y2="8" stroke="orange" stroke-width="1"/>
+                          <line x1="30" y1="12" x2="35" y2="10" stroke="orange" stroke-width="1"/>
+                          <line x1="10" y1="15" x2="15" y2="15" stroke="black" stroke-width="2"/>
+                          <line x1="25" y1="15" x2="50" y2="15" stroke="black" stroke-width="2"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold">LED</h4>
+                        <p class="text-sm text-gray-600">Triangle with arrows showing light emission</p>
+                      </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4 p-3 bg-white rounded border">
+                      <div class="flex-shrink-0">
+                        <svg width="60" height="30" viewBox="0 0 60 30" class="border rounded">
+                          <line x1="10" y1="15" x2="25" y2="15" stroke="black" stroke-width="2"/>
+                          <line x1="25" y1="15" x2="35" y2="10" stroke="black" stroke-width="2"/>
+                          <line x1="35" y1="15" x2="50" y2="15" stroke="black" stroke-width="2"/>
+                          <circle cx="25" cy="15" r="2" fill="black"/>
+                          <circle cx="35" cy="15" r="2" fill="black"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 class="font-semibold">Switch (Open)</h4>
+                        <p class="text-sm text-gray-600">Gap prevents current flow when open</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Practice Circuit -->
+                <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                  <h3 class="text-lg font-semibold text-blue-800 mb-4">Practice: Identify Components</h3>
+                  <p class="text-sm text-blue-700 mb-4">Study this circuit and identify each labeled component:</p>
+                  
+                  <div class="bg-white p-4 rounded border mb-4">
+                    <svg width="100%" height="150" viewBox="0 0 300 150" class="max-w-full">
+                      <!-- Wires -->
+                      <line x1="50" y1="75" x2="80" y2="75" stroke="black" stroke-width="2"/>
+                      <line x1="130" y1="75" x2="160" y2="75" stroke="black" stroke-width="2"/>
+                      <line x1="210" y1="75" x2="250" y2="75" stroke="black" stroke-width="2"/>
+                      <line x1="250" y1="75" x2="250" y2="125" stroke="black" stroke-width="2"/>
+                      <line x1="250" y1="125" x2="50" y2="125" stroke="black" stroke-width="2"/>
+                      <line x1="50" y1="125" x2="50" y2="75" stroke="black" stroke-width="2"/>
+                      
+                      <!-- Battery -->
+                      <line x1="80" y1="65" x2="80" y2="85" stroke="black" stroke-width="3"/>
+                      <line x1="90" y1="70" x2="90" y2="80" stroke="black" stroke-width="2"/>
+                      <line x1="90" y1="75" x2="130" y2="75" stroke="black" stroke-width="2"/>
+                      <text x="85" y="55" text-anchor="middle" font-size="12" font-weight="bold" fill="red">X</text>
+                      
+                      <!-- Resistor -->
+                      <path d="M160,75 L170,70 L180,80 L190,70 L200,80 L210,75" fill="none" stroke="black" stroke-width="2"/>
+                      <text x="185" y="55" text-anchor="middle" font-size="12" font-weight="bold" fill="red">Y</text>
+                      
+                      <!-- Switch (closed) -->
+                      <line x1="130" y1="75" x2="145" y2="75" stroke="black" stroke-width="2"/>
+                      <line x1="145" y1="75" x2="160" y2="75" stroke="black" stroke-width="2"/>
+                      <circle cx="145" cy="75" r="2" fill="black"/>
+                      <circle cx="160" cy="75" r="2" fill="black"/>
+                      <text x="152" y="95" text-anchor="middle" font-size="12" font-weight="bold" fill="red">Z</text>
+                      
+                      <!-- Connection points -->
+                      <circle cx="50" cy="75" r="2" fill="black"/>
+                      <circle cx="80" cy="75" r="2" fill="black"/>
+                      <circle cx="90" cy="75" r="2" fill="black"/>
+                      <circle cx="130" cy="75" r="2" fill="black"/>
+                      <circle cx="160" cy="75" r="2" fill="black"/>
+                      <circle cx="210" cy="75" r="2" fill="black"/>
+                      <circle cx="250" cy="75" r="2" fill="black"/>
+                      <circle cx="250" cy="125" r="2" fill="black"/>
+                      <circle cx="50" cy="125" r="2" fill="black"/>
+                    </svg>
+                  </div>
+                  
+                  <div class="text-sm space-y-2">
+                    <div class="flex items-center">
+                      <span class="font-semibold text-red-600 mr-2">X:</span>
+                      <span class="text-blue-700">_________________</span>
+                    </div>
+                    <div class="flex items-center">
+                      <span class="font-semibold text-red-600 mr-2">Y:</span>
+                      <span class="text-blue-700">_________________</span>
+                    </div>
+                    <div class="flex items-center">
+                      <span class="font-semibold text-red-600 mr-2">Z:</span>
+                      <span class="text-blue-700">_________________</span>
+                    </div>
+                  </div>
+                  
+                  <details class="mt-4">
+                    <summary class="cursor-pointer text-sm text-blue-800 font-medium hover:text-blue-900">
+                      📝 Show Answers
+                    </summary>
+                    <div class="mt-2 p-3 bg-white rounded border text-sm">
+                      <p><strong>X:</strong> Battery (9V power source)</p>
+                      <p><strong>Y:</strong> Resistor (current limiting component)</p>
+                      <p><strong>Z:</strong> Switch (closed - allowing current flow)</p>
+                    </div>
+                  </details>
+                </div>
+              </div>
+            </div>
+
+            <!-- Circuit Applications in Mechatronics -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Circuits in Mechatronic Systems</h2>
+              
+              <div class="bg-gray-50 p-6 rounded-lg">
+                <h3 class="text-lg font-semibold mb-4">How Basic Circuits Enable Complex Systems:</h3>
+                <div class="space-y-4">
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-gray-800 mb-2">🤖 Robot Control</h4>
+                    <p class="text-sm text-gray-600 mb-2">Multiple LED circuits show robot status (power, movement, errors)</p>
+                    <p class="text-xs text-gray-500">Resistor-controlled LEDs connected to microcontroller output pins</p>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-gray-800 mb-2">🚗 Automotive Systems</h4>
+                    <p class="text-sm text-gray-600 mb-2">Switch circuits for power windows, lights, and electronic controls</p>
+                    <p class="text-xs text-gray-500">Series of switches and resistors create complex control networks</p>
+                  </div>
+                  
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-semibold text-gray-800 mb-2">🏠 Smart Home</h4>
+                    <p class="text-sm text-gray-600 mb-2">LED status indicators and switch inputs for home automation</p>
+                    <p class="text-xs text-gray-500">Basic circuits scaled up with microcontrollers and wireless communication</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="text-lg font-semibold mb-3">Continue Learning</h3>
+              <p class="text-gray-600 mb-4">Now you understand basic circuits that power mechatronic systems. Explore more advanced topics:</p>
+              <div class="flex flex-wrap gap-2">
+                <a href="/topics/mechatronics/degrees-freedom" class="inline-flex items-center px-3 py-2 bg-orange-100 text-orange-700 rounded-md text-sm hover:bg-orange-200 transition-colors">
+                  Degrees of Freedom
+                </a>
+                <a href="/topics/mechatronics/safety" class="inline-flex items-center px-3 py-2 bg-orange-100 text-orange-700 rounded-md text-sm hover:bg-orange-200 transition-colors">
+                  Safety Benefits
+                </a>
+                <a href="/topics/mechatronics/exam-questions" class="inline-flex items-center px-3 py-2 bg-orange-100 text-orange-700 rounded-md text-sm hover:bg-orange-200 transition-colors">
+                  Test Your Knowledge
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

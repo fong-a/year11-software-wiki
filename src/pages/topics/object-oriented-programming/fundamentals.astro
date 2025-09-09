@@ -1,0 +1,380 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import OOPNav from '../../../components/OOPNav';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="OOP Fundamentals - Object-Oriented Programming" description="Learn the fundamentals of Object-Oriented Programming: classes, objects, constructors, and encapsulation with Python examples">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/object-oriented-programming" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Object-Oriented Programming</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Fundamentals</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <OOPNav 
+              client:load 
+              currentPage="/topics/object-oriented-programming/fundamentals"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">OOP Fundamentals</h1>
+            
+            <div class="mb-8 p-6 bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl border border-purple-200">
+              <p class="text-purple-900 text-lg leading-relaxed">
+                <strong>Object-Oriented Programming</strong> organizes code around objects rather than functions. Think of objects as real-world entities with properties (attributes) and behaviors (methods).
+              </p>
+            </div>
+
+            <!-- Classes vs Objects -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Classes vs Objects</h2>
+              
+              <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                  <h3 class="text-lg font-semibold text-blue-800 mb-4">🏗️ Class = Blueprint</h3>
+                  <p class="text-blue-700 text-sm mb-4">
+                    A class is like a blueprint or template that defines what properties and methods objects of that type will have.
+                  </p>
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-medium text-blue-800 mb-2">Example: BankAccount Class</h4>
+                    <div class="text-sm text-blue-700">
+                      <p>• Properties: account_number, balance, pin</p>
+                      <p>• Methods: deposit(), withdraw(), get_balance()</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+                  <h3 class="text-lg font-semibold text-green-800 mb-4">🎮 Object = Instance</h3>
+                  <p class="text-green-700 text-sm mb-4">
+                    An object is a specific instance created from a class, with actual values for the properties.
+                  </p>
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-medium text-green-800 mb-2">Example: Specific Accounts</h4>
+                    <div class="text-sm text-green-700">
+                      <p>• savings_account: number="12345", balance=1500</p>
+                      <p>• checking_account: number="67890", balance=800</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Creating Your First Class -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Creating Your First Class</h2>
+              
+              <div class="mb-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">Person Example - Starting Simple</h3>
+                
+                <div class="bg-gray-100 rounded-lg p-6 mb-4 border-l-4 border-blue-400">
+                  <pre class="text-gray-800 font-mono text-sm"><code>class Person:
+    def __init__(self, name, age, email):
+        # Constructor - runs when object is created
+        self.name = name           # Person's name
+        self.age = age             # Person's age
+        self.email = email         # Contact email
+        self.is_student = False    # Default status
+    
+    def introduce(self):
+        # Method - behavior of the object
+        return f"Hi, I'm &#123;self.name&#125; and I'm &#123;self.age&#125; years old."
+    
+    def celebrate_birthday(self):
+        # Method that modifies object state
+        self.age += 1
+        return f"Happy birthday! &#123;self.name&#125; is now &#123;self.age&#125; years old."
+    
+    def update_email(self, new_email):
+        # Method to safely update data
+        old_email = self.email
+        self.email = new_email
+        return f"Email updated from &#123;old_email&#125; to &#123;new_email&#125;"
+
+# Creating objects from the class
+person1 = Person("Alice", 25, "alice@example.com")
+person2 = Person("Bob", 30, "bob@example.com")
+
+# Using objects
+print(person1.introduce())        # Hi, I'm Alice and I'm 25 years old.
+print(person1.celebrate_birthday())  # Happy birthday! Alice is now 26 years old.
+print(person2.update_email("bob.smith@example.com"))  # Email updated</code></pre>
+                </div>
+              </div>
+
+              <div class="grid md:grid-cols-3 gap-4">
+                <div class="bg-purple-50 p-4 rounded-lg border border-purple-200">
+                  <h4 class="font-semibold text-purple-800 mb-2">Constructor (__init__)</h4>
+                  <p class="text-sm text-purple-700">Special method that runs when creating an object. Sets up initial values.</p>
+                </div>
+                
+                <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                  <h4 class="font-semibold text-blue-800 mb-2">Attributes</h4>
+                  <p class="text-sm text-blue-700">Variables that store data about the object. Each object has its own copy.</p>
+                </div>
+                
+                <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                  <h4 class="font-semibold text-green-800 mb-2">Methods</h4>
+                  <p class="text-sm text-green-700">Functions that define what the object can do. Always include 'self' parameter.</p>
+                </div>
+              </div>
+              
+              <div class="mt-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">Building on the Example - Different Person Types</h3>
+                
+                <div class="bg-gray-100 rounded-lg p-6 mb-4 border-l-4 border-blue-400">
+                  <pre class="text-gray-800 font-mono text-sm"><code>class Student(Person):
+    def __init__(self, name, age, email, student_id):
+        super().__init__(name, age, email)  # Call parent constructor
+        self.student_id = student_id
+        self.is_student = True
+        self.courses = []  # List of enrolled courses
+    
+    def enroll_in_course(self, course_name):
+        self.courses.append(course_name)
+        return f"&#123;self.name&#125; enrolled in &#123;course_name&#125;"
+
+class Teacher(Person):
+    def __init__(self, name, age, email, subject):
+        super().__init__(name, age, email)
+        self.subject = subject
+        self.students = []  # List of students
+    
+    def teach_class(self):
+        return f"&#123;self.name&#125; is teaching &#123;self.subject&#125;"
+
+# Creating different types of people
+student1 = Student("Emma", 20, "emma@school.edu", "S12345")
+teacher1 = Teacher("Mr. Smith", 35, "smith@school.edu", "Mathematics")
+
+# Each has person methods plus their own
+print(student1.introduce())    # Hi, I'm Emma and I'm 20 years old.
+print(student1.enroll_in_course("Python Programming"))  # Emma enrolled in Python Programming
+print(teacher1.teach_class())  # Mr. Smith is teaching Mathematics</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Encapsulation -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Encapsulation: Data Protection</h2>
+              
+              <div class="bg-yellow-50 p-6 rounded-lg border border-yellow-200 mb-6">
+                <h3 class="text-lg font-semibold text-yellow-800 mb-4">🔒 What is Encapsulation?</h3>
+                <p class="text-yellow-700 mb-4">
+                  Encapsulation means bundling data and methods together and controlling access to them. It's like having private information that only the object can modify.
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-4">
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-medium text-green-700 mb-2">Public: name</h4>
+                    <p class="text-xs text-green-600">Anyone can access and modify</p>
+                  </div>
+                  <div class="bg-white p-4 rounded border">
+                    <h4 class="font-medium text-orange-700 mb-2">Private: _balance</h4>
+                    <p class="text-xs text-orange-600">Should only be used by the class itself (convention)</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-gray-100 rounded-lg p-6 mb-4 border-l-4 border-blue-400">
+                <pre class="text-gray-800 font-mono text-sm"><code>class BankAccount:
+    def __init__(self, account_number, initial_balance=0):
+        self.account_number = account_number      # Public
+        self._balance = initial_balance           # Private (convention)
+        self._pin = "1234"                        # Private (convention)
+    
+    def deposit(self, amount):
+        if amount > 0:
+            self._balance += amount
+            return f"Deposited \$&#123;amount&#125;. Balance: \$&#123;self._balance&#125;"
+        return "Invalid deposit amount"
+    
+    def withdraw(self, amount, pin):
+        if pin != self._pin:
+            return "Invalid PIN"
+        if amount > self._balance:
+            return "Insufficient funds"
+        self._balance -= amount
+        return f"Withdrew \$&#123;amount&#125;. Balance: \$&#123;self._balance&#125;"
+    
+    def get_balance(self):
+        return self._balance
+    
+    def __str__(self):
+        return f"Account &#123;self.account_number&#125;: \$&#123;self._balance&#125;"
+
+# Using the BankAccount
+account = BankAccount("123456", 1000)
+print(account.deposit(500))           # Deposited $500. Balance: $1500
+print(account.withdraw(200, "1234"))   # Withdrew $200. Balance: $1300
+
+# Direct access to public attribute (allowed)
+print(account.account_number)         # 123456
+
+# Trying to access private attribute (not recommended)
+# print(account._pin)  # Works but violates convention</code></pre>
+              </div>
+
+              <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                <h4 class="font-semibold text-blue-800 mb-2">Why Use Encapsulation?</h4>
+                <ul class="text-sm text-blue-700 space-y-1">
+                  <li>• <strong>Data Protection:</strong> Prevent invalid modifications</li>
+                  <li>• <strong>Controlled Access:</strong> Use methods to validate changes</li>
+                  <li>• <strong>Internal Changes:</strong> Modify implementation without breaking code</li>
+                  <li>• <strong>Security:</strong> Hide sensitive information like PINs</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- More Advanced Example -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Book Example</h2>
+              
+              <div class="mb-6">
+                <p class="text-gray-700 mb-4">
+                  Now let's look at a more complex example using books in a library system, building on what we learned:
+                </p>
+                
+                <div class="bg-gray-100 rounded-lg p-6 border-l-4 border-blue-400">
+                  <pre class="text-gray-800 font-mono text-sm"><code>class Book:
+    def __init__(self, title, author, isbn, pages=200):
+        self.title = title
+        self.author = author
+        self.isbn = isbn            # Public attribute
+        self._pages = pages         # Private attribute (convention)
+        self._price = 29.99         # Private attribute (convention)
+        self.available = True
+    
+    def get_info(self):
+        return f"&#123;self.title&#125; by &#123;self.author&#125;"
+    
+    def borrow(self):
+        if self.available:
+            self.available = False
+            return f"&#123;self.title&#125; has been borrowed"
+        return f"&#123;self.title&#125; is not available"
+    
+    def return_book(self):
+        if not self.available:
+            self.available = True
+            return f"&#123;self.title&#125; has been returned"
+        return f"&#123;self.title&#125; was not borrowed"
+    
+    def get_pages(self):
+        # Getter method to access private pages
+        return self._pages
+    
+    def update_price(self, new_price):
+        # Controlled access to private price
+        if new_price > 0:
+            self._price = new_price
+            return f"Price updated to \$&#123;new_price&#125;"
+        return "Invalid price"
+
+# Creating books
+book1 = Book("Python Programming", "John Smith", "978-1234567890", 350)
+book2 = Book("Data Science", "Jane Doe", "978-0987654321", 280)
+
+# Using the objects
+print(book1.get_info())           # Python Programming by John Smith
+print(book1.borrow())             # Python Programming has been borrowed
+print(book2.update_price(24.99))  # Price updated to $24.99
+print(f"Pages: &#123;book2.get_pages()&#125;")  # Pages: 280</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Practice -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Quick Practice Challenge</h2>
+              
+              <div class="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
+                <h3 class="text-lg font-semibold text-indigo-800 mb-4">Create a Student Class</h3>
+                <p class="text-indigo-700 mb-4">Try creating a Student class using what you've learned:</p>
+                
+                <div class="bg-white p-4 rounded border mb-4">
+                  <h4 class="font-semibold mb-2">Requirements:</h4>
+                  <ul class="text-sm space-y-1">
+                    <li>• Attributes: name, student_id, grade</li>
+                    <li>• Methods: study() (increases grade by 5), get_grade()</li>
+                    <li>• Method: is_passing() (returns True if grade >= 50)</li>
+                    <li>• Constructor should set initial grade to 0</li>
+                  </ul>
+                </div>
+                
+                <details class="bg-white p-4 rounded border">
+                  <summary class="font-semibold cursor-pointer">Show Solution</summary>
+                  <div class="mt-4">
+                    <pre class="text-sm bg-gray-100 text-gray-800 p-3 rounded border-l-4 border-blue-400"><code>class Student:
+    def __init__(self, name, student_id):
+        self.name = name
+        self.student_id = student_id
+        self.grade = 0
+    
+    def study(self):
+        self.grade += 5
+        return f"&#123;self.name&#125; studied hard! Grade is now &#123;self.grade&#125;"
+    
+    def get_grade(self):
+        return self.grade
+    
+    def is_passing(self):
+        return self.grade >= 50
+
+# Example usage:
+student1 = Student("Alice", "12345")
+print(student1.study())        # Alice studied hard! Grade is now 5
+print(student1.is_passing())   # False</code></pre>
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <!-- Key Concepts Summary -->
+            <div class="bg-gray-100 p-6 rounded-lg border">
+              <h3 class="text-lg font-semibold text-gray-800 mb-4">Key Concepts Recap</h3>
+              <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h4 class="font-semibold text-gray-700 mb-2">Classes & Objects:</h4>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li>• Class = Blueprint, Object = Instance</li>
+                    <li>• __init__ method creates objects</li>
+                    <li>• self refers to the current instance</li>
+                    <li>• Methods define object behaviors</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-gray-700 mb-2">Encapsulation:</h4>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li>• Public: no underscore prefix</li>
+                    <li>• Private: single underscore (_) prefix</li>
+                    <li>• Use getter methods for private data</li>
+                    <li>• Control access through methods</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

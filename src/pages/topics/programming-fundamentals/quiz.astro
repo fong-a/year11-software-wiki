@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ScenarioQuiz from '../../../components/ScenarioQuiz';
+import '../../../styles/global.css';
+
+// Traditional exam questions with NESA criteria
+const examQuestions = [
+  {
+    scenario: "A software development team is working on a mobile banking application. The project has strict security requirements and regulatory compliance needs.",
+    options: [
+      "Waterfall methodology should be used due to the need for comprehensive documentation and regulatory compliance",
+      "Agile methodology should be used to quickly adapt to changing security requirements", 
+      "Either methodology could work depending on the team's experience"
+    ],
+    correctAnswer: 0,
+    explanation: "Waterfall methodology is most appropriate for banking applications due to strict regulatory requirements, need for comprehensive documentation, security criticality, and stable compliance requirements. The sequential approach ensures thorough planning and testing at each phase.",
+    marks: 4,
+    keywords: ["justify", "evaluate"]
+  },
+  {
+    scenario: "During the testing phase, developers discover that the software crashes when users enter invalid data in a form field.",
+    options: [
+      "This is a syntax error that can be fixed by correcting the code structure",
+      "This is a logic error caused by insufficient input validation",
+      "This is a runtime error that occurs during program execution"
+    ],
+    correctAnswer: 2,
+    explanation: "This is a runtime error because the program compiles successfully but fails during execution when specific conditions occur (invalid input). Runtime errors happen when the program encounters unexpected situations during execution.",
+    marks: 3,
+    keywords: ["identify", "explain"]
+  },
+  {
+    scenario: "A team is deciding between methodologies for a social media application startup. Requirements are expected to change frequently based on user feedback.",
+    options: [
+      "Waterfall - provides better documentation for investors",
+      "Agile - allows rapid adaptation to changing user needs",
+      "WAGILE - combines the best of both approaches"
+    ],
+    correctAnswer: 1,
+    explanation: "Agile methodology is ideal for startups with changing requirements as it embraces change, delivers working software quickly, and incorporates user feedback through iterative development cycles.",
+    marks: 3,
+    keywords: ["recommend", "justify"]
+  }
+];
+---
+
+<BaseLayout title="Programming Fundamentals - Quiz" description="Test your knowledge of software development methodologies">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Knowledge Check</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6 max-w-4xl">
+      
+      <!-- Header Section -->
+      <div class="text-center mb-8">
+        <h1 class="text-4xl font-bold mb-4">📝 Knowledge Check</h1>
+        <p class="text-lg text-gray-600 mb-6">
+          Test your understanding of software development methodologies with these exam-style questions
+        </p>
+        
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6 text-left max-w-2xl mx-auto">
+          <h3 class="font-semibold text-blue-900 mb-2">🎯 About These Questions</h3>
+          <ul class="text-sm text-blue-800 space-y-1">
+            <li>• Questions use NESA command terms (identify, explain, compare, etc.)</li>
+            <li>• Each question shows mark allocation and expected response type</li>
+            <li>• Detailed explanations help you understand the reasoning</li>
+            <li>• Practice identifying keywords that guide your response</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Interactive Quiz -->
+      <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-8">
+        <ScenarioQuiz 
+          client:load
+          title="Development Methodologies Assessment"
+          questions=&#123;examQuestions&#125;
+        />
+      </div>
+
+      <!-- Traditional Exam Questions -->
+      <div class="space-y-6">
+        <h2 class="text-2xl font-bold text-center mb-6">📋 Traditional Exam Questions</h2>
+        
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="text-lg font-semibold">Question 1</h3>
+            <span class="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded">6 marks</span>
+          </div>
+          <div class="mb-4 p-4 bg-gray-50 rounded">
+            <p class="font-medium mb-2">Compare the Waterfall and Agile methodologies in terms of their approach to requirements management and testing procedures. (6 marks)</p>
+          </div>
+          <div class="space-y-3">
+            <div>
+              <h4 class="font-semibold text-sm text-gray-700 mb-1">Command Terms:</h4>
+              <p class="text-sm text-gray-600">Compare - Show similarities and differences</p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-sm text-gray-700 mb-1">Sample Response Structure:</h4>
+              <ul class="text-sm text-gray-600 space-y-1">
+                <li>• Requirements Management - Waterfall: Fixed at start vs Agile: Evolving (2 marks)</li>
+                <li>• Testing Procedures - Waterfall: End-phase testing vs Agile: Continuous testing (2 marks)</li>
+                <li>• Impact analysis of each approach (2 marks)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="text-lg font-semibold">Question 2</h3>
+            <span class="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded">4 marks</span>
+          </div>
+          <div class="mb-4 p-4 bg-gray-50 rounded">
+            <p class="font-medium mb-2">Explain why the integration phase is critical in software development and outline two potential problems that can occur during this phase. (4 marks)</p>
+          </div>
+          <div class="space-y-3">
+            <div>
+              <h4 class="font-semibold text-sm text-gray-700 mb-1">Command Terms:</h4>
+              <p class="text-sm text-gray-600">Explain - Make clear with reasoning; Outline - Main features</p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-sm text-gray-700 mb-1">Sample Response Structure:</h4>
+              <ul class="text-sm text-gray-600 space-y-1">
+                <li>• Importance of integration phase with reasoning (2 marks)</li>
+                <li>• Two problems: e.g., interface mismatches, data format conflicts (2 marks)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+          <div class="flex justify-between items-start mb-4">
+            <h3 class="text-lg font-semibold">Question 3</h3>
+            <span class="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded">5 marks</span>
+          </div>
+          <div class="mb-4 p-4 bg-gray-50 rounded">
+            <p class="font-medium mb-2">Evaluate the effectiveness of unit testing in ensuring software quality. Discuss both advantages and limitations. (5 marks)</p>
+          </div>
+          <div class="space-y-3">
+            <div>
+              <h4 class="font-semibold text-sm text-gray-700 mb-1">Command Terms:</h4>
+              <p class="text-sm text-gray-600">Evaluate - Make judgement on value/worth; Discuss - Present arguments for and against</p>
+            </div>
+            <div>
+              <h4 class="font-semibold text-sm text-gray-700 mb-1">Sample Response Structure:</h4>
+              <ul class="text-sm text-gray-600 space-y-1">
+                <li>• Definition of unit testing (1 mark)</li>
+                <li>• Advantages: early bug detection, code reliability (2 marks)</li>
+                <li>• Limitations: time investment, doesn't catch integration issues (2 marks)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="flex justify-center mt-8 pt-6 border-t">
+        <a 
+          href="/topics/programming-fundamentals" 
+          class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors"
+        >
+          ← Back to Programming Fundamentals
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

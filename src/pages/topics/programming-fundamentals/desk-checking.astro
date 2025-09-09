@@ -1,0 +1,686 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProgrammingFundamentalsNav from '../../../components/ProgrammingFundamentalsNav';
+import AlgorithmExplorer from '../../../components/AlgorithmExplorer';
+import CollapsibleSection from '../../../components/CollapsibleSection';
+import Tooltip from '../../../components/Tooltip';
+import '../../../styles/global.css';
+
+// Desk Checking Example Data
+const sampleAlgorithm = [
+  "BEGIN",
+  "  SET num = 0",
+  "  SET count = 1", 
+  "  WHILE count <= 3 DO",
+  "    SET num = num + count",
+  "    SET count = count + 1",
+  "  ENDWHILE",
+  "  PRINT num",
+  "END"
+];
+
+const initialTrace = [
+  {
+    statement: "BEGIN (start of algorithm)",
+    variables: { num: "", count: "" }
+  }
+];
+
+const expectedTrace = [
+  {
+    lineIndex: 0,
+    statement: "BEGIN (start of algorithm)",
+    variables: { num: "", count: "" },
+    explanation: "Algorithm starts execution"
+  },
+  {
+    lineIndex: 1,
+    statement: "SET num = 0",
+    variables: { num: 0, count: "" },
+    explanation: "Initialize num to 0"
+  },
+  {
+    lineIndex: 2,
+    statement: "SET count = 1",
+    variables: { num: 0, count: 1 },
+    explanation: "Initialize count to 1"
+  },
+  {
+    lineIndex: 3,
+    statement: "WHILE count <= 3 DO (check: Is count <= 3? 1 <= 3 = TRUE)",
+    variables: { num: 0, count: 1 },
+    explanation: "Loop condition is true, enter loop"
+  },
+  {
+    lineIndex: 4,
+    statement: "SET num = num + count (0 + 1)",
+    variables: { num: 1, count: 1 },
+    explanation: "Add count to num: 0 + 1 = 1"
+  },
+  {
+    lineIndex: 5,
+    statement: "SET count = count + 1 (1 + 1)",
+    variables: { num: 1, count: 2 },
+    explanation: "Increment count: 1 + 1 = 2"
+  },
+  {
+    lineIndex: 3,
+    statement: "WHILE count <= 3 DO (check: Is count <= 3? 2 <= 3 = TRUE)",
+    variables: { num: 1, count: 2 },
+    explanation: "Loop back to condition, still true"
+  },
+  {
+    lineIndex: 4,
+    statement: "SET num = num + count (1 + 2)",
+    variables: { num: 3, count: 2 },
+    explanation: "Add count to num: 1 + 2 = 3"
+  },
+  {
+    lineIndex: 5,
+    statement: "SET count = count + 1 (2 + 1)",
+    variables: { num: 3, count: 3 },
+    explanation: "Increment count: 2 + 1 = 3"
+  },
+  {
+    lineIndex: 3,
+    statement: "WHILE count <= 3 DO (check: Is count <= 3? 3 <= 3 = TRUE)",
+    variables: { num: 3, count: 3 },
+    explanation: "Loop back to condition, still true"
+  },
+  {
+    lineIndex: 4,
+    statement: "SET num = num + count (3 + 3)",
+    variables: { num: 6, count: 3 },
+    explanation: "Add count to num: 3 + 3 = 6"
+  },
+  {
+    lineIndex: 5,
+    statement: "SET count = count + 1 (3 + 1)",
+    variables: { num: 6, count: 4 },
+    explanation: "Increment count: 3 + 1 = 4"
+  },
+  {
+    lineIndex: 3,
+    statement: "WHILE count <= 3 DO (check: Is count <= 3? 4 <= 3 = FALSE)",
+    variables: { num: 6, count: 4 },
+    explanation: "Loop condition false, exit loop"
+  },
+  {
+    lineIndex: 7,
+    statement: "PRINT num (outputs: 6)",
+    variables: { num: 6, count: 4 },
+    explanation: "Output the final result: 6"
+  },
+  {
+    lineIndex: 8,
+    statement: "END (algorithm terminates)",
+    variables: { num: 6, count: 4 },
+    explanation: "Algorithm execution complete"
+  }
+];
+
+// Array Processing Example
+const arrayAlgorithm = [
+  "BEGIN",
+  "  SET numbers = [5, 10, 15]",
+  "  SET total = 0",
+  "  SET i = 0",
+  "  WHILE i < 3 DO",
+  "    SET total = total + numbers[i]",
+  "    SET i = i + 1",
+  "  ENDWHILE",
+  "  PRINT total",
+  "END"
+];
+
+const arrayInitialTrace = [
+  {
+    statement: "BEGIN (start of algorithm)",
+    variables: { numbers: "", total: "", i: "" }
+  }
+];
+
+const arrayExpectedTrace = [
+  {
+    statement: "BEGIN (start of algorithm)",
+    variables: { numbers: "", total: "", i: "" }
+  },
+  {
+    statement: "SET numbers = [5, 10, 15]",
+    variables: { numbers: "[5, 10, 15]", total: "", i: "" }
+  },
+  {
+    statement: "SET total = 0",
+    variables: { numbers: "[5, 10, 15]", total: 0, i: "" }
+  },
+  {
+    statement: "SET i = 0",
+    variables: { numbers: "[5, 10, 15]", total: 0, i: 0 }
+  },
+  {
+    statement: "WHILE i < 3 DO (check: Is i smaller than 3? 0 < 3 = TRUE)",
+    variables: { numbers: "[5, 10, 15]", total: 0, i: 0 }
+  },
+  {
+    statement: "SET total = total + numbers[i] (0 + numbers[0] = 0 + 5)",
+    variables: { numbers: "[5, 10, 15]", total: 5, i: 0 }
+  },
+  {
+    statement: "SET i = i + 1 (0 + 1)",
+    variables: { numbers: "[5, 10, 15]", total: 5, i: 1 }
+  },
+  {
+    statement: "WHILE i < 3 DO (check: Is i smaller than 3? 1 < 3 = TRUE)",
+    variables: { numbers: "[5, 10, 15]", total: 5, i: 1 }
+  },
+  {
+    statement: "SET total = total + numbers[i] (5 + numbers[1] = 5 + 10)",
+    variables: { numbers: "[5, 10, 15]", total: 15, i: 1 }
+  },
+  {
+    statement: "SET i = i + 1 (1 + 1)",
+    variables: { numbers: "[5, 10, 15]", total: 15, i: 2 }
+  },
+  {
+    statement: "WHILE i < 3 DO (check: Is i smaller than 3? 2 < 3 = TRUE)",
+    variables: { numbers: "[5, 10, 15]", total: 15, i: 2 }
+  },
+  {
+    statement: "SET total = total + numbers[i] (15 + numbers[2] = 15 + 15)",
+    variables: { numbers: "[5, 10, 15]", total: 30, i: 2 }
+  },
+  {
+    statement: "SET i = i + 1 (2 + 1)",
+    variables: { numbers: "[5, 10, 15]", total: 30, i: 3 }
+  },
+  {
+    statement: "WHILE i < 3 DO (check: Is i smaller than 3? 3 < 3 = FALSE)",
+    variables: { numbers: "[5, 10, 15]", total: 30, i: 3 }
+  },
+  {
+    statement: "PRINT total (outputs: 30)",
+    variables: { numbers: "[5, 10, 15]", total: 30, i: 3 }
+  },
+  {
+    statement: "END (algorithm terminates)",
+    variables: { numbers: "[5, 10, 15]", total: 30, i: 3 }
+  }
+];
+
+// 2D Array Processing Example  
+const twoDArrayAlgorithm = [
+  "BEGIN",
+  "  SET grid = [[1, 2], [3, 4]]",
+  "  SET sum = 0",
+  "  SET row = 0",
+  "  WHILE row < 2 DO",
+  "    SET col = 0",
+  "    WHILE col < 2 DO",
+  "      SET sum = sum + grid[row][col]",
+  "      SET col = col + 1",
+  "    ENDWHILE",
+  "    SET row = row + 1",
+  "  ENDWHILE",
+  "  PRINT sum",
+  "END"
+];
+
+const twoDArrayInitialTrace = [
+  {
+    statement: "BEGIN (start of algorithm)",
+    variables: { grid: "", sum: "", row: "", col: "" }
+  }
+];
+
+const twoDArrayExpectedTrace = [
+  {
+    statement: "BEGIN (start of algorithm)",
+    variables: { grid: "", sum: "", row: "", col: "" }
+  },
+  {
+    statement: "SET grid = [[1, 2], [3, 4]]",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: "", row: "", col: "" }
+  },
+  {
+    statement: "SET sum = 0",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: 0, row: "", col: "" }
+  },
+  {
+    statement: "SET row = 0",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: 0, row: 0, col: "" }
+  },
+  {
+    statement: "WHILE row < 2 DO (check: Is row smaller than 2? 0 < 2 = TRUE)",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: 0, row: 0, col: "" }
+  },
+  {
+    statement: "SET col = 0",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: 0, row: 0, col: 0 }
+  },
+  {
+    statement: "WHILE col < 2 DO (check: Is col smaller than 2? 0 < 2 = TRUE)",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: 0, row: 0, col: 0 }
+  },
+  {
+    statement: "SET sum = sum + grid[row][col] (0 + grid[0][0] = 0 + 1)",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: 1, row: 0, col: 0 }
+  },
+  {
+    statement: "SET col = col + 1 (0 + 1)",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: 1, row: 0, col: 1 }
+  },
+  {
+    statement: "WHILE col < 2 DO (check: Is col smaller than 2? 1 < 2 = TRUE)",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: 1, row: 0, col: 1 }
+  },
+  {
+    statement: "SET sum = sum + grid[row][col] (1 + grid[0][1] = 1 + 2)",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: 3, row: 0, col: 1 }
+  },
+  {
+    statement: "SET col = col + 1 (1 + 1)",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: 3, row: 0, col: 2 }
+  },
+  {
+    statement: "WHILE col < 2 DO (check: Is col smaller than 2? 2 < 2 = FALSE)",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: 3, row: 0, col: 2 }
+  },
+  {
+    statement: "SET row = row + 1 (0 + 1)",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: 3, row: 1, col: 2 }
+  },
+  {
+    statement: "WHILE row < 2 DO (check: Is row smaller than 2? 1 < 2 = TRUE)",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: 3, row: 1, col: 2 }
+  },
+  {
+    statement: "SET col = 0",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: 3, row: 1, col: 0 }
+  },
+  {
+    statement: "WHILE col < 2 DO (check: Is col smaller than 2? 0 < 2 = TRUE)",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: 3, row: 1, col: 0 }
+  },
+  {
+    statement: "SET sum = sum + grid[row][col] (3 + grid[1][0] = 3 + 3)",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: 6, row: 1, col: 0 }
+  },
+  {
+    statement: "SET col = col + 1 (0 + 1)",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: 6, row: 1, col: 1 }
+  },
+  {
+    statement: "WHILE col < 2 DO (check: Is col smaller than 2? 1 < 2 = TRUE)",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: 6, row: 1, col: 1 }
+  },
+  {
+    statement: "SET sum = sum + grid[row][col] (6 + grid[1][1] = 6 + 4)",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: 10, row: 1, col: 1 }
+  },
+  {
+    statement: "SET col = col + 1 (1 + 1)",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: 10, row: 1, col: 2 }
+  },
+  {
+    statement: "WHILE col < 2 DO (check: Is col smaller than 2? 2 < 2 = FALSE)",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: 10, row: 1, col: 2 }
+  },
+  {
+    statement: "SET row = row + 1 (1 + 1)",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: 10, row: 2, col: 2 }
+  },
+  {
+    statement: "WHILE row < 2 DO (check: Is row smaller than 2? 2 < 2 = FALSE)",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: 10, row: 2, col: 2 }
+  },
+  {
+    statement: "PRINT sum (outputs: 10)",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: 10, row: 2, col: 2 }
+  },
+  {
+    statement: "END (algorithm terminates)",
+    variables: { grid: "2×2 grid: [1,2] [3,4]", sum: 10, row: 2, col: 2 }
+  }
+];
+---
+
+<BaseLayout title="Desk Checking - Programming Fundamentals" description="Interactive desk checking with trace tables for algorithm verification">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Desk Checking</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <ProgrammingFundamentalsNav 
+              client:load 
+              currentPage="/topics/programming-fundamentals/desk-checking"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Desk Checking</h1>
+            
+            <div class="mb-6 p-4 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+              <p class="text-orange-900">
+                <strong><Tooltip client:load term="Desk Checking" definition="A manual testing technique where developers trace through algorithm execution step-by-step using pen and paper, without running the actual code. This method helps identify logic errors early, verify algorithm correctness, and understand program flow by systematically tracking variable values through each operation using trace tables.">Desk checking</Tooltip></strong> is a manual testing technique where you trace through an algorithm's execution step-by-step using a <Tooltip client:load term="Trace Table" definition="A structured table used in desk checking to systematically record how variable values change during algorithm execution. Each row represents a step in the algorithm, with columns showing the current values of all variables. This visual method helps identify logic errors, verify correctness, and understand program behaviour before actual implementation.">trace table</Tooltip>. This method helps identify <Tooltip client:load term="Logic Errors" definition="Programming mistakes where code runs without crashing but produces incorrect results">logic errors</Tooltip> before running code.
+              </p>
+            </div>
+
+            <!-- When to Use Desk Checking -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-4 text-gray-900">When to Use Desk Checking</h2>
+              <p class="text-gray-700 mb-6">Desk checking is particularly valuable for:</p>
+              
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                  <h3 class="font-semibold text-blue-800 mb-3 text-lg">Before Coding</h3>
+                  <ul class="space-y-2 text-blue-700">
+                    <li class="flex items-start"><span class="text-blue-600 mr-3 text-lg">•</span>Validating <Tooltip client:load term="Algorithm Design" definition="The systematic process of creating detailed, step-by-step instructions to solve a specific problem. This involves breaking down complex problems into smaller, manageable tasks, defining the sequence of operations, specifying input and output requirements, and ensuring the solution is efficient, correct, and implementable in code.">algorithm design</Tooltip> logic</li>
+                    <li class="flex items-start"><span class="text-blue-600 mr-3 text-lg">•</span>Testing <Tooltip client:load term="Edge Cases" definition="Unusual or extreme input values that test the boundaries of program behaviour">edge cases</Tooltip> and boundary conditions</li>
+                    <li class="flex items-start"><span class="text-blue-600 mr-3 text-lg">•</span>Understanding complex control structures</li>
+                  </ul>
+                </div>
+                
+                <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+                  <h3 class="font-semibold text-green-800 mb-3 text-lg">During Development</h3>
+                  <ul class="space-y-2 text-green-700">
+                    <li class="flex items-start"><span class="text-green-600 mr-3 text-lg">•</span>Debugging unexpected program behaviour</li>
+                    <li class="flex items-start"><span class="text-green-600 mr-3 text-lg">•</span>Verifying loop iterations and termination</li>
+                    <li class="flex items-start"><span class="text-green-600 mr-3 text-lg">•</span>Checking variable state changes</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Step-by-Step Desk Checking Tutorial -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Step-by-Step Desk Checking Process</h2>
+              <p class="text-gray-700 mb-6">
+                Learn how to manually trace through algorithms using systematic trace tables. We'll demonstrate with a simple linear search algorithm.
+              </p>
+              
+              <!-- Example Algorithm -->
+              <div class="bg-white border border-gray-200 rounded-lg p-6 mb-6">
+                <h3 class="text-lg font-semibold mb-4 text-gray-900">Example: Linear Search Algorithm</h3>
+                <p class="text-gray-700 mb-4">Let's desk check this algorithm that searches for the number 15 in the array [12, 7, 15, 23, 9]:</p>
+                
+                <div class="bg-gray-50 border border-gray-300 rounded-lg p-4 font-mono text-base mb-4">
+                  <pre class="text-gray-900 leading-relaxed"><code>BEGIN
+  SET numbers = [12, 7, 15, 23, 9]
+  SET target = 15
+  SET found = False
+  SET index = 0
+  WHILE index < length(numbers) AND found = False DO
+    IF numbers[index] = target THEN
+      SET found = True
+      SET position = index
+    ENDIF
+    SET index = index + 1
+  ENDWHILE
+  IF found = True THEN
+    PRINT "Found at position: " + position
+  ELSE
+    PRINT "Not found"
+  ENDIF
+END</code></pre>
+                </div>
+
+                <!-- Trace Table -->
+                <h4 class="text-md font-semibold mb-3 text-gray-900">Complete Trace Table</h4>
+                <div class="overflow-x-auto">
+                  <table class="w-full border border-gray-300 text-sm">
+                    <thead class="bg-gray-100">
+                      <tr>
+                        <th class="border border-gray-300 px-3 py-2 text-left font-semibold">Step</th>
+                        <th class="border border-gray-300 px-3 py-2 text-left font-semibold">Line</th>
+                        <th class="border border-gray-300 px-3 py-2 text-left font-semibold">Statement</th>
+                        <th class="border border-gray-300 px-3 py-2 text-left font-semibold">numbers</th>
+                        <th class="border border-gray-300 px-3 py-2 text-left font-semibold">target</th>
+                        <th class="border border-gray-300 px-3 py-2 text-left font-semibold">found</th>
+                        <th class="border border-gray-300 px-3 py-2 text-left font-semibold">index</th>
+                        <th class="border border-gray-300 px-3 py-2 text-left font-semibold">position</th>
+                      </tr>
+                    </thead>
+                    <tbody class="font-mono text-xs">
+                      <tr>
+                        <td class="border border-gray-300 px-3 py-2">1</td>
+                        <td class="border border-gray-300 px-3 py-2">1</td>
+                        <td class="border border-gray-300 px-3 py-2">BEGIN</td>
+                        <td class="border border-gray-300 px-3 py-2">-</td>
+                        <td class="border border-gray-300 px-3 py-2">-</td>
+                        <td class="border border-gray-300 px-3 py-2">-</td>
+                        <td class="border border-gray-300 px-3 py-2">-</td>
+                        <td class="border border-gray-300 px-3 py-2">-</td>
+                      </tr>
+                      <tr>
+                        <td class="border border-gray-300 px-3 py-2">2</td>
+                        <td class="border border-gray-300 px-3 py-2">2</td>
+                        <td class="border border-gray-300 px-3 py-2">SET numbers = [12, 7, 15, 23, 9]</td>
+                        <td class="border border-gray-300 px-3 py-2">[12,7,15,23,9]</td>
+                        <td class="border border-gray-300 px-3 py-2">-</td>
+                        <td class="border border-gray-300 px-3 py-2">-</td>
+                        <td class="border border-gray-300 px-3 py-2">-</td>
+                        <td class="border border-gray-300 px-3 py-2">-</td>
+                      </tr>
+                      <tr>
+                        <td class="border border-gray-300 px-3 py-2">3</td>
+                        <td class="border border-gray-300 px-3 py-2">3</td>
+                        <td class="border border-gray-300 px-3 py-2">SET target = 15</td>
+                        <td class="border border-gray-300 px-3 py-2">[12,7,15,23,9]</td>
+                        <td class="border border-gray-300 px-3 py-2">15</td>
+                        <td class="border border-gray-300 px-3 py-2">-</td>
+                        <td class="border border-gray-300 px-3 py-2">-</td>
+                        <td class="border border-gray-300 px-3 py-2">-</td>
+                      </tr>
+                      <tr>
+                        <td class="border border-gray-300 px-3 py-2">4</td>
+                        <td class="border border-gray-300 px-3 py-2">4</td>
+                        <td class="border border-gray-300 px-3 py-2">SET found = False</td>
+                        <td class="border border-gray-300 px-3 py-2">[12,7,15,23,9]</td>
+                        <td class="border border-gray-300 px-3 py-2">15</td>
+                        <td class="border border-gray-300 px-3 py-2">False</td>
+                        <td class="border border-gray-300 px-3 py-2">-</td>
+                        <td class="border border-gray-300 px-3 py-2">-</td>
+                      </tr>
+                      <tr>
+                        <td class="border border-gray-300 px-3 py-2">5</td>
+                        <td class="border border-gray-300 px-3 py-2">5</td>
+                        <td class="border border-gray-300 px-3 py-2">SET index = 0</td>
+                        <td class="border border-gray-300 px-3 py-2">[12,7,15,23,9]</td>
+                        <td class="border border-gray-300 px-3 py-2">15</td>
+                        <td class="border border-gray-300 px-3 py-2">False</td>
+                        <td class="border border-gray-300 px-3 py-2">0</td>
+                        <td class="border border-gray-300 px-3 py-2">-</td>
+                      </tr>
+                      <tr>
+                        <td class="border border-gray-300 px-3 py-2">6</td>
+                        <td class="border border-gray-300 px-3 py-2">6</td>
+                        <td class="border border-gray-300 px-3 py-2">WHILE condition: 0 < 5 AND False = False → TRUE</td>
+                        <td class="border border-gray-300 px-3 py-2">[12,7,15,23,9]</td>
+                        <td class="border border-gray-300 px-3 py-2">15</td>
+                        <td class="border border-gray-300 px-3 py-2">False</td>
+                        <td class="border border-gray-300 px-3 py-2">0</td>
+                        <td class="border border-gray-300 px-3 py-2">-</td>
+                      </tr>
+                      <tr>
+                        <td class="border border-gray-300 px-3 py-2">7</td>
+                        <td class="border border-gray-300 px-3 py-2">7</td>
+                        <td class="border border-gray-300 px-3 py-2">IF numbers[0] = target: 12 = 15 → FALSE</td>
+                        <td class="border border-gray-300 px-3 py-2">[12,7,15,23,9]</td>
+                        <td class="border border-gray-300 px-3 py-2">15</td>
+                        <td class="border border-gray-300 px-3 py-2">False</td>
+                        <td class="border border-gray-300 px-3 py-2">0</td>
+                        <td class="border border-gray-300 px-3 py-2">-</td>
+                      </tr>
+                      <tr>
+                        <td class="border border-gray-300 px-3 py-2">8</td>
+                        <td class="border border-gray-300 px-3 py-2">11</td>
+                        <td class="border border-gray-300 px-3 py-2">SET index = index + 1: 0 + 1</td>
+                        <td class="border border-gray-300 px-3 py-2">[12,7,15,23,9]</td>
+                        <td class="border border-gray-300 px-3 py-2">15</td>
+                        <td class="border border-gray-300 px-3 py-2">False</td>
+                        <td class="border border-gray-300 px-3 py-2">1</td>
+                        <td class="border border-gray-300 px-3 py-2">-</td>
+                      </tr>
+                      <tr>
+                        <td class="border border-gray-300 px-3 py-2">9</td>
+                        <td class="border border-gray-300 px-3 py-2">6</td>
+                        <td class="border border-gray-300 px-3 py-2">WHILE condition: 1 < 5 AND False = False → TRUE</td>
+                        <td class="border border-gray-300 px-3 py-2">[12,7,15,23,9]</td>
+                        <td class="border border-gray-300 px-3 py-2">15</td>
+                        <td class="border border-gray-300 px-3 py-2">False</td>
+                        <td class="border border-gray-300 px-3 py-2">1</td>
+                        <td class="border border-gray-300 px-3 py-2">-</td>
+                      </tr>
+                      <tr>
+                        <td class="border border-gray-300 px-3 py-2">10</td>
+                        <td class="border border-gray-300 px-3 py-2">7</td>
+                        <td class="border border-gray-300 px-3 py-2">IF numbers[1] = target: 7 = 15 → FALSE</td>
+                        <td class="border border-gray-300 px-3 py-2">[12,7,15,23,9]</td>
+                        <td class="border border-gray-300 px-3 py-2">15</td>
+                        <td class="border border-gray-300 px-3 py-2">False</td>
+                        <td class="border border-gray-300 px-3 py-2">1</td>
+                        <td class="border border-gray-300 px-3 py-2">-</td>
+                      </tr>
+                      <tr>
+                        <td class="border border-gray-300 px-3 py-2">11</td>
+                        <td class="border border-gray-300 px-3 py-2">11</td>
+                        <td class="border border-gray-300 px-3 py-2">SET index = index + 1: 1 + 1</td>
+                        <td class="border border-gray-300 px-3 py-2">[12,7,15,23,9]</td>
+                        <td class="border border-gray-300 px-3 py-2">15</td>
+                        <td class="border border-gray-300 px-3 py-2">False</td>
+                        <td class="border border-gray-300 px-3 py-2">2</td>
+                        <td class="border border-gray-300 px-3 py-2">-</td>
+                      </tr>
+                      <tr>
+                        <td class="border border-gray-300 px-3 py-2">12</td>
+                        <td class="border border-gray-300 px-3 py-2">6</td>
+                        <td class="border border-gray-300 px-3 py-2">WHILE condition: 2 < 5 AND False = False → TRUE</td>
+                        <td class="border border-gray-300 px-3 py-2">[12,7,15,23,9]</td>
+                        <td class="border border-gray-300 px-3 py-2">15</td>
+                        <td class="border border-gray-300 px-3 py-2">False</td>
+                        <td class="border border-gray-300 px-3 py-2">2</td>
+                        <td class="border border-gray-300 px-3 py-2">-</td>
+                      </tr>
+                      <tr>
+                        <td class="border border-gray-300 px-3 py-2">13</td>
+                        <td class="border border-gray-300 px-3 py-2">7</td>
+                        <td class="border border-gray-300 px-3 py-2">IF numbers[2] = target: 15 = 15 → TRUE</td>
+                        <td class="border border-gray-300 px-3 py-2">[12,7,15,23,9]</td>
+                        <td class="border border-gray-300 px-3 py-2">15</td>
+                        <td class="border border-gray-300 px-3 py-2">False</td>
+                        <td class="border border-gray-300 px-3 py-2">2</td>
+                        <td class="border border-gray-300 px-3 py-2">-</td>
+                      </tr>
+                      <tr>
+                        <td class="border border-gray-300 px-3 py-2">14</td>
+                        <td class="border border-gray-300 px-3 py-2">8</td>
+                        <td class="border border-gray-300 px-3 py-2">SET found = True</td>
+                        <td class="border border-gray-300 px-3 py-2">[12,7,15,23,9]</td>
+                        <td class="border border-gray-300 px-3 py-2">15</td>
+                        <td class="border border-gray-300 px-3 py-2">True</td>
+                        <td class="border border-gray-300 px-3 py-2">2</td>
+                        <td class="border border-gray-300 px-3 py-2">-</td>
+                      </tr>
+                      <tr>
+                        <td class="border border-gray-300 px-3 py-2">15</td>
+                        <td class="border border-gray-300 px-3 py-2">9</td>
+                        <td class="border border-gray-300 px-3 py-2">SET position = index: position = 2</td>
+                        <td class="border border-gray-300 px-3 py-2">[12,7,15,23,9]</td>
+                        <td class="border border-gray-300 px-3 py-2">15</td>
+                        <td class="border border-gray-300 px-3 py-2">True</td>
+                        <td class="border border-gray-300 px-3 py-2">2</td>
+                        <td class="border border-gray-300 px-3 py-2">2</td>
+                      </tr>
+                      <tr>
+                        <td class="border border-gray-300 px-3 py-2">16</td>
+                        <td class="border border-gray-300 px-3 py-2">11</td>
+                        <td class="border border-gray-300 px-3 py-2">SET index = index + 1: 2 + 1</td>
+                        <td class="border border-gray-300 px-3 py-2">[12,7,15,23,9]</td>
+                        <td class="border border-gray-300 px-3 py-2">15</td>
+                        <td class="border border-gray-300 px-3 py-2">True</td>
+                        <td class="border border-gray-300 px-3 py-2">3</td>
+                        <td class="border border-gray-300 px-3 py-2">2</td>
+                      </tr>
+                      <tr>
+                        <td class="border border-gray-300 px-3 py-2">17</td>
+                        <td class="border border-gray-300 px-3 py-2">6</td>
+                        <td class="border border-gray-300 px-3 py-2">WHILE condition: 3 < 5 AND True = False → FALSE</td>
+                        <td class="border border-gray-300 px-3 py-2">[12,7,15,23,9]</td>
+                        <td class="border border-gray-300 px-3 py-2">15</td>
+                        <td class="border border-gray-300 px-3 py-2">True</td>
+                        <td class="border border-gray-300 px-3 py-2">3</td>
+                        <td class="border border-gray-300 px-3 py-2">2</td>
+                      </tr>
+                      <tr>
+                        <td class="border border-gray-300 px-3 py-2">18</td>
+                        <td class="border border-gray-300 px-3 py-2">13</td>
+                        <td class="border border-gray-300 px-3 py-2">IF found = True → TRUE, execute PRINT</td>
+                        <td class="border border-gray-300 px-3 py-2">[12,7,15,23,9]</td>
+                        <td class="border border-gray-300 px-3 py-2">15</td>
+                        <td class="border border-gray-300 px-3 py-2">True</td>
+                        <td class="border border-gray-300 px-3 py-2">3</td>
+                        <td class="border border-gray-300 px-3 py-2">2</td>
+                      </tr>
+                      <tr>
+                        <td class="border border-gray-300 px-3 py-2">19</td>
+                        <td class="border border-gray-300 px-3 py-2">14</td>
+                        <td class="border border-gray-300 px-3 py-2">PRINT "Found at position: 2"</td>
+                        <td class="border border-gray-300 px-3 py-2">[12,7,15,23,9]</td>
+                        <td class="border border-gray-300 px-3 py-2">15</td>
+                        <td class="border border-gray-300 px-3 py-2">True</td>
+                        <td class="border border-gray-300 px-3 py-2">3</td>
+                        <td class="border border-gray-300 px-3 py-2">2</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="mt-4 p-4 bg-green-50 rounded-lg border border-green-200">
+                  <h5 class="font-semibold text-green-800 mb-2">Key Observations</h5>
+                  <ul class="text-green-700 text-sm space-y-1">
+                    <li>Loop condition is evaluated before each iteration</li>
+                    <li>Variables are updated systematically after each operation</li>
+                    <li>The search terminates early once the target is found</li>
+                    <li>Final output shows the result of the algorithm</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Exam Tips -->
+            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-amber-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+                <div>
+                  <p class="font-semibold text-amber-900 mb-1">Exam Tips</p>
+                  <p class="text-amber-800 text-sm">In NESA exams, trace tables are common assessment tasks. Show all working, label your columns clearly, and don't skip steps. Even if you make a calculation error early, you can still earn credit for correct methodology.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

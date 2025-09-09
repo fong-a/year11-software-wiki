@@ -1,0 +1,490 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProgrammingFundamentalsNav from '../../../components/ProgrammingFundamentalsNav';
+import ConversionExplorer from '../../../components/ConversionExplorer';
+import CollapsibleSection from '../../../components/CollapsibleSection';
+import Tooltip from '../../../components/Tooltip';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Data Representation - Programming Fundamentals" description="Understanding how computers represent data using binary, hexadecimal, and other number systems">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Data Representation</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <ProgrammingFundamentalsNav 
+              client:load 
+              currentPage="/topics/programming-fundamentals/data-representation"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Data Representation</h1>
+            
+            <div class="mb-6 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+              <p class="text-blue-900">
+                Computers store and process all data as <Tooltip client:load term="Binary Numbers" definition="A base-2 number system using only the digits 0 and 1, which corresponds directly to the electrical states in computer circuits (off=0, on=1). Every piece of data in a computer - numbers, text, images, sound - is ultimately stored as patterns of binary digits (bits). This system forms the foundation of all digital computing.">binary numbers</Tooltip> (0s and 1s). Understanding different <Tooltip client:load term="Number Systems" definition="Mathematical notation systems for representing numbers using different bases or radixes. Decimal (base-10) uses digits 0-9, binary (base-2) uses 0-1, and hexadecimal (base-16) uses 0-9 and A-F. Each position in a number represents a power of the base, allowing conversion between systems through mathematical operations.">number systems</Tooltip> helps us understand how computers represent integers, characters, images, and other data internally.
+              </p>
+            </div>
+
+            <!-- Number Systems Overview -->
+            <div class="mb-8">
+              <h3 class="text-xl font-semibold mb-4">Number Systems in Computing</h3>
+              
+              <div class="grid md:grid-cols-4 gap-4 mb-8">
+                <!-- Decimal -->
+                <div class="bg-white border border-green-200 rounded-lg p-4">
+                  <div class="text-center mb-3">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto">
+                      <span class="text-green-600 font-bold text-lg">10</span>
+                    </div>
+                    <h4 class="text-lg font-semibold text-green-800 mt-2">Decimal</h4>
+                  </div>
+                  <div class="text-sm text-gray-700 space-y-2">
+                    <div><strong>Base:</strong> 10</div>
+                    <div><strong>Digits:</strong> 0-9</div>
+                    <div><strong>Use:</strong> Human counting</div>
+                    <div class="bg-green-50 p-2 rounded font-mono text-center">156₁₀</div>
+                  </div>
+                </div>
+
+                <!-- Binary -->
+                <div class="bg-white border border-blue-200 rounded-lg p-4">
+                  <div class="text-center mb-3">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto">
+                      <span class="text-blue-600 font-bold text-lg">2</span>
+                    </div>
+                    <h4 class="text-lg font-semibold text-blue-800 mt-2">Binary</h4>
+                  </div>
+                  <div class="text-sm text-gray-700 space-y-2">
+                    <div><strong>Base:</strong> 2</div>
+                    <div><strong>Digits:</strong> 0, 1</div>
+                    <div><strong>Use:</strong> Computer storage</div>
+                    <div class="bg-blue-50 p-2 rounded font-mono text-center">10011100₂</div>
+                  </div>
+                </div>
+
+
+                <!-- Hexadecimal -->
+                <div class="bg-white border border-orange-200 rounded-lg p-4">
+                  <div class="text-center mb-3">
+                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mx-auto">
+                      <span class="text-orange-600 font-bold text-lg">16</span>
+                    </div>
+                    <h4 class="text-lg font-semibold text-orange-800 mt-2">Hexadecimal</h4>
+                  </div>
+                  <div class="text-sm text-gray-700 space-y-2">
+                    <div><strong>Base:</strong> 16</div>
+                    <div><strong>Digits:</strong> 0-9, A-F</div>
+                    <div><strong>Use:</strong> Colours, addresses</div>
+                    <div class="bg-orange-50 p-2 rounded font-mono text-center">9C₁₆</div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Base Systems Deep Dive -->
+              <div class="bg-gradient-to-r from-purple-50 to-orange-50 p-6 rounded-lg border border-purple-200 mb-8">
+                <h4 class="text-lg font-semibold text-purple-900 mb-4 flex items-center">
+                  <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                  </svg>
+                  Understanding Base Systems
+                </h4>
+                
+                <div class="grid lg:grid-cols-2 gap-6">
+                  <!-- Concept Explanation -->
+                  <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h5 class="font-medium text-purple-800 mb-3">What is a Base System?</h5>
+                    <div class="space-y-3 text-sm text-gray-700">
+                      <p>
+                        A <strong>base (or radix)</strong> determines how many unique digits are used in a number system. 
+                        Each position in a number represents a power of the base.
+                      </p>
+                      <div class="bg-purple-50 p-3 rounded border border-purple-100">
+                        <p class="font-medium text-purple-800 mb-2">Example: Decimal 345</p>
+                        <div class="font-mono text-xs space-y-1">
+                          <div>3 × 10² = 3 × 100 = 300</div>
+                          <div>4 × 10¹ = 4 × 10  = 40</div>
+                          <div>5 × 10⁰ = 5 × 1   = 5</div>
+                          <div class="border-t pt-1 font-semibold">Total: 345₁₀</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Hexadecimal Focus -->
+                  <div class="bg-white p-4 rounded-lg border border-gray-200">
+                    <h5 class="font-medium text-orange-800 mb-3">Why Hexadecimal Matters</h5>
+                    <div class="space-y-3 text-sm text-gray-700">
+                      <p>
+                        Hexadecimal is crucial in computing because <strong>4 binary digits = 1 hex digit</strong>, 
+                        making it a compact way to represent binary data.
+                      </p>
+                      <div class="bg-orange-50 p-3 rounded border border-orange-100">
+                        <p class="font-medium text-orange-800 mb-2">Binary to Hex Conversion</p>
+                        <div class="font-mono text-xs space-y-1">
+                          <div>1010 1100 1101₂</div>
+                          <div>↓ ↓ ↓</div>
+                          <div>A C D₁₆ = ACD₁₆</div>
+                        </div>
+                        <p class="text-xs text-orange-600 mt-2">Much more readable than 12-digit binary!</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Conversion Examples -->
+                <div class="mt-6 grid md:grid-cols-3 gap-4">
+                  <div class="bg-white p-3 rounded-lg border border-gray-200">
+                    <h6 class="font-medium text-gray-800 mb-2 text-sm">Decimal → Hex</h6>
+                    <div class="font-mono text-xs space-y-1">
+                      <div>255 ÷ 16 = 15 remainder 15</div>
+                      <div>15 ÷ 16 = 0 remainder 15</div>
+                      <div class="text-orange-600">255₁₀ = FF₁₆</div>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-white p-3 rounded-lg border border-gray-200">
+                    <h6 class="font-medium text-gray-800 mb-2 text-sm">Hex → Decimal</h6>
+                    <div class="font-mono text-xs space-y-1">
+                      <div>2A₁₆ = ?</div>
+                      <div>2×16¹ + 10×16⁰</div>
+                      <div>= 32 + 10</div>
+                      <div class="text-green-600">= 42₁₀</div>
+                    </div>
+                  </div>
+                  
+                  <div class="bg-white p-3 rounded-lg border border-gray-200">
+                    <h6 class="font-medium text-gray-800 mb-2 text-sm">Real-World Uses</h6>
+                    <div class="text-xs space-y-1">
+                      <div>🎨 Colours: #FF5733</div>
+                      <div>💾 Memory: 0x4A2B</div>
+                      <div>🌐 MAC: A4:C3:F0:85:AC:2D</div>
+                      <div>🔢 Unicode: U+1F600</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Conversion Methods -->
+            <div class="mb-8">
+              <ConversionExplorer client:load />
+            </div>
+
+
+            <!-- Character Representation -->
+            <div class="mb-8">
+              <CollapsibleSection 
+                client:load
+                title="Character and Text Representation"
+              >
+                <div class="space-y-6">
+                  <div class="grid md:grid-cols-2 gap-6">
+                    <!-- ASCII -->
+                    <div class="bg-purple-50 p-4 rounded-lg border border-purple-200">
+                      <h4 class="font-semibold text-purple-800 mb-3">ASCII Encoding</h4>
+                      <p class="text-purple-700 text-sm mb-3">
+                        <Tooltip client:load term="ASCII" definition="American Standard Code for Information Interchange - a character encoding standard using 7 bits to represent 128 characters">ASCII</Tooltip> uses 7 bits to represent 128 characters including letters, numbers, and symbols.
+                      </p>
+                      <div class="bg-white p-3 rounded border">
+                        <h5 class="font-medium mb-2">Common ASCII Values:</h5>
+                        <div class="grid grid-cols-2 gap-2 font-mono text-sm">
+                          <div>'A' = 65 = 01000001₂</div>
+                          <div>'a' = 97 = 01100001₂</div>
+                          <div>'0' = 48 = 00110000₂</div>
+                          <div>' ' = 32 = 00100000₂</div>
+                          <div>'!' = 33 = 00100001₂</div>
+                          <div>'?' = 63 = 00111111₂</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Unicode -->
+                    <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                      <h4 class="font-semibold text-green-800 mb-3">Unicode Encoding</h4>
+                      <p class="text-green-700 text-sm mb-3">
+                        <Tooltip client:load term="Unicode" definition="A universal character encoding standard that can represent characters from all writing systems worldwide">Unicode</Tooltip> can represent over 1 million characters from all world languages and symbols.
+                      </p>
+                      <div class="bg-white p-3 rounded border">
+                        <h5 class="font-medium mb-2">Unicode Examples:</h5>
+                        <div class="space-y-1 text-sm">
+                          <div>UTF-8: Variable length (1-4 bytes)</div>
+                          <div>UTF-16: 16-bit units</div>
+                          <div>UTF-32: Fixed 32-bit</div>
+                          <div class="font-mono mt-2">
+                            '€' = U+20AC<br/>
+                            '😀' = U+1F600<br/>
+                            '中' = U+4E2D
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Text Example -->
+                  <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                    <h4 class="font-semibold text-blue-800 mb-3">Example: "Hi" in Binary</h4>
+                    <div class="bg-white p-4 rounded border">
+                      <table class="w-full text-sm">
+                        <thead>
+                          <tr class="border-b">
+                            <th class="text-left py-2">Character</th>
+                            <th class="text-left py-2">ASCII Value</th>
+                            <th class="text-left py-2">Binary (8-bit)</th>
+                            <th class="text-left py-2">Hexadecimal</th>
+                          </tr>
+                        </thead>
+                        <tbody class="font-mono">
+                          <tr>
+                            <td class="py-1">'H'</td>
+                            <td class="py-1">72</td>
+                            <td class="py-1">01001000</td>
+                            <td class="py-1">48</td>
+                          </tr>
+                          <tr>
+                            <td class="py-1">'i'</td>
+                            <td class="py-1">105</td>
+                            <td class="py-1">01101001</td>
+                            <td class="py-1">69</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <p class="text-blue-700 text-sm mt-2">
+                        So "Hi" is stored as: <code class="bg-blue-100 px-1 rounded">01001000 01101001</code>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </CollapsibleSection>
+            </div>
+
+            <!-- Data Storage Units -->
+            <div class="mb-8">
+              <CollapsibleSection 
+                client:load
+                title="Data Storage Units and Capacity"
+              >
+                <div class="space-y-6">
+                  <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Storage Units -->
+                    <div class="bg-orange-50 p-4 rounded-lg border border-orange-200">
+                      <h4 class="font-semibold text-orange-800 mb-3">Storage Unit Hierarchy</h4>
+                      <div class="space-y-2 text-sm">
+                        <div class="bg-white p-2 rounded border flex justify-between">
+                          <span><strong><Tooltip client:load term="Bit" definition="The smallest unit of data, representing a single binary digit (0 or 1)">Bit (b)</Tooltip>:</strong></span>
+                          <span class="font-mono">1 binary digit</span>
+                        </div>
+                        <div class="bg-white p-2 rounded border flex justify-between">
+                          <span><strong><Tooltip client:load term="Byte" definition="A unit of data consisting of 8 bits, enough to represent one character">Byte (B)</Tooltip>:</strong></span>
+                          <span class="font-mono">8 bits</span>
+                        </div>
+                        <div class="bg-white p-2 rounded border flex justify-between">
+                          <span><strong>Kilobyte (KB):</strong></span>
+                          <span class="font-mono">1,024 bytes</span>
+                        </div>
+                        <div class="bg-white p-2 rounded border flex justify-between">
+                          <span><strong>Megabyte (MB):</strong></span>
+                          <span class="font-mono">1,024 KB</span>
+                        </div>
+                        <div class="bg-white p-2 rounded border flex justify-between">
+                          <span><strong>Gigabyte (GB):</strong></span>
+                          <span class="font-mono">1,024 MB</span>
+                        </div>
+                        <div class="bg-white p-2 rounded border flex justify-between">
+                          <span><strong>Terabyte (TB):</strong></span>
+                          <span class="font-mono">1,024 GB</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Real-world Examples -->
+                    <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                      <h4 class="font-semibold text-green-800 mb-3">Real-world Storage Examples</h4>
+                      <div class="space-y-2 text-sm">
+                        <div class="bg-white p-2 rounded border">
+                          <strong>Text character:</strong> 1 byte (ASCII)
+                        </div>
+                        <div class="bg-white p-2 rounded border">
+                          <strong>Small email:</strong> ~2-5 KB
+                        </div>
+                        <div class="bg-white p-2 rounded border">
+                          <strong>High-res photo:</strong> ~2-10 MB
+                        </div>
+                        <div class="bg-white p-2 rounded border">
+                          <strong>3-minute song (MP3):</strong> ~3-5 MB
+                        </div>
+                        <div class="bg-white p-2 rounded border">
+                          <strong>HD movie (2 hours):</strong> ~4-8 GB
+                        </div>
+                        <div class="bg-white p-2 rounded border">
+                          <strong>Modern video game:</strong> 50-100 GB
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Binary vs Decimal -->
+                  <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                    <h4 class="font-semibold text-yellow-800 mb-3">Binary vs Decimal Prefixes</h4>
+                    <p class="text-yellow-700 text-sm mb-3">
+                      There are two standards for measuring data storage capacity:
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-4">
+                      <div class="bg-white p-3 rounded border">
+                        <h5 class="font-medium mb-2">Binary Prefixes (Computing)</h5>
+                        <div class="font-mono text-sm space-y-1">
+                          <div>1 KB = 1,024 bytes (2¹⁰)</div>
+                          <div>1 MB = 1,048,576 bytes (2²⁰)</div>
+                          <div>1 GB = 1,073,741,824 bytes (2³⁰)</div>
+                        </div>
+                      </div>
+                      <div class="bg-white p-3 rounded border">
+                        <h5 class="font-medium mb-2">Decimal Prefixes (Marketing)</h5>
+                        <div class="font-mono text-sm space-y-1">
+                          <div>1 KB = 1,000 bytes (10³)</div>
+                          <div>1 MB = 1,000,000 bytes (10⁶)</div>
+                          <div>1 GB = 1,000,000,000 bytes (10⁹)</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CollapsibleSection>
+            </div>
+
+            <!-- Image and Color Representation -->
+            <div class="mb-8">
+              <CollapsibleSection 
+                client:load
+                title="Image and Color Representation"
+              >
+                <div class="space-y-6">
+                  <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Bitmap Images -->
+                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                      <h4 class="font-semibold text-blue-800 mb-3">Bitmap Images</h4>
+                      <p class="text-blue-700 text-sm mb-3">
+                        <Tooltip client:load term="Bitmap" definition="A digital image made up of a grid of pixels, where each pixel has a specific colour value">Bitmap images</Tooltip> store colour data for each <Tooltip client:load term="Pixel" definition="The smallest unit of a digital image, representing a single point of colour">pixel</Tooltip> in a grid.
+                      </p>
+                      <div class="bg-white p-3 rounded border">
+                        <h5 class="font-medium mb-2">Image Properties:</h5>
+                        <ul class="text-sm space-y-1">
+                          <li><strong>Resolution:</strong> Width × Height pixels</li>
+                          <li><strong>Color Depth:</strong> Bits per pixel</li>
+                          <li><strong>File Size:</strong> Width × Height × Color Depth</li>
+                        </ul>
+                        <div class="mt-3 p-2 bg-blue-50 rounded font-mono text-xs">
+                          Example: 800×600 image, 24-bit colour<br/>
+                          Size = 800 × 600 × 24 = 11,520,000 bits<br/>
+                          = 1,440,000 bytes ≈ 1.37 MB
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Colour Models -->
+                    <div class="bg-purple-50 p-4 rounded-lg border border-purple-200">
+                      <h4 class="font-semibold text-purple-800 mb-3">Colour Representation</h4>
+                      <p class="text-purple-700 text-sm mb-3">
+                        Colours are represented using different models, most commonly <Tooltip client:load term="RGB Colour Model" definition="A colour model using red, green, and blue light components to create colours">RGB</Tooltip>.
+                      </p>
+                      <div class="space-y-3">
+                        <div class="bg-white p-3 rounded border">
+                          <h5 class="font-medium mb-2">RGB (24-bit)</h5>
+                          <div class="text-sm">
+                            <div>Red: 8 bits (0-255)</div>
+                            <div>Green: 8 bits (0-255)</div>
+                            <div>Blue: 8 bits (0-255)</div>
+                            <div class="mt-2 font-mono text-xs">
+                              White: RGB(255, 255, 255) = #FFFFFF<br/>
+                              Black: RGB(0, 0, 0) = #000000<br/>
+                              Red: RGB(255, 0, 0) = #FF0000
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Color Depth Comparison -->
+                  <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <h4 class="font-semibold text-gray-800 mb-3">Color Depth Comparison</h4>
+                    <div class="overflow-x-auto">
+                      <table class="w-full text-sm border-collapse border border-gray-300">
+                        <thead>
+                          <tr class="bg-gray-100">
+                            <th class="border border-gray-300 p-2 text-left">Colour Depth</th>
+                            <th class="border border-gray-300 p-2 text-left">Colours Available</th>
+                            <th class="border border-gray-300 p-2 text-left">Common Use</th>
+                            <th class="border border-gray-300 p-2 text-left">Example</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="border border-gray-300 p-2 font-mono">1-bit</td>
+                            <td class="border border-gray-300 p-2">2 colors</td>
+                            <td class="border border-gray-300 p-2">Black & white</td>
+                            <td class="border border-gray-300 p-2">Text documents</td>
+                          </tr>
+                          <tr>
+                            <td class="border border-gray-300 p-2 font-mono">8-bit</td>
+                            <td class="border border-gray-300 p-2">256 colors</td>
+                            <td class="border border-gray-300 p-2">Indexed colour</td>
+                            <td class="border border-gray-300 p-2">GIF images</td>
+                          </tr>
+                          <tr>
+                            <td class="border border-gray-300 p-2 font-mono">16-bit</td>
+                            <td class="border border-gray-300 p-2">65,536 colors</td>
+                            <td class="border border-gray-300 p-2">High colour</td>
+                            <td class="border border-gray-300 p-2">Older displays</td>
+                          </tr>
+                          <tr>
+                            <td class="border border-gray-300 p-2 font-mono">24-bit</td>
+                            <td class="border border-gray-300 p-2">16.7 million colors</td>
+                            <td class="border border-gray-300 p-2">True colour</td>
+                            <td class="border border-gray-300 p-2">Digital photos</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </CollapsibleSection>
+            </div>
+
+            <!-- NESA Exam Context -->
+            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-amber-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                  <p class="font-semibold text-amber-900 mb-1">NESA Exam Focus</p>
+                  <p class="text-amber-800 text-sm">Data representation questions often involve converting between number systems, calculating storage requirements, or explaining how different types of data are stored. Focus on binary/decimal/hexadecimal conversions, understand the relationship between bits and bytes, and be able to explain why computers use binary. Know common ASCII values and how image file sizes are calculated.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

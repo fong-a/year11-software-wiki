@@ -1,0 +1,359 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import MechatronicsNav from '../../../components/MechatronicsNav';
+import SearchComponent from '../../../components/SearchComponent';
+import FlipCard from '../../../components/FlipCard.astro';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Degrees of Freedom - Mechatronics" description="Learn about degrees of freedom in robotic and mechatronic systems and how they determine movement capabilities">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center justify-between">
+        <nav>
+          <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+          <span class="text-sm text-gray-400 mx-2">></span>
+          <a href="/topics/mechatronics" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mechatronics Systems</a>
+          <span class="text-sm text-gray-400 mx-2">></span>
+          <span class="text-sm text-gray-900 font-medium">Degrees of Freedom</span>
+        </nav>
+        <div class="ml-4">
+          <SearchComponent client:load className="w-80" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 overflow-y-auto" style="max-height: calc(100vh - 6rem);">
+            <MechatronicsNav 
+              client:load 
+              currentPage="/topics/mechatronics/degrees-freedom"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Degrees of Freedom</h1>
+            
+            <div class="mb-8 p-6 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+              <p class="text-blue-900 text-lg">
+                <strong>Degrees of Freedom (DOF)</strong> describe the number of independent ways a robotic or mechatronic system can move. Understanding DOF helps engineers design systems with the right movement capabilities.
+              </p>
+            </div>
+
+            <!-- What Are Degrees of Freedom? -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">What Are Degrees of Freedom?</h2>
+              
+              <div class="bg-green-50 p-6 rounded-lg border border-green-200 mb-6">
+                <h3 class="text-lg font-semibold text-green-800 mb-3">Simple Definition</h3>
+                <p class="text-green-700 mb-2">
+                  A degree of freedom is each independent way a system can move. The more degrees of freedom, the more flexible and versatile the movement.
+                </p>
+                <p class="text-green-700">
+                  <strong>Think of it like:</strong> Your arm has multiple joints - each joint adds another way you can move your hand to different positions.
+                </p>
+              </div>
+
+              <div class="bg-white p-4 rounded-lg border border-gray-200">
+                <h4 class="font-semibold text-gray-800 mb-2">Basic Movement Types:</h4>
+                <div class="grid md:grid-cols-2 gap-4 text-sm text-gray-600">
+                  <div>
+                    <p><strong>Linear Movement (Translation):</strong></p>
+                    <ul class="ml-4 space-y-1">
+                      <li>• X-axis: left/right</li>
+                      <li>• Y-axis: forward/backward</li>
+                      <li>• Z-axis: up/down</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p><strong>Rotational Movement:</strong></p>
+                    <ul class="ml-4 space-y-1">
+                      <li>• Roll: rotation around X-axis</li>
+                      <li>• Pitch: rotation around Y-axis</li>
+                      <li>• Yaw: rotation around Z-axis</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Common DOF Examples -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Common Degrees of Freedom</h2>
+              
+              <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-red-50 p-6 rounded-lg border border-red-200">
+                  <h3 class="text-lg font-semibold text-red-800 mb-3">1️⃣ 1 Degree of Freedom</h3>
+                  <p class="text-red-700 mb-3"><strong>Movement:</strong> One direction only</p>
+                  <div class="bg-white p-3 rounded border">
+                    <p class="text-xs font-semibold text-red-800 mb-1">Examples:</p>
+                    <ul class="text-xs text-red-600 space-y-1">
+                      <li>• Door hinge (opens/closes)</li>
+                      <li>• Elevator (up/down)</li>
+                      <li>• Sliding door (left/right)</li>
+                      <li>• Simple robotic gripper (open/close)</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div class="bg-yellow-50 p-6 rounded-lg border border-yellow-200">
+                  <h3 class="text-lg font-semibold text-yellow-800 mb-3">2️⃣ 2 Degrees of Freedom</h3>
+                  <p class="text-yellow-700 mb-3"><strong>Movement:</strong> Two independent directions</p>
+                  <div class="bg-white p-3 rounded border">
+                    <p class="text-xs font-semibold text-yellow-800 mb-1">Examples:</p>
+                    <ul class="text-xs text-yellow-600 space-y-1">
+                      <li>• Computer mouse (X and Y movement)</li>
+                      <li>• Telescope mount (up/down, left/right)</li>
+                      <li>• Simple robotic arm (2 joints)</li>
+                      <li>• Car steering (turn + forward/back)</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div class="bg-purple-50 p-6 rounded-lg border border-purple-200">
+                  <h3 class="text-lg font-semibold text-purple-800 mb-3">3️⃣ 3 Degrees of Freedom</h3>
+                  <p class="text-purple-700 mb-3"><strong>Movement:</strong> Three dimensions of space</p>
+                  <div class="bg-white p-3 rounded border">
+                    <p class="text-xs font-semibold text-purple-800 mb-1">Examples:</p>
+                    <ul class="text-xs text-purple-600 space-y-1">
+                      <li>• 3D printer head (X, Y, Z movement)</li>
+                      <li>• Basic drone (altitude + 2D position)</li>
+                      <li>• Pick-and-place robot</li>
+                      <li>• CNC machine tool</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                  <h3 class="text-lg font-semibold text-blue-800 mb-3">6️⃣ 6 Degrees of Freedom</h3>
+                  <p class="text-blue-700 mb-3"><strong>Movement:</strong> Complete 3D positioning and orientation</p>
+                  <div class="bg-white p-3 rounded border">
+                    <p class="text-xs font-semibold text-blue-800 mb-1">Examples:</p>
+                    <ul class="text-xs text-blue-600 space-y-1">
+                      <li>• Industrial robot arms</li>
+                      <li>• Aircraft flight (pitch, roll, yaw + XYZ)</li>
+                      <li>• Surgical robots</li>
+                      <li>• Space station robotic arms</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive Examples -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Interactive Examples</h2>
+              
+              <FlipCard frontTitle="Human Arm Analysis" id="human-arm">
+                <div slot="front">
+                  <p><strong>Challenge:</strong> Count the degrees of freedom in a human arm.</p>
+                  <p>Think about all the ways your arm can move from shoulder to fingertip.</p>
+                  <p><strong>Click to see the complete analysis →</strong></p>
+                </div>
+                <div slot="back">
+                  <p><strong>Human arm degrees of freedom:</strong></p>
+                  <ul class="text-sm space-y-1 mb-3">
+                    <li><strong>Shoulder joint:</strong> 3 DOF (ball and socket)</li>
+                    <li><strong>Elbow joint:</strong> 1 DOF (hinge - bend/straighten)</li>
+                    <li><strong>Wrist joint:</strong> 2 DOF (up/down, side/side)</li>
+                    <li><strong>Fingers:</strong> ~20 DOF total (multiple joints per finger)</li>
+                  </ul>
+                  <p class="text-sm"><strong>Total: ~26 degrees of freedom!</strong></p>
+                  <p class="text-sm mt-2">This incredible flexibility allows humans to perform complex manipulation tasks that robots struggle to replicate.</p>
+                </div>
+              </FlipCard>
+
+              <div class="mt-6">
+                <FlipCard frontTitle="Robot Design Challenge" id="robot-design">
+                  <div slot="front">
+                    <p><strong>Design Challenge:</strong> You need a robot to paint car doors in a factory.</p>
+                    <p>How many degrees of freedom would you need? What movements are essential?</p>
+                    <p><strong>Click to see the engineering solution →</strong></p>
+                  </div>
+                  <div slot="back">
+                    <p><strong>Car painting robot requirements:</strong></p>
+                    <ul class="text-sm space-y-1 mb-3">
+                      <li><strong>Minimum 6 DOF needed:</strong></li>
+                      <li>• X, Y, Z positioning to reach all areas</li>
+                      <li>• Roll, pitch, yaw to angle spray gun correctly</li>
+                    </ul>
+                    <p class="text-sm mb-2"><strong>Why 6 DOF is essential:</strong></p>
+                    <ul class="text-sm space-y-1 mb-3">
+                      <li>• Paint gun must reach door edges and curves</li>
+                      <li>• Gun angle affects paint coverage quality</li>
+                      <li>• Different car models need flexible positioning</li>
+                    </ul>
+                    <p class="text-sm"><strong>Result:</strong> Most automotive painting robots use 6-7 DOF for optimal coverage</p>
+                  </div>
+                </FlipCard>
+              </div>
+            </div>
+
+            <!-- DOF in Different Applications -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">DOF Requirements by Application</h2>
+              
+              <div class="space-y-6">
+                <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+                  <h3 class="text-lg font-semibold text-green-800 mb-3">🏭 Manufacturing Applications</h3>
+                  <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <h4 class="font-semibold text-green-800 mb-2">Simple Tasks (1-3 DOF):</h4>
+                      <ul class="text-sm text-green-700 space-y-1">
+                        <li>• Conveyor belt systems</li>
+                        <li>• Simple pick-and-place</li>
+                        <li>• Linear assembly operations</li>
+                        <li>• Basic material handling</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-green-800 mb-2">Complex Tasks (6+ DOF):</h4>
+                      <ul class="text-sm text-green-700 space-y-1">
+                        <li>• Welding and assembly</li>
+                        <li>• Precision machining</li>
+                        <li>• Complex part manipulation</li>
+                        <li>• Quality inspection</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                  <h3 class="text-lg font-semibold text-blue-800 mb-3">🏥 Medical Applications</h3>
+                  <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <h4 class="font-semibold text-blue-800 mb-2">Surgical Robots:</h4>
+                      <ul class="text-sm text-blue-700 space-y-1">
+                        <li>• 6-7 DOF for precise manipulation</li>
+                        <li>• Tremor elimination</li>
+                        <li>• Enhanced dexterity</li>
+                        <li>• Multiple tool arms</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-blue-800 mb-2">Prosthetics:</h4>
+                      <ul class="text-sm text-blue-700 space-y-1">
+                        <li>• 1-3 DOF for basic function</li>
+                        <li>• Advanced: 10+ DOF</li>
+                        <li>• Individual finger control</li>
+                        <li>• Natural movement patterns</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="bg-purple-50 p-6 rounded-lg border border-purple-200">
+                  <h3 class="text-lg font-semibold text-purple-800 mb-3">🚗 Transportation</h3>
+                  <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <h4 class="font-semibold text-purple-800 mb-2">Ground Vehicles:</h4>
+                      <ul class="text-sm text-purple-700 space-y-1">
+                        <li>• 2-3 DOF (forward/back, steering, sometimes up/down)</li>
+                        <li>• Simple control systems</li>
+                        <li>• Optimized for efficiency</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h4 class="font-semibold text-purple-800 mb-2">Aircraft/Drones:</h4>
+                      <ul class="text-sm text-purple-700 space-y-1">
+                        <li>• 6 DOF (full 3D movement + rotation)</li>
+                        <li>• Complex flight controls</li>
+                        <li>• Stability requirements</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Design Considerations -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Engineering Trade-offs</h2>
+              
+              <div class="bg-gray-50 p-6 rounded-lg">
+                <h3 class="text-lg font-semibold mb-4">More DOF vs. Fewer DOF:</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                  <div class="bg-green-100 p-4 rounded border border-green-300">
+                    <h4 class="font-semibold text-green-800 mb-2">✅ More DOF Advantages:</h4>
+                    <ul class="text-sm text-green-700 space-y-1">
+                      <li>• Greater flexibility and versatility</li>
+                      <li>• Can perform complex tasks</li>
+                      <li>• Better obstacle avoidance</li>
+                      <li>• More natural movement</li>
+                    </ul>
+                  </div>
+                  <div class="bg-red-100 p-4 rounded border border-red-300">
+                    <h4 class="font-semibold text-red-800 mb-2">❌ More DOF Disadvantages:</h4>
+                    <ul class="text-sm text-red-700 space-y-1">
+                      <li>• Higher cost and complexity</li>
+                      <li>• More sensors and actuators needed</li>
+                      <li>• Complex programming required</li>
+                      <li>• Slower and less precise control</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div class="mt-4 p-4 bg-blue-100 rounded border border-blue-300">
+                  <h4 class="font-semibold text-blue-800 mb-2">🎯 Engineering Rule:</h4>
+                  <p class="text-sm text-blue-700">Use the minimum number of DOF needed to complete the task effectively. Extra DOF add cost and complexity without benefit.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Real-World Examples -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-4">Famous High-DOF Systems</h2>
+              
+              <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                  <h3 class="font-semibold text-gray-800 mb-2">🤖 Boston Dynamics Atlas</h3>
+                  <p class="text-sm text-gray-600 mb-2"><strong>~28 DOF</strong></p>
+                  <p class="text-xs text-gray-500">Humanoid robot with incredible agility, can run, jump, and perform backflips</p>
+                </div>
+                
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                  <h3 class="font-semibold text-gray-800 mb-2">🦾 KUKA Industrial Robot</h3>
+                  <p class="text-sm text-gray-600 mb-2"><strong>6-7 DOF</strong></p>
+                  <p class="text-xs text-gray-500">Precise manufacturing robot used in automotive and electronics assembly</p>
+                </div>
+                
+                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                  <h3 class="font-semibold text-gray-800 mb-2">🚁 DJI Quadcopter</h3>
+                  <p class="text-sm text-gray-600 mb-2"><strong>6 DOF</strong></p>
+                  <p class="text-xs text-gray-500">Consumer drone with full 3D positioning and camera gimbal control</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="bg-gray-50 rounded-lg p-6">
+              <h3 class="text-lg font-semibold mb-3">Continue Learning</h3>
+              <p class="text-gray-600 mb-4">Now you understand degrees of freedom in mechatronic systems. Apply this knowledge:</p>
+              <div class="flex flex-wrap gap-2">
+                <a href="/topics/mechatronics/actuators" class="inline-flex items-center px-3 py-2 bg-orange-100 text-orange-700 rounded-md text-sm hover:bg-orange-200 transition-colors">
+                  Review Actuators
+                </a>
+                <a href="/topics/mechatronics/applications" class="inline-flex items-center px-3 py-2 bg-orange-100 text-orange-700 rounded-md text-sm hover:bg-orange-200 transition-colors">
+                  Industry Applications
+                </a>
+                <a href="/topics/mechatronics/quiz" class="inline-flex items-center px-3 py-2 bg-orange-100 text-orange-700 rounded-md text-sm hover:bg-orange-200 transition-colors">
+                  Test Your Knowledge
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

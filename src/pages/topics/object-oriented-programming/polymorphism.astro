@@ -1,0 +1,442 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import OOPNav from '../../../components/OOPNav';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Polymorphism - Object-Oriented Programming" description="Master polymorphism with switchable examples using banking systems and game characters">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/object-oriented-programming" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Object-Oriented Programming</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Polymorphism</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <OOPNav 
+              client:load 
+              currentPage="/topics/object-oriented-programming/polymorphism"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Polymorphism</h1>
+            
+            <div class="mb-8 p-6 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl border border-purple-200">
+              <p class="text-purple-900 text-lg leading-relaxed">
+                <strong>Polymorphism</strong> allows different objects to respond to the same method call in their own unique way. Like how both SavingsAccount and CheckingAccount can "calculate_fees()" but use completely different calculations!
+              </p>
+            </div>
+
+            <!-- Example Switcher -->
+            <div class="mb-8">
+              <div class="bg-gray-100 p-4 rounded-lg">
+                <h2 class="text-lg font-semibold text-gray-800 mb-4">Choose Your Learning Style</h2>
+                <div class="flex gap-4">
+                  <button id="businessBtn" class="px-6 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-700 transition-colors active">
+                    🏦 Banking Examples (Primary)
+                  </button>
+                  <button id="gameBtn" class="px-6 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors">
+                    🎮 Game Examples (Secondary)
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- What is Polymorphism? -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">What is Polymorphism?</h2>
+              
+              <div class="bg-purple-50 p-6 rounded-lg border border-purple-200 mb-6">
+                <p class="text-purple-800 mb-4">
+                  <strong>Polymorphism</strong> (from Greek: "many forms") is when different classes can be used in the same way, but each produces different behavior. It's like having a universal remote - the same button press works on different TVs, but each TV responds differently.
+                </p>
+                
+                <div class="bg-white p-4 rounded border border-purple-300">
+                  <h3 class="font-medium text-purple-800 mb-2">Key Benefits:</h3>
+                  <ul class="text-sm text-purple-700 space-y-1">
+                    <li>• <strong>Flexibility:</strong> Work with different object types using the same interface</li>
+                    <li>• <strong>Extensibility:</strong> Add new classes without changing existing code</li>
+                    <li>• <strong>Maintainability:</strong> Changes to one class don't affect others</li>
+                    <li>• <strong>Code Reuse:</strong> Same methods work across different object types</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Game Examples Container -->
+            <div id="gameExamples" class="example-container hidden">
+              <h2 class="text-2xl font-semibold mb-6 text-red-800">🐾 Animal Polymorphism Examples</h2>
+
+              <!-- Base Character Class -->
+              <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-gray-900">The Base Animal Class</h3>
+                <div class="bg-gray-100 rounded-lg p-4 mb-4 border-l-4 border-blue-400">
+                  <pre class="text-gray-800 text-sm"><code>class Animal:
+    def __init__(self, name, species):
+        self.name = name
+        self.species = species
+    
+    def make_sound(self):
+        """Base sound method - will be overridden"""
+        return f"&#123;self.name&#125; makes a sound"
+    
+    def move(self):
+        """Base movement method - will be overridden"""
+        return f"&#123;self.name&#125; moves around"</code></pre>
+                </div>
+              </div>
+
+              <!-- Warrior Class -->
+              <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-gray-900">Dog - Loyal Companion</h3>
+                <div class="bg-gray-100 rounded-lg p-4 mb-4 border-l-4 border-blue-400">
+                  <pre class="text-gray-800 text-sm"><code>class Dog(Animal):
+    def __init__(self, name, breed):
+        super().__init__(name, "Dog")
+        self.breed = breed
+    
+    def make_sound(self):  # POLYMORPHIC - different from base
+        """Dog's version of making sound"""
+        return f"&#123;self.name&#125; the &#123;self.breed&#125; barks: 'Woof! Woof!'"
+    
+    def move(self):  # POLYMORPHIC - different from base
+        """Dog's version of movement"""
+        return f"&#123;self.name&#125; runs around wagging its tail"</code></pre>
+                </div>
+              </div>
+
+              <!-- Mage Class -->
+              <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-gray-900">Cat - Independent Hunter</h3>
+                <div class="bg-gray-100 rounded-lg p-4 mb-4 border-l-4 border-blue-400">
+                  <pre class="text-gray-800 text-sm"><code>class Cat(Animal):
+    def __init__(self, name, color):
+        super().__init__(name, "Cat")
+        self.color = color
+    
+    def make_sound(self):  # POLYMORPHIC - different from Dog and base
+        """Cat's version of making sound"""
+        return f"&#123;self.name&#125; the &#123;self.color&#125; cat purrs: 'Meow... purr purr'"
+    
+    def move(self):  # POLYMORPHIC - graceful movement
+        """Cat's version of movement"""
+        return f"&#123;self.name&#125; gracefully stalks and pounces"</code></pre>
+                </div>
+              </div>
+
+              <!-- Archer Class -->
+              <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-gray-900">Bird - Flying Creature</h3>
+                <div class="bg-gray-100 rounded-lg p-4 mb-4 border-l-4 border-blue-400">
+                  <pre class="text-gray-800 text-sm"><code>class Bird(Animal):
+    def __init__(self, name, species):
+        super().__init__(name, species)
+        self.can_fly = True
+    
+    def make_sound(self):  # POLYMORPHIC - different from mammals
+        """Bird's version of making sound"""
+        return f"&#123;self.name&#125; the &#123;self.species&#125; chirps: 'Tweet tweet!'"
+    
+    def move(self):  # POLYMORPHIC - unique flying movement
+        """Bird's version of movement"""
+        return f"&#123;self.name&#125; spreads wings and soars through the sky"</code></pre>
+                </div>
+              </div>
+
+              <!-- Polymorphism in Action -->
+              <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-red-800">🐾 Polymorphism in Action</h3>
+                <div class="bg-gray-100 rounded-lg p-4 mb-4 border-l-4 border-blue-400">
+                  <pre class="text-gray-800 text-sm"><code># Create different animal types
+animals = [
+    Dog("Buddy", "Golden Retriever"),
+    Cat("Whiskers", "Orange Tabby"), 
+    Bird("Tweety", "Canary")
+]
+
+print("=== POLYMORPHISM DEMO ===")
+
+# THIS IS POLYMORPHISM! Same method call, different behaviors
+for animal in animals:
+    print(f"&#123;animal.name&#125;:")
+    print("  Sound:", animal.make_sound())    # Different for each class!
+    print("  Movement:", animal.move())       # Different for each class!</code></pre>
+                </div>
+                
+                <div class="bg-red-50 p-4 rounded border border-red-200">
+                  <h4 class="font-medium text-red-800 mb-2">Expected Output:</h4>
+                  <div class="text-sm text-red-700 font-mono space-y-1">
+                    <div>Buddy:</div>
+                    <div>  Sound: Buddy the Golden Retriever barks: 'Woof! Woof!'</div>
+                    <div>  Movement: Buddy runs around wagging its tail</div>
+                    <div class="mt-2">Whiskers:</div>
+                    <div>  Sound: Whiskers the Orange Tabby cat purrs: 'Meow... purr purr'</div>
+                    <div>  Movement: Whiskers gracefully stalks and pounces</div>
+                    <div class="mt-2">Tweety:</div>
+                    <div>  Sound: Tweety the Canary chirps: 'Tweet tweet!'</div>
+                    <div>  Movement: Tweety spreads wings and soars through the sky</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Business Examples Container -->
+            <div id="businessExamples" class="example-container">
+              <h2 class="text-2xl font-semibold mb-6 text-blue-800">💼 Banking System Polymorphism</h2>
+
+              <!-- Base Account Class -->
+              <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-gray-900">The Base Account Class</h3>
+                <div class="bg-gray-100 rounded-lg p-4 mb-4 border-l-4 border-blue-400">
+                  <pre class="text-gray-800 text-sm"><code>class BankAccount:
+    def __init__(self, account_number, holder_name, balance=0):
+        self.account_number = account_number
+        self.holder_name = holder_name
+        self.balance = balance
+    
+    def deposit(self, amount):
+        """Base deposit method"""
+        self.balance += amount
+        return f"Deposited $&#123;amount&#125;. Balance: $&#123;self.balance&#125;"
+    
+    def withdraw(self, amount):
+        """Base withdraw method - will be overridden"""
+        if amount <= self.balance:
+            self.balance -= amount
+            return f"Withdrew $&#123;amount&#125;. Balance: $&#123;self.balance&#125;"
+        return "Insufficient funds"
+    
+    def get_account_type(self):
+        """Base account type - will be overridden"""
+        return "Basic Account"</code></pre>
+                </div>
+              </div>
+
+              <!-- Savings Account Class -->
+              <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-gray-900">Savings Account - Interest Earning</h3>
+                <div class="bg-gray-100 rounded-lg p-4 border-l-4 border-blue-400 mb-4">
+                  <pre class="text-gray-800 text-sm"><code>class SavingsAccount(BankAccount):
+    def __init__(self, account_number, holder_name, balance=0, interest_rate=0.05):
+        super().__init__(account_number, holder_name, balance)
+        self.interest_rate = interest_rate
+        self.minimum_balance = 100
+    
+    def withdraw(self, amount):  # POLYMORPHIC - enforces minimum balance
+        """Savings account withdraw with minimum balance check"""
+        if (self.balance - amount) >= self.minimum_balance:
+            self.balance -= amount
+            return f"Withdrew $&#123;amount&#125;. Balance: $&#123;self.balance&#125;"
+        return f"Cannot withdraw - minimum balance $&#123;self.minimum_balance&#125; required"
+    
+    def get_account_type(self):  # POLYMORPHIC - returns specific type
+        """Returns savings account type"""
+        return f"Savings Account (&#123;self.interest_rate*100:.1f&#125;% APY)"</code></pre>
+                </div>
+              </div>
+
+              <!-- Checking Account Class -->
+              <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-gray-900">Checking Account - Overdraft Protection</h3>
+                <div class="bg-gray-100 rounded-lg p-4 border-l-4 border-blue-400 mb-4">
+                  <pre class="text-gray-800 text-sm"><code>class CheckingAccount(BankAccount):
+    def __init__(self, account_number, holder_name, balance=0, overdraft_limit=500):
+        super().__init__(account_number, holder_name, balance)
+        self.overdraft_limit = overdraft_limit
+    
+    def withdraw(self, amount):  # POLYMORPHIC - allows overdraft
+        """Checking account withdraw with overdraft protection"""
+        available = self.balance + self.overdraft_limit
+        if amount <= available:
+            self.balance -= amount
+            return f"Withdrew $&#123;amount&#125;. Balance: $&#123;self.balance&#125;"
+        return f"Exceeds overdraft limit of $&#123;self.overdraft_limit&#125;"
+    
+    def get_account_type(self):  # POLYMORPHIC - returns specific type
+        """Returns checking account type"""
+        return f"Checking Account (Overdraft limit: $&#123;self.overdraft_limit&#125;)"</code></pre>
+                </div>
+              </div>
+
+
+              <!-- Polymorphism in Action -->
+              <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-blue-800">💳 Polymorphism in Banking</h3>
+                <div class="bg-gray-100 rounded-lg p-4 border-l-4 border-blue-400 mb-4">
+                  <pre class="text-gray-800 text-sm"><code># Create different account types
+accounts = [
+    SavingsAccount("SAV001", "Alice Johnson", 1000, 0.04),
+    CheckingAccount("CHK001", "Bob Smith", 500, 300)
+]
+
+print("=== POLYMORPHISM DEMO ===")
+
+# THIS IS POLYMORPHISM! Same method calls, different behaviors
+for account in accounts:
+    print(f"\n&#123;account.holder_name&#125;:")
+    print(f"Account Type: &#123;account.get_account_type()&#125;")
+    
+    # Try to withdraw $200 from each account
+    print("Withdraw $200:", account.withdraw(200))
+    
+    # Make a deposit
+    print("Deposit $100:", account.deposit(100))
+
+# Same method calls work on all account types,
+# but each type handles them differently!</code></pre>
+                </div>
+                
+                <div class="bg-blue-50 p-4 rounded border border-blue-200">
+                  <h4 class="font-medium text-blue-800 mb-2">Expected Output:</h4>
+                  <div class="text-sm text-blue-700 font-mono space-y-1">
+                    <div>Alice Johnson:</div>
+                    <div>Account Type: Savings Account (4.0% APY)</div>
+                    <div>Withdraw $200: Withdrew $200. Balance: 800</div>
+                    <div>Deposit $100: Deposited $100. Balance: 900</div>
+                    <div class="mt-2">Bob Smith:</div>
+                    <div>Account Type: Checking Account (Overdraft limit: $300)</div>
+                    <div>Withdraw $200: Withdrew $200. Balance: 300</div>
+                    <div>Deposit $100: Deposited $100. Balance: 400</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Key Concepts -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Key Polymorphism Concepts</h2>
+              
+              <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-purple-50 p-6 rounded-lg border border-purple-200">
+                  <h3 class="text-lg font-semibold text-purple-800 mb-4">Method Overriding</h3>
+                  <p class="text-purple-700 text-sm mb-3">
+                    Child classes provide their own implementation of methods inherited from the parent class.
+                  </p>
+                  <div class="bg-white p-3 rounded border border-purple-300">
+                    <code class="text-sm">def attack(self):  # Same name, different behavior</code>
+                  </div>
+                </div>
+                
+                <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+                  <h3 class="text-lg font-semibold text-green-800 mb-4">Dynamic Dispatch</h3>
+                  <p class="text-green-700 text-sm mb-3">
+                    Python automatically calls the correct method based on the object type at runtime.
+                  </p>
+                  <div class="bg-white p-3 rounded border border-green-300">
+                    <code class="text-sm">character.attack()  # Calls the right version</code>
+                  </div>
+                </div>
+                
+                <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                  <h3 class="text-lg font-semibold text-blue-800 mb-4">Interface Consistency</h3>
+                  <p class="text-blue-700 text-sm mb-3">
+                    All objects can be used the same way, regardless of their specific type.
+                  </p>
+                  <div class="bg-white p-3 rounded border border-blue-300">
+                    <code class="text-sm">for obj in collection: obj.method()</code>
+                  </div>
+                </div>
+                
+                <div class="bg-orange-50 p-6 rounded-lg border border-orange-200">
+                  <h3 class="text-lg font-semibold text-orange-800 mb-4">Duck Typing</h3>
+                  <p class="text-orange-700 text-sm mb-3">
+                    "If it walks like a duck and quacks like a duck, it's a duck" - Python's flexible approach.
+                  </p>
+                  <div class="bg-white p-3 rounded border border-orange-300">
+                    <code class="text-sm">If it has attack(), treat it as attackable</code>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Benefits of Polymorphism -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-900">Why Use Polymorphism?</h2>
+              
+              <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-green-100 p-4 rounded-lg">
+                  <h3 class="font-semibold text-green-800 mb-2">Flexibility</h3>
+                  <p class="text-green-700 text-sm">Add new classes without changing existing code that uses them.</p>
+                </div>
+                
+                <div class="bg-blue-100 p-4 rounded-lg">
+                  <h3 class="font-semibold text-blue-800 mb-2">Maintainability</h3>
+                  <p class="text-blue-700 text-sm">Changes to one class don't affect code using the common interface.</p>
+                </div>
+                
+                <div class="bg-purple-100 p-4 rounded-lg">
+                  <h3 class="font-semibold text-purple-800 mb-2">Code Reuse</h3>
+                  <p class="text-purple-700 text-sm">Same algorithms work with different object types automatically.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- NESA Exam Context -->
+            <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+              <div class="flex items-start">
+                <svg class="w-5 h-5 text-amber-600 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                  <p class="font-semibold text-amber-900 mb-1">NESA Exam Focus</p>
+                  <p class="text-amber-800 text-sm">Understand method overriding and how the same method call can produce different results with different objects. Be able to explain how polymorphism enables flexible, extensible code. Practice identifying polymorphic behavior in code examples and explaining the benefits for software maintenance and development.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript for Example Switcher -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const gameBtn = document.getElementById('gameBtn');
+      const businessBtn = document.getElementById('businessBtn');
+      const gameExamples = document.getElementById('gameExamples');
+      const businessExamples = document.getElementById('businessExamples');
+      
+      // Set default state - banking examples first
+      businessExamples.classList.remove('hidden');
+      gameExamples.classList.add('hidden');
+      businessBtn.classList.add('bg-green-600');
+      businessBtn.classList.remove('bg-gray-400');
+      gameBtn.classList.add('bg-gray-400');
+      gameBtn.classList.remove('bg-purple-600');
+      
+      gameBtn.addEventListener('click', function() {
+        gameExamples.classList.remove('hidden');
+        businessExamples.classList.add('hidden');
+        gameBtn.classList.add('bg-purple-600');
+        gameBtn.classList.remove('bg-gray-400');
+        businessBtn.classList.add('bg-gray-400');
+        businessBtn.classList.remove('bg-green-600');
+      });
+      
+      businessBtn.addEventListener('click', function() {
+        businessExamples.classList.remove('hidden');
+        gameExamples.classList.add('hidden');
+        businessBtn.classList.add('bg-green-600');
+        businessBtn.classList.remove('bg-gray-400');
+        gameBtn.classList.add('bg-gray-400');
+        gameBtn.classList.remove('bg-purple-600');
+      });
+    });
+  </script>
+</BaseLayout>

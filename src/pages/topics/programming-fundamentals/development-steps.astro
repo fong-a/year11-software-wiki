@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProgrammingFundamentalsNav from '../../../components/ProgrammingFundamentalsNav';
+import DevelopmentStepsStory from '../../../components/DevelopmentStepsStory';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Software Development Steps - Programming Fundamentals" description="Interactive journey through the software development lifecycle with real-world scenarios">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <nav>
+        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+        <span class="text-sm text-gray-400 mx-2">></span>
+        <span class="text-sm text-gray-900 font-medium">Software Development Steps</span>
+      </nav>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <ProgrammingFundamentalsNav 
+              client:load 
+              currentPage="/topics/programming-fundamentals/development-steps"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Software Development Steps</h1>
+            
+            <div class="mb-6 p-4 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+              <p class="text-blue-900">
+                Follow the journey of building a new Learning Management System (LMS) to replace SEQTA at your school. Each step tells a story with real challenges and solutions that developers face when creating educational software.
+              </p>
+            </div>
+
+            <DevelopmentStepsStory client:load />
+
+            <!-- Additional Information -->
+            <div class="mt-8 grid md:grid-cols-2 gap-6">
+              <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+                <h3 class="text-lg font-semibold text-green-800 mb-3">Key Insights</h3>
+                <ul class="text-sm space-y-2 text-green-700">
+                  <li class="flex items-start">
+                    <span class="text-green-600 mr-2">•</span>
+                    Each step builds upon the previous one
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-green-600 mr-2">•</span>
+                    Steps often overlap and may be repeated
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-green-600 mr-2">•</span>
+                    Real projects involve unexpected challenges
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-green-600 mr-2">•</span>
+                    Collaboration is essential throughout
+                  </li>
+                </ul>
+              </div>
+
+              <div class="bg-amber-50 p-6 rounded-lg border border-amber-200">
+                <h3 class="text-lg font-semibold text-amber-800 mb-3">Exam Tips</h3>
+                <ul class="text-sm space-y-2 text-amber-700">
+                  <li class="flex items-start">
+                    <span class="text-amber-600 mr-2">•</span>
+                    Know the purpose of each development step
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-amber-600 mr-2">•</span>
+                    Understand the deliverables from each phase
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-amber-600 mr-2">•</span>
+                    Recognize common challenges and solutions
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-amber-600 mr-2">•</span>
+                    Practice with real-world scenarios
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,281 @@
+---
+layout: ../../layouts/TopicLayout.astro
+title: Data Representation and Types
+description: Understand how computers store and manipulate different types of data, from binary to complex structures
+topic: Data Representation and Types
+---
+
+import Accordion from '../../components/Accordion.astro';
+import FlipCard from '../../components/FlipCard.astro';
+import MCQQuiz from '../../components/MCQQuiz.astro';
+import PyRunner from '../../components/PyRunner.astro';
+import DeskCheck from '../../components/DeskCheck.astro';
+import Callout from '../../components/Callout.astro';
+
+## Overview
+
+Data representation is the bridge between human understanding and computer processing. Every piece of information—from the letter 'A' to a high-definition image—must be converted into patterns of 1s and 0s that computers can manipulate. Understanding this conversion process reveals why certain operations are fast while others are slow, and why some data types use more memory than others.
+
+Modern programming languages abstract much of this complexity, but understanding the underlying representation makes you a more effective programmer. When you know that strings are immutable in Python or that floating-point arithmetic can introduce rounding errors, you can write more efficient and reliable code.
+
+In Year 11 Software Engineering, mastering data representation helps you choose appropriate data types, understand memory usage, and debug unexpected behavior when different data types interact. It's foundational knowledge that informs every design decision you'll make as a developer.
+
+<Accordion title="Key Points" id="key-points">
+
+<div class="key-point">
+  <span class="key-point-icon">✅</span>
+  <div class="key-point-text">
+    **Binary Number System**: All data is ultimately stored as binary (base 2). Understand conversion between binary, decimal, and hexadecimal.
+  </div>
+</div>
+
+<div class="key-point">
+  <span class="key-point-icon">✅</span>
+  <div class="key-point-text">
+    **Integer Representation**: Learn about signed vs unsigned integers, overflow conditions, and different integer sizes (8-bit, 16-bit, 32-bit).
+  </div>
+</div>
+
+<div class="key-point">
+  <span class="key-point-icon">⚠️</span>
+  <div class="key-point-text">
+    **Floating-Point Precision**: Decimal numbers aren't always exact in binary. Understanding floating-point limitations prevents calculation errors.
+  </div>
+</div>
+
+<div class="key-point">
+  <span class="key-point-icon">✅</span>
+  <div class="key-point-text">
+    **Character Encoding**: ASCII, Unicode (UTF-8) determine how text is stored. Know why emoji and international characters need special handling.
+  </div>
+</div>
+
+<div class="key-point">
+  <span class="key-point-icon">✅</span>
+  <div class="key-point-text">
+    **Data Structures**: Arrays, lists, dictionaries organize data in memory differently, affecting access speed and memory usage.
+  </div>
+</div>
+
+<div class="key-point">
+  <span class="key-point-icon">✅</span>
+  <div class="key-point-text">
+    **Type Conversion**: Understand explicit vs implicit type conversion and when data loss occurs during conversion.
+  </div>
+</div>
+
+<div class="key-point">
+  <span class="key-point-icon">⚠️</span>
+  <div class="key-point-text">
+    **Memory Efficiency**: Different data types use different amounts of memory. Choose appropriate types based on data range and precision needs.
+  </div>
+</div>
+
+</Accordion>
+
+## Interactive Learning
+
+<div class="mermaid">
+graph TB
+    A[Human Data] --> B[Data Type Selection]
+    B --> C[Memory Allocation]
+    C --> D[Binary Representation]
+    D --> E[Computer Processing]
+    E --> F[Output Conversion]
+    F --> G[Human-Readable Result]
+    
+    B --> H[Integer]
+    B --> I[Float]  
+    B --> J[String]
+    B --> K[Boolean]
+    B --> L[List/Array]
+    
+    H --> M[32-bit: 4 bytes]
+    I --> N[64-bit: 8 bytes]
+    J --> O[Variable length]
+    K --> P[1 bit/1 byte]
+    L --> Q[Elements × type size]
+    
+    style A fill:#e1f5fe
+    style G fill:#e8f5e8
+    style D fill:#fff3e0
+</div>
+
+<FlipCard frontTitle="Binary Conversion Challenge" id="binary-quiz">
+  <div slot="front">
+    <p><strong>Convert to Binary:</strong> The decimal number 42</p>
+    <p>Show your work using the division method or powers of 2...</p>
+  </div>
+  <div slot="back">
+    <p><strong>Method 1 - Division by 2:</strong></p>
+    <ul>
+      <li>42 ÷ 2 = 21 remainder 0</li>
+      <li>21 ÷ 2 = 10 remainder 1</li>
+      <li>10 ÷ 2 = 5 remainder 0</li>
+      <li>5 ÷ 2 = 2 remainder 1</li>
+      <li>2 ÷ 2 = 1 remainder 0</li>
+      <li>1 ÷ 2 = 0 remainder 1</li>
+    </ul>
+    <p><strong>Answer:</strong> 101010 (reading remainders bottom to top)</p>
+    <p><strong>Check:</strong> 32+8+2 = 42 ✓</p>
+  </div>
+</FlipCard>
+
+<PyRunner 
+  title="Explore Data Types and Memory"
+  code={`import sys
+
+# Demonstrate different data types and their properties
+print("=== Data Types and Memory Usage ===\\n")
+
+# Integers
+small_int = 42
+large_int = 1234567890
+print(f"Integer 42: {sys.getsizeof(small_int)} bytes")
+print(f"Integer 1,234,567,890: {sys.getsizeof(large_int)} bytes")
+
+# Floating-point precision issues
+print(f"\\n=== Floating Point Precision ===")
+result = 0.1 + 0.2
+print(f"0.1 + 0.2 = {result}")
+print(f"Is 0.1 + 0.2 == 0.3? {result == 0.3}")
+print(f"Actual value: {result:.17f}")
+
+# String encoding and memory
+text1 = "Hello"
+text2 = "Hello 👋🌍"
+print(f"\\n=== String Memory Usage ===")
+print(f"'{text1}': {sys.getsizeof(text1)} bytes")
+print(f"'{text2}': {sys.getsizeof(text2)} bytes")
+
+# Type conversion examples
+print(f"\\n=== Type Conversion ===")
+number_str = "123"
+converted = int(number_str)
+print(f"String '{number_str}' → Integer {converted}")
+
+float_num = 3.14159
+truncated = int(float_num)
+print(f"Float {float_num} → Integer {truncated} (data loss!)")
+
+# Boolean representations
+print(f"\\n=== Boolean Values ===")
+print(f"True as integer: {int(True)}")
+print(f"False as integer: {int(False)}")
+print(f"Non-zero numbers as boolean: {bool(42)}")
+print(f"Zero as boolean: {bool(0)}")
+print(f"Empty string as boolean: {bool('')}")
+print(f"Non-empty string as boolean: {bool('hello')}")`}
+/>
+
+<DeskCheck
+  title="Type Conversion Trace"
+  variables={["input_str", "num", "result", "type"]}
+  steps={[
+    { line: "1", values: ["'3.14'", "", "", "str"] },
+    { line: "2", values: ["'3.14'", "3.14", "", "float"] },
+    { line: "3", values: ["'3.14'", "3.14", "3", "int"] },
+    { line: "4", values: ["'3.14'", "3.14", "3", "int"] },
+    { line: "5", values: ["'3.14'", "3.14", "'3'", "str"] }
+  ]}
+>
+```python
+input_str = "3.14"              # Line 1
+num = float(input_str)          # Line 2  
+result = int(num)               # Line 3 (truncation occurs)
+print(f"Result: {result}")      # Line 4
+final = str(result)             # Line 5
+```
+</DeskCheck>
+
+## How to Revise
+
+**1. Practice Number System Conversions**: Convert numbers between binary, decimal, and hexadecimal by hand. Start with small numbers (0-31) to build confidence, then work up to larger values. Use online converters to check your work.
+
+**2. Experiment with Data Type Limits**: Write programs that test the boundaries of different data types. What happens when you exceed the maximum value for an integer? How does floating-point precision change with very large or very small numbers?
+
+**3. Memory Usage Analysis**: Compare memory usage of different ways to store the same information. How much memory does a list of 1000 integers use compared to a string containing the same numbers? This builds intuition for efficient data structure choices.
+
+## Practice Questions
+
+<MCQQuiz
+  question="What is the decimal value of the binary number 1101?"
+  options={[
+    "11",
+    "13", 
+    "15",
+    "17"
+  ]}
+  correctAnswer={1}
+  explanation="1101₂ = (1×8) + (1×4) + (0×2) + (1×1) = 8 + 4 + 0 + 1 = 13"
+  id="binary-decimal-quiz"
+/>
+
+**Short Answer Questions:**
+
+1. **Number System Conversion** (4 marks): Convert the decimal number 156 to binary and hexadecimal. Show your working for both conversions.
+
+2. **Character Encoding** (3 marks): Explain why the string "café" might require more bytes to store than "cafe". Discuss ASCII vs Unicode encoding and give the byte count for each string in UTF-8.
+
+3. **Floating-Point Representation** (5 marks): Explain why the result of `0.1 + 0.1 + 0.1` might not equal exactly `0.3` in computer arithmetic. Discuss binary fraction representation and suggest a solution for precise decimal calculations.
+
+<Accordion title="Answers & Marking Hints" id="answers">
+
+**Question 1 Answer (4 marks):**
+
+**Decimal to Binary (156):** (2 marks)
+```text
+156 ÷ 2 = 78 remainder 0
+78 ÷ 2 = 39 remainder 0  
+39 ÷ 2 = 19 remainder 1
+19 ÷ 2 = 9 remainder 1
+9 ÷ 2 = 4 remainder 1
+4 ÷ 2 = 2 remainder 0
+2 ÷ 2 = 1 remainder 0
+1 ÷ 2 = 0 remainder 1
+
+Answer: 10011100₂
+```
+
+**Decimal to Hexadecimal (156):** (2 marks)
+```text
+156 ÷ 16 = 9 remainder 12 (C in hex)
+9 ÷ 16 = 0 remainder 9
+
+Answer: 9C₁₆
+Check: (9 × 16) + 12 = 144 + 12 = 156 ✓
+```
+
+**Question 2 Answer (3 marks):**
+
+**"cafe" in ASCII:** (1 mark)
+- Each character = 1 byte
+- Total: 4 bytes
+
+**"café" in UTF-8:** (2 marks)
+- 'c', 'a', 'f' = 1 byte each (ASCII compatible)
+- 'é' = 2 bytes (Unicode character U+00E9)
+- Total: 5 bytes
+
+The accent character 'é' cannot be represented in standard ASCII, requiring Unicode encoding which uses multiple bytes for non-ASCII characters.
+
+**Question 3 Answer (5 marks):**
+
+**Problem Explanation:** (2 marks)
+Many decimal fractions cannot be exactly represented in binary floating-point format. 0.1 in decimal is a repeating fraction in binary (like 1/3 in decimal = 0.333...).
+
+**Technical Details:** (2 marks)
+0.1 is stored as an approximation, so repeated additions accumulate small rounding errors. The result might be 0.30000000000000004 instead of exactly 0.3.
+
+**Solution:** (1 mark)
+Use decimal arithmetic libraries (Python's `decimal` module) or work with integers representing cents instead of fractional dollars.
+
+</Accordion>
+
+<Callout type="teacher" title="Teacher Notes">
+
+**Classroom Demo Suggestion**: Use playing cards or colored blocks to demonstrate binary representation visually. Assign powers of 2 to different positions and have students build binary numbers physically. This tactile approach helps students grasp positional notation concepts.
+
+**Real-World Connection**: Discuss how data representation affects everyday technology - why do some calculators give slightly different answers? Why do old systems have problems with dates after 2038? These connections make abstract concepts relevant.
+
+</Callout>

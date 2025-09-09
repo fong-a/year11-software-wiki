@@ -1,0 +1,208 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ProgrammingFundamentalsNav from '../../../components/ProgrammingFundamentalsNav';
+import SearchComponent from '../../../components/SearchComponent';
+import Tooltip from '../../../components/Tooltip';
+import '../../../styles/global.css';
+---
+
+<BaseLayout title="Development Methodologies - Programming Fundamentals" description="Understanding Agile, Waterfall, and WAGILE software development methodologies">
+  <!-- Breadcrumb Bar -->
+  <div class="bg-gray-50 border-b border-gray-200 py-3">
+    <div class="container mx-auto px-6">
+      <div class="flex items-center justify-between">
+        <nav>
+          <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+          <span class="text-sm text-gray-400 mx-2">></span>
+          <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+          <span class="text-sm text-gray-400 mx-2">></span>
+          <span class="text-sm text-gray-900 font-medium">Development Methodologies</span>
+        </nav>
+        <div class="ml-4">
+          <SearchComponent client:load className="w-80" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="min-h-screen bg-gray-50 py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid lg:grid-cols-4 gap-8">
+        <!-- Navigation Sidebar -->
+        <div class="lg:col-span-1">
+          <div class="sticky top-8 bg-white rounded-lg shadow-sm p-6 max-h-[calc(100vh-6rem)] overflow-y-auto">
+            <ProgrammingFundamentalsNav 
+              client:load 
+              currentPage="/topics/programming-fundamentals/methodologies"
+            />
+          </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-4xl font-bold mb-6">Development Methodologies</h1>
+            
+            <div class="mb-6 p-4 bg-indigo-50 rounded-lg border-l-4 border-indigo-500">
+              <p class="text-indigo-900">
+                There are two primary approaches to software development: <strong><Tooltip client:load term="Agile Methodology" definition="An iterative software development approach emphasizing collaboration, flexibility, and rapid delivery of working software">Agile</Tooltip></strong> (iterative and flexible) and <strong><Tooltip client:load term="Waterfall Model" definition="A sequential software development approach where each phase must be completed before moving to the next phase">Waterfall</Tooltip></strong> (structured and sequential). Each has distinct characteristics and is suited to different project types.
+              </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+              <!-- Waterfall Methodology -->
+              <div class="border border-gray-200 rounded-lg p-6 bg-white">
+                <div class="flex items-center gap-3 mb-4">
+                  <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
+                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                    </svg>
+                  </div>
+                  <h2 class="text-xl font-semibold">Waterfall Methodology</h2>
+                </div>
+                
+                <p class="text-gray-700 mb-4">
+                  The <Tooltip client:load term="Waterfall Methodology" definition="A sequential software development approach where each phase must be completed before moving to the next phase">Waterfall methodology</Tooltip> follows a sequential approach where each phase must be completed before moving to the next. This structured approach emphasizes thorough planning and <Tooltip client:load term="Documentation" definition="Written records that describe the system's requirements, design, and implementation details">documentation</Tooltip>.
+                </p>
+
+                <div class="mb-4 p-3 bg-gray-50 rounded">
+                  <h3 class="font-semibold mb-2 text-center">Waterfall Process Flow</h3>
+                  <div class="text-center space-y-2">
+                    <div class="px-3 py-2 bg-gray-200 rounded text-sm">Requirements</div>
+                    <div class="text-xs">↓</div>
+                    <div class="px-3 py-2 bg-gray-200 rounded text-sm">Design</div>
+                    <div class="text-xs">↓</div>
+                    <div class="px-3 py-2 bg-gray-200 rounded text-sm">Development</div>
+                    <div class="text-xs">↓</div>
+                    <div class="px-3 py-2 bg-gray-200 rounded text-sm">Testing</div>
+                    <div class="text-xs">↓</div>
+                    <div class="px-3 py-2 bg-gray-200 rounded text-sm">Deployment</div>
+                  </div>
+                </div>
+                
+                <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                  <h3 class="font-semibold text-yellow-800 mb-2">When to Use Waterfall</h3>
+                  <ul class="text-sm space-y-1 text-yellow-700">
+                    <li class="flex items-start"><span class="text-yellow-600 mr-2">•</span>Government or regulated industry projects requiring extensive documentation</li>
+                    <li class="flex items-start"><span class="text-yellow-600 mr-2">•</span>Projects with stable, well-understood requirements</li>
+                    <li class="flex items-start"><span class="text-yellow-600 mr-2">•</span>Large-scale infrastructure or safety-critical systems</li>
+                    <li class="flex items-start"><span class="text-yellow-600 mr-2">•</span>Fixed-price contracts with clear deliverables</li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Agile Methodology -->
+              <div class="border border-gray-200 rounded-lg p-6 bg-white">
+                <div class="flex items-center gap-3 mb-4">
+                  <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                    </svg>
+                  </div>
+                  <h2 class="text-xl font-semibold">Agile Methodology</h2>
+                </div>
+                
+                <p class="text-gray-700 mb-4">
+                  <Tooltip client:load term="Agile Methodology" definition="An iterative software development approach emphasizing collaboration, flexibility, and rapid delivery of working software">Agile methodology</Tooltip> emphasizes <Tooltip client:load term="Iterative Development" definition="A development approach where software is built incrementally through repeated cycles of design, coding, and testing">iterative development</Tooltip>, continuous collaboration, and adaptability to change. Work is completed in short cycles called <Tooltip client:load term="Sprint" definition="A time-boxed iteration in Agile development, typically lasting 1-4 weeks, during which a potentially shippable product increment is created">sprints</Tooltip>, typically lasting 1-4 weeks.
+                </p>
+
+                <div class="mb-4 p-3 bg-blue-50 rounded">
+                  <h3 class="font-semibold mb-2 text-center">Agile Process Flow</h3>
+                  <div class="text-center">
+                    <div class="inline-flex items-center space-x-2 text-sm">
+                      <span class="px-3 py-1 bg-blue-200 rounded">Plan</span>
+                      <span>→</span>
+                      <span class="px-3 py-1 bg-blue-200 rounded">Code</span>
+                      <span>→</span>
+                      <span class="px-3 py-1 bg-blue-200 rounded">Test</span>
+                      <span>→</span>
+                      <span class="px-3 py-1 bg-blue-200 rounded">Review</span>
+                      <span>↻</span>
+                    </div>
+                    <p class="text-xs text-gray-600 mt-2">Continuous cycle with regular feedback</p>
+                  </div>
+                </div>
+                
+                <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                  <h3 class="font-semibold text-yellow-800 mb-2">When to Use Agile</h3>
+                  <ul class="text-sm space-y-1 text-yellow-700">
+                    <li class="flex items-start"><span class="text-yellow-600 mr-2">•</span>Startup environments with evolving business requirements</li>
+                    <li class="flex items-start"><span class="text-yellow-600 mr-2">•</span>Consumer applications requiring frequent user feedback</li>
+                    <li class="flex items-start"><span class="text-yellow-600 mr-2">•</span>Innovative projects with uncertain technical challenges</li>
+                    <li class="flex items-start"><span class="text-yellow-600 mr-2">•</span>Teams experienced in collaborative development practices</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- WAGILE Methodology -->
+            <div class="border border-gray-200 rounded-lg p-6 bg-white mb-8">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="w-10 h-10 bg-gradient-to-r from-gray-500 to-blue-500 rounded-lg flex items-center justify-center">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
+                  </svg>
+                </div>
+                <h2 class="text-lg font-semibold">WAGILE: Hybrid Approach</h2>
+              </div>
+              
+              <p class="text-gray-700 mb-4 text-sm">
+                <Tooltip client:load term="WAGILE" definition="A hybrid methodology combining Waterfall's structured planning with Agile's iterative development approach">WAGILE</Tooltip> (Waterfall + Agile) combines structured planning with iterative development. Start with comprehensive <Tooltip client:load term="Requirements" definition="Specifications that define what a software system must do and constraints it must operate within">requirements</Tooltip> and design, then execute development in Agile sprints.
+              </p>
+
+              <div class="bg-gradient-to-r from-gray-50 to-blue-50 p-3 rounded-lg">
+                <div class="flex items-center justify-center space-x-4 text-sm">
+                  <span class="px-2 py-1 bg-gray-600 text-white rounded text-xs font-medium">Plan (W)</span>
+                  <span class="text-gray-400">→</span>
+                  <span class="px-2 py-1 bg-blue-600 text-white rounded text-xs font-medium">Develop (A)</span>
+                  <span class="text-gray-400">→</span>
+                  <span class="px-2 py-1 bg-gray-600 text-white rounded text-xs font-medium">Deploy (W)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Comparison Table -->
+            <div class="mb-8">
+              <h2 class="text-2xl font-bold mb-6">Methodology Comparison</h2>
+              <p class="text-gray-700 mb-4 text-sm">
+                This table compares key aspects of each development methodology to help you understand when to use each approach. Consider project requirements, team experience, and stakeholder expectations when choosing a methodology.
+              </p>
+              <div class="overflow-x-auto">
+                <table class="w-full border-collapse border border-gray-300">
+                  <thead>
+                    <tr class="bg-gray-100">
+                      <th class="border border-gray-300 px-4 py-2 text-left">Aspect</th>
+                      <th class="border border-gray-300 px-4 py-2 text-center">Waterfall</th>
+                      <th class="border border-gray-300 px-4 py-2 text-center">Agile</th>
+                      <th class="border border-gray-300 px-4 py-2 text-center">WAGILE</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="border border-gray-300 px-4 py-2 font-medium">Planning</td>
+                      <td class="border border-gray-300 px-4 py-2 text-center">Extensive upfront</td>
+                      <td class="border border-gray-300 px-4 py-2 text-center">Minimal, continuous</td>
+                      <td class="border border-gray-300 px-4 py-2 text-center">Structured then iterative</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                      <td class="border border-gray-300 px-4 py-2 font-medium">Flexibility</td>
+                      <td class="border border-gray-300 px-4 py-2 text-center">Low</td>
+                      <td class="border border-gray-300 px-4 py-2 text-center">High</td>
+                      <td class="border border-gray-300 px-4 py-2 text-center">Medium</td>
+                    </tr>
+                    <tr>
+                      <td class="border border-gray-300 px-4 py-2 font-medium">Documentation</td>
+                      <td class="border border-gray-300 px-4 py-2 text-center">Comprehensive</td>
+                      <td class="border border-gray-300 px-4 py-2 text-center">Minimal</td>
+                      <td class="border border-gray-300 px-4 py-2 text-center">Balanced</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

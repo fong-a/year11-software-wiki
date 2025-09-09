@@ -1,0 +1,74 @@
+---
+export interface Props {
+  title: string;
+  id?: string;
+  open?: boolean;
+}
+
+const { title, id, open = false } = Astro.props;
+const uniqueId = id || `accordion-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<details class="accordion" open=&#123;open&#125;>
+  <summary class="accordion-header">
+    <span class="accordion-title">&#123;title&#125;</span>
+    <span class="accordion-icon">▼</span>
+  </summary>
+  <div class="accordion-content">
+    <slot />
+  </div>
+</details>
+
+<style>
+  .accordion {
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    margin: 1rem 0;
+    background: white;
+  }
+
+  .accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    background: #f8f9fa;
+    border-radius: 8px 8px 0 0;
+    transition: background-color 0.2s;
+    list-style: none;
+  }
+
+  .accordion-header::-webkit-details-marker {
+    display: none;
+  }
+
+  .accordion-header:hover {
+    background: #e9ecef;
+  }
+
+  .accordion-title {
+    font-size: 1.1rem;
+    color: #333;
+  }
+
+  .accordion-icon {
+    transition: transform 0.2s;
+    font-size: 0.8rem;
+    color: #666;
+  }
+
+  .accordion[open] .accordion-icon {
+    transform: rotate(180deg);
+  }
+
+  .accordion-content {
+    padding: 1.5rem;
+    border-top: 1px solid #e1e1e1;
+  }
+
+  .accordion:not([open]) .accordion-header {
+    border-radius: 8px;
+  }
+</style>
