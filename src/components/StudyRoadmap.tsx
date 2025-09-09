@@ -1,6 +1,9 @@
 import React from 'react';
 import { BookOpen, Code, Cpu, Settings, Target, ArrowRight, ExternalLink, FileText } from 'lucide-react';
 
+// Base path for GitHub Pages deployment
+const BASE_PATH = '/year11-software-wiki';
+
 interface RoadmapStep {
   id: string;
   title: string;
@@ -299,21 +302,21 @@ const StudyRoadmap: React.FC = () => {
       <div className="pt-6 border-t border-gray-200">
         <h3 className="text-lg font-semibold text-gray-900 mb-4 text-center">Quick Access</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <a href="/topics/programming-fundamentals/glossary" className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+          <a href={`${BASE_PATH}/topics/programming-fundamentals/glossary`} className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
             <BookOpen className="w-5 h-5 text-blue-600" />
             <div>
               <div className="font-medium text-gray-900">Glossary</div>
               <div className="text-sm text-gray-600">Key terms and definitions</div>
             </div>
           </a>
-          <a href="/nesa-keywords" className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+          <a href={`${BASE_PATH}/nesa-keywords`} className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
             <Target className="w-5 h-5 text-green-600" />
             <div>
               <div className="font-medium text-gray-900">NESA Keywords</div>
               <div className="text-sm text-gray-600">Exam command words</div>
             </div>
           </a>
-          <a href="/" className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+          <a href={BASE_PATH} className="flex items-center space-x-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
             <Code className="w-5 h-5 text-purple-600" />
             <div>
               <div className="font-medium text-gray-900">All Topics</div>
