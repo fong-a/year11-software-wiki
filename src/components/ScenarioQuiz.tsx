@@ -71,7 +71,35 @@ export const ScenarioQuiz: React.FC<ScenarioQuizProps> = ({ questions, title }) 
     );
   }
 
+  // Safety check for questions array and current question
+  if (!questions || questions.length === 0) {
+    return (
+      <Card className="w-full max-w-2xl mx-auto">
+        <CardHeader>
+          <CardTitle className="text-center">{title}</CardTitle>
+        </CardHeader>
+        <CardContent className="text-center">
+          <p>No questions available for this quiz.</p>
+        </CardContent>
+      </Card>
+    );
+  }
+
   const question = questions[currentQuestion];
+  
+  // Safety check for current question
+  if (!question || !question.options) {
+    return (
+      <Card className="w-full max-w-2xl mx-auto">
+        <CardHeader>
+          <CardTitle className="text-center">{title}</CardTitle>
+        </CardHeader>
+        <CardContent className="text-center">
+          <p>Question data is incomplete.</p>
+        </CardContent>
+      </Card>
+    );
+  }
 
   return (
     <Card className="w-full max-w-2xl mx-auto">
