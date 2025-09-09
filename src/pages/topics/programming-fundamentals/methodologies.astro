@@ -4,6 +4,9 @@ import ProgrammingFundamentalsNav from '../../../components/ProgrammingFundament
 import SearchComponent from '../../../components/SearchComponent';
 import Tooltip from '../../../components/Tooltip';
 import '../../../styles/global.css';
+
+// Use Astro's base URL for proper GitHub Pages routing
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Development Methodologies - Programming Fundamentals" description="Understanding Agile, Waterfall, and WAGILE software development methodologies">
@@ -12,9 +15,9 @@ import '../../../styles/global.css';
     <div class="container mx-auto px-6">
       <div class="flex items-center justify-between">
         <nav>
-          <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+          <a href={`${base}/`} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
           <span class="text-sm text-gray-400 mx-2">></span>
-          <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+          <a href={`${base}/topics/programming-fundamentals`} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
           <span class="text-sm text-gray-400 mx-2">></span>
           <span class="text-sm text-gray-900 font-medium">Development Methodologies</span>
         </nav>

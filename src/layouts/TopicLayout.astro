@@ -8,13 +8,16 @@ export interface Props {
 }
 
 const { title, description, topic } = Astro.props;
+
+// Use Astro's base URL for proper GitHub Pages routing
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title=&#123;title&#125; description=&#123;description&#125;>
   <div class="topic-container">
     <div class="topic-header">
       <div class="topic-breadcrumb">
-        <a href="/">Home</a>
+        <a href={`${base}/`}>Home</a>
         <span class="breadcrumb-separator">›</span>
         <span class="current-topic">&#123;topic&#125;</span>
       </div>

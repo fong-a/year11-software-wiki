@@ -8,6 +8,9 @@ import SearchComponent from '../../components/SearchComponent';
 import DevelopmentStepsStory from '../../components/DevelopmentStepsStory';
 import '../../styles/global.css';
 
+// Use Astro's base URL for proper GitHub Pages routing
+const base = import.meta.env.BASE_URL;
+
 const developmentSteps = [
   {
     step: "Requirements Definition",
@@ -98,7 +101,7 @@ const developmentSteps = [
     <div class="container mx-auto px-6">
       <div class="flex items-center justify-between">
         <nav>
-          <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+          <a href={`${base}/`} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
           <span class="text-sm text-gray-400 mx-2">></span>
           <span class="text-sm text-gray-900 font-medium">Programming Fundamentals</span>
         </nav>
@@ -142,7 +145,7 @@ const developmentSteps = [
               <div class="mb-8">
                 <h3 class="text-xl font-medium mb-4 text-blue-700">Development Methodologies</h3>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  <a href="/topics/programming-fundamentals/methodologies" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
+                  <a href={`${base}/topics/programming-fundamentals/methodologies`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
                     <div class="flex items-center mb-3">
                       <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
                         <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -154,7 +157,7 @@ const developmentSteps = [
                     <p class="text-gray-600 text-sm">Compare development methodologies and their applications</p>
                   </a>
                   
-                  <a href="/topics/programming-fundamentals/development-steps" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
+                  <a href={`${base}/topics/programming-fundamentals/development-steps`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
                     <div class="flex items-center mb-3">
                       <div class="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center">
                         <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -166,7 +169,7 @@ const developmentSteps = [
                     <p class="text-gray-600 text-sm">Software development lifecycle from requirements to maintenance</p>
                   </a>
                   
-                  <a href="/topics/programming-fundamentals/development-methodologies-exam" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
+                  <a href={`${base}/topics/programming-fundamentals/development-methodologies-exam`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
                     <div class="flex items-center mb-3">
                       <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
                         <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -186,7 +189,7 @@ const developmentSteps = [
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
                 <!-- Algorithm Design -->
-                <a href="/topics/programming-fundamentals/algorithm-design" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
+                <a href={`${base}/topics/programming-fundamentals/algorithm-design`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -199,7 +202,7 @@ const developmentSteps = [
                 </a>
 
                 <!-- Desk Checking -->
-                <a href="/topics/programming-fundamentals/desk-checking" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
+                <a href={`${base}/topics/programming-fundamentals/desk-checking`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -212,7 +215,7 @@ const developmentSteps = [
                 </a>
 
                 <!-- Error Types -->
-                <a href="/topics/programming-fundamentals/error-types" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
+                <a href={`${base}/topics/programming-fundamentals/error-types`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -225,7 +228,7 @@ const developmentSteps = [
                 </a>
 
                 <!-- Debugging Tools -->
-                <a href="/topics/programming-fundamentals/debugging-tools" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
+                <a href={`${base}/topics/programming-fundamentals/debugging-tools`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -239,7 +242,7 @@ const developmentSteps = [
                 </a>
 
                 <!-- Pseudocode Questions -->
-                <a href="/topics/programming-fundamentals/pseudocode-questions" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
+                <a href={`${base}/topics/programming-fundamentals/pseudocode-questions`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -252,7 +255,7 @@ const developmentSteps = [
                 </a>
 
                 <!-- Algorithms Exam -->
-                <a href="/topics/programming-fundamentals/algorithms-exam" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
+                <a href={`${base}/topics/programming-fundamentals/algorithms-exam`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -272,7 +275,7 @@ const developmentSteps = [
               <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
                 <!-- Procedures & Functions -->
-                <a href="/topics/programming-fundamentals/procedures-functions" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
+                <a href={`${base}/topics/programming-fundamentals/procedures-functions`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -285,7 +288,7 @@ const developmentSteps = [
                 </a>
 
                 <!-- Developing Code Solutions -->
-                <a href="/topics/programming-fundamentals/developing-code-solutions" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
+                <a href={`${base}/topics/programming-fundamentals/developing-code-solutions`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -298,7 +301,7 @@ const developmentSteps = [
                 </a>
 
                 <!-- Python Data Types -->
-                <a href="/topics/programming-fundamentals/python-data-types" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
+                <a href={`${base}/topics/programming-fundamentals/python-data-types`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -311,7 +314,7 @@ const developmentSteps = [
                 </a>
 
                 <!-- Python Methods -->
-                <a href="/topics/programming-fundamentals/python-methods" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
+                <a href={`${base}/topics/programming-fundamentals/python-methods`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -324,7 +327,7 @@ const developmentSteps = [
                 </a>
 
                 <!-- Python Practice Problems -->
-                <a href="/topics/programming-fundamentals/python-practice-problems" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
+                <a href={`${base}/topics/programming-fundamentals/python-practice-problems`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -337,7 +340,7 @@ const developmentSteps = [
                 </a>
 
                 <!-- Python Programming Exam -->
-                <a href="/topics/programming-fundamentals/python-programming-exam" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
+                <a href={`${base}/topics/programming-fundamentals/python-programming-exam`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -357,7 +360,7 @@ const developmentSteps = [
               <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
                 <!-- Data Representation -->
-                <a href="/topics/programming-fundamentals/data-representation" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
+                <a href={`${base}/topics/programming-fundamentals/data-representation`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -370,7 +373,7 @@ const developmentSteps = [
                 </a>
 
                 <!-- Data Dictionaries -->
-                <a href="/topics/programming-fundamentals/data-dictionaries" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
+                <a href={`${base}/topics/programming-fundamentals/data-dictionaries`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -383,7 +386,7 @@ const developmentSteps = [
                 </a>
 
                 <!-- Data Structures -->
-                <a href="/topics/programming-fundamentals/data-structures" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
+                <a href={`${base}/topics/programming-fundamentals/data-structures`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -396,7 +399,7 @@ const developmentSteps = [
                 </a>
 
                 <!-- Data Exam -->
-                <a href="/topics/programming-fundamentals/data-exam" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
+                <a href={`${base}/topics/programming-fundamentals/data-exam`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -416,7 +419,7 @@ const developmentSteps = [
               <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
                 <!-- Collaboration Tools -->
-                <a href="/topics/programming-fundamentals/collaboration-tools" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
+                <a href={`${base}/topics/programming-fundamentals/collaboration-tools`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -436,7 +439,7 @@ const developmentSteps = [
               <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
                 <!-- Glossary -->
-                <a href="/topics/programming-fundamentals/glossary" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
+                <a href={`${base}/topics/programming-fundamentals/glossary`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-blue-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">

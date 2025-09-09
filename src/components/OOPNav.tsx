@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 
+// Base path for GitHub Pages deployment
+const BASE_PATH = '/year11-software-wiki';
+
 interface NavSection {
   id: string;
   title: string;
@@ -34,9 +37,9 @@ export const OOPNav: React.FC<OOPNavProps> = ({
       title: 'OOP Fundamentals',
       defaultOpen: true,
       links: [
-        { href: '/topics/object-oriented-programming/fundamentals', label: 'Classes & Objects' },
-        { href: '/topics/object-oriented-programming/encapsulation', label: 'Encapsulation' },
-        { href: '/topics/object-oriented-programming/benefits', label: 'Benefits of OOP' }
+        { href: `${BASE_PATH}/topics/object-oriented-programming/fundamentals`, label: 'Classes & Objects' },
+        { href: `${BASE_PATH}/topics/object-oriented-programming/encapsulation`, label: 'Encapsulation' },
+        { href: `${BASE_PATH}/topics/object-oriented-programming/benefits`, label: 'Benefits of OOP' }
       ]
     },
     {
@@ -44,9 +47,9 @@ export const OOPNav: React.FC<OOPNavProps> = ({
       title: 'Core Concepts',
       defaultOpen: true,
       links: [
-        { href: '/topics/object-oriented-programming/inheritance', label: 'Inheritance' },
-        { href: '/topics/object-oriented-programming/polymorphism', label: 'Polymorphism' },
-        { href: '/topics/object-oriented-programming/abstraction', label: 'Abstraction' }
+        { href: `${BASE_PATH}/topics/object-oriented-programming/inheritance`, label: 'Inheritance' },
+        { href: `${BASE_PATH}/topics/object-oriented-programming/polymorphism`, label: 'Polymorphism' },
+        { href: `${BASE_PATH}/topics/object-oriented-programming/abstraction`, label: 'Abstraction' }
       ]
     },
     {
@@ -54,11 +57,11 @@ export const OOPNav: React.FC<OOPNavProps> = ({
       title: 'Advanced Topics',
       defaultOpen: true,
       links: [
-        { href: '/topics/object-oriented-programming/object-relationships', label: 'Object Relationships' },
-        { href: '/topics/object-oriented-programming/design-patterns', label: 'Design Patterns' },
-        { href: '/topics/object-oriented-programming/uml-modelling', label: 'UML & Modelling' },
-        { href: '/topics/programming-fundamentals/glossary', label: 'Glossary' },
-        { href: '/nesa-keywords', label: 'NESA Keywords' }
+        { href: `${BASE_PATH}/topics/object-oriented-programming/object-relationships`, label: 'Object Relationships' },
+        { href: `${BASE_PATH}/topics/object-oriented-programming/design-patterns`, label: 'Design Patterns' },
+        { href: `${BASE_PATH}/topics/object-oriented-programming/uml-modelling`, label: 'UML & Modelling' },
+        { href: `${BASE_PATH}/topics/programming-fundamentals/glossary`, label: 'Glossary' },
+        { href: `${BASE_PATH}/nesa-keywords`, label: 'NESA Keywords' }
       ]
     },
     {
@@ -66,8 +69,8 @@ export const OOPNav: React.FC<OOPNavProps> = ({
       title: 'Practice & Assessment',
       defaultOpen: true,
       links: [
-        { href: '/topics/object-oriented-programming/examples-gallery', label: 'Examples Gallery' },
-        { href: '/topics/object-oriented-programming/exam-questions', label: 'Exam Questions' }
+        { href: `${BASE_PATH}/topics/object-oriented-programming/examples-gallery`, label: 'Examples Gallery' },
+        { href: `${BASE_PATH}/topics/object-oriented-programming/exam-questions`, label: 'Exam Questions' }
       ]
     }
   ];
@@ -91,7 +94,7 @@ export const OOPNav: React.FC<OOPNavProps> = ({
   return (
     <nav className="space-y-2">
       <div className="mb-4">
-        <a href="/topics/object-oriented-programming" className="block">
+        <a href={`${BASE_PATH}/topics/object-oriented-programming`} className="block">
           <h3 className="font-bold text-purple-800 mb-2 text-lg">Object-Oriented Programming</h3>
         </a>
         <p className="text-xs text-gray-500">Classes, objects, inheritance, and design</p>

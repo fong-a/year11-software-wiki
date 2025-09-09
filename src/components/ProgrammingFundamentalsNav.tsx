@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 
+// Base path for GitHub Pages deployment
+const BASE_PATH = '/year11-software-wiki';
+
 interface NavSection {
   id: string;
   title: string;
@@ -36,9 +39,9 @@ export const ProgrammingFundamentalsNav: React.FC<ProgrammingFundamentalsNavProp
       title: 'Development Methodologies',
       defaultOpen: true,
       links: [
-        { href: '/topics/programming-fundamentals/methodologies', label: 'Agile vs Waterfall vs WAGILE' },
-        { href: '/topics/programming-fundamentals/development-steps', label: 'Software Development Steps' },
-        { href: '/topics/programming-fundamentals/development-methodologies-exam', label: 'Exam Questions' }
+        { href: `${BASE_PATH}/topics/programming-fundamentals/methodologies`, label: 'Agile vs Waterfall vs WAGILE' },
+        { href: `${BASE_PATH}/topics/programming-fundamentals/development-steps`, label: 'Software Development Steps' },
+        { href: `${BASE_PATH}/topics/programming-fundamentals/development-methodologies-exam`, label: 'Exam Questions' }
       ]
     },
     {
@@ -46,12 +49,12 @@ export const ProgrammingFundamentalsNav: React.FC<ProgrammingFundamentalsNavProp
       title: 'Algorithms',
       defaultOpen: true,
       links: [
-        { href: '/topics/programming-fundamentals/algorithm-design', label: 'Algorithm Design' },
-        { href: '/topics/programming-fundamentals/desk-checking', label: 'Desk Checking' },
-        { href: '/topics/programming-fundamentals/error-types', label: 'Error Types' },
-        { href: '/topics/programming-fundamentals/debugging-tools', label: 'Debugging Tools' },
-        { href: '/topics/programming-fundamentals/pseudocode-questions', label: 'Pseudocode Questions' },
-        { href: '/topics/programming-fundamentals/algorithms-exam', label: 'Exam Questions' }
+        { href: `${BASE_PATH}/topics/programming-fundamentals/algorithm-design`, label: 'Algorithm Design' },
+        { href: `${BASE_PATH}/topics/programming-fundamentals/desk-checking`, label: 'Desk Checking' },
+        { href: `${BASE_PATH}/topics/programming-fundamentals/error-types`, label: 'Error Types' },
+        { href: `${BASE_PATH}/topics/programming-fundamentals/debugging-tools`, label: 'Debugging Tools' },
+        { href: `${BASE_PATH}/topics/programming-fundamentals/pseudocode-questions`, label: 'Pseudocode Questions' },
+        { href: `${BASE_PATH}/topics/programming-fundamentals/algorithms-exam`, label: 'Exam Questions' }
       ]
     },
     {
@@ -59,12 +62,12 @@ export const ProgrammingFundamentalsNav: React.FC<ProgrammingFundamentalsNavProp
       title: 'Python Programming',
       defaultOpen: true,
       links: [
-        { href: '/topics/programming-fundamentals/procedures-functions', label: 'Procedures & Functions' },
-        { href: '/topics/programming-fundamentals/developing-code-solutions', label: 'Developing Code Solutions' },
-        { href: '/topics/programming-fundamentals/python-data-types', label: 'Python Data Types' },
-        { href: '/topics/programming-fundamentals/python-methods', label: 'Python Methods Reference' },
-        { href: '/topics/programming-fundamentals/python-practice-problems', label: 'Python Practice Problems' },
-        { href: '/topics/programming-fundamentals/python-programming-exam', label: 'Exam Questions' }
+        { href: `${BASE_PATH}/topics/programming-fundamentals/procedures-functions`, label: 'Procedures & Functions' },
+        { href: `${BASE_PATH}/topics/programming-fundamentals/developing-code-solutions`, label: 'Developing Code Solutions' },
+        { href: `${BASE_PATH}/topics/programming-fundamentals/python-data-types`, label: 'Python Data Types' },
+        { href: `${BASE_PATH}/topics/programming-fundamentals/python-methods`, label: 'Python Methods Reference' },
+        { href: `${BASE_PATH}/topics/programming-fundamentals/python-practice-problems`, label: 'Python Practice Problems' },
+        { href: `${BASE_PATH}/topics/programming-fundamentals/python-programming-exam`, label: 'Exam Questions' }
       ]
     },
     {
@@ -72,10 +75,10 @@ export const ProgrammingFundamentalsNav: React.FC<ProgrammingFundamentalsNavProp
       title: 'Data',
       defaultOpen: true,
       links: [
-        { href: '/topics/programming-fundamentals/data-representation', label: 'Data Representation' },
-        { href: '/topics/programming-fundamentals/data-dictionaries', label: 'Data Dictionaries' },
-        { href: '/topics/programming-fundamentals/data-structures', label: 'Data Structures' },
-        { href: '/topics/programming-fundamentals/data-exam', label: 'Exam Questions' }
+        { href: `${BASE_PATH}/topics/programming-fundamentals/data-representation`, label: 'Data Representation' },
+        { href: `${BASE_PATH}/topics/programming-fundamentals/data-dictionaries`, label: 'Data Dictionaries' },
+        { href: `${BASE_PATH}/topics/programming-fundamentals/data-structures`, label: 'Data Structures' },
+        { href: `${BASE_PATH}/topics/programming-fundamentals/data-exam`, label: 'Exam Questions' }
       ]
     },
     {
@@ -83,7 +86,7 @@ export const ProgrammingFundamentalsNav: React.FC<ProgrammingFundamentalsNavProp
       title: 'Development Tools',
       defaultOpen: true,
       links: [
-        { href: '/topics/programming-fundamentals/collaboration-tools', label: 'Collaboration Tools' }
+        { href: `${BASE_PATH}/topics/programming-fundamentals/collaboration-tools`, label: 'Collaboration Tools' }
       ]
     },
     {
@@ -91,8 +94,8 @@ export const ProgrammingFundamentalsNav: React.FC<ProgrammingFundamentalsNavProp
       title: 'Reference',
       defaultOpen: true,
       links: [
-        { href: '/topics/programming-fundamentals/glossary', label: 'Glossary' },
-        { href: '/nesa-keywords', label: 'NESA Keywords' }
+        { href: `${BASE_PATH}/topics/programming-fundamentals/glossary`, label: 'Glossary' },
+        { href: `${BASE_PATH}/nesa-keywords`, label: 'NESA Keywords' }
       ]
     }
   ];

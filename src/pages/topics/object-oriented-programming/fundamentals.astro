@@ -2,6 +2,9 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import OOPNav from '../../../components/OOPNav';
 import '../../../styles/global.css';
+
+// Use Astro's base URL for proper GitHub Pages routing
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="OOP Fundamentals - Object-Oriented Programming" description="Learn the fundamentals of Object-Oriented Programming: classes, objects, constructors, and encapsulation with Python examples">
@@ -9,9 +12,9 @@ import '../../../styles/global.css';
   <div class="bg-gray-50 border-b border-gray-200 py-3">
     <div class="container mx-auto px-6">
       <nav>
-        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <a href={`${base}/`} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
         <span class="text-sm text-gray-400 mx-2">></span>
-        <a href="/topics/object-oriented-programming" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Object-Oriented Programming</a>
+        <a href={`${base}/topics/object-oriented-programming`} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Object-Oriented Programming</a>
         <span class="text-sm text-gray-400 mx-2">></span>
         <span class="text-sm text-gray-900 font-medium">Fundamentals</span>
       </nav>

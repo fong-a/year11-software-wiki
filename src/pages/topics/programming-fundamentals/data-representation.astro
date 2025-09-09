@@ -5,6 +5,9 @@ import ConversionExplorer from '../../../components/ConversionExplorer';
 import CollapsibleSection from '../../../components/CollapsibleSection';
 import Tooltip from '../../../components/Tooltip';
 import '../../../styles/global.css';
+
+// Use Astro's base URL for proper GitHub Pages routing
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Data Representation - Programming Fundamentals" description="Understanding how computers represent data using binary, hexadecimal, and other number systems">
@@ -12,9 +15,9 @@ import '../../../styles/global.css';
   <div class="bg-gray-50 border-b border-gray-200 py-3">
     <div class="container mx-auto px-6">
       <nav>
-        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <a href={`${base}/`} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
         <span class="text-sm text-gray-400 mx-2">></span>
-        <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+        <a href={`${base}/topics/programming-fundamentals`} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
         <span class="text-sm text-gray-400 mx-2">></span>
         <span class="text-sm text-gray-900 font-medium">Data Representation</span>
       </nav>

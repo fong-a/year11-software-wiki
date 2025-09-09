@@ -3,6 +3,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import OOPNav from '../../components/OOPNav';
 import SearchComponent from '../../components/SearchComponent';
 import '../../styles/global.css';
+
+// Use Astro's base URL for proper GitHub Pages routing
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Object-Oriented Programming" description="Object-Oriented Programming concepts with Python examples using Elden Ring characters and banking systems">
@@ -11,7 +14,7 @@ import '../../styles/global.css';
     <div class="container mx-auto px-6">
       <div class="flex items-center justify-between">
         <nav>
-          <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+          <a href={`${base}/`} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
           <span class="text-sm text-gray-400 mx-2">></span>
           <span class="text-sm text-gray-900 font-medium">Object-Oriented Programming</span>
         </nav>
@@ -53,7 +56,7 @@ import '../../styles/global.css';
               <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
                 <!-- Classes & Objects -->
-                <a href="/topics/object-oriented-programming/fundamentals" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-purple-300">
+                <a href={`${base}/topics/object-oriented-programming/fundamentals`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-purple-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -66,7 +69,7 @@ import '../../styles/global.css';
                 </a>
 
                 <!-- Encapsulation -->
-                <a href="/topics/object-oriented-programming/encapsulation" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-purple-300">
+                <a href={`${base}/topics/object-oriented-programming/encapsulation`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-purple-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -79,7 +82,7 @@ import '../../styles/global.css';
                 </a>
 
                 <!-- Benefits of OOP -->
-                <a href="/topics/object-oriented-programming/benefits" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-purple-300">
+                <a href={`${base}/topics/object-oriented-programming/benefits`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-purple-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -100,7 +103,7 @@ import '../../styles/global.css';
               <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
                 <!-- Inheritance -->
-                <a href="/topics/object-oriented-programming/inheritance" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-green-300">
+                <a href={`${base}/topics/object-oriented-programming/inheritance`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-green-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -113,7 +116,7 @@ import '../../styles/global.css';
                 </a>
 
                 <!-- Polymorphism -->
-                <a href="/topics/object-oriented-programming/polymorphism" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-purple-300">
+                <a href={`${base}/topics/object-oriented-programming/polymorphism`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-purple-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -126,7 +129,7 @@ import '../../styles/global.css';
                 </a>
 
                 <!-- Abstraction -->
-                <a href="/topics/object-oriented-programming/abstraction" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-orange-300">
+                <a href={`${base}/topics/object-oriented-programming/abstraction`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-orange-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -147,7 +150,7 @@ import '../../styles/global.css';
               <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
                 <!-- Object Relationships -->
-                <a href="/topics/object-oriented-programming/object-relationships" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-indigo-300">
+                <a href={`${base}/topics/object-oriented-programming/object-relationships`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-indigo-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -160,7 +163,7 @@ import '../../styles/global.css';
                 </a>
 
                 <!-- Design Patterns -->
-                <a href="/topics/object-oriented-programming/design-patterns" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-teal-300">
+                <a href={`${base}/topics/object-oriented-programming/design-patterns`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-teal-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -173,7 +176,7 @@ import '../../styles/global.css';
                 </a>
 
                 <!-- UML & Modeling -->
-                <a href="/topics/object-oriented-programming/uml-modelling" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-red-300">
+                <a href={`${base}/topics/object-oriented-programming/uml-modelling`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-red-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -194,7 +197,7 @@ import '../../styles/global.css';
               <div class="grid md:grid-cols-2 gap-6">
                 
                 <!-- Examples Gallery -->
-                <a href="/topics/object-oriented-programming/examples-gallery" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-yellow-300">
+                <a href={`${base}/topics/object-oriented-programming/examples-gallery`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-yellow-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -207,7 +210,7 @@ import '../../styles/global.css';
                 </a>
 
                 <!-- Exam Questions -->
-                <a href="/topics/object-oriented-programming/exam-questions" class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-pink-300">
+                <a href={`${base}/topics/object-oriented-programming/exam-questions`} class="block bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow hover:border-pink-300">
                   <div class="flex items-center mb-3">
                     <div class="w-10 h-10 bg-pink-100 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">

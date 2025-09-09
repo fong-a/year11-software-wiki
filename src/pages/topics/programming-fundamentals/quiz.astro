@@ -3,6 +3,8 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import ScenarioQuiz from '../../../components/ScenarioQuiz';
 import '../../../styles/global.css';
 
+// Use Astro's base URL for proper GitHub Pages routing
+const base = import.meta.env.BASE_URL;
 // Traditional exam questions with NESA criteria
 const examQuestions = [
   {
@@ -49,9 +51,9 @@ const examQuestions = [
   <div class="bg-gray-50 border-b border-gray-200 py-3">
     <div class="container mx-auto px-6">
       <nav>
-        <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+        <a href={`${base}/`} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
         <span class="text-sm text-gray-400 mx-2">></span>
-        <a href="/topics/programming-fundamentals" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
+        <a href={`${base}/topics/programming-fundamentals`} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Programming Fundamentals</a>
         <span class="text-sm text-gray-400 mx-2">></span>
         <span class="text-sm text-gray-900 font-medium">Knowledge Check</span>
       </nav>
@@ -167,7 +169,7 @@ const examQuestions = [
       <!-- Navigation -->
       <div class="flex justify-center mt-8 pt-6 border-t">
         <a 
-          href="/topics/programming-fundamentals" 
+          href={`${base}/topics/programming-fundamentals`} 
           class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors"
         >
           ← Back to Programming Fundamentals

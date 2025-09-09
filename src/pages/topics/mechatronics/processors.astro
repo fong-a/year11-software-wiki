@@ -4,6 +4,9 @@ import MechatronicsNav from '../../../components/MechatronicsNav';
 import SearchComponent from '../../../components/SearchComponent';
 import FlipCard from '../../../components/FlipCard.astro';
 import '../../../styles/global.css';
+
+// Use Astro's base URL for proper GitHub Pages routing
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Processors & Controllers - Mechatronics" description="Learn about the processors and controllers that serve as the brains of mechatronic systems">
@@ -12,9 +15,9 @@ import '../../../styles/global.css';
     <div class="container mx-auto px-6">
       <div class="flex items-center justify-between">
         <nav>
-          <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
+          <a href={`${base}/`} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Home</a>
           <span class="text-sm text-gray-400 mx-2">></span>
-          <a href="/topics/mechatronics" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mechatronics Systems</a>
+          <a href={`${base}/topics/mechatronics`} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Mechatronics Systems</a>
           <span class="text-sm text-gray-400 mx-2">></span>
           <span class="text-sm text-gray-900 font-medium">Processors & Controllers</span>
         </nav>
@@ -276,13 +279,13 @@ import '../../../styles/global.css';
               <h3 class="text-lg font-semibold mb-3">Continue Learning</h3>
               <p class="text-gray-600 mb-4">Now you understand the processors that control mechatronic systems. Learn about the circuits that connect everything:</p>
               <div class="flex flex-wrap gap-2">
-                <a href="/topics/mechatronics/basic-circuits" class="inline-flex items-center px-3 py-2 bg-orange-100 text-orange-700 rounded-md text-sm hover:bg-orange-200 transition-colors">
+                <a href={`${base}/topics/mechatronics/basic-circuits`} class="inline-flex items-center px-3 py-2 bg-orange-100 text-orange-700 rounded-md text-sm hover:bg-orange-200 transition-colors">
                   Basic Circuit Components
                 </a>
-                <a href="/topics/mechatronics/control-systems" class="inline-flex items-center px-3 py-2 bg-orange-100 text-orange-700 rounded-md text-sm hover:bg-orange-200 transition-colors">
+                <a href={`${base}/topics/mechatronics/control-systems`} class="inline-flex items-center px-3 py-2 bg-orange-100 text-orange-700 rounded-md text-sm hover:bg-orange-200 transition-colors">
                   Review Control Systems
                 </a>
-                <a href="/topics/mechatronics/exam-questions" class="inline-flex items-center px-3 py-2 bg-orange-100 text-orange-700 rounded-md text-sm hover:bg-orange-200 transition-colors">
+                <a href={`${base}/topics/mechatronics/exam-questions`} class="inline-flex items-center px-3 py-2 bg-orange-100 text-orange-700 rounded-md text-sm hover:bg-orange-200 transition-colors">
                   Test Your Knowledge
                 </a>
               </div>

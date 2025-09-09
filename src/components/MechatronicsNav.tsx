@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 
+// Base path for GitHub Pages deployment
+const BASE_PATH = '/year11-software-wiki';
+
 interface NavSection {
   id: string;
   title: string;
@@ -73,9 +76,9 @@ export const MechatronicsNav: React.FC<MechatronicsNavProps> = ({
       title: 'Mechatronics Fundamentals',
       defaultOpen: true,
       links: [
-        { href: '/topics/mechatronics/definition', label: 'What is Mechatronics?' },
-        { href: '/topics/mechatronics/applications', label: 'Industry Applications' },
-        { href: '/topics/mechatronics/safety', label: 'Safety Benefits' }
+        { href: `${BASE_PATH}/topics/mechatronics/definition`, label: 'What is Mechatronics?' },
+        { href: `${BASE_PATH}/topics/mechatronics/applications`, label: 'Industry Applications' },
+        { href: `${BASE_PATH}/topics/mechatronics/safety`, label: 'Safety Benefits' }
       ]
     },
     {
@@ -83,8 +86,8 @@ export const MechatronicsNav: React.FC<MechatronicsNavProps> = ({
       title: 'Control Systems',
       defaultOpen: true,
       links: [
-        { href: '/topics/mechatronics/control-systems', label: 'Open vs Closed Loop' },
-        { href: '/topics/mechatronics/degrees-freedom', label: 'Degrees of Freedom' }
+        { href: `${BASE_PATH}/topics/mechatronics/control-systems`, label: 'Open vs Closed Loop' },
+        { href: `${BASE_PATH}/topics/mechatronics/degrees-freedom`, label: 'Degrees of Freedom' }
       ]
     },
     {
@@ -92,9 +95,9 @@ export const MechatronicsNav: React.FC<MechatronicsNavProps> = ({
       title: 'Hardware Components',
       defaultOpen: true,
       links: [
-        { href: '/topics/mechatronics/sensors', label: 'Sensors (Input)' },
-        { href: '/topics/mechatronics/actuators', label: 'Actuators (Output)' },
-        { href: '/topics/mechatronics/processors', label: 'Processors & Controllers' }
+        { href: `${BASE_PATH}/topics/mechatronics/sensors`, label: 'Sensors (Input)' },
+        { href: `${BASE_PATH}/topics/mechatronics/actuators`, label: 'Actuators (Output)' },
+        { href: `${BASE_PATH}/topics/mechatronics/processors`, label: 'Processors & Controllers' }
       ]
     },
     {
@@ -102,7 +105,7 @@ export const MechatronicsNav: React.FC<MechatronicsNavProps> = ({
       title: 'Basic Circuits',
       defaultOpen: true,
       links: [
-        { href: '/topics/mechatronics/basic-circuits', label: 'Circuit Components' }
+        { href: `${BASE_PATH}/topics/mechatronics/basic-circuits`, label: 'Circuit Components' }
       ]
     },
     {
@@ -110,7 +113,7 @@ export const MechatronicsNav: React.FC<MechatronicsNavProps> = ({
       title: 'Assessment',
       defaultOpen: true,
       links: [
-        { href: '/topics/mechatronics/exam-questions', label: 'Exam Questions' }
+        { href: `${BASE_PATH}/topics/mechatronics/exam-questions`, label: 'Exam Questions' }
       ]
     },
     {
@@ -118,8 +121,8 @@ export const MechatronicsNav: React.FC<MechatronicsNavProps> = ({
       title: 'Reference',
       defaultOpen: true,
       links: [
-        { href: '/topics/programming-fundamentals/glossary', label: 'Glossary' },
-        { href: '/nesa-keywords', label: 'NESA Keywords' }
+        { href: `${BASE_PATH}/topics/programming-fundamentals/glossary`, label: 'Glossary' },
+        { href: `${BASE_PATH}/nesa-keywords`, label: 'NESA Keywords' }
       ]
     }
   ];
