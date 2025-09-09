@@ -7,8 +7,8 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://fong-a.github.io',
-  base: '/year11-software-wiki',
+  site: 'https://fong-a.github.io/year11-software-wiki',
+  // base: '/year11-software-wiki', // Removing base path to fix routing issues
   integrations: [mdx(), sitemap(), react(), tailwind({ applyBaseStyles: false })],
   markdown: {
     shikiConfig: {
